@@ -1,13 +1,5 @@
-// import { NextResponse } from 'next/server';
-
-type ResultType = {
-	title: string;
-	overview: string;
-};
-type DataType = {
-	page: string;
-	results: ResultType[];
-};
+import { DataType } from '../types/TopMoviesTypes';
+import Card from './Card';
 
 export async function getData() {
 	const res = await fetch(
@@ -26,15 +18,15 @@ export async function getData() {
 	return data.results;
 }
 
-export default async function TopFilms() {
-	const topFilms = await getData();
+export default async function TopMovies() {
+	const moviesData = await getData();
 	return (
 		<>
-			<h2>TopFilms</h2>
-			<ul>
-				{topFilms.map((films, index) => (
+			<h2>Topmovies</h2>
+			<ul className='listCardsMovies'>
+				{moviesData.map((movie, index) => (
 					<li key={index}>
-						<h2>{`Nome: ${films.title}`}</h2>
+						<Card movie={movie} />
 					</li>
 				))}
 			</ul>
