@@ -6,12 +6,11 @@ export default async function Card({ movie }: CardType) {
 		<>
 			<Image
 				src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
-				width={220}
+				width={240}
 				height={180}
 				alt={movie.title}
+				className='carousel-card'
 			/>
-			{/* <h2>{`Nome: ${movie.title}`}</h2>
-			<h2>{`Detalhes: ${movie.overview}`}</h2> */}
 		</>
 	);
 }

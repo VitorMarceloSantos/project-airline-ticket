@@ -1,0 +1,44 @@
+.carousel
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: center
+  width: 100vw
+  background-color: greenyellow
+
+  &-movies
+    display: flex
+    overflow-x: auto
+    scroll-behavior: smooth
+    align-items: center
+    background-color: blue
+    max-width: 95vw
+
+  &-movies::-webkit-scrollbar
+    display: none
+
+  // &-item
+  //   background-color: white
+  //   margin-left: calc(2.5vw / 7)
+  //   margin-right: calc(2.5vw / 7)
+  //   padding: 10px
+  //   width: 15vw
+  //   border-radius: 16px
+  //   flex: none
+
+  // &-item:first-child
+  //   margin-left: calc(5vw / 7)
+
+  // &-item:nth-child(6n)
+
+  //   margin-right: calc(2.9vw / 7)
+
+  // &-item:last-child
+  //   margin-right: calc(5vw / 7)
+
+  &-buttons
+    // width: 100%
+    text-align: center
+    background-color: transparent
+    border: none
+    cursor: pointer

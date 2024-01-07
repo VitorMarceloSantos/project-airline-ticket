@@ -51,11 +51,34 @@ table {
   border-spacing: 0;
 }
 
-.listCardsMovies {
+.carousel-card {
+  margin-left: 0.3vw;
+}
+
+.carousel {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  width: 100vw;
+  background-color: greenyellow;
+}
+.carousel-movies {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  align-items: center;
+  background-color: blue;
+  max-width: 95vw;
+}
+.carousel-movies::-webkit-scrollbar {
+  display: none;
+}
+.carousel-buttons {
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=app.css.map */

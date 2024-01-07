@@ -1,5 +1,5 @@
 import { DataType } from '../types/TopMoviesTypes';
-import Card from './Card';
+import CarouselMovies from './CarouselMovies';
 
 export async function getData() {
 	const res = await fetch(
@@ -23,14 +23,7 @@ export default async function TopMovies() {
 	return (
 		<>
 			<h2>Topmovies</h2>
-			<ul className='listCardsMovies'>
-				{moviesData.map((movie, index) => (
-					<li key={index}>
-						<Card movie={movie} />
-					</li>
-				))}
-			</ul>
-			<h3></h3>
+			<CarouselMovies moviesData={moviesData} />
 		</>
 	);
 }
