@@ -1,0 +1,23 @@
+@mixin mobile
+  @media (max-width: 480px)
+    @content
+
+@mixin small_device
+  @media (max-width: 767px)
+    @content
+
+@mixin small_tablet
+  @media (max-width: 991px)
+    @content
+
+@mixin laptop
+  @media (max-width: 1199px)
+    @content
+
+@mixin desktop
+  @media (max-width: 1919px)
+    @content
+
+@mixin large_device
+  @media (min-width: 1920px)
+    @content

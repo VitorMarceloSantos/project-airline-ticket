@@ -6,8 +6,8 @@ export default async function Card({ movie }: CardType) {
 		<>
 			<Image
 				src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
-				width={240}
-				height={180}
+				width={215}
+				height={130}
 				alt={movie.title}
 				className='carousel-card'
 			/>

@@ -22,7 +22,7 @@ export default async function TopMovies() {
 	const moviesData = await getData();
 	return (
 		<>
-			<h2>Topmovies</h2>
+			{/* <h2>Topmovies</h2> */}
 			<CarouselMovies moviesData={moviesData} />
 		</>
 	);
