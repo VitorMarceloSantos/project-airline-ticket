@@ -33,40 +33,43 @@ export default function CarouselMovies({ moviesData }: MoviesDataType) {
 		progressBar.current !== null && calculateProgressBar(progressBar.current);
 	}, []);
 
-	const throttle = (cb: () => void, delay = defaultDelaty) => {
-		let shouldWait = false;
-		let waitingArgs;
-		const timeoutFunc = () => {
-			if (waitingArgs == null) {
-				shouldWait = false;
-			} else {
-				cb(...waitingArgs);
-				waitingArgs = null;
-				setTimeout(timeoutFunc, delay);
-			}
-		};
+	// const throttle = (cb: () => void, delay = defaultDelaty) => {
+	// 	let shouldWait = false;
+	// 	let waitingArgs;
+	// 	const timeoutFunc = () => {
+	// 		if (waitingArgs == null) {
+	// 			shouldWait = false;
+	// 		} else {
+	// 			cb(...waitingArgs);
+	// 			waitingArgs = null;
+	// 			setTimeout(timeoutFunc, delay);
+	// 		}
+	// 	};
 
-		return (...args) => {
-			if (shouldWait) {
-				waitingArgs = args;
-				return;
-			}
+	// 	return (...args) => {
+	// 		if (shouldWait) {
+	// 			waitingArgs = args;
+	// 			return;
+	// 		}
 
-			cb(...args);
-			shouldWait = true;
-			setTimeout(timeoutFunc, delay);
-		};
-	};
+	// 		cb(...args);
+	// 		shouldWait = true;
+	// 		setTimeout(timeoutFunc, delay);
+	// 	};
+	// };
 
-	const throttleProgressBar = throttle(() => {
-		// progressBar.current !== null && progressBar.current.forEach(calculateProgressBar);
-		calculateProgressBar;
-	}, delay);
+	// const throttleProgressBar = throttle(() => {
+	// 	// progressBar.current !== null && progressBar.current.forEach(calculateProgressBar);
+	// 	calculateProgressBar;
+	// }, delay);
 
 	// window.addEventListener('resize', throttleProgressBar);
 
 	// Corrigida
 	const calculateProgressBar = (progressBar: HTMLDivElement) => {
+		console.log(
+			`itens tela: ${parseInt(getComputedStyle(slider.current).getPropertyValue('--items-per-screen'))}`,
+		);
 		progressBar.innerHTML = '';
 		let itemCount = 0;
 		let itemsPerScreen = 0;
@@ -134,10 +137,13 @@ export default function CarouselMovies({ moviesData }: MoviesDataType) {
 				<div className='progress-bar' ref={progressBar}></div>
 			</div>
 			<div className='carousel'>
-				<ArrowBackIosIcon
+				{/* <ArrowBackIosIcon
 					onClick={() => onHandleClick('button-left')}
-					className='carousel-buttons butgton-left'
-				/>
+					className='carousel-buttons button-left'
+				/> */}
+				<button onClick={() => onHandleClick('button-left')} className='carousel-buttons button-left'>
+					<div className='text'>&#8249;</div>
+				</button>
 				<ul className='carousel-movies' ref={slider}>
 					{movies.map((movie, index) => {
 						return (
@@ -147,10 +153,13 @@ export default function CarouselMovies({ moviesData }: MoviesDataType) {
 						);
 					})}
 				</ul>
-				<ArrowForwardIosIcon
+				{/* <ArrowForwardIosIcon
 					onClick={() => onHandleClick('button-right')}
 					className='carousel-buttons button-right'
-				/>
+				/> */}
+				<button onClick={() => onHandleClick('button-right')} className='carousel-buttons button-right'>
+					<div className='text'>&#8250;</div>
+				</button>
 			</div>
 		</>
 	);

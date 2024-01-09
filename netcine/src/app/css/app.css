@@ -1,20 +1,8 @@
-html {
-  font-size: 14px;
+*, *::after, *::before {
+  box-sizing: border-box;
+  list-style: none;
 }
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, b, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+ul {
   margin: 0;
   padding: 0;
   border: 0;
@@ -23,37 +11,50 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
+:root {
+  --handle-size: 2.5vw;
+  --img-gap: .25rem;
 }
 
 body {
-  line-height: 1;
+  margin: 0;
 }
 
-ol, ul {
-  list-style: none;
+.carousel {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  width: 100vw;
 }
 
-blockquote, q {
-  quotes: none;
+.carousel-movies {
+  --items-per-screen: 5;
+  --slider-index: 0;
+  display: flex;
+  flex-grow: 1;
+  margin: 0 var(--img-gap);
+  transform: translateX(calc(var(--slider-index) * -100%));
+  transition: transform 250ms ease-in-out;
+
+
+  /* Corrigir o width: ; */
+
+  width: 95vw;
+
+  /* overflow-x: auto; */
+  /* scroll-behavior: smooth; */
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-:root {
-  --handle-size: 3rem;
-  --img-gap: .25rem;
+.carousel-item {
+  margin-left: .25rem;
+  flex: 0 0 calc((100% / var(--items-per-screen)) - var(--img-gap));
+  /* width: calc(100% / (var(--items-per-screen) - .25vw)); */
+  /* width: calc((100% / var(--items-per-screen))- 5vw); */
+  aspect-ratio: 16 / 9;
+  padding: var(--img-gap);
+  border-radius: 1rem;
+  background-color: red;
+  
 }
 
 .carousel-buttons {
@@ -61,7 +62,7 @@ table {
   border-radius: 1rem;
   flex-grow: 0;
   flex-shrink: 0;
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, .25);
   z-index: 10;
   margin: var(--img-gap) 0;
   width: var(--handle-size);
@@ -74,28 +75,6 @@ table {
   line-height: 0;
   transition: background-color 150ms ease-in-out;
 }
-.carousel-buttons-buttons:hover, .carousel-buttons-buttons:focus {
-  background-color: rgba(255, 255, 255, 0.5);
-}
-.carousel-buttons-buttons:hover .text, .carousel-buttons-buttons:focus .text {
-  transform: scale(1.2);
-}
-.carousel-movies {
-  --items-per-screen: 4;
-  --slider-index: 0;
-  display: flex;
-  flex-grow: 1;
-  margin: 0 var(--img-gap);
-  transform: translateX(calc(var(--slider-index) * -100%));
-  transition: transform 250ms ease-in-out;
-}
-.carousel-movies > img {
-  flex: 0 0 calc(100% / var(--items-per-screen));
-  max-width: calc(100% / var(--items-per-screen));
-  aspect-ratio: 16/9;
-  padding: var(--img-gap);
-  border-radius: 1rem;
-}
 
 .button-left {
   border-top-left-radius: 0;
@@ -107,14 +86,24 @@ table {
   border-bottom-right-radius: 0;
 }
 
+.carousel-buttons:hover,
+.carousel-buttons:focus {
+  background-color: rgba(255, 255, 255, .5);
+}
+
 .text {
   transition: transform 150ms ease-in-out;
+}
+
+.carousel-buttons:hover .text,
+.carousel-buttons:focus .text {
+  transform: scale(1.2);
 }
 
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem calc(var(--img-gap) * 2 + var(--handle-size));
+  padding: .5rem calc(var(--img-gap) * 2 + var(--handle-size));
   align-items: center;
 }
 
@@ -125,32 +114,39 @@ table {
 
 .progress-bar {
   display: flex;
-  gap: 0.25rem;
+  gap: .25rem;
 }
 
 .progress-item {
   flex: 0 0 1.5rem;
   min-width: 1.5rem;
-  height: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.5);
-}
-.progress-item.active {
-  background-color: rgba(255, 255, 255, 0.9);
+  height: .5rem;
+  background-color: rgba(255, 255, 255, .5);
 }
 
-@media (max-width: 1000px) {
-  .slider {
+.progress-item.active {
+  background-color: rgba(255, 255, 255, .9);
+}
+
+@media (max-width: 1200px) {
+  .carousel-movies {
+    --items-per-screen: 4;
+  }
+}
+
+@media (max-width: 990px) {
+  .carousel-movies {
     --items-per-screen: 3;
   }
 }
-@media (max-width: 500px) {
-  .slider {
+
+@media (max-width: 730px) {
+  .carousel-movies {
     --items-per-screen: 2;
   }
 }
+
 body {
   background-color: #333;
   color: white;
 }
-
-/*# sourceMappingURL=app.css.map */
