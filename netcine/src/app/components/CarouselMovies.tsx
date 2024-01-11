@@ -4,14 +4,20 @@
 /* eslint-disable max-lines */
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState, useEffect, useContext } from 'react';
 import Card from './Card';
 import { MoviesDataType } from '../types/CarouselMoviesTypes';
 import { ResultsType } from '../types/TopMoviesTypes';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { functionTest } from '../functions/resizeWindow';
+import ProgressBar from './ProgressBar';
+import { ProgressBarContext } from '../context/ProgressBar';
+
+// import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+// import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 export default function CarouselMovies({ moviesData }: MoviesDataType) {
+	const { handlerSliderChange } = useContext(ProgressBarContext);
+	// const [size, setSize] = useState<number[]>([0, 0]);
 	const [movies] = useState<ResultsType[]>(moviesData);
 	// const carousel = useRef<HTMLUListElement>(null);
 	const progressBar = useRef<HTMLDivElement>(null);
@@ -25,77 +31,62 @@ export default function CarouselMovies({ moviesData }: MoviesDataType) {
 	// 	carousel.current !== null && (carousel.current.scrollLeft += carousel.current.offsetWidth);
 	// };
 
-	const defaultDelaty = 1000;
-	const delay = 250;
-
 	// Criar a paginação
-	useEffect(() => {
-		progressBar.current !== null && calculateProgressBar(progressBar.current);
-	}, []);
+	// useEffect(() => {
+	// 	progressBar.current !== null && calculateProgressBar(progressBar.current);
+	// }, []);
 
-	// const throttle = (cb: () => void, delay = defaultDelaty) => {
-	// 	let shouldWait = false;
-	// 	let waitingArgs;
-	// 	const timeoutFunc = () => {
-	// 		if (waitingArgs == null) {
-	// 			shouldWait = false;
-	// 		} else {
-	// 			cb(...waitingArgs);
-	// 			waitingArgs = null;
-	// 			setTimeout(timeoutFunc, delay);
+	// const useWindowSize = () => {
+	// 	useEffect(() => {
+	// 		function updateSize() {
+	// 			setSize([window.innerWidth, window.innerHeight]);
 	// 		}
-	// 	};
-
-	// 	return (...args) => {
-	// 		if (shouldWait) {
-	// 			waitingArgs = args;
-	// 			return;
-	// 		}
-
-	// 		cb(...args);
-	// 		shouldWait = true;
-	// 		setTimeout(timeoutFunc, delay);
-	// 	};
+	// 		window.addEventListener('resize', updateSize);
+	// 		updateSize();
+	// 		return () => window.removeEventListener('resize', updateSize);
+	// 	}, []);
+	// 	return size;
 	// };
 
-	// const throttleProgressBar = throttle(() => {
-	// 	// progressBar.current !== null && progressBar.current.forEach(calculateProgressBar);
-	// 	calculateProgressBar;
-	// }, delay);
+	// const ShowWindowDimensions = () => {
+	// 	const [width, height] = useWindowSize();
+	// 	console.log(`Width: ${width} - Height: ${height}`);
+	// 	// return <span>Window size: {width} x {height}</span>;
+	// };
 
-	// window.addEventListener('resize', throttleProgressBar);
+	useEffect(() => {
+		// slider.current !== null && handlerSliderChange(slider.current);
+		functionTest();
+	}, []);
 
 	// Corrigida
-	const calculateProgressBar = (progressBar: HTMLDivElement) => {
-		console.log(
-			`itens tela: ${parseInt(getComputedStyle(slider.current).getPropertyValue('--items-per-screen'))}`,
-		);
-		progressBar.innerHTML = '';
-		let itemCount = 0;
-		let itemsPerScreen = 0;
-		let sliderIndex = 0;
-		if (slider.current) {
-			itemCount = slider.current.children.length;
-			itemsPerScreen = parseInt(getComputedStyle(slider.current).getPropertyValue('--items-per-screen'));
-			sliderIndex = parseInt(getComputedStyle(slider.current).getPropertyValue('--slider-index'));
-		}
-		const progressBarItemCount = Math.ceil(itemCount / itemsPerScreen);
+	// const calculateProgressBar = (progressBar: HTMLDivElement) => {
+	// 	progressBar.innerHTML = '';
+	// 	let itemCount = 0;
+	// 	let itemsPerScreen = 0;
+	// 	let sliderIndex = 0;
+	// 	if (slider.current) {
+	// 		itemCount = slider.current.children.length;
+	// 		itemsPerScreen = parseInt(getComputedStyle(slider.current).getPropertyValue('--items-per-screen'));
+	// 		sliderIndex = parseInt(getComputedStyle(slider.current).getPropertyValue('--slider-index'));
+	// 	}
+	// 	const progressBarItemCount = Math.ceil(itemCount / itemsPerScreen);
 
-		if (sliderIndex >= progressBarItemCount) {
-			const value = progressBarItemCount - 1;
-			slider.current?.style.setProperty('--slider-index', String(value));
-			sliderIndex = progressBarItemCount - 1;
-		}
+	// 	if (sliderIndex >= progressBarItemCount) {
+	// 		const value = progressBarItemCount - 1;
+	// 		slider.current?.style.setProperty('--slider-index', String(value));
+	// 		sliderIndex = progressBarItemCount - 1;
+	// 	}
 
-		for (let index = 0; index < progressBarItemCount; index += 1) {
-			const barItem = document.createElement('div');
-			barItem.classList.add('progress-item');
-			if (index === sliderIndex) {
-				barItem.classList.add('active');
-			}
-			progressBar.append(barItem);
-		}
-	};
+	// 	for (let index = 0; index < progressBarItemCount; index += 1) {
+	// 		const barItem = document.createElement('div');
+	// 		barItem.classList.add('progress-item');
+	// 		if (index === sliderIndex) {
+	// 			barItem.classList.add('active');
+	// 		}
+	// 		progressBar.append(barItem);
+	// 	}
+	// };
 
 	// Corrigida
 	const onHandleClick = (directionButton: string) => {
@@ -132,10 +123,11 @@ export default function CarouselMovies({ moviesData }: MoviesDataType) {
 
 	return (
 		<>
-			<div className='header'>
+			{/* <div className='header'>
 				<h3 className='title'>Title</h3>
 				<div className='progress-bar' ref={progressBar}></div>
-			</div>
+			</div> */}
+			<ProgressBar />
 			<div className='carousel'>
 				{/* <ArrowBackIosIcon
 					onClick={() => onHandleClick('button-left')}
