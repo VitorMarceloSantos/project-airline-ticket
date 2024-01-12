@@ -32,10 +32,10 @@ export default function CarouselMovies({ moviesData }: MoviesDataType) {
 	};
 
 	return (
-		<>
-			<div className='header'>
-				<h3 className='title'>Title</h3>
-				<div className='progress-bar' ref={progressBar}></div>
+		<div className='main-carousel'>
+			<div className='progress-bar'>
+				<h3 className='progress-bar-title'>Top Movies</h3>
+				<div className='progress-bar-carousel' ref={progressBar}></div>
 			</div>
 			<div className='carousel'>
 				{/* <ArrowBackIosIcon
@@ -62,6 +62,6 @@ export default function CarouselMovies({ moviesData }: MoviesDataType) {
 					<div className='text'>&#8250;</div>
 				</button>
 			</div>
-		</>
+		</div>
 	);
 }

@@ -1,7 +1,1 @@
-{
-"version": 3,
-"mappings": "",
-"sources": [],
-"names": [],
-"file": "app.css"
-}
+{"version":3,"sourceRoot":"","sources":["../sass/1-base/_reset.sass","../sass/1-base/_pallete.sass","../sass/2-layouts/mixins/mixins.sass","../sass/2-layouts/carousel/carousel.sass","../sass/1-base/_constants.sass","../sass/2-layouts/progress-bar/progress-bar.sass"],"names":[],"mappings":"AACA;EACE;EACA,kBCHc;;;ADMhB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;EAaE;EACA;EACA;EACA;EACA;EACA;;;AAEF;AACA;AAAA;EAEE;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;AAAA;EAEE;;;AAEF;EACE;EACA;;;AE3CA;EACE;;AACF;EACE,ODJmB;ECKnB,kBDNc;;;AEMlB;EACE;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA,OC3BU;;AD6BV;EACE;;AAEJ;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEF;EACE;EACA;EACA;;AACA;EACE;;;AAEN;EACE;EACA;EACA;;;AAEF;EACE;EACA;EACA;;;AAEF;EACE;;;AAEF;EACE;IACE;;;AAEJ;EACE;IACE;;;AAEJ;EACE;IACE;;;AEtEJ;EACE;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;;AAEF;EACE;EACA;;AAEF;EACE;EACA;EACA;EACA;;AAEF;EACE","file":"app.css"}

@@ -1,7 +1,7 @@
 import { calculateProgressBar } from './calculateProgressBar';
 
 const throttleProgressBar = async () => {
-	const progressBar = document.querySelector('.progress-bar') as HTMLDivElement;
+	const progressBar = document.querySelector('.progress-bar-carousel') as HTMLDivElement;
 	const slider = document.querySelector('.carousel-movies') as HTMLUListElement;
 
 	calculateProgressBar(progressBar, slider);

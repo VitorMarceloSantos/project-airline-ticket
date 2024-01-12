@@ -18,9 +18,9 @@ export const calculateProgressBar = (progressBar: HTMLDivElement, slider: HTMLUL
 
 	for (let index = 0; index < progressBarItemCount; index += 1) {
 		const barItem = document.createElement('div');
-		barItem.classList.add('progress-item');
+		barItem.classList.add('progress-bar-item');
 		if (index === sliderIndex) {
-			barItem.classList.add('active');
+			barItem.classList.add('progress-bar-active');
 		}
 		progressBar.append(barItem);
 	}
