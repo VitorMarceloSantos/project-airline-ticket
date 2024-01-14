@@ -52,12 +52,18 @@ table {
   border-spacing: 0;
 }
 
+.main-carousel:hover {
+  cursor: pointer;
+}
 .main-carousel:hover .progress-bar-carousel {
   display: flex;
 }
 .main-carousel:hover .carousel-buttons {
   color: #FFFFFF;
   background-color: rgba(20, 20, 20, 0.7);
+}
+.main-carousel:hover .progress-bar-link-1 {
+  display: flex;
 }
 
 .carousel {
@@ -141,11 +147,36 @@ table {
   padding: 0.5rem calc(0.5rem + 3vw);
   align-items: center;
 }
+.progress-bar:hover .title-link-activated {
+  display: flex;
+}
+.progress-bar:hover .title-link-deactivated {
+  display: none;
+}
+.progress-bar-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .progress-bar-title {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 600;
   margin: 0;
   color: white;
+}
+.progress-bar-link-1, .progress-bar-link-2 {
+  display: none;
+  position: relative;
+  top: 0.2rem;
+  margin-left: 0.25rem;
+  color: #48B6C5;
+  font-size: 1.3rem;
+  font-weight: 1000;
+}
+.progress-bar-link-2 {
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  font-weight: 600;
 }
 .progress-bar-carousel {
   display: none;

@@ -7,6 +7,7 @@ import { ResultsType } from '../types/TopMoviesTypes';
 import { addEventWindowWidth } from '../functions/addEventWindowWidth';
 import { calculateProgressBar } from '../functions/calculateProgressBar';
 import { onHandleClick } from '../functions/onHandleClick';
+import 'animate.css';
 
 // import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 // import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -15,6 +16,7 @@ export default function CarouselMovies({ moviesData }: MoviesDataType) {
 	const [movies] = useState<ResultsType[]>(moviesData);
 	const progressBar = useRef<HTMLDivElement>(null);
 	const slider = useRef<HTMLUListElement>(null);
+	const titleLink = useRef<HTMLHeadingElement>(null);
 
 	useEffect(() => {
 		if (progressBar.current !== null && slider.current !== null)
@@ -31,10 +33,32 @@ export default function CarouselMovies({ moviesData }: MoviesDataType) {
 		}
 	};
 
+	const changeAddClassTitleLink = () => {
+		titleLink.current?.classList.remove('animate__fadeOut');
+		titleLink.current?.classList.add('animate__fadeInLeft');
+		titleLink.current?.classList.add('title-link-activated');
+	};
+
+	const changeRemoveClassTitleLink = () => {
+		titleLink.current?.classList.remove('animate__fadeInLeft');
+		titleLink.current?.classList.add('animate__fadeOut');
+		titleLink.current?.classList.remove('title-link-deactivated');
+	};
+
 	return (
 		<div className='main-carousel'>
 			<div className='progress-bar'>
-				<h3 className='progress-bar-title'>Top Movies</h3>
+				<div
+					className='progress-bar-title-container'
+					onMouseMove={() => changeAddClassTitleLink()}
+					onMouseOut={() => changeRemoveClassTitleLink()}
+				>
+					<h3 className='progress-bar-title'>Top Movies</h3>
+					<h3 className='progress-bar-link-1'>&gt;</h3>
+					<h3 className='progress-bar-link-2 animate__animated' ref={titleLink}>
+						Ver tudo &gt;
+					</h3>
+				</div>
 				<div className='progress-bar-carousel' ref={progressBar}></div>
 			</div>
 			<div className='carousel'>
