@@ -147,11 +147,11 @@ table {
   padding: 0.5rem calc(0.5rem + 3vw);
   align-items: center;
 }
-.progress-bar:hover .title-link-activated {
-  display: flex;
-}
-.progress-bar:hover .title-link-deactivated {
+.progress-bar:hover .progress-bar-link-1 {
   display: none;
+}
+.progress-bar:hover .progress-bar-link-2 {
+  display: flex;
 }
 .progress-bar-title-container {
   display: flex;
@@ -166,17 +166,16 @@ table {
 }
 .progress-bar-link-1, .progress-bar-link-2 {
   display: none;
-  position: relative;
-  top: 0.2rem;
   margin-left: 0.25rem;
   color: #48B6C5;
   font-size: 1.3rem;
   font-weight: 1000;
 }
 .progress-bar-link-2 {
-  font-size: 1rem;
+  font-size: 0.8rem;
   margin-left: 0.5rem;
   font-weight: 600;
+  --animate-duration: 0.5s;
 }
 .progress-bar-carousel {
   display: none;
@@ -190,6 +189,12 @@ table {
 }
 .progress-bar-active {
   background-color: rgba(255, 255, 255, 0.9);
+}
+.progress-bar .title-link-activated {
+  display: flex;
+}
+.progress-bar .title-link-deactivated {
+  display: none;
 }
 
 /*# sourceMappingURL=app.css.map */

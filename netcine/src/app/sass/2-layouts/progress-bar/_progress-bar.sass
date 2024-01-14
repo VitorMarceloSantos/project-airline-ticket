@@ -24,18 +24,17 @@
 
   &-link-1, &-link-2
     display: none
-    position: relative
-    top: .2rem
     margin-left: $img-gap
     color: $color-title-link
     font-size: 1.3rem
     font-weight: 1000
+    
 
   &-link-2
-    font-size: 1rem
+    font-size: .8rem
     margin-left: $img-gap * 2
     font-weight: 600
-    // --animate-duration: 0.5s
+    --animate-duration: 0.5s
 
   &-carousel
     display: none
@@ -49,3 +48,8 @@
 
   &-active
     background-color: rgba(255, 255, 255, .9)
+
+  .title-link-activated
+    display: flex
+  .title-link-deactivated
+    display: none
