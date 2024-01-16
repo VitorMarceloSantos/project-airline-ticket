@@ -9,7 +9,7 @@
 .carousel
   display: flex
   justify-content: center
-  overflow: hidden
+  // overflow: hidden
   width: 100vw
 
   &-buttons
@@ -41,12 +41,14 @@
     transition: transform 250ms ease-in-out
     width: calc(100% - ($handle-size * 2))
 
+
   &-item
     flex: 0 0 calc((100% / var(--items-per-screen)) - $img-gap)
     margin: 0 calc($img-gap / 2)
-    border-radius: .15rem
-    div
-      background-color: red
+    border-radius: .2rem
+    // div
+    //   background-color: red
+    // height: 100%
 
 .button-left
   border-top-left-radius: 0

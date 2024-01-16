@@ -52,6 +52,100 @@ table {
   border-spacing: 0;
 }
 
+body {
+  padding: 5rem 0;
+}
+
+.card-header img {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.wrapper {
+  position: relative;
+}
+.wrapper__front {
+  transition: all 250ms ease-out;
+  transition-delay: 200ms;
+}
+.wrapper__back {
+  position: absolute;
+  opacity: 0;
+  width: 150%;
+  transition: all 250ms ease-out;
+  transition-delay: 200ms;
+  z-index: 999;
+  border-radius: 0.5rem;
+  background-color: #181818;
+  box-shadow: 0 0 10px 1px #0a0a0a;
+}
+.wrapper__back img {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+@media (min-width: 1024px) {
+  .wrapper__back {
+    width: 100%;
+    top: 0%;
+  }
+}
+.wrapper:hover .wrapper__front {
+  opacity: 0;
+}
+.wrapper:hover .wrapper__back {
+  opacity: 1;
+  width: 150%;
+  transform: scale(1.2) translateY(-20%);
+}
+@media (min-width: 1024px) {
+  .wrapper:hover .wrapper__back {
+    width: 100%;
+  }
+}
+
+.card-body {
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  height: 6vh;
+}
+.card-body-text-color {
+  color: #939393;
+}
+
+.btn {
+  padding: 0.5rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 250ms;
+}
+.btn:hover {
+  border-color: white;
+}
+.btn:hover .card-body-text-color {
+  color: white;
+}
+.btn--transparent {
+  background: transparent;
+}
+.btn--circle {
+  border-radius: 50%;
+}
+
 .main-carousel:hover {
   cursor: pointer;
 }
@@ -69,7 +163,6 @@ table {
 .carousel {
   display: flex;
   justify-content: center;
-  overflow: hidden;
   width: 100vw;
 }
 .carousel-buttons {
@@ -104,10 +197,7 @@ table {
 .carousel-item {
   flex: 0 0 calc(100% / var(--items-per-screen) - 0.25rem);
   margin: 0 0.125rem;
-  border-radius: 0.15rem;
-}
-.carousel-item div {
-  background-color: red;
+  border-radius: 0.2rem;
 }
 
 .button-left {
