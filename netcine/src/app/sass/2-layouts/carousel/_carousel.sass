@@ -9,8 +9,9 @@
 .carousel
   display: flex
   justify-content: center
-  // overflow: hidden
+  // overflow: scroll
   width: 100vw
+  // z-index: 1
 
   &-buttons
     border: none
@@ -40,15 +41,21 @@
     transform: translateX(calc(var(--slider-index) * -100%))
     transition: transform 250ms ease-in-out
     width: calc(100% - ($handle-size * 2))
+    // overflow: hidden
 
 
   &-item
     flex: 0 0 calc((100% / var(--items-per-screen)) - $img-gap)
     margin: 0 calc($img-gap / 2)
     border-radius: .2rem
+    
     // div
     //   background-color: red
     // height: 100%
+
+    // &:hover
+    //   z-index: 0
+    //   background-color: red
 
 .button-left
   border-top-left-radius: 0
