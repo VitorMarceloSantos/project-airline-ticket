@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   font-size: 14px;
   background-color: rgb(20, 20, 20);
@@ -100,17 +101,67 @@ body {
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   height: 13vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: rgba(255, 255, 255, 0.937254902);
 }
 .carousel-card-back-body-informations {
-  color: rgba(255, 255, 255, 0.937254902);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.carousel-card-back-body-informations-hd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 13%;
+  font-weight: 500;
+  padding: 0.15rem 0.4rem;
+  font-size: 0.6rem;
+  box-shadow: 1px solid black;
+}
+.carousel-card-back-body-informations-average {
+  width: 2vw;
+  border-radius: 0.5rem;
+  box-shadow: 1px solid black;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 1000;
+}
+.carousel-card-back-body-informations-bad {
+  background-color: red;
+}
+.carousel-card-back-body-informations-good {
+  background-color: yellow;
+}
+.carousel-card-back-body-informations-excelent {
+  background-color: green;
+}
+.carousel-card-back-body-informations-genres ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-card-back-body-informations-genres ul li:not(:first-child) p::before {
+  content: "●";
+  color: rgba(255, 255, 255, 0.5);
+  margin-right: 0.25rem;
 }
 .carousel-card-back-body-buttons {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.carousel-card-back-body-buttons button {
+  margin: 0 0.15rem;
 }
 .carousel-card-back-body-buttons-btn {
-  padding: 0.5rem;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -119,15 +170,33 @@ body {
   transition: all 250ms;
   border-radius: 50%;
   background: transparent;
+  height: 2vh;
 }
 .carousel-card-back-body-buttons-btn-text-color {
   color: rgba(255, 255, 255, 0.937254902);
+  font-size: 1.4rem;
+}
+.carousel-card-back-body-buttons-btn:hover {
+  border-color: white;
+  box-shadow: 1px solid black;
+}
+.carousel-card-back-body-buttons-btn:hover .carousel-card-back-body-buttons-btn-text-color {
+  color: rgba(255, 255, 255, 0.5);
 }
 .carousel-card-back-body-buttons-btn-color {
   background-color: white;
 }
 .carousel-card-back-body-buttons-btn-color .carousel-card-back-body-buttons-btn-text-color {
   color: #181818;
+}
+.carousel-card-back-body-buttons-btn-color:hover {
+  border-color: white;
+  background-color: transparent;
+  box-shadow: 1px solid black;
+  transition: all 250ms ease-out;
+}
+.carousel-card-back-body-buttons-btn-color:hover .carousel-card-back-body-buttons-btn-text-color {
+  color: rgba(255, 255, 255, 0.5);
 }
 .carousel-card:hover .carousel-card-front {
   opacity: 0;
