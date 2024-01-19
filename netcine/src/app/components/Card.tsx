@@ -10,7 +10,8 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { dataGenres } from '../data/dataGenres';
 import { dataLanguages } from '../data/dataLanguages';
 
-export default async function Card({ movie }: CardType): Promise<JSX.Element> {
+export default function Card({ values }: CardType) {
+	const { movie, urlVideoMovie } = values;
 	const filterGenre = (genre: number) => {
 		return dataGenres.find((genreData) => genreData.id === genre) as CardGenresType;
 	};
@@ -24,9 +25,6 @@ export default async function Card({ movie }: CardType): Promise<JSX.Element> {
 		return dataLanguages.find((languageData) => languageData.iso_639_1 === language) as CardLanguagesType;
 	};
 	const languages = filterLanguage(movie.original_language);
-
-	const trailer =
-		'https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761';
 
 	const handleChangeClassColor = () => {
 		if (movie.vote_average <= 5) {
@@ -51,14 +49,17 @@ export default async function Card({ movie }: CardType): Promise<JSX.Element> {
 			</div>
 			<div className='carousel-card-back'>
 				<div className='carousel-card-header'>
-					{/* <Image
-						className='carousel-card-image'
-						src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
-						width={215}
-						height={130}
-						alt={movie.title}
-					/> */}
-					<video src={trailer} autoPlay={true} loop className='carousel-card-back-video' width={215} height={130} />
+					{urlVideoMovie?.url !== null ? (
+						<iframe src={urlVideoMovie.url} className='carousel-card-back-video' width={215} height={130}></iframe>
+					) : (
+						<Image
+							className='carousel-card-image'
+							src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
+							width={215}
+							height={130}
+							alt={movie.title}
+						/>
+					)}
 				</div>
 				<div className='carousel-card-back-body'>
 					<div className='carousel-card-back-body-buttons'>

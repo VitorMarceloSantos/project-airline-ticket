@@ -1,5 +1,8 @@
-import { ResultsType } from './TopMoviesTypes';
+import { ResultsType, urlVideoMovieType } from './TopMoviesTypes';
 
 export type MoviesDataType = {
-	moviesData: ResultsType[];
+	values: {
+		moviesData: ResultsType[];
+		urlVideoMovie: urlVideoMovieType[];
+	};
 };

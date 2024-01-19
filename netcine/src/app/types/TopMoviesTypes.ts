@@ -3,6 +3,11 @@ export type DataType = {
 	results: ResultsType[];
 };
 
+export type urlVideoMovieType = {
+	id: number;
+	url: string;
+};
+
 export type ResultsType = {
 	backdrop_path: string;
 	genre_ids: number[];

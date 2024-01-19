@@ -1,7 +1,10 @@
-import { ResultsType } from './TopMoviesTypes';
+import { ResultsType, urlVideoMovieType } from './TopMoviesTypes';
 
 export type CardType = {
-	movie: ResultsType;
+	values: {
+		movie: ResultsType;
+		urlVideoMovie: urlVideoMovieType;
+	};
 };
 
 export type CardGenresType = {
