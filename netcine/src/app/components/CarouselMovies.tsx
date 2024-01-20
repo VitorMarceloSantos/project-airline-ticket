@@ -12,8 +12,7 @@ import 'animate.css';
 // import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 // import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-export default function CarouselMovies({ values }: MoviesDataType) {
-	const { moviesData, urlVideoMovie } = values;
+export default function CarouselMovies({ moviesData }: MoviesDataType) {
 	const [movies] = useState<ResultsType[]>(moviesData);
 	const progressBar = useRef<HTMLDivElement>(null);
 	const slider = useRef<HTMLUListElement>(null);
@@ -52,7 +51,7 @@ export default function CarouselMovies({ values }: MoviesDataType) {
 					{movies.map((movie, index) => {
 						return (
 							<li className='carousel-item' key={index}>
-								<Card values={{ movie, urlVideoMovie: urlVideoMovie[index] }} />
+								<Card movie={movie} />
 							</li>
 						);
 					})}

@@ -1,10 +1,7 @@
-import { ResultsType, urlVideoMovieType } from './TopMoviesTypes';
+import { ResultsType } from './TopMoviesTypes';
 
 export type CardType = {
-	values: {
-		movie: ResultsType;
-		urlVideoMovie: urlVideoMovieType;
-	};
+	movie: ResultsType;
 };
 
 export type CardGenresType = {
@@ -16,4 +13,11 @@ export type CardLanguagesType = {
 	iso_639_1: string;
 	english_name: string;
 	name: string;
+};
+
+export type LoadVideoType = {
+	values: {
+		movie: ResultsType;
+		urlMovie: string;
+	};
 };

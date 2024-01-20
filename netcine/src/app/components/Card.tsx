@@ -9,9 +9,12 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { dataGenres } from '../data/dataGenres';
 import { dataLanguages } from '../data/dataLanguages';
+import { useState } from 'react';
+import { LoadVideo } from './LoadVideo';
+import { getVideoData } from './RequestVideoCard';
 
-export default function Card({ values }: CardType) {
-	const { movie, urlVideoMovie } = values;
+export default function Card({ movie }: CardType) {
+	const [urlMovie, setUrlMovie] = useState<string>('');
 	const filterGenre = (genre: number) => {
 		return dataGenres.find((genreData) => genreData.id === genre) as CardGenresType;
 	};
@@ -34,8 +37,15 @@ export default function Card({ values }: CardType) {
 		}
 		return 'carousel-card-back-body-informations-excelent';
 	};
+
+	const verifyLoadVideo = () => {
+		(async () => {
+			setUrlMovie((await getVideoData(movie.id)) as string);
+		})();
+	};
+
 	return (
-		<div className='carousel-card'>
+		<div className='carousel-card' onMouseEnter={verifyLoadVideo}>
 			<div className='carousel-card-front'>
 				<div className='carousel-card-header'>
 					<Image
@@ -48,19 +58,8 @@ export default function Card({ values }: CardType) {
 				</div>
 			</div>
 			<div className='carousel-card-back'>
-				<div className='carousel-card-header'>
-					{urlVideoMovie?.url !== null ? (
-						<iframe src={urlVideoMovie.url} className='carousel-card-back-video' width={215} height={130}></iframe>
-					) : (
-						<Image
-							className='carousel-card-image'
-							src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
-							width={215}
-							height={130}
-							alt={movie.title}
-						/>
-					)}
-				</div>
+				<div className='carousel-card-header'></div>
+				<LoadVideo values={{ movie, urlMovie }} />
 				<div className='carousel-card-back-body'>
 					<div className='carousel-card-back-body-buttons'>
 						<div>

@@ -1,6 +1,5 @@
-import { DataType, urlVideoMovieType } from '../types/TopMoviesTypes';
+import { DataType } from '../types/TopMoviesTypes';
 import CarouselMovies from './CarouselMovies';
-import { getVideoData } from './RequestVideoCard';
 
 export async function getData() {
 	const res = await fetch(
@@ -20,16 +19,11 @@ export async function getData() {
 }
 
 export default async function TopMovies() {
-	const urlVideoMovie: urlVideoMovieType[] = [];
 	const moviesData = await getData();
-	moviesData.forEach(async (movie) => {
-		urlVideoMovie.push({ id: movie.id, url: await getVideoData(movie.id) });
-	});
 
 	return (
 		<>
-			{/* <h2>Topmovies</h2> */}
-			<CarouselMovies values={{ moviesData, urlVideoMovie }} />
+			<CarouselMovies moviesData={moviesData} />
 		</>
 	);
 }
