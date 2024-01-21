@@ -15,6 +15,7 @@ import { getVideoData } from './RequestVideoCard';
 
 export default function Card({ movie }: CardType) {
 	const [urlMovie, setUrlMovie] = useState<string>('');
+	const [cardSelected, setCardSelected] = useState<boolean>(true);
 	const filterGenre = (genre: number) => {
 		return dataGenres.find((genreData) => genreData.id === genre) as CardGenresType;
 	};
@@ -29,23 +30,27 @@ export default function Card({ movie }: CardType) {
 	};
 	const languages = filterLanguage(movie.original_language);
 
+	const badNote = 5;
+	const goodNote = 7.5;
 	const handleChangeClassColor = () => {
-		if (movie.vote_average <= 5) {
+		if (movie.vote_average <= badNote) {
 			return 'carousel-card-back-body-informations-bad';
-		} else if (movie.vote_average <= 7.5) {
+		} else if (movie.vote_average <= goodNote) {
 			return 'carousel-card-back-body-informations-good';
 		}
 		return 'carousel-card-back-body-informations-excelent';
 	};
 
 	const verifyLoadVideo = () => {
-		(async () => {
-			setUrlMovie((await getVideoData(movie.id)) as string);
-		})();
+		urlMovie === '' &&
+			(async () => {
+				setUrlMovie((await getVideoData(movie.id)) as string);
+			})();
+		setCardSelected(true);
 	};
 
 	return (
-		<div className='carousel-card' onMouseEnter={verifyLoadVideo}>
+		<div className='carousel-card' onMouseEnter={verifyLoadVideo} onMouseLeave={() => setCardSelected(false)}>
 			<div className='carousel-card-front'>
 				<div className='carousel-card-header'>
 					<Image
@@ -54,12 +59,13 @@ export default function Card({ movie }: CardType) {
 						width={215}
 						height={130}
 						alt={movie.title}
+						priority={true}
 					/>
 				</div>
 			</div>
 			<div className='carousel-card-back'>
 				<div className='carousel-card-header'></div>
-				<LoadVideo values={{ movie, urlMovie }} />
+				<LoadVideo values={{ movie, urlMovie, cardSelected }} />
 				<div className='carousel-card-back-body'>
 					<div className='carousel-card-back-body-buttons'>
 						<div>

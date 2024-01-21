@@ -19,5 +19,6 @@ export type LoadVideoType = {
 	values: {
 		movie: ResultsType;
 		urlMovie: string;
+		cardSelected: boolean;
 	};
 };
