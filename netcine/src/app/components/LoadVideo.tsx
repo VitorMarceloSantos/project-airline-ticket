@@ -28,13 +28,18 @@ export const LoadVideo = ({ values }: LoadVideoType) => {
 				/>
 			) : (
 				<>
-					<ReactPlayer
-						url={urlMovie}
-						playing={play}
-						ref={playerVideo as unknown as LegacyRef<ReactPlayer> | undefined}
-					/>
-					<button onClick={() => setPlay(true)}>Play</button>
-					<button onClick={() => setPlay(false)}>Stop</button>
+					<div className='carousel-card-video'>
+						<ReactPlayer
+							url={urlMovie}
+							playing={play}
+							ref={playerVideo as unknown as LegacyRef<ReactPlayer> | undefined}
+							// width={272}
+							// height={255}
+						/>
+					</div>
+
+					{/* <button onClick={() => setPlay(true)}>Play</button>
+					<button onClick={() => setPlay(false)}>Stop</button> */}
 				</>
 			)}
 		</div>
