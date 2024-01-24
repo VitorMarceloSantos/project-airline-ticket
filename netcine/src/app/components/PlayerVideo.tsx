@@ -1,11 +1,9 @@
-'use client';
-
 import Image from 'next/image';
-import { LoadVideoType } from '../types/CardTypes';
+import { PlayerVideoType } from '../types/CardTypes';
 import ReactPlayer from 'react-player';
 import { LegacyRef, useEffect, useRef, useState } from 'react';
 
-export const LoadVideo = ({ values }: LoadVideoType) => {
+export const PlayerVideo = ({ values }: PlayerVideoType) => {
 	const { movie, urlMovie, cardSelected } = values;
 	const [play, setPlay] = useState<boolean>(true);
 	const playerVideo = useRef<ReactPlayer | undefined>(undefined);
@@ -27,20 +25,15 @@ export const LoadVideo = ({ values }: LoadVideoType) => {
 					priority={true}
 				/>
 			) : (
-				<>
-					<div className='carousel-card-video'>
-						<ReactPlayer
-							url={urlMovie}
-							playing={play}
-							ref={playerVideo as unknown as LegacyRef<ReactPlayer> | undefined}
-							// width={272}
-							// height={255}
-						/>
-					</div>
-
-					{/* <button onClick={() => setPlay(true)}>Play</button>
-					<button onClick={() => setPlay(false)}>Stop</button> */}
-				</>
+				<div className='carousel-card-video'>
+					<ReactPlayer
+						url={urlMovie}
+						playing={play}
+						ref={playerVideo as unknown as LegacyRef<ReactPlayer> | undefined}
+						width={272}
+						height={255}
+					/>
+				</div>
 			)}
 		</div>
 	);
