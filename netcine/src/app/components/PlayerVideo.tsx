@@ -14,7 +14,7 @@ export const PlayerVideo = ({ values }: PlayerVideoType) => {
 	}, [cardSelected]);
 
 	return (
-		<div className='carousel-card-header' onMouseEnter={() => setPlay(true)}>
+		<section className='carousel-card-header' onMouseEnter={() => setPlay(true)}>
 			{urlMovie === '' ? (
 				<Image
 					className='carousel-card-image'
@@ -25,7 +25,7 @@ export const PlayerVideo = ({ values }: PlayerVideoType) => {
 					priority={true}
 				/>
 			) : (
-				<div className='carousel-card-video'>
+				<section className='carousel-card-video'>
 					<ReactPlayer
 						url={urlMovie}
 						playing={play}
@@ -33,8 +33,8 @@ export const PlayerVideo = ({ values }: PlayerVideoType) => {
 						width={272}
 						height={255}
 					/>
-				</div>
+				</section>
 			)}
-		</div>
+		</section>
 	);
 };

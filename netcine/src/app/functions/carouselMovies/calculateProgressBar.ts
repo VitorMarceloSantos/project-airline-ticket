@@ -1,4 +1,4 @@
-export const calculateProgressBar = (progressBar: HTMLDivElement, slider: HTMLUListElement) => {
+export const calculateProgressBar = (progressBar: HTMLDivElement, slider: HTMLUListElement): void => {
 	progressBar.innerHTML = '';
 	let itemCount = 0;
 	let itemsPerScreen = 0;

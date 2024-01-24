@@ -2,7 +2,7 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import AddIcon from '@mui/icons-material/Add';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { handleChangeClassColor } from '../functions/selectColorNoteMovie';
+import { handleChangeClassColor } from '../functions/cardBackBody/selectColorNoteMovie';
 import { CardBackBodyType } from '../types/CardTypes';
 
 export const CardBackBody = ({ values }: CardBackBodyType) => {
@@ -12,9 +12,9 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 		languages: { english_name },
 	} = values;
 	return (
-		<div className='carousel-card-back-body'>
-			<div className='carousel-card-back-body-buttons'>
-				<div>
+		<section className='carousel-card-back-body'>
+			<section className='carousel-card-back-body-buttons'>
+				<section>
 					<button
 						className='
 							carousel-card-back-body-buttons-btn carousel-card-back-body-buttons-btn-color'
@@ -27,12 +27,12 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 					<button className='carousel-card-back-body-buttons-btn'>
 						<ThumbUpOffAltIcon className='carousel-card-back-body-buttons-btn-text-color' />
 					</button>
-				</div>
+				</section>
 				<button className='carousel-card-back-body-buttons-btn '>
 					<KeyboardArrowDownIcon className='carousel-card-back-body-buttons-btn-text-color' />
 				</button>
-			</div>
-			<div className='carousel-card-back-body-informations'>
+			</section>
+			<section className='carousel-card-back-body-informations'>
 				<p
 					className={`
 						carousel-card-back-body-informations-average ${handleChangeClassColor(vote_average)}`}
@@ -42,8 +42,8 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 				<p>{release_date.split('-')[0]}</p>
 				<p>{english_name}</p>
 				<p className='carousel-card-back-body-informations-hd'>HD</p>
-			</div>
-			<div className='carousel-card-back-body-informations-genres'>
+			</section>
+			<section className='carousel-card-back-body-informations-genres'>
 				<ul>
 					{genres.map((genre, index) => {
 						return (
@@ -53,7 +53,7 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 						);
 					})}
 				</ul>
-			</div>
-		</div>
+			</section>
+		</section>
 	);
 };

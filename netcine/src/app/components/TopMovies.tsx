@@ -8,8 +8,8 @@ export default async function TopMovies() {
 	const moviesData = await RequestMovies(urlTopMovies);
 
 	return (
-		<>
+		<article>
 			<CarouselMovies moviesData={moviesData} />
-		</>
+		</article>
 	);
 }

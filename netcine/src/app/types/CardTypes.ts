@@ -16,7 +16,6 @@ export type CardLanguagesType = {
 	name: string;
 };
 
-// Load Video
 export type PlayerVideoType = {
 	values: {
 		movie: ResultsType;

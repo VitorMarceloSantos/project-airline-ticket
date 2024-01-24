@@ -3,10 +3,10 @@ import { useRef, useState, useEffect } from 'react';
 import Card from './Card';
 import { MoviesDataType } from '../types/CarouselMoviesTypes';
 import { ResultsType } from '../types/TopMoviesTypes';
-import { addEventWindowWidth } from '../functions/addEventWindowWidth';
-import { calculateProgressBar } from '../functions/calculateProgressBar';
+import { addEventWindowWidth } from '../functions/carouselMovies/addEventWindowWidth';
+import { calculateProgressBar } from '../functions/carouselMovies/calculateProgressBar';
 import 'animate.css';
-import { verifyHandleClick } from '../functions/verifyHandleClick';
+import { verifyHandleClick } from '../functions/carouselMovies/verifyHandleClick';
 import { ProgressBar } from './ProgressBar';
 
 export default function CarouselMovies({ moviesData }: MoviesDataType) {
@@ -21,9 +21,9 @@ export default function CarouselMovies({ moviesData }: MoviesDataType) {
 	}, []);
 
 	return (
-		<div className='main-carousel'>
+		<section className='main-carousel'>
 			<ProgressBar values={{ progressBar }} />
-			<div className='carousel'>
+			<section className='carousel'>
 				<button
 					onClick={() => {
 						verifyHandleClick({
@@ -36,7 +36,7 @@ export default function CarouselMovies({ moviesData }: MoviesDataType) {
 					}}
 					className='carousel-buttons button-left'
 				>
-					<div className='text'>&#8249;</div>
+					<span className='text'>&#8249;</span>
 				</button>
 				<ul className='carousel-movies' ref={slider}>
 					{movies.map((movie, index) => {
@@ -59,9 +59,9 @@ export default function CarouselMovies({ moviesData }: MoviesDataType) {
 					}}
 					className='carousel-buttons button-right'
 				>
-					<div className='text'>&#8250;</div>
+					<span className='text'>&#8250;</span>
 				</button>
-			</div>
-		</div>
+			</section>
+		</section>
 	);
 }

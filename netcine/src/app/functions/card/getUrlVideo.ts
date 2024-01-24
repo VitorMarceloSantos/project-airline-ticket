@@ -1,5 +1,5 @@
-import { RequestUrlVideo } from '../api/RequestUrlVideo';
-import { GetUrlVideoType } from '../types/CardTypes';
+import { RequestUrlVideo } from '../../api/RequestUrlVideo';
+import { GetUrlVideoType } from '../../types/CardTypes';
 
 export const getUrlVideo = ({ values }: GetUrlVideoType): void => {
 	const { movieId, urlMovie, setCardSelected, setUrlMovie } = values;

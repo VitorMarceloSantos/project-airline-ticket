@@ -1,4 +1,4 @@
-export const onHandleClick = (directionButton: string, progressBar: HTMLDivElement, slider: HTMLUListElement) => {
+export const onHandleClick = (directionButton: string, progressBar: HTMLDivElement, slider: HTMLUListElement): void => {
 	const sliderIndex = (slider !== null &&
 		parseInt(getComputedStyle(slider).getPropertyValue('--slider-index'))) as number;
 	const progressBarItemCount = progressBar?.children.length as number;
