@@ -5,7 +5,7 @@ import Card from './Card';
 import { MoviesDataType, ResultsType } from '../types/components/CarouselMoviesTypes';
 import { addEventWindowWidth } from '../functions/carouselMovies/addEventWindowWidth';
 import { calculateProgressBar } from '../functions/carouselMovies/calculateProgressBar';
-import 'animate.css';
+// import 'animate.css';
 import { verifyHandleClick } from '../functions/carouselMovies/verifyHandleClick';
 import { ProgressBar } from './ProgressBar';
 
