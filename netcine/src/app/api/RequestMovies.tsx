@@ -1,4 +1,4 @@
-import { DataType } from '../types/TopMoviesTypes';
+import { DataType } from '../types/api/RequestMovies';
 
 export async function RequestMovies(url: string) {
 	const res = await fetch(url, {

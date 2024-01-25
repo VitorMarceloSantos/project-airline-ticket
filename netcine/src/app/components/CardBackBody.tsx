@@ -3,7 +3,7 @@ import AddIcon from '@mui/icons-material/Add';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { handleChangeClassColor } from '../functions/cardBackBody/selectColorNoteMovie';
-import { CardBackBodyType } from '../types/CardTypes';
+import { CardBackBodyType } from '../types/components/CardBackBodyTypes';
 
 export const CardBackBody = ({ values }: CardBackBodyType) => {
 	const {

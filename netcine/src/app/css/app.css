@@ -75,6 +75,14 @@ body {
   height: 5vh;
   margin: 0 auto;
 }
+.carousel-card-header .carousel-card-video-position {
+  position: relative;
+}
+.carousel-card-header .carousel-card-video-position-button {
+  position: absolute;
+  bottom: 1.5vh;
+  left: 1vw;
+}
 .carousel-card-header .carousel-card-video iframe {
   position: absolute;
   top: 0;

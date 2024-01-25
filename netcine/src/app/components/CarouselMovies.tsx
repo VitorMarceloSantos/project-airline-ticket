@@ -1,8 +1,8 @@
 'use client';
+
 import { useRef, useState, useEffect } from 'react';
 import Card from './Card';
-import { MoviesDataType } from '../types/CarouselMoviesTypes';
-import { ResultsType } from '../types/TopMoviesTypes';
+import { MoviesDataType, ResultsType } from '../types/components/CarouselMoviesTypes';
 import { addEventWindowWidth } from '../functions/carouselMovies/addEventWindowWidth';
 import { calculateProgressBar } from '../functions/carouselMovies/calculateProgressBar';
 import 'animate.css';

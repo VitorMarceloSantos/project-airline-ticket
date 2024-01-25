@@ -1,5 +1,5 @@
 import { dataGenres } from '../../data/dataGenres';
-import { CardGenresType } from '../../types/CardTypes';
+import { CardGenresType } from '../../types/components/CardTypes';
 
 const filterGenre = (genre: number): CardGenresType => {
 	return dataGenres.find((genreData) => genreData.id === genre) as CardGenresType;

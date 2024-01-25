@@ -1,12 +1,4 @@
-export type DataType = {
-	page: string;
-	results: ResultsType[];
-};
-
-export type urlVideoMovieType = {
-	id: number;
-	url: string;
-};
+import { RefObject } from 'react';
 
 export type ResultsType = {
 	backdrop_path: string;
@@ -22,4 +14,16 @@ export type ResultsType = {
 	video: boolean;
 	vote_average: number;
 	vote_count: number;
+};
+
+export type MoviesDataType = {
+	moviesData: ResultsType[];
+};
+
+export type VerifyHandleClickType = {
+	values: {
+		directionButton: string;
+		progressBar: RefObject<HTMLDivElement>;
+		slider: RefObject<HTMLUListElement>;
+	};
 };

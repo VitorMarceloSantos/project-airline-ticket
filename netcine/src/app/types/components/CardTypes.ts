@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
-import { ResultsType } from './TopMoviesTypes';
+import { ResultsType } from './CarouselMoviesTypes';
 
 export type CardType = {
 	movie: ResultsType;
@@ -16,27 +16,11 @@ export type CardLanguagesType = {
 	name: string;
 };
 
-export type PlayerVideoType = {
-	values: {
-		movie: ResultsType;
-		urlMovie: string;
-		cardSelected: boolean;
-	};
-};
-
 export type GetUrlVideoType = {
 	values: {
 		urlMovie: string;
 		setUrlMovie: Dispatch<SetStateAction<string>>;
 		movieId: number;
 		setCardSelected: Dispatch<SetStateAction<boolean>>;
-	};
-};
-
-export type CardBackBodyType = {
-	values: {
-		movie: ResultsType;
-		genres: CardGenresType[];
-		languages: CardLanguagesType;
 	};
 };

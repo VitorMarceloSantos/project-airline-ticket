@@ -1,4 +1,4 @@
-import { ProgressBarType } from '../types/CarouselMoviesTypes';
+import { ProgressBarType } from '../types/components/ProgressBarTypes';
 
 export const ProgressBar = ({ values }: ProgressBarType) => {
 	const { progressBar } = values;

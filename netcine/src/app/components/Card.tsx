@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { CardGenresType, CardType } from '../types/CardTypes';
+import { CardGenresType, CardType } from '../types/components/CardTypes';
 import { useState } from 'react';
 import { PlayerVideo } from './PlayerVideo';
 import { searchGenresMovie } from '../functions/card/searchGenresMovie';
