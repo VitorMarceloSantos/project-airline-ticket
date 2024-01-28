@@ -26,7 +26,7 @@ export default function Card({ movie }: CardType) {
 						src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
 						width={215}
 						height={130}
-						alt={movie.title}
+						alt={`${movie.title} - Front`}
 						priority={true}
 					/>
 				</section>

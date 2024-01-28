@@ -24,11 +24,11 @@ export const PlayerVideo = ({ values }: PlayerVideoType) => {
 					src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
 					width={215}
 					height={130}
-					alt={movie.title}
+					alt={`${movie.title} - Back`}
 					priority={true}
 				/>
 			) : (
-				<section className='carousel-card-video carousel-card-video-position'>
+				<section className='carousel-card-video carousel-card-video-position' data-testid='movie-video'>
 					<ReactPlayer
 						url={urlMovie}
 						playing={autoPlay}

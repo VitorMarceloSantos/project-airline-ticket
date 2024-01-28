@@ -7,5 +7,6 @@ export const getUrlVideo = ({ values }: GetUrlVideoType): void => {
 		(async () => {
 			setUrlMovie((await RequestUrlVideo(movieId)) as string);
 		})();
+	// RequestUrlVideo(movieId)
 	setCardSelected(true);
 };
