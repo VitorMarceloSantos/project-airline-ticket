@@ -8,6 +8,7 @@ import { calculateProgressBar } from '../functions/carouselMovies/calculateProgr
 // import 'animate.css';
 import { verifyHandleClick } from '../functions/carouselMovies/verifyHandleClick';
 import { ProgressBar } from './ProgressBar';
+import useScript from '../hooks/UseScript';
 
 export default function CarouselMovies({ moviesData }: MoviesDataType) {
 	const [movies] = useState<ResultsType[]>(moviesData);

@@ -24,3 +24,8 @@ export type GetUrlVideoType = {
 		setCardSelected: Dispatch<SetStateAction<boolean>>;
 	};
 };
+
+export type ControlVideoPlayerType = {
+	playerFunct: string;
+	playerVideo: HTMLIFrameElement;
+};
