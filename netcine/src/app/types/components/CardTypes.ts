@@ -29,3 +29,11 @@ export type ControlVideoPlayerType = {
 	playerFunct: string;
 	playerVideo: HTMLIFrameElement;
 };
+
+export type CreateNewPlayerType = {
+	values: {
+		index: number;
+		urlMovie: string;
+		cardSelected: boolean;
+	};
+};

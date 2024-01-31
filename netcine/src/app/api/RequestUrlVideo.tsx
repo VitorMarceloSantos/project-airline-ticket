@@ -8,22 +8,11 @@ const options = {
 	},
 };
 
-// export const RequestUrlVideo = async (id: number): Promise<string> => {
-// 	// (async function value() {
-// 	// 	const res = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options);
-// 	// 	const data = await res.json();
-
-// 	// 	return `https://www.youtube.com/embed/${data.results[0].key}`;
-// 	// })();
-
-// 	return fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options)
-// 		.then((response) => response.json())
-// 		.then((response) => `https://www.youtube.com/embed/${response.results[0].key}`);
-// 	// .catch((err) => console.error(err));
-// };
-
 export const RequestUrlVideo = async (id: number) => {
 	return fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options)
 		.then((response) => response.json())
-		.then((response) => `https://www.youtube.com/embed/${response.results[0].key}`);
-}; // Função de somar mais lenta do mundo
+		.then(
+			(response) =>
+				`https://www.youtube.com/embed/${response.results[0].key}?controls=0&amp;autoplay=1&amp;showinfo=0&amp;enablejsapi=1`,
+		);
+};
