@@ -15,7 +15,7 @@
 //       firstScriptTag${index}.parentNode.insertBefore(tag${index}, firstScriptTag${index});
 // 		var playerScript${index};
 //     function onYouTubeIframeAPIReady() {
-      
+
 //       playerScript${index} = new YT.Player('player-${index}', {
 //         events: {
 //           'onReady': onPlayerReady,
@@ -28,9 +28,9 @@
 //       console.log('Entrou no script')
 //       playerScript${index}.stopVideo();
 //     })
-    
+
 //     function onPlayerReady(event) {}
-    
+
 //     var done = false;
 //     function onPlayerStateChange(event) {
 //       if (event.data == YT.PlayerState.PLAYING && !done) {
@@ -41,8 +41,6 @@
 // 		function stopVideo() {
 //       playerScript${index}.stopVideo();
 //     }
-
-
 //     `;
 // 	};
 
@@ -62,8 +60,6 @@
 // 			>
 // 				stop
 // 			</button>
-
-// 			{/* <Script id={`script-youtube-${index}`} src='https://www.youtube.com/iframe_api' /> */}
 // 			<Script id={`script-${index}`}>{executeScript(index)}</Script>
 // 		</>
 // 	);

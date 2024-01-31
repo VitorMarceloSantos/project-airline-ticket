@@ -18,30 +18,34 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 					<button
 						className='
 							carousel-card-back-body-buttons-btn carousel-card-back-body-buttons-btn-color'
+						aria-label='button-play'
 					>
 						<PlayArrowIcon className='carousel-card-back-body-buttons-btn-text-color' />
 					</button>
-					<button className='carousel-card-back-body-buttons-btn'>
+					<button className='carousel-card-back-body-buttons-btn' aria-label='button-add'>
 						<AddIcon className='carousel-card-back-body-buttons-btn-text-color' />
 					</button>
-					<button className='carousel-card-back-body-buttons-btn'>
+					<button className='carousel-card-back-body-buttons-btn' aria-label='button-like'>
 						<ThumbUpOffAltIcon className='carousel-card-back-body-buttons-btn-text-color' />
 					</button>
 				</section>
-				<button className='carousel-card-back-body-buttons-btn '>
+				<button className='carousel-card-back-body-buttons-btn' aria-label='button-arrow-down'>
 					<KeyboardArrowDownIcon className='carousel-card-back-body-buttons-btn-text-color' />
 				</button>
 			</section>
 			<section className='carousel-card-back-body-informations'>
 				<p
+					role='paragraph'
 					className={`
 						carousel-card-back-body-informations-average ${handleChangeClassColor(vote_average)}`}
 				>
 					{vote_average.toFixed(1)}
 				</p>
-				<p>{release_date.split('-')[0]}</p>
-				<p>{english_name}</p>
-				<p className='carousel-card-back-body-informations-hd'>HD</p>
+				<p role='paragraph'>{release_date.split('-')[0]}</p>
+				<p role='paragraph'>{english_name}</p>
+				<p role='paragraph' className='carousel-card-back-body-informations-hd'>
+					HD
+				</p>
 			</section>
 			<section className='carousel-card-back-body-informations-genres'>
 				<ul>
