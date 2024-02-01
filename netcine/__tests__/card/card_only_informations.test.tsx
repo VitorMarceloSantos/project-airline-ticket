@@ -44,7 +44,7 @@ describe('should render <Card>', () => {
 		// import * as RequestFetch from '../src/app/api/RequestUrlVideo';
 		// const mockFetch = jest
 		// 	.spyOn(RequestFetch, 'RequestUrlVideo')
-		// 	.mockResolvedValue('https://www.youtube.com/embed/PLl99DlL6b4');
+		// 	.mockResolvedValue('https://www.youtube.com/embed/PLl99DlL6b4?controls=0&amp;autoplay=1&amp;showinfo=0&amp;enablejsapi=1');
 		// Select Card
 		// // https://github.com/mrdulin/react-act-examples/blob/master/sync.md
 		// await act(async () => {

@@ -1,6 +1,7 @@
 import { RefObject } from 'react';
 
 export type ResultsType = {
+	// [x: string]: any;
 	backdrop_path: string;
 	genre_ids: number[];
 	id: number;
