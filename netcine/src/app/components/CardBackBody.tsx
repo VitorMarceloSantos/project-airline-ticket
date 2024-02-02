@@ -2,7 +2,7 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import AddIcon from '@mui/icons-material/Add';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { handleChangeClassColor } from '../functions/cardBackBody/selectColorNoteMovie';
+import { selectColorNoteMovie } from '../functions/cardBackBody/selectColorNoteMovie';
 import { CardBackBodyType } from '../types/components/CardBackBodyTypes';
 
 export const CardBackBody = ({ values }: CardBackBodyType) => {
@@ -37,7 +37,7 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 				<p
 					role='paragraph'
 					className={`
-						carousel-card-back-body-informations-average ${handleChangeClassColor(vote_average)}`}
+						carousel-card-back-body-informations-average ${selectColorNoteMovie(vote_average)}`}
 				>
 					{vote_average.toFixed(1)}
 				</p>

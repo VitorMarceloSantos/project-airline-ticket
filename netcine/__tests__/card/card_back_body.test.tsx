@@ -5,8 +5,8 @@ import { searchGenresMovie } from '../../src/app/functions/card/searchGenresMovi
 import { CardGenresType, CardLanguagesType } from '../../src/app/types/components/CardTypes';
 import { render, screen } from '@testing-library/react';
 
-describe('informations', () => {
-	it('exemplo', () => {
+describe('should render <Card>', () => {
+	it('Verify Informations Card', () => {
 		const genres: CardGenresType[] = searchGenresMovie(movie.genre_ids);
 		expect(genres).toEqual([
 			{

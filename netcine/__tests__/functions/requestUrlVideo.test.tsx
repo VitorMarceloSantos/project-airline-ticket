@@ -6,7 +6,7 @@ import { RequestUrlVideoType } from '../../src/app/types/api/RequestUrlVideos';
 import { RequestUrlVideo } from '../../src/app/api/RequestUrlVideo';
 // https://jestjs.io/docs/configuration#testenvironment-string
 
-describe('Verify Functions', () => {
+describe('Verify Function - RequestUrlVideo', () => {
 	const MOCK_RESULT: RequestUrlVideoType = {
 		id: 278,
 		results: [
@@ -29,6 +29,9 @@ describe('Verify Functions', () => {
 		json: async () => MOCK_RESULT,
 	} as Response;
 
+	const URL_MOVIE =
+		'https://www.youtube.com/embed/PLl99DlL6b4?controls=0&amp;autoplay=1&amp;showinfo=0&amp;enablejsapi=1';
+
 	// let MOCK_FETCH: unknown = undefined;
 
 	// beforeEach(() => {
@@ -45,9 +48,7 @@ describe('Verify Functions', () => {
 		const MOCK_FETCH = jest.spyOn(global, 'fetch').mockResolvedValue(MOCK_RESPONSE);
 		const resultMock = await RequestUrlVideo(ID_CORRECT);
 		expect(MOCK_FETCH).toHaveBeenCalled();
-		expect(resultMock).toBe(
-			'https://www.youtube.com/embed/PLl99DlL6b4?controls=0&amp;autoplay=1&amp;showinfo=0&amp;enablejsapi=1',
-		);
+		expect(resultMock).toBe(URL_MOVIE);
 	});
 
 	it('Request URLVideo - Incorrect ID', async () => {
