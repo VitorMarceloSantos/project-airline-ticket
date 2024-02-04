@@ -1,0 +1,57 @@
+@use '../mixins/_mixins'
+@import '../../1-base/_pallete'
+
+.navbar
+  align-items: center
+  display: flex
+  justify-content: space-between
+  width: 100vw
+
+  &-list
+    width: 33.33%
+    @include mixins.navbar-menu-config($side: left, $direction: start)
+
+  &-buttons
+    li:hover
+      @include mixins.navbar-buttons-config
+    li:not(:first-child)
+      margin-left: 2vw
+
+  &-search
+    width: 33.33%
+    @include mixins.navbar-menu-config($side: right, $direction: end)
+    li:not(:first-child)
+      margin-left: 1vw
+
+    &-container
+      width: 4.32vw
+      overflow: hidden
+      display: flex
+      justify-content: space-between
+      align-items: center
+
+      &-input
+        input
+          border: none
+          outline: none
+          background-color: transparent
+          color: $color-titles-buttons
+          font-weight: 700
+          margin-left: .5rem
+
+        input::placeholder
+          color: $btn-color-off
+
+      &-icon
+        background-color: transparent
+        color: $btn-color-off
+        font-size: 1.5rem
+
+        &:hover
+          color: $color-titles-buttons
+
+    .active-search-bar
+      border-radius: 30px
+      background-color: $bg-color-card
+      padding: .25vw 1vw
+      width: auto

@@ -24,3 +24,16 @@
     transform: scale(1.1) translateY(-50%)
     display: inline
     //Alterar eixo para os cards da lateral
+
+@mixin navbar-menu-config($side, $direction)
+  display: flex
+  align-items: center
+  justify-content: flex-#{$direction}
+  padding-#{$side}: 3vw
+  color: $btn-color-off
+  font-weight: 700
+
+@mixin navbar-buttons-config
+  cursor: pointer
+  color: $color-titles-buttons
+  transition: all .5s ease
