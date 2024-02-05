@@ -391,6 +391,9 @@ body {
   color: rgba(255, 255, 255, 0.5);
   font-weight: 700;
 }
+.navbar-logo {
+  padding-top: 1vw;
+}
 .navbar-buttons li:hover {
   cursor: pointer;
   color: rgba(255, 255, 255, 0.937254902);
