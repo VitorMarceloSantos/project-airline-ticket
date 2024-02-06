@@ -13,3 +13,10 @@ export type handleSearchIconOpenType = {
 	setIsActiveSearch: Dispatch<SetStateAction<boolean>>;
 	inputSearch: RefObject<HTMLInputElement>;
 };
+
+export type SideMenuType = {
+	values: {
+		genres: string[];
+		openGenre: boolean;
+	};
+};

@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import netcine from '../images/netCine.png';
 import SearchIcon from '@mui/icons-material/Search';
-import { Avatar, IconButton } from '@mui/material';
+import { Avatar, IconButton, styled } from '@mui/material';
 import { stringAvatar } from '../functions/navbar/stringAvatar';
 import MenuIcon from '@mui/icons-material/Menu';
 // import MenuOpenIcon from '@mui/icons-material/MenuOpen';
@@ -12,16 +12,18 @@ import { useRef, useState } from 'react';
 import { handleSearchIconOpen } from '../functions/navbar/handleSearchIconOpen';
 import { handleInputSearch } from '../functions/navbar/handleInputSearch';
 import { handleSearchIconClose } from '../functions/navbar/handleSearchIconClose';
+import { useSideMenuContext } from '../context';
 
 export const NavBar = () => {
 	const inputSearch = useRef<HTMLInputElement>(null);
 	const [isActiveSearch, setIsActiveSearch] = useState<boolean>(false);
 	const [textInputSearch, setTextInputSearch] = useState<string>('');
+	const { handleStateChange } = useSideMenuContext();
 	return (
 		<nav className='navbar'>
 			<ul className='navbar-list navbar-buttons'>
 				<li>
-					<MenuIcon />
+					<MenuIcon onClick={() => handleStateChange(true)} />
 				</li>
 				<li>Filmes</li>
 				<li>Séries</li>
