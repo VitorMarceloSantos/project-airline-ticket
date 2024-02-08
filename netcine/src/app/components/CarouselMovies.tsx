@@ -9,7 +9,8 @@ import { calculateProgressBar } from '../functions/carouselMovies/calculateProgr
 import { verifyHandleClick } from '../functions/carouselMovies/verifyHandleClick';
 import { ProgressBar } from './ProgressBar';
 
-export default function CarouselMovies({ moviesData }: MoviesDataType) {
+export default function CarouselMovies({ values }: MoviesDataType) {
+	const { moviesData, type } = values;
 	const [movies] = useState<ResultsType[]>(moviesData);
 	const progressBar = useRef<HTMLDivElement>(null);
 	const slider = useRef<HTMLUListElement>(null);
@@ -22,7 +23,7 @@ export default function CarouselMovies({ moviesData }: MoviesDataType) {
 
 	return (
 		<section className='main-carousel'>
-			<ProgressBar values={{ progressBar }} />
+			<ProgressBar values={{ progressBar, type }} />
 			<section className='carousel'>
 				<button
 					onClick={() => {

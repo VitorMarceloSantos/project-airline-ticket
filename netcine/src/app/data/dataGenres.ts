@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 export const dataGenres = [
 	{
 		id: 28,
@@ -74,5 +75,37 @@ export const dataGenres = [
 	{
 		id: 37,
 		name: 'Faroeste',
+	},
+	{
+		id: 10759,
+		name: 'Ação e Aventura',
+	},
+	{
+		id: 10762,
+		name: 'Kids',
+	},
+	{
+		id: 10763,
+		name: 'Notícias',
+	},
+	{
+		id: 10764,
+		name: 'Reality',
+	},
+	{
+		id: 10765,
+		name: 'Sci-Fi e Fantasia',
+	},
+	{
+		id: 10766,
+		name: 'Soap',
+	},
+	{
+		id: 10767,
+		name: 'Talk',
+	},
+	{
+		id: 10768,
+		name: 'Guerra e Política',
 	},
 ];

@@ -1,6 +1,6 @@
-import { DataType } from '../types/api/RequestMovies';
+import { DataType } from '../types/api/RequestAPI';
 
-export async function RequestMovies(url: string) {
+export async function RequestInformationsAPI(url: string) {
 	const res = await fetch(url, {
 		headers: {
 			accept: 'application/json',
