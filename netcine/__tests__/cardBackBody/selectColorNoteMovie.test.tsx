@@ -11,7 +11,8 @@ describe('Verify Function - SelectColorNoteMovie', () => {
 		expect(returFunction).toBe('carousel-card-back-body-informations-good');
 	});
 	it('Verify - Note > 7.5', () => {
-		const returFunction = selectColorNoteMovie(8);
+		const NUMBER_EIGHT = 8;
+		const returFunction = selectColorNoteMovie(NUMBER_EIGHT);
 		expect(returFunction).toBe('carousel-card-back-body-informations-excelent');
 	});
 });

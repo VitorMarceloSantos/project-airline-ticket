@@ -8,9 +8,18 @@ import { calculateProgressBar } from '../functions/carouselMovies/calculateProgr
 // import 'animate.css';
 import { verifyHandleClick } from '../functions/carouselMovies/verifyHandleClick';
 import { ProgressBar } from './ProgressBar';
+import { CardPeopleType } from '../types/components/CardPeople';
 
-export default function CarouselMovies({ values }: MoviesDataType) {
-	const { moviesData, type } = values;
+interface TypeGeneric {
+	values: {
+		moviesData: ResultsType[];
+		type: string;
+		title: string;
+	};
+}
+
+export default function CarouselMovies({ values }: TypeGeneric) {
+	const { moviesData, type, title } = values;
 	const [movies] = useState<ResultsType[]>(moviesData);
 	const progressBar = useRef<HTMLDivElement>(null);
 	const slider = useRef<HTMLUListElement>(null);
@@ -23,7 +32,7 @@ export default function CarouselMovies({ values }: MoviesDataType) {
 
 	return (
 		<section className='main-carousel'>
-			<ProgressBar values={{ progressBar, type }} />
+			<ProgressBar values={{ progressBar, title }} />
 			<section className='carousel'>
 				<button
 					onClick={() => {
@@ -43,7 +52,12 @@ export default function CarouselMovies({ values }: MoviesDataType) {
 					{movies.map((movie, index) => {
 						return (
 							<li className='carousel-item' key={index}>
-								<Card movie={movie} />
+								<Card
+									values={{
+										movie,
+										type: type === 'treding' ? (movie.media_type as string) : type,
+									}}
+								/>
 							</li>
 						);
 					})}

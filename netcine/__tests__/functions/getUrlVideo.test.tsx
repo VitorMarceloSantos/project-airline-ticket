@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { getUrlVideo } from '../../src/app/functions/card/getUrlVideo';
 import '@testing-library/jest-dom';
 import * as RequestFetch from '../../src/app/api/RequestUrlVideo';

@@ -6,7 +6,7 @@ import { act } from 'react-dom/test-utils';
 
 describe('should render <Card>', () => {
 	beforeEach(() => {
-		render(<Card movie={movie} />);
+		render(<Card values={{ movie, type: 'movie' }} />);
 	});
 	it('Verify Images', async () => {
 		const imageFront = screen.getByAltText(`${movie.title} - Front`);

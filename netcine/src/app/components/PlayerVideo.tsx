@@ -6,7 +6,7 @@ import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 
 export const PlayerVideo = ({ values }: PlayerVideoType) => {
-	const { movie, urlMovie, cardSelected } = values;
+	const { movie, urlMovie, cardSelected, type } = values;
 	const [autoPlay, setAutoPlay] = useState<boolean>(true);
 	const [soundOff, setSoundOff] = useState<boolean>(true);
 	const playerVideo = useRef<ReactPlayer | undefined>(undefined);
@@ -24,7 +24,7 @@ export const PlayerVideo = ({ values }: PlayerVideoType) => {
 					src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
 					width={215}
 					height={130}
-					alt={`${movie.title} - Back`}
+					alt={`${type === 'movie' ? movie?.title : movie?.name} - Back`}
 					priority={true}
 				/>
 			) : (

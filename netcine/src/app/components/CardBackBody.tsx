@@ -8,9 +8,15 @@ import { CardBackBodyType } from '../types/components/CardBackBodyTypes';
 export const CardBackBody = ({ values }: CardBackBodyType) => {
 	const {
 		genres,
-		movie: { vote_average, release_date },
+		movie,
 		languages: { english_name },
+		type,
 	} = values;
+
+	const verifyReleaseDate = (type: string): string => {
+		return (type === 'movie' ? movie?.release_date : movie?.first_air_date) as string;
+	};
+
 	return (
 		<section className='carousel-card-back-body'>
 			<section className='carousel-card-back-body-buttons'>
@@ -37,11 +43,11 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 				<p
 					role='paragraph'
 					className={`
-						carousel-card-back-body-informations-average ${selectColorNoteMovie(vote_average)}`}
+						carousel-card-back-body-informations-average ${selectColorNoteMovie(movie.vote_average)}`}
 				>
-					{vote_average.toFixed(1)}
+					{movie.vote_average.toFixed(1)}
 				</p>
-				<p role='paragraph'>{release_date.split('-')[0]}</p>
+				<p role='paragraph'>{verifyReleaseDate(type).split('-')[0]}</p>
 				<p role='paragraph'>{english_name}</p>
 				<p role='paragraph' className='carousel-card-back-body-informations-hd'>
 					HD

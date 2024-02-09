@@ -5,8 +5,6 @@ export type ResultsType = {
 	genre_ids: number[];
 	id: number;
 	original_language: string;
-	original_title?: string;
-	original_name?: string;
 	overview: string;
 	popularity: number;
 	poster_path: string;
@@ -17,27 +15,14 @@ export type ResultsType = {
 	video: boolean;
 	vote_average: number;
 	vote_count: number;
+	media_type?: string;
 };
-
-// export type ResultsSeriesType = {
-// 	backdrop_path: string;
-// 	genre_ids: number[];
-// 	id: number;
-// 	original_language: string;
-// 	original_name?: string;
-// 	overview: string;
-// 	popularity: number;
-// 	poster_path: string;
-// 	first_air_date?: string;
-// 	name?: string;
-// 	vote_average: number;
-// 	vote_count: number;
-// };
 
 export type MoviesDataType = {
 	values: {
 		moviesData: ResultsType[];
 		type: string;
+		title: string;
 	};
 };
 

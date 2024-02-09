@@ -6,5 +6,6 @@ export type CardBackBodyType = {
 		movie: ResultsType;
 		genres: CardGenresType[];
 		languages: CardLanguagesType;
+		type: string;
 	};
 };

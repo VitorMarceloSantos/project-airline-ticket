@@ -2,7 +2,10 @@ import { Dispatch, SetStateAction } from 'react';
 import { ResultsType } from './CarouselMoviesTypes';
 
 export type CardType = {
-	movie: ResultsType;
+	values: {
+		type: string;
+		movie: ResultsType;
+	};
 };
 
 export type CardGenresType = {

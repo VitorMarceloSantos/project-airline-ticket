@@ -1,8 +1,8 @@
 import { ProgressBarType } from '../types/components/ProgressBarTypes';
 
 export const ProgressBar = ({ values }: ProgressBarType) => {
-	const { progressBar, type } = values;
-	const title = type === 'movie' ? 'Top Filmes' : 'Top Séries';
+	const { progressBar, title } = values;
+
 	return (
 		<section className='progress-bar'>
 			<section className='progress-bar-title-container'>

@@ -5,5 +5,6 @@ export type PlayerVideoType = {
 		movie: ResultsType;
 		urlMovie: string;
 		cardSelected: boolean;
+		type: string;
 	};
 };

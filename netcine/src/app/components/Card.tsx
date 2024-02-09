@@ -7,7 +7,8 @@ import { filterLanguage } from '../functions/card/filterLanguageMovie';
 import { getUrlVideo } from '../functions/card/getUrlVideo';
 import { CardBackBody } from './CardBackBody';
 
-export default function Card({ movie }: CardType) {
+export default function Card({ values }: CardType) {
+	const { movie, type } = values;
 	const [urlMovie, setUrlMovie] = useState<string>('');
 	const [cardSelected, setCardSelected] = useState<boolean>(true);
 	const genres: CardGenresType[] = searchGenresMovie(movie.genre_ids);
@@ -26,14 +27,14 @@ export default function Card({ movie }: CardType) {
 						src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
 						width={215}
 						height={130}
-						alt={`${movie.title} - Front`}
+						alt={`${type === 'movie' ? movie.title : movie.name} - Front`}
 						priority={true}
 					/>
 				</section>
 			</section>
 			<section className='carousel-card-back'>
-				<PlayerVideo values={{ movie, urlMovie, cardSelected }} />
-				<CardBackBody values={{ movie, genres, languages }} />
+				<PlayerVideo values={{ movie, urlMovie, cardSelected, type }} />
+				<CardBackBody values={{ movie, genres, languages, type }} />
 			</section>
 		</section>
 	);
