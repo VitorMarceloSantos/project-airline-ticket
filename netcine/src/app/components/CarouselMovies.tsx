@@ -8,19 +8,14 @@ import { calculateProgressBar } from '../functions/carouselMovies/calculateProgr
 // import 'animate.css';
 import { verifyHandleClick } from '../functions/carouselMovies/verifyHandleClick';
 import { ProgressBar } from './ProgressBar';
-import { CardPeopleType } from '../types/components/CardPeople';
+import { PeopleType } from '../types/components/PeopleType';
+import { SelectCardMoviesOrTv } from './SelectCardMoviesOrTv';
+import { SelectCardPeoples } from './SelectCardPeoples';
 
-interface TypeGeneric {
-	values: {
-		moviesData: ResultsType[];
-		type: string;
-		title: string;
-	};
-}
-
-export default function CarouselMovies({ values }: TypeGeneric) {
+export const CarouselMovies = ({ values }: MoviesDataType) => {
 	const { moviesData, type, title } = values;
-	const [movies] = useState<ResultsType[]>(moviesData);
+
+	const [movies] = useState(moviesData);
 	const progressBar = useRef<HTMLDivElement>(null);
 	const slider = useRef<HTMLUListElement>(null);
 
@@ -48,20 +43,11 @@ export default function CarouselMovies({ values }: TypeGeneric) {
 				>
 					<span className='text'>&#8249;</span>
 				</button>
-				<ul className='carousel-movies' ref={slider}>
-					{movies.map((movie, index) => {
-						return (
-							<li className='carousel-item' key={index}>
-								<Card
-									values={{
-										movie,
-										type: type === 'treding' ? (movie.media_type as string) : type,
-									}}
-								/>
-							</li>
-						);
-					})}
-				</ul>
+				{type === 'peoples' ? (
+					<SelectCardPeoples values={{ slider, movies, type }} />
+				) : (
+					<SelectCardMoviesOrTv values={{ slider, movies, type }} />
+				)}
 				<button
 					onClick={() => {
 						verifyHandleClick({
@@ -79,4 +65,4 @@ export default function CarouselMovies({ values }: TypeGeneric) {
 			</section>
 		</section>
 	);
-}
+};

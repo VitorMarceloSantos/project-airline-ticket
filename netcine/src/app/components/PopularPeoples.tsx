@@ -1,5 +1,5 @@
 import { RequestInformationsAPI } from '../api/RequestInformationsAPI';
-import CarouselMovies from './CarouselMovies';
+import { CarouselMovies } from './CarouselMovies';
 
 const urlTopMovies = 'https://api.themoviedb.org/3/person/popular?language=en-US&page=1';
 
@@ -8,8 +8,8 @@ export default async function PopularPeoples() {
 
 	return (
 		<article>
-			<h1 style={{ color: 'white', fontSize: '2rem' }}>Peoples</h1>
-			{/* <CarouselMovies values={{ moviesData, type: 'movie', title: 'Top Filmes' }} /> */}
+			{/* <h1 style={{ color: 'white', fontSize: '2rem' }}>Peoples</h1> */}
+			<CarouselMovies values={{ moviesData: peopleData, type: 'peoples', title: 'Populares' }} />
 		</article>
 	);
 }

@@ -1,4 +1,5 @@
 import { RefObject } from 'react';
+import { PeopleType } from './PeopleType';
 
 export type ResultsType = {
 	backdrop_path: string;
@@ -20,7 +21,7 @@ export type ResultsType = {
 
 export type MoviesDataType = {
 	values: {
-		moviesData: ResultsType[];
+		moviesData: ResultsType[] | PeopleType[];
 		type: string;
 		title: string;
 	};
@@ -31,5 +32,13 @@ export type VerifyHandleClickType = {
 		directionButton: string;
 		progressBar: RefObject<HTMLDivElement>;
 		slider: RefObject<HTMLUListElement>;
+	};
+};
+
+export type CardMoviesOrPeopleType = {
+	values: {
+		slider: RefObject<HTMLUListElement>
+		movies: ResultsType[] | PeopleType[];
+		type: string;
 	};
 };

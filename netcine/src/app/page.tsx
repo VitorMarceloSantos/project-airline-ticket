@@ -11,9 +11,9 @@ export default function Home() {
 			<SideMenu>
 				<NavBar />
 				<TopMovies />
-				{/* <TopSeries />
+				<TopSeries />
 				<TredingWeek />
-				<PopularPeoples /> */}
+				<PopularPeoples />
 			</SideMenu>
 		</main>
 	);

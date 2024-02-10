@@ -1,6 +1,6 @@
 import { ResultsType } from './CarouselMoviesTypes';
 
-export type CardPeopleType = {
+export type PeopleType = {
 	gender: number;
 	id: number;
 	known_for_department: string;

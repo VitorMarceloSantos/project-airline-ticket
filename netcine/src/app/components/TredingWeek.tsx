@@ -1,5 +1,5 @@
 import { RequestInformationsAPI } from '../api/RequestInformationsAPI';
-import CarouselMovies from './CarouselMovies';
+import { CarouselMovies } from './CarouselMovies';
 
 const urlTredingWeek = 'https://api.themoviedb.org/3/trending/all/week?language=en-US';
 

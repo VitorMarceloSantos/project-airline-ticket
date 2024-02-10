@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
 import { ResultsType } from './CarouselMoviesTypes';
+import { PeopleType } from './PeopleType';
 
 export type CardType = {
 	values: {
@@ -40,3 +41,7 @@ export type CreateNewPlayerType = {
 		cardSelected: boolean;
 	};
 };
+
+export type CardPeopleType = {
+	people: PeopleType
+}
