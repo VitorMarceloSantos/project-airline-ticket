@@ -1,5 +1,5 @@
 import { RequestInformationsAPI } from '../api/RequestInformationsAPI';
-import { MoviesDataType, ResultsType } from '../types/components/CarouselMoviesTypes';
+import { ResultsType } from '../types/components/CarouselMoviesTypes';
 import { CarouselMovies } from './CarouselMovies';
 
 const urlTopMovies =

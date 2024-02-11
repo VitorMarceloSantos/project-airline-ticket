@@ -2,20 +2,14 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import AddIcon from '@mui/icons-material/Add';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { selectColorNoteMovie } from '../functions/cardBackBody/selectColorNoteMovie';
-import { CardBackBodyType } from '../types/components/CardBackBodyTypes';
+import { CardBackPeopleCardType } from '../types/components/CardBackPeopleBodyType';
 
-export const CardBackPeopleBody = ({ values }: CardBackBodyType) => {
-	const {
-		genres,
-		movie,
-		languages: { english_name },
-		type,
-	} = values;
+export const CardBackPeopleBody = ({ values }: CardBackPeopleCardType) => {
+	const { biography, birthday, name, place_of_birth } = values;
 
-	const verifyReleaseDate = (type: string): string => {
-		return (type === 'movie' ? movie?.release_date : movie?.first_air_date) as string;
-	};
+	// const verifyReleaseDate = (type: string): string => {
+	// 	return (type === 'movie' ? movie?.release_date : movie?.first_air_date) as string;
+	// };
 
 	return (
 		<section className='carousel-card-back-body'>
@@ -40,20 +34,21 @@ export const CardBackPeopleBody = ({ values }: CardBackBodyType) => {
 				</button>
 			</section>
 			<section className='carousel-card-back-body-informations'>
-				<p
+				{/* <p
 					role='paragraph'
 					className={`
 						carousel-card-back-body-informations-average ${selectColorNoteMovie(movie.vote_average)}`}
 				>
 					{movie.vote_average.toFixed(1)}
-				</p>
-				<p role='paragraph'>{verifyReleaseDate(type).split('-')[0]}</p>
-				<p role='paragraph'>{english_name}</p>
-				<p role='paragraph' className='carousel-card-back-body-informations-hd'>
+				</p> */}
+				<p role='paragraph'>{biography}</p>
+				<p role='paragraph'>{birthday}</p>
+				<p role='paragraph'>{name}</p>
+				{/* <p role='paragraph' className='carousel-card-back-body-informations-hd'>
 					HD
-				</p>
+				</p> */}
 			</section>
-			<section className='carousel-card-back-body-informations-genres'>
+			{/* <section className='carousel-card-back-body-informations-genres'>
 				<ul>
 					{genres.map((genre, index) => {
 						return (
@@ -63,7 +58,7 @@ export const CardBackPeopleBody = ({ values }: CardBackBodyType) => {
 						);
 					})}
 				</ul>
-			</section>
+			</section> */}
 		</section>
 	);
 };
