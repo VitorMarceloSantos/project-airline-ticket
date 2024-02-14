@@ -1,7 +1,7 @@
 import { DataTypeMoviesAndTVs } from '../types/api/RequestAPI';
 
 export async function RequestPeopleMoviesAndTVs(id: number) {
-	const url = `https://api.themoviedb.org/3/person/${id}/combined_credits?language=en-US`;
+	const url = `https://api.themoviedb.org/3/person/${id}/combined_credits?language=pt-BR`;
 	const res = await fetch(url, {
 		headers: {
 			accept: 'application/json',

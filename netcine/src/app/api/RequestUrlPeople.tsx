@@ -11,7 +11,7 @@ const options = {
 };
 
 export const RequestUrlPeoples = async (id: number): Promise<CardBackPeopleBodyType | string> => {
-	return fetch(`https://api.themoviedb.org/3/person/${id}?language=en-US'`, options)
+	return fetch(`https://api.themoviedb.org/3/person/${id}?language=pt-BR'`, options)
 		.then((response) => response.json())
 		.then((response: CardBackPeopleBodyType) => response)
 		.catch((err) => `error: ${err}`);

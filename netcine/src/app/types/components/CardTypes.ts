@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
 import { ResultsType } from './CarouselMoviesTypes';
+import { InformationsMoviesOrTVContextType } from '../context/InformationsMoviesOrTVType';
 
 export type CardType = {
 	values: {
@@ -38,5 +39,19 @@ export type CreateNewPlayerType = {
 		index: number;
 		urlMovie: string;
 		cardSelected: boolean;
+	};
+};
+
+export type UpdateValuesStateInformations = {
+	values: {
+		urlMovie: string;
+		setCardSelected: Dispatch<SetStateAction<boolean>>;
+		setUrlMovie: Dispatch<SetStateAction<string>>;
+		cardSelected: boolean;
+		genres: CardGenresType[];
+		languages: CardLanguagesType;
+		movie: ResultsType;
+		type: string;
+		handleStateChangeInformationsMoviesOrTV: (newInformations: InformationsMoviesOrTVContextType) => void;
 	};
 };

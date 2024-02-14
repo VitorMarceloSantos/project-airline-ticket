@@ -1,3 +1,4 @@
+import { ModalMovies } from './components/ModalMovies';
 import { NavBar } from './components/NavBar';
 import PopularPeoples from './components/PopularPeoples';
 import { SideMenu } from './components/SideMenu';
@@ -11,11 +12,12 @@ export default function Home() {
 		<main>
 			<SideMenu>
 				<NavBar />
+				<ModalMovies />
 				<TopMovies />
-				<TopSeries />
+				{/* <TopSeries />
 				<TredingDay />
 				<TredingWeek />
-				<PopularPeoples />
+				<PopularPeoples /> */}
 			</SideMenu>
 		</main>
 	);

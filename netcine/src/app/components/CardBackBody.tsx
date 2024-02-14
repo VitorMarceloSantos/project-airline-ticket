@@ -4,6 +4,8 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { selectColorNoteMovie } from '../functions/cardBackBody/selectColorNoteMovie';
 import { CardBackBodyType } from '../types/components/CardBackBodyTypes';
+import { useModalMoviesContext } from '../context';
+import { IconButton } from '@mui/material';
 
 export const CardBackBody = ({ values }: CardBackBodyType) => {
 	const {
@@ -12,6 +14,7 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 		languages: { english_name },
 		type,
 	} = values;
+	const { handleStateChange } = useModalMoviesContext();
 
 	const verifyReleaseDate = (type: string): string => {
 		return (type === 'movie' ? movie?.release_date : movie?.first_air_date) as string;
@@ -35,9 +38,13 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 						<ThumbUpOffAltIcon className='carousel-card-back-body-buttons-btn-text-color' />
 					</button>
 				</section>
-				<button className='carousel-card-back-body-buttons-btn' aria-label='button-arrow-down'>
+				<IconButton
+					className='carousel-card-back-body-buttons-btn'
+					aria-label='button-arrow-down'
+					onClick={() => handleStateChange(true)}
+				>
 					<KeyboardArrowDownIcon className='carousel-card-back-body-buttons-btn-text-color' />
-				</button>
+				</IconButton>
 			</section>
 			<section className='carousel-card-back-body-informations'>
 				<p

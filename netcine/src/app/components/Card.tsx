@@ -1,23 +1,39 @@
 import Image from 'next/image';
-import { CardGenresType, CardType } from '../types/components/CardTypes';
+import { CardGenresType, CardLanguagesType, CardType } from '../types/components/CardTypes';
 import { useState } from 'react';
 import { PlayerVideo } from './PlayerVideo';
 import { searchGenresMovie } from '../functions/card/searchGenresMovie';
 import { filterLanguage } from '../functions/card/filterLanguageMovie';
-import { getUrlVideo } from '../functions/card/getUrlVideo';
 import { CardBackBody } from './CardBackBody';
+import { updateValuesStateInformations } from '../functions/card/updateValuesStateInformations';
+import { useInformationsMoviesOrTVContext } from '../context';
 
 export default function Card({ values }: CardType) {
+	const { handleStateChangeInformationsMoviesOrTV } = useInformationsMoviesOrTVContext();
 	const { movie, type } = values;
 	const [urlMovie, setUrlMovie] = useState<string>('');
 	const [cardSelected, setCardSelected] = useState<boolean>(true);
 	const genres: CardGenresType[] = searchGenresMovie(movie.genre_ids);
-	const languages = filterLanguage(movie.original_language);
+	const languages: CardLanguagesType = filterLanguage(movie.original_language);
 
 	return (
 		<section
 			className='carousel-card'
-			onMouseEnter={() => getUrlVideo({ values: { movieId: movie.id, urlMovie, setCardSelected, setUrlMovie } })}
+			onMouseEnter={() =>
+				updateValuesStateInformations({
+					values: {
+						cardSelected,
+						genres,
+						languages,
+						movie,
+						setCardSelected,
+						setUrlMovie,
+						type,
+						urlMovie,
+						handleStateChangeInformationsMoviesOrTV,
+					},
+				})
+			}
 			onMouseLeave={() => setCardSelected(false)}
 		>
 			<section className='carousel-card-front'>
