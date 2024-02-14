@@ -7,7 +7,7 @@ export default async function TredingWeek() {
 	const moviesData = await RequestInformationsAPI(urlTredingWeek);
 
 	return (
-		<article>
+		<article className='container-movies-tvs-peoples'>
 			<CarouselMovies values={{ moviesData, type: 'treding', title: 'Mais assistidos da Semana' }} />
 		</article>
 	);

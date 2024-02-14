@@ -5,12 +5,11 @@ import { CardPeopleType } from '../types/components/CardPeople';
 import { CardBackPeopleBodyType } from '../types/components/CardBackPeopleBodyType';
 import { INITIAL_CARD_PEOPLE } from '../constants/cardPeople';
 import { CardBackPeopleBody } from './CardBackPeopleBody';
+import { ResultsType } from '../types/components/CarouselMoviesTypes';
 
 export default function CardPeople({ people }: CardPeopleType) {
 	const [informationsPeople, setInformationsPeople] = useState<CardBackPeopleBodyType>(INITIAL_CARD_PEOPLE);
-	// const [cardSelected, setCardSelected] = useState<boolean>(true);
-	// const genres: CardGenresType[] = searchGenresMovie(movie.genre_ids);
-	// const languages = filterLanguage(movie.original_language);
+	const [knowFor, setKnowFor] = useState<ResultsType[]>([]);
 
 	return (
 		<section
@@ -19,13 +18,12 @@ export default function CardPeople({ people }: CardPeopleType) {
 				getUrPeople({
 					values: {
 						peopleId: people.id,
-						// setCardSelected,
 						setInformationsPeople,
 						informationsPeople,
+						setKnowFor,
 					},
 				})
 			}
-			// onMouseLeave={() => setCardSelected(false)}
 		>
 			<section className='carousel-card-front'>
 				<section className='carousel-card-header'>
@@ -50,7 +48,7 @@ export default function CardPeople({ people }: CardPeopleType) {
 						priority={true}
 					/>
 				</section>
-				<CardBackPeopleBody values={informationsPeople} />
+				<CardBackPeopleBody values={{ name: people.name, informations: informationsPeople, knowFor }} />
 			</section>
 		</section>
 	);

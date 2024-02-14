@@ -1,3 +1,5 @@
+import { ResultsType } from './CarouselMoviesTypes';
+
 export type CardBackPeopleBodyType = {
 	biography: string;
 	birthday: string;
@@ -11,5 +13,9 @@ export type CardBackPeopleBodyType = {
 };
 
 export type CardBackPeopleCardType = {
-	values: CardBackPeopleBodyType;
+	values: {
+		name: string;
+		informations: CardBackPeopleBodyType;
+		knowFor: ResultsType[];
+	};
 };

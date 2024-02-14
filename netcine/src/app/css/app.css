@@ -235,6 +235,10 @@ body {
   }
 }
 
+.container-movies-tvs-peoples {
+  margin: 2rem 0;
+}
+
 .main-carousel:hover {
   cursor: pointer;
 }

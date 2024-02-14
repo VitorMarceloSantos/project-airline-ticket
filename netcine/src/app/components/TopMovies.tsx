@@ -9,7 +9,7 @@ export default async function TopMovies() {
 	const moviesData: ResultsType[] = await RequestInformationsAPI(urlTopMovies);
 
 	return (
-		<article>
+		<article className='container-movies-tvs-peoples'>
 			<CarouselMovies values={{ moviesData, type: 'movie', title: 'Top Filmes' }} />
 		</article>
 	);

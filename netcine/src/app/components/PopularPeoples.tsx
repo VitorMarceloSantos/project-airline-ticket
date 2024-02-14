@@ -7,8 +7,7 @@ export default async function PopularPeoples() {
 	const peopleData = await RequestInformationsAPI(urlTopMovies);
 
 	return (
-		<article>
-			{/* <h1 style={{ color: 'white', fontSize: '2rem' }}>Peoples</h1> */}
+		<article className='container-movies-tvs-peoples'>
 			<CarouselMovies values={{ moviesData: peopleData, type: 'peoples', title: 'Populares' }} />
 		</article>
 	);

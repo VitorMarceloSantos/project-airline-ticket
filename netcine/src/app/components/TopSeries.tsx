@@ -6,5 +6,9 @@ const urlTopSeries = 'https://api.themoviedb.org/3/tv/top_rated?language=en-US&p
 export default async function TopSeries() {
 	const seriesData = await RequestInformationsAPI(urlTopSeries);
 
-	return <article>{<CarouselMovies values={{ moviesData: seriesData, type: 'tv', title: 'Top Séries' }} />}</article>;
+	return (
+		<article className='container-movies-tvs-peoples'>
+			{<CarouselMovies values={{ moviesData: seriesData, type: 'tv', title: 'Top Séries' }} />}
+		</article>
+	);
 }
