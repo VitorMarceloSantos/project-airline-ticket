@@ -451,4 +451,17 @@ body {
   width: auto;
 }
 
+.informations-modal {
+  padding: 1rem;
+}
+.informations-modal-buttons {
+  margin-bottom: 1rem;
+}
+.informations-modal-buttons .carousel-card-back-body-buttons-btn:first-child {
+  margin-right: 1rem;
+}
+.informations-modal-text {
+  color: rgba(255, 255, 255, 0.937254902);
+}
+
 /*# sourceMappingURL=app.css.map */

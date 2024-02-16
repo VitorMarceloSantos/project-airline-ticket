@@ -6,9 +6,10 @@ export const isExistUrlVideo = async (
 	setUrlMovie: Dispatch<SetStateAction<string>>,
 	movieId: number,
 	urlMovie: string,
+	type: string,
 ): Promise<string> => {
 	if (urlMovie === '') {
-		const urlMovie = (await RequestUrlVideo(movieId)) as string;
+		const urlMovie = (await RequestUrlVideo(movieId, type)) as string;
 		setUrlMovie(urlMovie);
 		return urlMovie;
 	}
@@ -17,8 +18,8 @@ export const isExistUrlVideo = async (
 };
 
 export const getUrlVideo = async ({ values }: GetUrlVideoType): Promise<string> => {
-	const { movieId, urlMovie, setCardSelected, setUrlMovie } = values;
-	const url = await isExistUrlVideo(setUrlMovie, movieId, urlMovie);
-	setCardSelected(true);
+	const { movieId, urlMovie, setUrlMovie, type } = values;
+	const url = await isExistUrlVideo(setUrlMovie, movieId, urlMovie, type);
+
 	return url;
 };

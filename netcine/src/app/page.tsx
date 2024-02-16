@@ -14,10 +14,10 @@ export default function Home() {
 				<NavBar />
 				<ModalMovies />
 				<TopMovies />
-				{/* <TopSeries />
+				<TopSeries />
 				<TredingDay />
 				<TredingWeek />
-				<PopularPeoples /> */}
+				<PopularPeoples />
 			</SideMenu>
 		</main>
 	);

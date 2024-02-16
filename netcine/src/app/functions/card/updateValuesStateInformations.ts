@@ -8,15 +8,14 @@ export const updateValuesStateInformations = async ({ values }: UpdateValuesStat
 		urlMovie,
 		setCardSelected,
 		setUrlMovie,
-		cardSelected,
 		genres,
 		languages,
 		type,
 		handleStateChangeInformationsMoviesOrTV,
 	} = values;
-	const url = await getUrlVideo({ values: { movieId: movie.id, urlMovie, setCardSelected, setUrlMovie } });
+	setCardSelected(true);
+	const url = await getUrlVideo({ values: { movieId: movie.id, urlMovie, setUrlMovie, type } });
 	const newInformations: InformationsMoviesOrTVContextType = {
-		cardSelected,
 		genres,
 		languages,
 		url,

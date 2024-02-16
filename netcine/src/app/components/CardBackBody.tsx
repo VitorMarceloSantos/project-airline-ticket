@@ -24,19 +24,19 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 		<section className='carousel-card-back-body'>
 			<section className='carousel-card-back-body-buttons'>
 				<section>
-					<button
+					<IconButton
 						className='
 							carousel-card-back-body-buttons-btn carousel-card-back-body-buttons-btn-color'
 						aria-label='button-play'
 					>
 						<PlayArrowIcon className='carousel-card-back-body-buttons-btn-text-color' />
-					</button>
-					<button className='carousel-card-back-body-buttons-btn' aria-label='button-add'>
+					</IconButton>
+					<IconButton className='carousel-card-back-body-buttons-btn' aria-label='button-add'>
 						<AddIcon className='carousel-card-back-body-buttons-btn-text-color' />
-					</button>
-					<button className='carousel-card-back-body-buttons-btn' aria-label='button-like'>
+					</IconButton>
+					<IconButton className='carousel-card-back-body-buttons-btn' aria-label='button-like'>
 						<ThumbUpOffAltIcon className='carousel-card-back-body-buttons-btn-text-color' />
-					</button>
+					</IconButton>
 				</section>
 				<IconButton
 					className='carousel-card-back-body-buttons-btn'

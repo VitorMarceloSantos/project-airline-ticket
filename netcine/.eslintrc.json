@@ -62,7 +62,6 @@
 			}
 		],
 		"react/destructuring-assignment": ["error", "always"],
-		"react/jsx-curly-newline": ["error"],
 		"react/jsx-indent": [
 			2,
 			"tab",

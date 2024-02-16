@@ -6,7 +6,7 @@ export type InformationsMoviesOrTVContextType = {
 	genres: CardGenresType[];
 	languages: CardLanguagesType;
 	url: string;
-	cardSelected: boolean;
+	// cardSelected: boolean;
 	type: string;
 };
 

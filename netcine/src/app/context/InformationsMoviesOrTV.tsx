@@ -13,8 +13,8 @@ const InformationsMoviesOrTVContext = createContext<NewInformationsMoviesOrTVCon
 export const InformationsMoviesOrTVProvider = ({ children }: { children: React.ReactNode }) => {
 	const [stateInformationsMoviesOrTV, setStateInformationsMoviesOrTV] =
 		useState<InformationsMoviesOrTVContextType>(INITIAL_INFORMATIONS_MOVIES_TV);
-	const handleStateChangeInformationsMoviesOrTV = useCallback((newInformations: InformationsMoviesOrTVContextType) => {
-		setStateInformationsMoviesOrTV(newInformations);
+	const handleStateChangeInformationsMoviesOrTV = useCallback((newInform: InformationsMoviesOrTVContextType) => {
+		setStateInformationsMoviesOrTV(newInform);
 	}, []);
 	return (
 		<InformationsMoviesOrTVContext.Provider

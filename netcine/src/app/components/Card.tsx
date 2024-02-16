@@ -15,23 +15,24 @@ export default function Card({ values }: CardType) {
 	const [cardSelected, setCardSelected] = useState<boolean>(true);
 	const genres: CardGenresType[] = searchGenresMovie(movie.genre_ids);
 	const languages: CardLanguagesType = filterLanguage(movie.original_language);
+	const valuesProps = {
+		cardSelected,
+		genres,
+		languages,
+		movie,
+		setCardSelected,
+		setUrlMovie,
+		type,
+		urlMovie,
+		handleStateChangeInformationsMoviesOrTV,
+	};
 
 	return (
 		<section
 			className='carousel-card'
 			onMouseEnter={() =>
 				updateValuesStateInformations({
-					values: {
-						cardSelected,
-						genres,
-						languages,
-						movie,
-						setCardSelected,
-						setUrlMovie,
-						type,
-						urlMovie,
-						handleStateChangeInformationsMoviesOrTV,
-					},
+					values: { ...valuesProps },
 				})
 			}
 			onMouseLeave={() => setCardSelected(false)}

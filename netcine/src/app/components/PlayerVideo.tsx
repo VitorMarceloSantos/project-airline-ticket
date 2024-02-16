@@ -7,17 +7,16 @@ import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 
 export const PlayerVideo = ({ values }: PlayerVideoType) => {
 	const { movie, urlMovie, cardSelected, type } = values;
-	const [autoPlay, setAutoPlay] = useState<boolean>(true);
 	const [soundOff, setSoundOff] = useState<boolean>(true);
 	const playerVideo = useRef<ReactPlayer | undefined>(undefined);
 
 	useEffect(() => {
 		playerVideo.current?.seekTo(parseFloat('0'), 'seconds');
-		setAutoPlay(false);
+		setSoundOff(true);
 	}, [cardSelected]);
 
 	return (
-		<section className='carousel-card-header' onMouseEnter={() => setAutoPlay(true)}>
+		<section className='carousel-card-header'>
 			{urlMovie === '' ? (
 				<Image
 					className='carousel-card-image'
@@ -31,7 +30,7 @@ export const PlayerVideo = ({ values }: PlayerVideoType) => {
 				<section className='carousel-card-video carousel-card-video-position'>
 					<ReactPlayer
 						url={urlMovie}
-						playing={autoPlay}
+						playing={cardSelected}
 						ref={playerVideo as unknown as LegacyRef<ReactPlayer> | undefined}
 						width={272}
 						height={255}

@@ -25,7 +25,8 @@ export type GetUrlVideoType = {
 		urlMovie: string;
 		setUrlMovie: Dispatch<SetStateAction<string>>;
 		movieId: number;
-		setCardSelected: Dispatch<SetStateAction<boolean>>;
+		// setCardSelected: Dispatch<SetStateAction<boolean>>;
+		type: string;
 	};
 };
 
@@ -47,7 +48,7 @@ export type UpdateValuesStateInformations = {
 		urlMovie: string;
 		setCardSelected: Dispatch<SetStateAction<boolean>>;
 		setUrlMovie: Dispatch<SetStateAction<string>>;
-		cardSelected: boolean;
+		// cardSelected: boolean;
 		genres: CardGenresType[];
 		languages: CardLanguagesType;
 		movie: ResultsType;

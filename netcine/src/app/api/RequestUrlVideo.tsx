@@ -10,8 +10,8 @@ const options = {
 	},
 };
 
-export const RequestUrlVideo = async (id: number): Promise<string | void> => {
-	return fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options)
+export const RequestUrlVideo = async (id: number, type: string): Promise<string | void> => {
+	return fetch(`https://api.themoviedb.org/3/${type}/${id}/videos?language=en-US`, options)
 		.then((response) => response.json())
 		.then(
 			(response: RequestUrlVideoType) =>
