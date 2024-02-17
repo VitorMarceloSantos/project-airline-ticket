@@ -7,7 +7,19 @@ export type CardBackBodyType = {
 		genres: CardGenresType[];
 		languages: CardLanguagesType;
 		type: string;
-		// urlMovie: string;
-		// cardSelected: boolean;
+	};
+};
+
+export type CastType = {
+	id: number;
+	name: string;
+	character: string;
+};
+
+export type CardBackBodyInformationsType = {
+	values: {
+		movie: ResultsType;
+		type: string;
+		english_name: string;
 	};
 };

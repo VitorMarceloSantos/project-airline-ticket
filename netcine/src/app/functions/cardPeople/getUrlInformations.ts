@@ -12,6 +12,12 @@ const RequestAPIs = async (
 	peopleId: number,
 ) => {
 	setInformationsPeople((await RequestUrlPeoples(peopleId)) as CardBackPeopleBodyType);
+
+
+	// FAzer a requisição do setKnowFor quando o usuario for entrar na parte onde a setinha está
+
+
+	
 	setKnowFor(await RequestPeopleMoviesAndTVs(peopleId));
 };
 

@@ -7,4 +7,25 @@
     .carousel-card-back-body-buttons-btn:first-child
       margin-right: 1rem
   &-text
+    display: flex
     color: $color-titles-buttons
+    &-container-1
+      width: 60%
+      text-align: justify
+      padding-right: 2rem
+    &-container-2
+      width: 40%
+      text-align: justify
+      &-cast
+        display: flex
+        ul
+          display: flex
+          flex-wrap: wrap
+      &-genre
+        display: flex
+        ul
+          display: inline-flex
+          li
+            display: flex
+          li:not(:last-child)::after
+            content: ','

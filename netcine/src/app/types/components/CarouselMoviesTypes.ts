@@ -21,7 +21,7 @@ export type ResultsType = {
 
 export type MoviesDataType = {
 	values: {
-		moviesData: ResultsType[] | PeopleType[];
+		resultData: ResultsType[] | PeopleType[];
 		type: string;
 		title: string;
 	};
@@ -37,7 +37,7 @@ export type VerifyHandleClickType = {
 
 export type CardMoviesOrPeopleType = {
 	values: {
-		slider: RefObject<HTMLUListElement>
+		slider: RefObject<HTMLUListElement>;
 		movies: ResultsType[] | PeopleType[];
 		type: string;
 	};

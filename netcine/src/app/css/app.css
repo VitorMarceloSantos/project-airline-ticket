@@ -461,7 +461,36 @@ body {
   margin-right: 1rem;
 }
 .informations-modal-text {
+  display: flex;
   color: rgba(255, 255, 255, 0.937254902);
+}
+.informations-modal-text-container-1 {
+  width: 60%;
+  text-align: justify;
+  padding-right: 2rem;
+}
+.informations-modal-text-container-2 {
+  width: 40%;
+  text-align: justify;
+}
+.informations-modal-text-container-2-cast {
+  display: flex;
+}
+.informations-modal-text-container-2-cast ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.informations-modal-text-container-2-genre {
+  display: flex;
+}
+.informations-modal-text-container-2-genre ul {
+  display: inline-flex;
+}
+.informations-modal-text-container-2-genre ul li {
+  display: flex;
+}
+.informations-modal-text-container-2-genre ul li:not(:last-child)::after {
+  content: ",";
 }
 
 /*# sourceMappingURL=app.css.map */

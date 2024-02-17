@@ -1,11 +1,17 @@
+'use client';
+
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import AddIcon from '@mui/icons-material/Add';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { selectColorNoteMovie } from '../functions/cardBackBody/selectColorNoteMovie';
-import { CardBackBodyType } from '../types/components/CardBackBodyTypes';
-import { useModalMoviesContext } from '../context';
+import { CardBackBodyType, CastType } from '../types/components/CardBackBodyTypes';
+import { useInformationsMoviesOrTVContext, useModalMoviesContext } from '../context';
 import { IconButton } from '@mui/material';
+import { useState } from 'react';
+import { INITIAL_CAST } from '../constants/CardBackBody';
+import { RequestInformationsAPI } from '../api/RequestInformationsAPI';
+import { CastDataType } from '../types/api/RequestAPI';
+import { CardBackBodyInformations } from './CardBackBodyInformations';
 
 export const CardBackBody = ({ values }: CardBackBodyType) => {
 	const {
@@ -15,13 +21,25 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 		type,
 	} = values;
 	const { handleStateChange } = useModalMoviesContext();
+	// const verifyReleaseDate = (type: string): string => {
+	// 	return (type === 'movie' ? movie?.release_date : movie?.first_air_date) as string;
+	// };
+	const [castMovieOrTV, setCastMovieOrTV] = useState<CastType[]>(INITIAL_CAST);
+	const { handleStateChangeInformationsMoviesOrTV, stateInformationsMoviesOrTV } = useInformationsMoviesOrTVContext();
 
-	const verifyReleaseDate = (type: string): string => {
-		return (type === 'movie' ? movie?.release_date : movie?.first_air_date) as string;
+	// Exportar função
+	const getRequestCast = async () => {
+		const url = `https://api.themoviedb.org/3/${type}/${movie.id}/credits?language=en-US`;
+		if (castMovieOrTV === INITIAL_CAST) {
+			const cast = (await RequestInformationsAPI<CastDataType>(url)).cast;
+			const NUMBER_FOUR = 4;
+			const newCast = cast.length > NUMBER_FOUR ? cast.slice(0, NUMBER_FOUR) : cast;
+			setCastMovieOrTV(newCast);
+			handleStateChangeInformationsMoviesOrTV({ ...stateInformationsMoviesOrTV, cast: newCast });
+		}
 	};
-
 	return (
-		<section className='carousel-card-back-body'>
+		<section className='carousel-card-back-body' onMouseEnter={() => getRequestCast()}>
 			<section className='carousel-card-back-body-buttons'>
 				<section>
 					<IconButton
@@ -46,7 +64,8 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 					<KeyboardArrowDownIcon className='carousel-card-back-body-buttons-btn-text-color' />
 				</IconButton>
 			</section>
-			<section className='carousel-card-back-body-informations'>
+			<CardBackBodyInformations values={{ english_name, movie, type }} />
+			{/* <section className='carousel-card-back-body-informations'>
 				<p
 					role='paragraph'
 					className={`
@@ -59,7 +78,7 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 				<p role='paragraph' className='carousel-card-back-body-informations-hd'>
 					HD
 				</p>
-			</section>
+			</section> */}
 			<section className='carousel-card-back-body-informations-genres'>
 				<ul>
 					{genres.map((genre, index) => {

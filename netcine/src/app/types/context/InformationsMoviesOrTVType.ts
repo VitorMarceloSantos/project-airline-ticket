@@ -1,3 +1,4 @@
+import { CastType } from '../components/CardBackBodyTypes';
 import { CardGenresType, CardLanguagesType } from '../components/CardTypes';
 import { ResultsType } from '../components/CarouselMoviesTypes';
 
@@ -6,8 +7,8 @@ export type InformationsMoviesOrTVContextType = {
 	genres: CardGenresType[];
 	languages: CardLanguagesType;
 	url: string;
-	// cardSelected: boolean;
 	type: string;
+	cast?: CastType[];
 };
 
 export type NewInformationsMoviesOrTVContextType = {

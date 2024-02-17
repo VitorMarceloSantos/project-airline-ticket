@@ -11,9 +11,9 @@ import { SelectCardMoviesOrTv } from './SelectCardMoviesOrTv';
 import { SelectCardPeoples } from './SelectCardPeoples';
 
 export const CarouselMovies = ({ values }: MoviesDataType) => {
-	const { moviesData, type, title } = values;
+	const { resultData, type, title } = values;
 
-	const [movies] = useState(moviesData);
+	const [movies] = useState(resultData);
 	const progressBar = useRef<HTMLDivElement>(null);
 	const slider = useRef<HTMLUListElement>(null);
 

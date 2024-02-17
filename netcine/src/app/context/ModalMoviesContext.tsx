@@ -14,7 +14,11 @@ export const ModalMoviesProvider = ({ children }: { children: React.ReactNode })
 	const handleStateChange = useCallback((newState: boolean) => {
 		setStateModalMovies(newState);
 	}, []);
-	return <ModalMoviesContext.Provider value={{ stateModalMovies, handleStateChange }}>{children}</ModalMoviesContext.Provider>;
+	return (
+		<ModalMoviesContext.Provider value={{ stateModalMovies, handleStateChange }}>
+			{children}
+		</ModalMoviesContext.Provider>
+	);
 };
 
-export const useModalMoviesContext = () => useContext(ModalMoviesContext)
+export const useModalMoviesContext = () => useContext(ModalMoviesContext);
