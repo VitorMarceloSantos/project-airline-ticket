@@ -5,6 +5,7 @@ import { PlayerVideo } from './PlayerVideo';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import AddIcon from '@mui/icons-material/Add';
 import { CardBackBodyInformations } from './CardBackBodyInformations';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 export const ModalMovies = () => {
 	const { stateModalMovies, handleStateChange } = useModalMoviesContext();
@@ -27,7 +28,17 @@ export const ModalMovies = () => {
 				aria-describedby='parent-modal-description'
 			>
 				<Box sx={{ width: '95vw', height: '95vh', backgroundColor: '#181818' }}>
-					<PlayerVideo values={{ movie: movieOrTV, urlMovie: url, cardSelected: true, type }} />
+					<section className='video-modal'>
+						<IconButton
+							className='
+							carousel-card-back-body-buttons-btn carousel-card-back-body-buttons-btn-color video-modal-button-position'
+							aria-label='button-close'
+							onClick={() => handleStateChange(false)}
+						>
+							<PlayArrowIcon className='carousel-card-back-body-buttons-btn-text-color' />
+						</IconButton>
+						<PlayerVideo values={{ movie: movieOrTV, urlMovie: url, cardSelected: true, type }} />
+					</section>
 					<section className='informations-modal'>
 						<section className='informations-modal-buttons'>
 							<IconButton className='carousel-card-back-body-buttons-btn' aria-label='button-add'>
@@ -44,20 +55,23 @@ export const ModalMovies = () => {
 							</section>
 							<section className='informations-modal-text-container-2'>
 								<section className='informations-modal-text-container-2-cast'>
-									{/* <p>Elenco:</p> */}
 									<ul>
-										<li>Elenco:&nbsp;</li>
+										<li>
+											<h3>Elenco:&nbsp;</h3>
+										</li>
 										{cast?.map((people, index) => (
 											<li key={index}>
 												<p>{`${people.name},`}&nbsp;</p>
 											</li>
 										))}
-										<li>...</li>
+										<li>
+											<p>...</p>
+										</li>
 									</ul>
 									{/* <p>...</p> */}
 								</section>
 								<section className='informations-modal-text-container-2-genre'>
-									<p>Gêneros:</p>
+									<h3>Gêneros:</h3>
 									<ul>
 										{genres.map((genre, index) => {
 											return (
@@ -70,6 +84,9 @@ export const ModalMovies = () => {
 								</section>
 							</section>
 						</section>
+					</section>
+					<section className='ohters-movies-TV-modal'>
+						<h2>Títulos Semelhantes:</h2>
 					</section>
 				</Box>
 			</Modal>
