@@ -5,7 +5,7 @@ import { PlayerVideo } from './PlayerVideo';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import AddIcon from '@mui/icons-material/Add';
 import { CardBackBodyInformations } from './CardBackBodyInformations';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import CloseIcon from '@mui/icons-material/Close';
 
 export const ModalMovies = () => {
 	const { stateModalMovies, handleStateChange } = useModalMoviesContext();
@@ -27,15 +27,24 @@ export const ModalMovies = () => {
 				aria-labelledby='parent-modal-title'
 				aria-describedby='parent-modal-description'
 			>
-				<Box sx={{ width: '95vw', height: '95vh', backgroundColor: '#181818' }}>
-					<section className='video-modal'>
+				<Box
+					sx={{
+						width: '95vw',
+						height: '95vh',
+						backgroundColor: '#181818',
+						margin: '2.5vh 2.5vw',
+						borderRadius: '10px',
+					}}
+				>
+					<section className='video-modal video-modal-position'>
 						<IconButton
 							className='
-							carousel-card-back-body-buttons-btn carousel-card-back-body-buttons-btn-color video-modal-button-position'
+							carousel-card-back-body-buttons-btn
+							carousel-card-back-body-buttons-btn-color video-modal-position-button'
 							aria-label='button-close'
 							onClick={() => handleStateChange(false)}
 						>
-							<PlayArrowIcon className='carousel-card-back-body-buttons-btn-text-color' />
+							<CloseIcon className='carousel-card-back-body-buttons-btn-text-color' />
 						</IconButton>
 						<PlayerVideo values={{ movie: movieOrTV, urlMovie: url, cardSelected: true, type }} />
 					</section>

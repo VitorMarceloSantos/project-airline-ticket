@@ -27,6 +27,7 @@ export const SideMenu: React.FC<ChildrenType> = ({ children }) => {
 					open={stateSideMenu}
 					variant='temporary'
 					onClose={() => toggleDrawer(handleStateChange, setOpenGenreMovie, setOpenGenreSerie)}
+					sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
 				>
 					<Box
 						sx={{

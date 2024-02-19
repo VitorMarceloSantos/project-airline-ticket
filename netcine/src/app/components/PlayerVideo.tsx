@@ -17,8 +17,7 @@ export const PlayerVideo = ({ values }: PlayerVideoType) => {
 
 	return (
 		<section className='carousel-card-header'>
-			{/* {urlMovie === '' ? ( */}
-			{urlMovie !== '' ? (
+			{urlMovie === '' ? (
 				<Image
 					className='carousel-card-image'
 					src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
@@ -33,8 +32,8 @@ export const PlayerVideo = ({ values }: PlayerVideoType) => {
 						url={urlMovie}
 						playing={cardSelected}
 						ref={playerVideo as unknown as LegacyRef<ReactPlayer> | undefined}
-						width={272}
-						height={255}
+						// width={272}
+						// height={255}
 						muted={soundOff}
 					/>
 					<button
