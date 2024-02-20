@@ -32,8 +32,8 @@ export const PlayerVideo = ({ values }: PlayerVideoType) => {
 						url={urlMovie}
 						playing={cardSelected}
 						ref={playerVideo as unknown as LegacyRef<ReactPlayer> | undefined}
-						// width={272}
-						// height={255}
+						width={272}
+						height={255}
 						muted={soundOff}
 					/>
 					<button

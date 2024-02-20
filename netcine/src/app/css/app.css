@@ -157,7 +157,7 @@ body {
   background-color: red;
 }
 .carousel-card-back-body-informations-good {
-  background-color: yellow;
+  background-color: #E3C521;
 }
 .carousel-card-back-body-informations-excelent {
   background-color: green;
@@ -481,6 +481,7 @@ body {
 .informations-modal {
   padding: 1rem;
   height: 10vh;
+  margin-bottom: 2rem;
 }
 .informations-modal-buttons {
   margin-bottom: 1rem;
@@ -500,12 +501,24 @@ body {
   text-align: justify;
   padding-right: 2rem;
 }
+.informations-modal-text-container-1 .carousel-card-back-body-informations {
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+.informations-modal-text-container-1 .carousel-card-back-body-informations p:not(:last-child) {
+  margin-right: 2rem;
+}
+.informations-modal-text-container-1-overview {
+  line-height: 1.3rem;
+}
 .informations-modal-text-container-2 {
   width: 40%;
   text-align: justify;
+  line-height: 1.3rem;
 }
 .informations-modal-text-container-2-cast {
   display: flex;
+  margin-bottom: 1rem;
 }
 .informations-modal-text-container-2-cast ul {
   display: flex;
@@ -515,7 +528,8 @@ body {
   display: flex;
 }
 .informations-modal-text-container-2-genre ul {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
 }
 .informations-modal-text-container-2-genre ul li {
   display: flex;
@@ -525,9 +539,46 @@ body {
 }
 
 .ohters-movies-TV-modal {
-  height: 60vh;
+  height: 55vh;
   padding: 1rem;
   color: rgba(255, 255, 255, 0.937254902);
+}
+.ohters-movies-TV-modal h2 {
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.container-movies-tvs-recomendations {
+  height: 98%;
+  overflow: scroll;
+}
+.container-movies-tvs-recomendations ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.container-movies-tvs-recomendations ul li {
+  width: 30vw;
+}
+
+.card-header-recomendation {
+  margin: 1rem 1rem;
+}
+.card-header-recomendation img {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  width: 100%;
+}
+.card-header-recomendation-informations {
+  height: 12vh;
+  text-align: justify;
+  line-height: 1.3rem;
+  padding: 1rem;
+  background-color: #2F2F2F;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.card-header-recomendation-informations-overview {
+  margin-top: 1rem;
 }
 
 /*# sourceMappingURL=app.css.map */

@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 'use client';
 import { Box, IconButton, Modal } from '@mui/material';
 import { useInformationsMoviesOrTVContext, useModalMoviesContext } from '../context';
@@ -6,6 +7,7 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import AddIcon from '@mui/icons-material/Add';
 import { CardBackBodyInformations } from './CardBackBodyInformations';
 import CloseIcon from '@mui/icons-material/Close';
+import RecomendationsMoviesOrTVs from './RecomendationsMoviesOrTVs';
 
 export const ModalMovies = () => {
 	const { stateModalMovies, handleStateChange } = useModalMoviesContext();
@@ -60,7 +62,7 @@ export const ModalMovies = () => {
 						<section className='informations-modal-text'>
 							<section className='informations-modal-text-container-1'>
 								<CardBackBodyInformations values={{ english_name, movie: movieOrTV, type }} />
-								<p id='parent-modal-description'>{movieOrTV.overview}</p>
+								<p className='informations-modal-text-container-1-overview'>{movieOrTV.overview}</p>
 							</section>
 							<section className='informations-modal-text-container-2'>
 								<section className='informations-modal-text-container-2-cast'>
@@ -77,7 +79,6 @@ export const ModalMovies = () => {
 											<p>...</p>
 										</li>
 									</ul>
-									{/* <p>...</p> */}
 								</section>
 								<section className='informations-modal-text-container-2-genre'>
 									<h3>Gêneros:</h3>
@@ -96,6 +97,7 @@ export const ModalMovies = () => {
 					</section>
 					<section className='ohters-movies-TV-modal'>
 						<h2>Títulos Semelhantes:</h2>
+						<RecomendationsMoviesOrTVs values={{ type, movieOrTV, english_name }} />
 					</section>
 				</Box>
 			</Modal>

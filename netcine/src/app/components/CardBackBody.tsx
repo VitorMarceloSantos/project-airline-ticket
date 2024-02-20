@@ -21,9 +21,6 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 		type,
 	} = values;
 	const { handleStateChange } = useModalMoviesContext();
-	// const verifyReleaseDate = (type: string): string => {
-	// 	return (type === 'movie' ? movie?.release_date : movie?.first_air_date) as string;
-	// };
 	const [castMovieOrTV, setCastMovieOrTV] = useState<CastType[]>(INITIAL_CAST);
 	const { handleStateChangeInformationsMoviesOrTV, stateInformationsMoviesOrTV } = useInformationsMoviesOrTVContext();
 
@@ -65,20 +62,6 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 				</IconButton>
 			</section>
 			<CardBackBodyInformations values={{ english_name, movie, type }} />
-			{/* <section className='carousel-card-back-body-informations'>
-				<p
-					role='paragraph'
-					className={`
-						carousel-card-back-body-informations-average ${selectColorNoteMovie(movie.vote_average)}`}
-				>
-					{movie.vote_average.toFixed(1)}
-				</p>
-				<p role='paragraph'>{verifyReleaseDate(type).split('-')[0]}</p>
-				<p role='paragraph'>{english_name}</p>
-				<p role='paragraph' className='carousel-card-back-body-informations-hd'>
-					HD
-				</p>
-			</section> */}
 			<section className='carousel-card-back-body-informations-genres'>
 				<ul>
 					{genres.map((genre, index) => {
