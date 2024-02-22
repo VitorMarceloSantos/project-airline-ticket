@@ -4,11 +4,13 @@ import { LegacyRef, useEffect, useRef, useState } from 'react';
 import { PlayerVideoType } from '../types/components/PlayerVideoTypes';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import ErroImagem from '../images/errorVideo.png';
 
 export const PlayerVideo = ({ values }: PlayerVideoType) => {
 	const { movie, urlMovie, cardSelected, type } = values;
 	const [soundOff, setSoundOff] = useState<boolean>(true);
 	const playerVideo = useRef<ReactPlayer | undefined>(undefined);
+	const URL_IMG = `https://image.tmdb.org/t/p/w342${movie.poster_path}`;
 
 	useEffect(() => {
 		playerVideo.current?.seekTo(parseFloat('0'), 'seconds');
@@ -20,7 +22,7 @@ export const PlayerVideo = ({ values }: PlayerVideoType) => {
 			{urlMovie === '' ? (
 				<Image
 					className='carousel-card-image'
-					src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
+					src={movie.poster_path === null ? ErroImagem : URL_IMG}
 					width={215}
 					height={130}
 					alt={`${type === 'movie' ? movie?.title : movie?.name} - Back`}

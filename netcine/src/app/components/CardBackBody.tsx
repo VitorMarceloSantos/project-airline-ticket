@@ -5,13 +5,14 @@ import AddIcon from '@mui/icons-material/Add';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { CardBackBodyType, CastType } from '../types/components/CardBackBodyTypes';
-import { useInformationsMoviesOrTVContext, useModalMoviesContext } from '../context';
+import { useInformationsMoviesOrTVContext } from '../context';
 import { IconButton } from '@mui/material';
 import { useState } from 'react';
 import { INITIAL_CAST } from '../constants/CardBackBody';
 import { RequestInformationsAPI } from '../api/RequestInformationsAPI';
 import { CastDataType } from '../types/api/RequestAPI';
 import { CardBackBodyInformations } from './CardBackBodyInformations';
+import Link from 'next/link';
 
 export const CardBackBody = ({ values }: CardBackBodyType) => {
 	const {
@@ -20,7 +21,6 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 		languages: { english_name },
 		type,
 	} = values;
-	const { handleStateChange } = useModalMoviesContext();
 	const [castMovieOrTV, setCastMovieOrTV] = useState<CastType[]>(INITIAL_CAST);
 	const { handleStateChangeInformationsMoviesOrTV, stateInformationsMoviesOrTV } = useInformationsMoviesOrTVContext();
 
@@ -36,43 +36,44 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 		}
 	};
 	return (
-		<section className='carousel-card-back-body' onMouseEnter={() => getRequestCast()}>
-			<section className='carousel-card-back-body-buttons'>
-				<section>
-					<IconButton
-						className='
+			<section className='carousel-card-back-body' onMouseEnter={() => getRequestCast()}>
+				<section className='carousel-card-back-body-buttons'>
+					<section>
+						<IconButton
+							className='
 							carousel-card-back-body-buttons-btn carousel-card-back-body-buttons-btn-color'
-						aria-label='button-play'
+							aria-label='button-play'
+						>
+							<PlayArrowIcon className='carousel-card-back-body-buttons-btn-text-color' />
+						</IconButton>
+						<IconButton className='carousel-card-back-body-buttons-btn' aria-label='button-add'>
+							<AddIcon className='carousel-card-back-body-buttons-btn-text-color' />
+						</IconButton>
+						<IconButton className='carousel-card-back-body-buttons-btn' aria-label='button-like'>
+							<ThumbUpOffAltIcon className='carousel-card-back-body-buttons-btn-text-color' />
+						</IconButton>
+					</section>
+					<IconButton
+						className='carousel-card-back-body-buttons-btn'
+						aria-label='button-arrow-down'
 					>
-						<PlayArrowIcon className='carousel-card-back-body-buttons-btn-text-color' />
-					</IconButton>
-					<IconButton className='carousel-card-back-body-buttons-btn' aria-label='button-add'>
-						<AddIcon className='carousel-card-back-body-buttons-btn-text-color' />
-					</IconButton>
-					<IconButton className='carousel-card-back-body-buttons-btn' aria-label='button-like'>
-						<ThumbUpOffAltIcon className='carousel-card-back-body-buttons-btn-text-color' />
+					<Link href='/?modal=true'>
+						<KeyboardArrowDownIcon className='carousel-card-back-body-buttons-btn-text-color' />
+					</Link>
 					</IconButton>
 				</section>
-				<IconButton
-					className='carousel-card-back-body-buttons-btn'
-					aria-label='button-arrow-down'
-					onClick={() => handleStateChange(true)}
-				>
-					<KeyboardArrowDownIcon className='carousel-card-back-body-buttons-btn-text-color' />
-				</IconButton>
+				<CardBackBodyInformations values={{ english_name, movie, type }} />
+				<section className='carousel-card-back-body-informations-genres'>
+					<ul>
+						{genres.map((genre, index) => {
+							return (
+								<li className='carousel-card-back-body-informations-genres-li' key={index}>
+									<p>{genre.name}&nbsp;</p>
+								</li>
+							);
+						})}
+					</ul>
+				</section>
 			</section>
-			<CardBackBodyInformations values={{ english_name, movie, type }} />
-			<section className='carousel-card-back-body-informations-genres'>
-				<ul>
-					{genres.map((genre, index) => {
-						return (
-							<li className='carousel-card-back-body-informations-genres-li' key={index}>
-								<p>{genre.name}&nbsp;</p>
-							</li>
-						);
-					})}
-				</ul>
-			</section>
-		</section>
 	);
 };

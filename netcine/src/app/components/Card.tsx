@@ -7,6 +7,8 @@ import { filterLanguage } from '../functions/card/filterLanguageMovie';
 import { CardBackBody } from './CardBackBody';
 import { updateValuesStateInformations } from '../functions/card/updateValuesStateInformations';
 import { useInformationsMoviesOrTVContext } from '../context';
+import ErroImagem from '../images/errorVideo.png';
+import { ModalMovies } from './ModalMovies';
 
 export default function Card({ values }: CardType) {
 	const { handleStateChangeInformationsMoviesOrTV } = useInformationsMoviesOrTVContext();
@@ -26,33 +28,34 @@ export default function Card({ values }: CardType) {
 		urlMovie,
 		handleStateChangeInformationsMoviesOrTV,
 	};
+	const URL_IMG = `https://image.tmdb.org/t/p/w342${movie.poster_path}`;
 
 	return (
-		<section
-			className='carousel-card'
-			onMouseEnter={() =>
-				updateValuesStateInformations({
-					values: { ...valuesProps },
-				})
-			}
-			onMouseLeave={() => setCardSelected(false)}
-		>
-			<section className='carousel-card-front'>
-				<section className='carousel-card-header'>
-					<Image
-						className='carousel-card-image'
-						src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
-						width={215}
-						height={130}
-						alt={`${type === 'movie' ? movie.title : movie.name} - Front`}
-						priority={true}
-					/>
+			<section
+				className='carousel-card'
+				onMouseEnter={() =>
+					updateValuesStateInformations({
+						values: { ...valuesProps },
+					})
+				}
+				onMouseLeave={() => setCardSelected(false)}
+			>
+				<section className='carousel-card-front'>
+					<section className='carousel-card-header'>
+						<Image
+							className='carousel-card-image'
+							src={movie.poster_path === null ? ErroImagem : URL_IMG}
+							width={215}
+							height={130}
+							alt={`${type === 'movie' ? movie.title : movie.name} - Front`}
+							priority={true}
+						/>
+					</section>
+				</section>
+				<section className='carousel-card-back'>
+					<PlayerVideo values={{ movie, urlMovie, cardSelected, type }} />
+					<CardBackBody values={{ movie, genres, languages, type }} />
 				</section>
 			</section>
-			<section className='carousel-card-back'>
-				<PlayerVideo values={{ movie, urlMovie, cardSelected, type }} />
-				<CardBackBody values={{ movie, genres, languages, type }} />
-			</section>
-		</section>
 	);
 }

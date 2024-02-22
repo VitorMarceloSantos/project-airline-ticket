@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { ModalMovies } from './components/ModalMovies';
 import { NavBar } from './components/NavBar';
 import PopularPeoples from './components/PopularPeoples';
@@ -10,14 +11,16 @@ import TredingWeek from './components/TredingWeek';
 export default function Home() {
 	return (
 		<main>
+			<Suspense>
+				<ModalMovies />
+			</Suspense>
 			<SideMenu>
 				<NavBar />
-				<ModalMovies />
 				<TopMovies />
-				<TopSeries />
+				{/* <TopSeries />
 				<TredingDay />
 				<TredingWeek />
-				<PopularPeoples />
+				<PopularPeoples /> */}
 			</SideMenu>
 		</main>
 	);

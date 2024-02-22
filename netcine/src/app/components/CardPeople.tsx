@@ -6,10 +6,12 @@ import { CardBackPeopleBodyType } from '../types/components/CardBackPeopleBodyTy
 import { INITIAL_CARD_PEOPLE } from '../constants/cardPeople';
 import { CardBackPeopleBody } from './CardBackPeopleBody';
 import { ResultsType } from '../types/components/CarouselMoviesTypes';
+import ErroImagem from '../images/errorVideo.png';
 
 export default function CardPeople({ people }: CardPeopleType) {
 	const [informationsPeople, setInformationsPeople] = useState<CardBackPeopleBodyType>(INITIAL_CARD_PEOPLE);
 	const [knowFor, setKnowFor] = useState<ResultsType[]>([]);
+	const URL_IMG = `https://image.tmdb.org/t/p/w342${people.profile_path}`;
 
 	return (
 		<section
@@ -29,7 +31,7 @@ export default function CardPeople({ people }: CardPeopleType) {
 				<section className='carousel-card-header'>
 					<Image
 						className='carousel-card-image'
-						src={`https://image.tmdb.org/t/p/w342${people.profile_path}`}
+						src={people.profile_path === null ? ErroImagem : URL_IMG}
 						width={215}
 						height={130}
 						alt={`${people.name}`}
@@ -41,7 +43,7 @@ export default function CardPeople({ people }: CardPeopleType) {
 				<section className='carousel-card-header'>
 					<Image
 						className='carousel-card-image'
-						src={`https://image.tmdb.org/t/p/w342${people.profile_path}`}
+						src={people.profile_path === null ? ErroImagem : URL_IMG}
 						width={215}
 						height={130}
 						alt={`${people.name}`}
