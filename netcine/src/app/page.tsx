@@ -15,9 +15,9 @@ export default function Home() {
 				<ModalMovies />
 				<TopMovies />
 				<TopSeries />
-				{/* <TredingDay />
+				<TredingDay />
 				<TredingWeek />
-				<PopularPeoples /> */}
+				<PopularPeoples />
 			</SideMenu>
 		</main>
 	);

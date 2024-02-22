@@ -15,15 +15,14 @@
   .progress-bar-link-2
     display: flex
 
-@mixin change-card
+@mixin change-card($value-Y, $value-X)
   .carousel-card-front
     opacity: 0
   .carousel-card-back
     opacity: 1
     width: 110%
-    transform: scale(1.1) translateY(-50%)
+    transform: scale(1.1) translateY($value-Y) translateX($value-X)
     display: inline
-    //Alterar eixo para os cards da lateral
 
 @mixin navbar-menu-config($side, $direction)
   display: flex

@@ -14,23 +14,28 @@ $desktop-width: 1024px
 
 body
   overflow: hidden
-  // Usando no body, para retirar a barra de navegação e não atrapalhar os demais componentes
+
+// .carousel-item
+//   &:hover
+//     .carousel-card
+//       z-index: 1
 
 .carousel-card
   position: relative
+  // z-index: -1
 
   &-header
     width: 100%
     img
       width: 100%
       // Atualizar de acordo com o tamanho da tela
-      height: 15vh
+      height: 10vh
     .carousel-card-video
       border-radius: .5rem
       position: relative
       padding-bottom: 56.25%
-      // padding-top: 25px
-      height: 5vh
+      // Atualizar de acordo com o tamanho da tela
+      height: 1.5vh
       margin: 0 auto
 
       &-position
@@ -52,6 +57,13 @@ body
     transition: all 250ms ease-out
     transition-delay: 200ms
 
+    img
+      height: 10vh
+      border-bottom-left-radius: 0
+      border-bottom-right-radius: 0
+      // position: relative
+      // z-index: -1
+
   &-back
     position: absolute
     display: none
@@ -63,16 +75,17 @@ body
     border-radius: .5rem
     background-color: $bg-color-card
     box-shadow: 0 0 10px 1px #0a0a0a
-
+    // &:hover
+    //   z-index: 999
     &-video
       width: 100%
-      height: 20vh
+      height: 10vh
       object-fit: cover
       border-bottom-left-radius: 0
       border-bottom-right-radius: 0
 
     img
-      height: 20vh
+      height: 10vh
       border-bottom-left-radius: 0
       border-bottom-right-radius: 0
 
@@ -80,7 +93,7 @@ body
       border-bottom-left-radius: .5rem
       border-bottom-right-radius: .5rem
       // Atualizar de acordo com a tela
-      height: 13vh
+      height: 8vh
       display: flex
       flex-direction: column
       justify-content: space-evenly
@@ -111,6 +124,7 @@ body
           align-items: center
           justify-content: center
           font-weight: 1000
+          font-size: .9rem
 
         &-bad
           background-color: red
@@ -135,7 +149,6 @@ body
         justify-content: space-between
         align-items: center
         margin: .5rem
-        margin-bottom: 1.5rem
         // height: 5vh
 
         button
@@ -150,7 +163,9 @@ body
           transition: all 250ms
           border-radius: 50%
           background: transparent
-          height: 2vh
+          // Trocar tamanho de acordo com a tela
+          height: 1.75vh
+          width: 3vw
           &-text-color
             color: $color-titles-buttons
             font-size: 1.4rem
@@ -172,9 +187,22 @@ body
             transition: all 250ms ease-out
             .carousel-card-back-body-buttons-btn-text-color
               color: $btn-color-off
-  &:hover
-    @include mixins.change-card
 
   @include desktop
     width: 100%
     top: 0%
+
+.card-rigth
+  .carousel-card
+    &:hover
+      @include mixins.change-card($value-Y: -70%, $value-X: -13%)
+
+.card-left
+  .carousel-card
+    &:hover
+      @include mixins.change-card($value-Y: -70%, $value-X: 5%)
+
+.card-center
+  .carousel-card
+    &:hover
+      @include mixins.change-card($value-Y: -70%, $value-X: -5%)

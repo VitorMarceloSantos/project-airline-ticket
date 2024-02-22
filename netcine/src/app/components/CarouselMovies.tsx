@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from 'react';
 import { MoviesDataType } from '../types/components/CarouselMoviesTypes';
 import { addEventWindowWidth } from '../functions/carouselMovies/addEventWindowWidth';
 import { calculateProgressBar } from '../functions/carouselMovies/calculateProgressBar';
-// import 'animate.css';
+import 'animate.css';
 import { verifyHandleClick } from '../functions/carouselMovies/verifyHandleClick';
 import { ProgressBar } from './ProgressBar';
 import { SelectCardMoviesOrTv } from './SelectCardMoviesOrTv';

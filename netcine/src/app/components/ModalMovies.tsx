@@ -36,6 +36,7 @@ export const ModalMovies = () => {
 						backgroundColor: '#181818',
 						margin: '2.5vh 2.5vw',
 						borderRadius: '10px',
+						paddingBottom: '1.5rem',
 					}}
 				>
 					<section className='video-modal video-modal-position'>

@@ -56,3 +56,10 @@ export type UpdateValuesStateInformations = {
 		handleStateChangeInformationsMoviesOrTV: (newInformations: InformationsMoviesOrTVContextType) => void;
 	};
 };
+
+export type AddClassCardType = {
+	values: {
+		itemsPerScreen: number;
+		listCards: NodeListOf<Element>;
+	};
+};
