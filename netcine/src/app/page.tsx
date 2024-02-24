@@ -7,6 +7,7 @@ import TopMovies from './components/TopMovies';
 import TopSeries from './components/TopSeries';
 import TredingDay from './components/TredingDay';
 import TredingWeek from './components/TredingWeek';
+import { Banner } from './components/Banner';
 
 export default function Home() {
 	return (
@@ -16,11 +17,12 @@ export default function Home() {
 			</Suspense>
 			<SideMenu>
 				<NavBar />
+				<Banner />
 				<TopMovies />
-				{/* <TopSeries />
+				<TopSeries />
 				<TredingDay />
 				<TredingWeek />
-				<PopularPeoples /> */}
+				<PopularPeoples />
 			</SideMenu>
 		</main>
 	);

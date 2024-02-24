@@ -1,0 +1,35 @@
+.banner-video
+  &-front
+    transition: all 250ms ease-out
+    transition-delay: 200ms
+
+    img
+      height: 10vh
+      border-bottom-left-radius: 0
+      border-bottom-right-radius: 0
+
+  &-back
+    position: absolute
+    display: none
+    opacity: 0
+    // width: 150%
+    // transition: all 250ms ease-in
+    // transition-delay: 200ms
+    z-index: 999
+    border-radius: .5rem
+    // background-color: $bg-color-card
+    box-shadow: 0 0 10px 1px #0a0a0a
+
+    iframe
+      width: 100vw
+      height: 30vh
+      object-fit: cover
+      border-bottom-left-radius: 0
+      border-bottom-right-radius: 0
+
+@mixin change-card($value-Y, $value-X)
+  .carousel-card-front
+    opacity: 0
+  .carousel-card-back
+    opacity: 1
+    display: inline

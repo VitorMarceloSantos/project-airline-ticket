@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { getItemsPerScreen } from '../functions/card/getItemsPerScreen';
 import { CardMoviesOrPeopleType, ResultsType } from '../types/components/CarouselMoviesTypes';
 import Card from './Card';
-import { getWidthWindow } from './getWidthWindow';
+import { getWidthWindow } from '../functions/card/getWidthWindow';
 import { addClassCard } from '../functions/card/addClassCard';
 
 export const SelectCardMoviesOrTv = ({ values }: CardMoviesOrPeopleType) => {

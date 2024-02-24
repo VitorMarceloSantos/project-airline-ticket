@@ -14,8 +14,7 @@ import AddIcon from '@mui/icons-material/Add';
 import { CardBackBodyInformations } from './CardBackBodyInformations';
 import CloseIcon from '@mui/icons-material/Close';
 import RecomendationsMoviesOrTVs from './RecomendationsMoviesOrTVs';
-import { usePathname, useSearchParams } from 'next/navigation';
-import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 
 export const ModalMovies = () => {
@@ -30,7 +29,6 @@ export const ModalMovies = () => {
 	} = stateInformationsMoviesOrTV;
 	const searchParams = useSearchParams();
 	const modal = searchParams.get('modal');
-	const pathname = usePathname();
 	const router = useRouter();
 	return (
 		<Modal
@@ -55,10 +53,9 @@ export const ModalMovies = () => {
 							carousel-card-back-body-buttons-btn
 							carousel-card-back-body-buttons-btn-color video-modal-position-button'
 						aria-label='button-close'
+						onClick={() => router.push('/')}
 					>
-						<Link href={pathname}>
-							<CloseIcon className='carousel-card-back-body-buttons-btn-text-color' />
-						</Link>
+						<CloseIcon className='carousel-card-back-body-buttons-btn-text-color' />
 					</IconButton>
 					<PlayerVideo values={{ movie: movieOrTV, urlMovie: url, cardSelected: true, type }} />
 				</section>

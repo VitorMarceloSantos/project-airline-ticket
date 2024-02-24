@@ -12,7 +12,7 @@ import { INITIAL_CAST } from '../constants/CardBackBody';
 import { RequestInformationsAPI } from '../api/RequestInformationsAPI';
 import { CastDataType } from '../types/api/RequestAPI';
 import { CardBackBodyInformations } from './CardBackBodyInformations';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export const CardBackBody = ({ values }: CardBackBodyType) => {
 	const {
@@ -23,6 +23,7 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 	} = values;
 	const [castMovieOrTV, setCastMovieOrTV] = useState<CastType[]>(INITIAL_CAST);
 	const { handleStateChangeInformationsMoviesOrTV, stateInformationsMoviesOrTV } = useInformationsMoviesOrTVContext();
+	const router = useRouter();
 
 	// Exportar função
 	const getRequestCast = async () => {
@@ -36,44 +37,46 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 		}
 	};
 	return (
-			<section className='carousel-card-back-body' onMouseEnter={() => getRequestCast()}>
-				<section className='carousel-card-back-body-buttons'>
-					<section>
-						<IconButton
-							className='
-							carousel-card-back-body-buttons-btn carousel-card-back-body-buttons-btn-color'
-							aria-label='button-play'
-						>
-							<PlayArrowIcon className='carousel-card-back-body-buttons-btn-text-color' />
-						</IconButton>
-						<IconButton className='carousel-card-back-body-buttons-btn' aria-label='button-add'>
-							<AddIcon className='carousel-card-back-body-buttons-btn-text-color' />
-						</IconButton>
-						<IconButton className='carousel-card-back-body-buttons-btn' aria-label='button-like'>
-							<ThumbUpOffAltIcon className='carousel-card-back-body-buttons-btn-text-color' />
-						</IconButton>
-					</section>
+		<section className='carousel-card-back-body' onMouseEnter={() => getRequestCast()}>
+			<section className='carousel-card-back-body-buttons'>
+				<section>
 					<IconButton
-						className='carousel-card-back-body-buttons-btn'
-						aria-label='button-arrow-down'
+						className='
+							carousel-card-back-body-buttons-btn carousel-card-back-body-buttons-btn-color'
+						aria-label='button-play'
 					>
-					<Link href='/?modal=true'>
-						<KeyboardArrowDownIcon className='carousel-card-back-body-buttons-btn-text-color' />
-					</Link>
+						<PlayArrowIcon className='carousel-card-back-body-buttons-btn-text-color' />
+					</IconButton>
+					<IconButton className='carousel-card-back-body-buttons-btn' aria-label='button-add'>
+						<AddIcon className='carousel-card-back-body-buttons-btn-text-color' />
+					</IconButton>
+					<IconButton className='carousel-card-back-body-buttons-btn' aria-label='button-like'>
+						<ThumbUpOffAltIcon className='carousel-card-back-body-buttons-btn-text-color' />
 					</IconButton>
 				</section>
-				<CardBackBodyInformations values={{ english_name, movie, type }} />
-				<section className='carousel-card-back-body-informations-genres'>
-					<ul>
-						{genres.map((genre, index) => {
-							return (
-								<li className='carousel-card-back-body-informations-genres-li' key={index}>
-									<p>{genre.name}&nbsp;</p>
-								</li>
-							);
-						})}
-					</ul>
-				</section>
+				<IconButton
+					className='carousel-card-back-body-buttons-btn'
+					aria-label='button-arrow-down'
+					onClick={() => router.push('/?modal=true')}
+				>
+					<KeyboardArrowDownIcon className='carousel-card-back-body-buttons-btn-text-color' />
+					{/* <Link href='/?modal=true'>
+						<KeyboardArrowDownIcon className='carousel-card-back-body-buttons-btn-text-color' />
+					</Link> */}
+				</IconButton>
 			</section>
+			<CardBackBodyInformations values={{ english_name, movie, type }} />
+			<section className='carousel-card-back-body-informations-genres'>
+				<ul>
+					{genres.map((genre, index) => {
+						return (
+							<li className='carousel-card-back-body-informations-genres-li' key={index}>
+								<p>{genre.name}&nbsp;</p>
+							</li>
+						);
+					})}
+				</ul>
+			</section>
+		</section>
 	);
 };
