@@ -375,7 +375,7 @@ body {
   justify-content: center;
 }
 .progress-bar-title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
   margin: 0;
   color: white;
@@ -628,29 +628,46 @@ body {
   margin-top: 1rem;
 }
 
-.banner-video-front {
-  transition: all 250ms ease-out;
-  transition-delay: 200ms;
+.banner-video {
+  height: 30vh;
+  width: 100vw;
+  position: relative;
+  margin-top: 1rem;
+  margin-bottom: -9vh;
 }
-.banner-video-front img {
-  height: 10vh;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+.banner-video-front {
+  transition: all 450ms ease-out;
+  transition-delay: 400ms;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
 }
 .banner-video-back {
-  position: absolute;
-  display: none;
-  opacity: 0;
-  z-index: 999;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 10px 1px #0a0a0a;
+  position: relative;
+  transition: all 250ms ease-in;
+  transition-delay: 200ms;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
 }
-.banner-video-back iframe {
-  width: 100vw;
-  height: 30vh;
+.banner-video-button {
+  z-index: 1;
+  position: absolute;
+  bottom: 8.5vh;
+  right: 5vw;
+}
+.banner-video-button video {
+  height: 100%;
+  width: 100%;
   object-fit: cover;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+}
+.banner-video-gradient {
+  height: 2vh;
+  width: 100vw;
+  position: absolute;
+  bottom: -1.2vh;
+  z-index: -1;
+  background: linear-gradient(transparent, #141414);
 }
 
 /*# sourceMappingURL=app.css.map */

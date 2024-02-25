@@ -60,9 +60,6 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 					onClick={() => router.push('/?modal=true')}
 				>
 					<KeyboardArrowDownIcon className='carousel-card-back-body-buttons-btn-text-color' />
-					{/* <Link href='/?modal=true'>
-						<KeyboardArrowDownIcon className='carousel-card-back-body-buttons-btn-text-color' />
-					</Link> */}
 				</IconButton>
 			</section>
 			<CardBackBodyInformations values={{ english_name, movie, type }} />

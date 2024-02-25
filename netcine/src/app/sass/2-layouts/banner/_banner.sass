@@ -1,35 +1,40 @@
 .banner-video
-  &-front
-    transition: all 250ms ease-out
-    transition-delay: 200ms
+  height: 30vh
+  width: 100vw
+  position: relative
+  margin-top: 1rem
+  // Alterar tamanho de acordo com a tela
+  margin-bottom: -9vh
 
-    img
-      height: 10vh
-      border-bottom-left-radius: 0
-      border-bottom-right-radius: 0
+  &-front
+    transition: all 450ms ease-out
+    transition-delay: 400ms
+    height: 100%
+    width: 100%
+    z-index: -1
 
   &-back
+    position: relative
+    transition: all 250ms ease-in
+    transition-delay: 200ms
+    height: 100%
+    width: 100%
+    z-index: -1
+  &-button
+    z-index: 1
     position: absolute
-    display: none
-    opacity: 0
-    // width: 150%
-    // transition: all 250ms ease-in
-    // transition-delay: 200ms
-    z-index: 999
-    border-radius: .5rem
-    // background-color: $bg-color-card
-    box-shadow: 0 0 10px 1px #0a0a0a
+    bottom: 8.5vh
+    right: 5vw
 
-    iframe
-      width: 100vw
-      height: 30vh
+    video
+      height: 100%
+      width: 100%
       object-fit: cover
-      border-bottom-left-radius: 0
-      border-bottom-right-radius: 0
 
-@mixin change-card($value-Y, $value-X)
-  .carousel-card-front
-    opacity: 0
-  .carousel-card-back
-    opacity: 1
-    display: inline
+  &-gradient
+    height: 2vh
+    width: 100vw
+    position: absolute
+    bottom: -1.2vh
+    z-index: -1
+    background: linear-gradient( transparent, #141414 )
