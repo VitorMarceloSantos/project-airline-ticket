@@ -1,7 +1,19 @@
+import { Banner } from '../components/Banner';
+import NowPlaying from '../components/NowPlaying';
+import TopMovies from '../components/TopMovies';
+import UpComing from '../components/UpComing';
+import PopularMovies from '../components/PopularMovies';
+import TrendingMovies from '../components/TrendingMovies';
+
 export default function Movies() {
 	return (
 		<main>
-			<h2>Page Movies</h2>
+			<Banner type={'movie'} />
+			<TopMovies />
+			<NowPlaying />
+			<PopularMovies />
+			<UpComing />
+			<TrendingMovies />
 		</main>
 	);
 }

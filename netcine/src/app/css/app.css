@@ -266,8 +266,12 @@ body {
   margin: 1.25rem 0;
 }
 
+.main-carousel {
+  position: relative;
+}
 .main-carousel:hover {
   cursor: pointer;
+  z-index: 1;
 }
 .main-carousel:hover .progress-bar-carousel {
   display: flex;
@@ -384,7 +388,7 @@ body {
   display: none;
   margin-left: 0.25rem;
   color: #48B6C5;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 1000;
 }
 .progress-bar-link-2 {
@@ -430,6 +434,15 @@ body {
 }
 .navbar-logo {
   padding-top: 1vw;
+}
+.navbar-buttons li a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+}
+.navbar-buttons li a:hover {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.937254902);
+  transition: all 0.5s ease;
 }
 .navbar-buttons li:hover {
   cursor: pointer;

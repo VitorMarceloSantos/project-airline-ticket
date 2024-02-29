@@ -1,9 +1,10 @@
+import { PlayerVideoBannerType } from '../types/components/PlayerVideoBannerType';
 import { PlayerVideoBanner } from './PlayerVideoBanner';
 
-export const Banner = () => {
+export const Banner = ({ type }: PlayerVideoBannerType) => {
 	return (
 		<section>
-			<PlayerVideoBanner />
+			<PlayerVideoBanner type={type} />
 		</section>
 	);
 };

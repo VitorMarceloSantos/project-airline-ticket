@@ -10,7 +10,13 @@ export default async function TopMovies() {
 
 	return (
 		<article className='container-movies-tvs-peoples'>
-			<CarouselMovies values={{ resultData: results, type: 'movie', title: 'Top Filmes' }} />
+			<CarouselMovies
+				values={{
+					resultData: results,
+					type: 'movie',
+					title: 'Top Filmes',
+				}}
+			/>
 		</article>
 	);
 }

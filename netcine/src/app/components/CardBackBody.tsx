@@ -12,7 +12,7 @@ import { INITIAL_CAST } from '../constants/CardBackBody';
 import { RequestInformationsAPI } from '../api/RequestInformationsAPI';
 import { CastDataType } from '../types/api/RequestAPI';
 import { CardBackBodyInformations } from './CardBackBodyInformations';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 export const CardBackBody = ({ values }: CardBackBodyType) => {
 	const {
@@ -24,6 +24,7 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 	const [castMovieOrTV, setCastMovieOrTV] = useState<CastType[]>(INITIAL_CAST);
 	const { handleStateChangeInformationsMoviesOrTV, stateInformationsMoviesOrTV } = useInformationsMoviesOrTVContext();
 	const router = useRouter();
+	const pathname = usePathname();
 
 	// Exportar função
 	const getRequestCast = async () => {
@@ -57,7 +58,7 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 				<IconButton
 					className='carousel-card-back-body-buttons-btn'
 					aria-label='button-arrow-down'
-					onClick={() => router.push('/?modal=true')}
+					onClick={() => router.push(`${pathname}?modal=true`)}
 				>
 					<KeyboardArrowDownIcon className='carousel-card-back-body-buttons-btn-text-color' />
 				</IconButton>

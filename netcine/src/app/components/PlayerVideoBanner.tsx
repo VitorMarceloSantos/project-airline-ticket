@@ -5,8 +5,9 @@ import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import Image from 'next/image';
 import { usePlayerVideo, useVolumeVideo } from '../context';
+import { PlayerVideoBannerType } from '../types/components/PlayerVideoBannerType';
 
-export const PlayerVideoBanner = () => {
+export const PlayerVideoBanner = ({ type }: PlayerVideoBannerType) => {
 	const { statePlayerVideo } = usePlayerVideo();
 	const { handleStateVolume, stateVolumeVideo } = useVolumeVideo();
 	const [playOn, setPlayOn] = useState<boolean>(false);
@@ -30,7 +31,7 @@ export const PlayerVideoBanner = () => {
 				<>
 					<section className='banner-video-back'>
 						<video preload='none' muted={stateVolumeVideo} autoPlay={true} loop={true} ref={playerVideo}>
-							<source src='../../../videos/index.mp4' type='video/mp4' />
+							<source src={`../../../videos/${type}.mp4`} type='video/mp4' />
 						</video>
 					</section>
 					<section className={'banner-video-button'}>
@@ -56,7 +57,7 @@ export const PlayerVideoBanner = () => {
 			) : (
 				<Image
 					className='banner-video-front'
-					src='/../../../images/index.jpg'
+					src={`/../../../images/${type}.jpg`}
 					width={1920}
 					height={1080}
 					alt={'Tv'}

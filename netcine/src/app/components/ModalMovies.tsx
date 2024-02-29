@@ -15,7 +15,7 @@ import AddIcon from '@mui/icons-material/Add';
 import { CardBackBodyInformations } from './CardBackBodyInformations';
 import CloseIcon from '@mui/icons-material/Close';
 import RecomendationsMoviesOrTVs from './RecomendationsMoviesOrTVs';
-import { useSearchParams } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 
 export const ModalMovies = () => {
@@ -32,10 +32,11 @@ export const ModalMovies = () => {
 	const searchParams = useSearchParams();
 	const modal = searchParams.get('modal');
 	const router = useRouter();
+	const pathname = usePathname();
 
 	const closeModal = () => {
 		handleStateVideo(true);
-		router.push('/');
+		router.push(pathname);
 	};
 	return (
 		<Modal
