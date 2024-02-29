@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import netcine from '../images/netCine.png';
 import SearchIcon from '@mui/icons-material/Search';
-import { Avatar, IconButton, styled } from '@mui/material';
+import { Avatar, IconButton } from '@mui/material';
 import { stringAvatar } from '../functions/navbar/stringAvatar';
 import MenuIcon from '@mui/icons-material/Menu';
 // import MenuOpenIcon from '@mui/icons-material/MenuOpen';
@@ -13,6 +13,7 @@ import { handleSearchIconOpen } from '../functions/navbar/handleSearchIconOpen';
 import { handleInputSearch } from '../functions/navbar/handleInputSearch';
 import { handleSearchIconClose } from '../functions/navbar/handleSearchIconClose';
 import { useSideMenuContext } from '../context';
+import Link from 'next/link';
 
 export const NavBar = () => {
 	const inputSearch = useRef<HTMLInputElement>(null);
@@ -25,11 +26,17 @@ export const NavBar = () => {
 				<li>
 					<MenuIcon onClick={() => handleStateChange(true)} />
 				</li>
-				<li>Filmes</li>
-				<li>Séries</li>
+				<li>
+					<Link href={'/movies'}>Filmes</Link>
+				</li>
+				<li>
+					<Link href={'/tv'}>Séries</Link>
+				</li>
 			</ul>
 			<section className='navbar-logo'>
-				<Image src={netcine} width={190} height={50} alt='Logo NetCine' priority={true} />
+				<Link href={'/'}>
+					<Image src={netcine} width={190} height={50} alt='Logo NetCine' priority={true} />
+				</Link>
 			</section>
 
 			<ul className='navbar-search'>

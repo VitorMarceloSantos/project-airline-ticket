@@ -1,8 +1,8 @@
-import { UpdateValuesStateInformations } from '@/app/types/components/CardTypes';
+import { UpdateValuesStateInformationsType } from '@/app/types/components/CardTypes';
 import { getUrlVideo } from './getUrlVideo';
 import { InformationsMoviesOrTVContextType } from '@/app/types/context/InformationsMoviesOrTVType';
 
-export const updateValuesStateInformations = async ({ values }: UpdateValuesStateInformations) => {
+export const UpdateValuesStateInformations = async ({ values }: UpdateValuesStateInformationsType) => {
 	const {
 		movie,
 		urlMovie,
@@ -13,6 +13,7 @@ export const updateValuesStateInformations = async ({ values }: UpdateValuesStat
 		type,
 		handleStateChangeInformationsMoviesOrTV,
 	} = values;
+
 	setCardSelected(true);
 	const url = await getUrlVideo({ values: { movieId: movie.id, urlMovie, setUrlMovie, type } });
 	const newInformations: InformationsMoviesOrTVContextType = {

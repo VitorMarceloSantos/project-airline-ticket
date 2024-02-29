@@ -11,7 +11,9 @@
     transition-delay: 400ms
     height: 100%
     width: 100%
+    position: relative
     z-index: -1
+    // object-fit: cover
 
   &-back
     position: relative
@@ -20,16 +22,18 @@
     height: 100%
     width: 100%
     z-index: -1
+  
+
   &-button
     z-index: 1
     position: absolute
     bottom: 8.5vh
     right: 5vw
 
-    video
-      height: 100%
-      width: 100%
-      object-fit: cover
+  video
+    height: 100%
+    width: 100%
+    object-fit: cover
 
   &-gradient
     height: 2vh

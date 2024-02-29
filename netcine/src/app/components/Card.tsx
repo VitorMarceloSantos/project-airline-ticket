@@ -5,11 +5,13 @@ import { PlayerVideo } from './PlayerVideo';
 import { searchGenresMovie } from '../functions/card/searchGenresMovie';
 import { filterLanguage } from '../functions/card/filterLanguageMovie';
 import { CardBackBody } from './CardBackBody';
-import { updateValuesStateInformations } from '../functions/card/updateValuesStateInformations';
+import { UpdateValuesStateInformations } from '../functions/card/UpdateValuesStateInformations';
 import { useInformationsMoviesOrTVContext } from '../context';
 import ErroImagem from '../images/errorVideo.png';
+import { usePlayerVideo } from '@/app/context';
 
 export default function Card({ values }: CardType) {
+	const { handleStateVideo } = usePlayerVideo();
 	const { handleStateChangeInformationsMoviesOrTV } = useInformationsMoviesOrTVContext();
 	const { movie, type } = values;
 	const [urlMovie, setUrlMovie] = useState<string>('');
@@ -29,16 +31,20 @@ export default function Card({ values }: CardType) {
 	};
 	const URL_IMG = `https://image.tmdb.org/t/p/w342${movie.poster_path}`;
 
+	const resetCard = () => {
+		handleStateVideo(true);
+		setCardSelected(false);
+	};
+
+	const updateCard = () => {
+		UpdateValuesStateInformations({
+			values: { ...valuesProps },
+		});
+		handleStateVideo(false);
+	};
+
 	return (
-		<section
-			className='carousel-card'
-			onMouseEnter={() =>
-				updateValuesStateInformations({
-					values: { ...valuesProps },
-				})
-			}
-			onMouseLeave={() => setCardSelected(false)}
-		>
+		<section className='carousel-card' onMouseEnter={() => updateCard()} onMouseLeave={() => resetCard()}>
 			<section className='carousel-card-front'>
 				<section className='carousel-card-header'>
 					<Image

@@ -1,13 +1,17 @@
 'use client';
 
-import { InformationsMoviesOrTVProvider, SideMenuProvider } from '../context';
+import { InformationsMoviesOrTVProvider, PlayerVideoProvider, SideMenuProvider, VolumeVideoProvider } from '../context';
 import { ChildrenType } from '../types/components/ChildrenType';
 
 export const Providers = ({ children }: ChildrenType) => {
 	return (
 		<>
 			<SideMenuProvider>
-					<InformationsMoviesOrTVProvider>{children}</InformationsMoviesOrTVProvider>
+				<PlayerVideoProvider>
+					<VolumeVideoProvider>
+						<InformationsMoviesOrTVProvider>{children}</InformationsMoviesOrTVProvider>
+					</VolumeVideoProvider>
+				</PlayerVideoProvider>
 			</SideMenuProvider>
 		</>
 	);

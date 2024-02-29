@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 /* eslint-disable max-lines */
 
 // Documentação
@@ -7,7 +8,7 @@
 'use client';
 
 import { Box, IconButton, Modal } from '@mui/material';
-import { useInformationsMoviesOrTVContext } from '../context';
+import { useInformationsMoviesOrTVContext, usePlayerVideo } from '../context';
 import { PlayerVideo } from './PlayerVideo';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import AddIcon from '@mui/icons-material/Add';
@@ -19,6 +20,7 @@ import { useRouter } from 'next/navigation';
 
 export const ModalMovies = () => {
 	const { stateInformationsMoviesOrTV } = useInformationsMoviesOrTVContext();
+	const { handleStateVideo } = usePlayerVideo();
 	const {
 		movieOrTV,
 		url,
@@ -30,10 +32,15 @@ export const ModalMovies = () => {
 	const searchParams = useSearchParams();
 	const modal = searchParams.get('modal');
 	const router = useRouter();
+
+	const closeModal = () => {
+		handleStateVideo(true);
+		router.push('/');
+	};
 	return (
 		<Modal
 			open={modal !== null}
-			onClose={() => router.push('/')}
+			onClose={() => closeModal()}
 			aria-labelledby='parent-modal-title'
 			aria-describedby='parent-modal-description'
 		>
@@ -46,6 +53,7 @@ export const ModalMovies = () => {
 					borderRadius: '10px',
 					paddingBottom: '1.5rem',
 				}}
+				onMouseEnter={() => handleStateVideo(false)}
 			>
 				<section className='video-modal video-modal-position'>
 					<IconButton
@@ -53,7 +61,7 @@ export const ModalMovies = () => {
 							carousel-card-back-body-buttons-btn
 							carousel-card-back-body-buttons-btn-color video-modal-position-button'
 						aria-label='button-close'
-						onClick={() => router.push('/')}
+						onClick={() => closeModal()}
 					>
 						<CloseIcon className='carousel-card-back-body-buttons-btn-text-color' />
 					</IconButton>

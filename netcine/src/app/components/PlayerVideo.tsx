@@ -1,20 +1,20 @@
 import Image from 'next/image';
 import ReactPlayer from 'react-player';
-import { LegacyRef, useEffect, useRef, useState } from 'react';
+import { LegacyRef, useEffect, useRef } from 'react';
 import { PlayerVideoType } from '../types/components/PlayerVideoTypes';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import ErroImagem from '../images/errorVideo.png';
+import { useVolumeVideo } from '../context';
 
 export const PlayerVideo = ({ values }: PlayerVideoType) => {
+	const { handleStateVolume, stateVolumeVideo } = useVolumeVideo();
 	const { movie, urlMovie, cardSelected, type } = values;
-	const [soundOff, setSoundOff] = useState<boolean>(true);
 	const playerVideo = useRef<ReactPlayer | undefined>(undefined);
 	const URL_IMG = `https://image.tmdb.org/t/p/w342${movie.poster_path}`;
 
 	useEffect(() => {
 		playerVideo.current?.seekTo(parseFloat('0'), 'seconds');
-		setSoundOff(true);
 	}, [cardSelected]);
 
 	return (
@@ -36,7 +36,7 @@ export const PlayerVideo = ({ values }: PlayerVideoType) => {
 						ref={playerVideo as unknown as LegacyRef<ReactPlayer> | undefined}
 						width={272}
 						height={255}
-						muted={soundOff}
+						muted={stateVolumeVideo}
 					/>
 					<button
 						className='
@@ -44,14 +44,14 @@ export const PlayerVideo = ({ values }: PlayerVideoType) => {
 							carousel-card-back-body-buttons-btn-color
 							carousel-card-video-position-button'
 					>
-						{soundOff ? (
+						{stateVolumeVideo ? (
 							<VolumeOffIcon
-								onClick={() => setSoundOff((prevState) => !prevState)}
+								onClick={() => handleStateVolume(!stateVolumeVideo)}
 								className='carousel-card-back-body-buttons-btn-text-color'
 							/>
 						) : (
 							<VolumeUpIcon
-								onClick={() => setSoundOff((prevState) => !prevState)}
+								onClick={() => handleStateVolume(!stateVolumeVideo)}
 								className='carousel-card-back-body-buttons-btn-text-color'
 							/>
 						)}

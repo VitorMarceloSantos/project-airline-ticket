@@ -43,7 +43,7 @@ export type CreateNewPlayerType = {
 	};
 };
 
-export type UpdateValuesStateInformations = {
+export type UpdateValuesStateInformationsType = {
 	values: {
 		urlMovie: string;
 		setCardSelected: Dispatch<SetStateAction<boolean>>;
