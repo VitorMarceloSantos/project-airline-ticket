@@ -4,16 +4,17 @@ import TopSeries from './components/TopSeries';
 import TredingDay from './components/TredingDay';
 import TredingWeek from './components/TredingWeek';
 import { Banner } from './components/Banner';
+import { SkeletonCarousel } from './components/SkeletonCarousel';
 
 export default function Home() {
 	return (
 		<main>
 			<Banner type={'index'} />
 			<TopMovies />
-			<TopSeries />
+			{/* <TopSeries />
 			<TredingDay />
 			<TredingWeek />
-			<PopularPeoples />
+			<PopularPeoples /> */}
 		</main>
 	);
 }

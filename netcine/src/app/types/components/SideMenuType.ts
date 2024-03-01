@@ -1,6 +1,12 @@
+export type GenresType = {
+	genre: string;
+	code: number;
+	type: string;
+};
+
 export type SideMenuType = {
 	values: {
-		genres: string[];
+		genres: GenresType[];
 		openGenre: boolean;
 	};
 };

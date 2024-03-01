@@ -1,0 +1,34 @@
+@import '../../1-base/_constants'
+
+.skeleton-card
+  margin: 0 3vw
+  // background-color: red
+  display: flex
+  flex-direction: column
+
+  &-movies
+    width: 100%
+    // background-color: green
+    display: flex
+    // flex-grow: 1
+    justify-content: space-between
+    --items-per-screen: 5
+    overflow: hidden
+
+    &-setting
+      background-color: #333333
+      flex: 0 0 calc((100% / var(--items-per-screen)) - $img-gap)
+      margin: 0 calc($img-gap / 2)
+      border-radius: .2rem
+
+@media (max-width: 1200px)
+  .skeleton-card-movies
+    --items-per-screen: 4
+
+@media (max-width: 990px)
+  .skeleton-card-movies
+    --items-per-screen: 3
+
+@media (max-width: 730px)
+  .skeleton-card-movies
+    --items-per-screen: 2

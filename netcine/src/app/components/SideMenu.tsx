@@ -3,7 +3,7 @@
 import { Box, Divider, Drawer, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import { ChildrenType } from '../types/components/ChildrenType';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import HomeIcon from '@mui/icons-material/Home';
 import CloseIcon from '@mui/icons-material/Close';
 import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
@@ -11,14 +11,27 @@ import LiveTvIcon from '@mui/icons-material/LiveTv';
 import { useSideMenuContext } from '../context';
 import { ThemeProvider } from '@mui/material/styles';
 import { ThemeSideBar } from '../theme/ThemeSideMenu';
-import { toggleDrawer } from '../functions/sideMenu/toggleDrawer';
 import { createListItemCollapse } from '../functions/sideMenu/createListItemCollapse';
+import { listMoviesGenres, listTvsGenres } from '../constants/SideMenu';
+import { useRouter } from 'next/navigation';
 
 export const SideMenu: React.FC<ChildrenType> = ({ children }) => {
 	const { stateSideMenu, handleStateChange } = useSideMenuContext();
 	const [openGenreMovie, setOpenGenreMovie] = useState(false);
 	const [openGenreSerie, setOpenGenreSerie] = useState(false);
-	const listGenres = ['Ação', 'Comédia', 'Romance', 'Suspense', 'Ficção'];
+	const router = useRouter();
+
+	useEffect(() => {
+		if (stateSideMenu === false) {
+			setOpenGenreMovie(false);
+			setOpenGenreSerie(false);
+		}
+	}, [stateSideMenu]);
+
+	const redirectRouterSearchGenre = (paramRoute: string) => {
+		router.push(paramRoute);
+		handleStateChange(false);
+	};
 
 	return (
 		<>
@@ -26,7 +39,7 @@ export const SideMenu: React.FC<ChildrenType> = ({ children }) => {
 				<Drawer
 					open={stateSideMenu}
 					variant='temporary'
-					onClose={() => toggleDrawer(handleStateChange, setOpenGenreMovie, setOpenGenreSerie)}
+					onClose={() => handleStateChange(false)}
 					sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
 				>
 					<Box
@@ -43,7 +56,7 @@ export const SideMenu: React.FC<ChildrenType> = ({ children }) => {
 								</ListItemIcon>
 							</ListItemButton>
 							<Divider />
-							<ListItemButton>
+							<ListItemButton onClick={() => redirectRouterSearchGenre('/')}>
 								<ListItemIcon className='sidebar-icon'>
 									<HomeIcon />
 								</ListItemIcon>
@@ -56,7 +69,7 @@ export const SideMenu: React.FC<ChildrenType> = ({ children }) => {
 								<ListItemText primary='Filmes' />
 								{openGenreMovie ? <ExpandLess /> : <ExpandMore />}
 							</ListItemButton>
-							{createListItemCollapse({ values: { genres: listGenres, openGenre: openGenreMovie } })}
+							{createListItemCollapse({ values: { genres: listMoviesGenres, openGenre: openGenreMovie } })}
 							<ListItemButton onClick={() => setOpenGenreSerie((prevState) => !prevState)}>
 								<ListItemIcon className='sidebar-icon'>
 									<LiveTvIcon />
@@ -64,7 +77,7 @@ export const SideMenu: React.FC<ChildrenType> = ({ children }) => {
 								<ListItemText primary='Series' />
 								{openGenreSerie ? <ExpandLess /> : <ExpandMore />}
 							</ListItemButton>
-							{createListItemCollapse({ values: { genres: listGenres, openGenre: openGenreSerie } })}
+							{createListItemCollapse({ values: { genres: listTvsGenres, openGenre: openGenreSerie } })}
 						</List>
 					</Box>
 				</Drawer>

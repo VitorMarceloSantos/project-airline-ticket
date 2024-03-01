@@ -684,4 +684,39 @@ body {
   background: linear-gradient(transparent, #141414);
 }
 
+.skeleton-card {
+  margin: 0 3vw;
+  display: flex;
+  flex-direction: column;
+}
+.skeleton-card-movies {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  --items-per-screen: 5;
+  overflow: hidden;
+}
+.skeleton-card-movies-setting {
+  background-color: #333333;
+  flex: 0 0 calc(100% / var(--items-per-screen) - 0.25rem);
+  margin: 0 0.125rem;
+  border-radius: 0.2rem;
+}
+
+@media (max-width: 1200px) {
+  .skeleton-card-movies {
+    --items-per-screen: 4;
+  }
+}
+@media (max-width: 990px) {
+  .skeleton-card-movies {
+    --items-per-screen: 3;
+  }
+}
+@media (max-width: 730px) {
+  .skeleton-card-movies {
+    --items-per-screen: 2;
+  }
+}
+
 /*# sourceMappingURL=app.css.map */
