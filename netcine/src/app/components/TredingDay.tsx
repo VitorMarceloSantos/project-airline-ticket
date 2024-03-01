@@ -1,13 +1,13 @@
 import { Suspense } from 'react';
 import { RequestInformationsAPI } from '../api/RequestInformationsAPI';
-import { MovieDataType } from '../types/api/RequestAPI';
 import { CarouselMovies } from './CarouselMovies';
 import { SkeletonCarousel } from './SkeletonCarousel';
+import { MovieOrTVDataType } from '../types/api/RequestAPI';
 
 const urlTredingDay = 'https://api.themoviedb.org/3/trending/all/day?language=en-US';
 
 export default async function TredingDay() {
-	const { results } = await RequestInformationsAPI<MovieDataType>(urlTredingDay);
+	const { results } = await RequestInformationsAPI<MovieOrTVDataType>(urlTredingDay);
 
 	return (
 		<article className='container-movies-tvs-peoples'>

@@ -1,13 +1,13 @@
 import { Suspense } from 'react';
 import { RequestInformationsAPI } from '../api/RequestInformationsAPI';
-import { MovieDataType } from '../types/api/RequestAPI';
 import { CarouselMovies } from './CarouselMovies';
 import { SkeletonCarousel } from './SkeletonCarousel';
+import { MovieOrTVDataType } from '../types/api/RequestAPI';
 
 const urlPopularMovies = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
 
 export default async function PopularMovies() {
-	const { results } = await RequestInformationsAPI<MovieDataType>(urlPopularMovies);
+	const { results } = await RequestInformationsAPI<MovieOrTVDataType>(urlPopularMovies);
 
 	return (
 		<article className='container-movies-tvs-peoples'>

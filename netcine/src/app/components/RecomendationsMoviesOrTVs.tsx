@@ -1,10 +1,10 @@
 /* eslint-disable react/destructuring-assignment */
 import { RequestInformationsAPI } from '../api/RequestInformationsAPI';
-import { MovieDataType } from '../types/api/RequestAPI';
 import Image from 'next/image';
 import { ResultsType } from '../types/components/CarouselMoviesTypes';
 import { CardBackBodyInformations } from './CardBackBodyInformations';
 import ErroImagem from '../images/errorVideo.png';
+import { MovieOrTVDataType } from '../types/api/RequestAPI';
 
 type RecomendationsMoviesOrTVsType = {
 	values: {
@@ -46,7 +46,7 @@ const CardRecomendation = ({ values }: RecomendationsMoviesOrTVsType) => {
 export default async function RecomendationsMoviesOrTVs({ values }: RecomendationsMoviesOrTVsType) {
 	const { movieOrTV, type, english_name } = values;
 	const urlRecomendations = `https://api.themoviedb.org/3/${type}/${movieOrTV.id}/similar?language=en-US&page=1`;
-	const { results } = await RequestInformationsAPI<MovieDataType>(urlRecomendations);
+	const { results } = await RequestInformationsAPI<MovieOrTVDataType>(urlRecomendations);
 
 	return (
 		<article className='container-movies-tvs-recomendations'>

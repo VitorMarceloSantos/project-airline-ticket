@@ -2,7 +2,7 @@ import { CastType } from '../components/CardBackBodyTypes';
 import { ResultsType } from '../components/CarouselMoviesTypes';
 import { PeopleType } from '../components/PeopleType';
 
-export type MovieDataType = {
+export type MovieOrTVDataType = {
 	page: string;
 	results: ResultsType[];
 };
