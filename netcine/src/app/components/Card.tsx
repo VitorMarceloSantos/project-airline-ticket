@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import { CardGenresType, CardLanguagesType, CardType } from '../types/components/CardTypes';
 import { useState } from 'react';

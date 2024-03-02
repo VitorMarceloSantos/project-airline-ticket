@@ -1,6 +1,6 @@
 export type GenresType = {
 	genre: string;
-	code: number;
+	code: string;
 	type: string;
 };
 

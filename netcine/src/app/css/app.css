@@ -718,5 +718,11 @@ body {
     --items-per-screen: 2;
   }
 }
+.list-cards-search {
+  display: flex;
+  width: 90vw;
+  height: 60vh;
+  background-color: red;
+}
 
 /*# sourceMappingURL=app.css.map */
