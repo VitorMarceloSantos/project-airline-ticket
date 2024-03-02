@@ -11,11 +11,10 @@ type ListCardsSearch = {
 export const ListCardsSearch = ({ values }: ListCardsSearch) => {
 	const { results, type } = values;
 	return (
-		<ul className='card-center carousel-card list-cards-search'>
+		<ul className='carousel-card list-cards-search'>
 			{results.map((movie, index) => {
 				return (
-					<li className='carousel-item' key={`${movie.id}-${index}`}>
-            {/* <h1>{movie.name}</h1> */}
+					<li className='carousel-item card-center' key={`${movie.id}-${index}`}>
 						<Card
 							values={{
 								movie,

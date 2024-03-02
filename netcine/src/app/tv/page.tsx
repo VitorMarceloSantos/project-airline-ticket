@@ -9,11 +9,11 @@ export default function Tvs() {
 	return (
 		<main>
 			<Banner type={'tv'} />
-			{/* <TopSeries />
+			<TopSeries />
 			<AiringToday />
 			<OnTheAir />
 			<PopularTV />
-			<TrendingTVs /> */}
+			<TrendingTVs />
 		</main>
 	);
 }

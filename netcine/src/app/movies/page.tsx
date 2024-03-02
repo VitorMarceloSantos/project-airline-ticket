@@ -9,11 +9,11 @@ export default function Movies() {
 	return (
 		<main>
 			<Banner type={'movie'} />
-			{/* <TopMovies />
+			<TopMovies />
 			<NowPlaying />
 			<PopularMovies />
 			<UpComing />
-			<TrendingMovies /> */}
+			<TrendingMovies />
 		</main>
 	);
 }

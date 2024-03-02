@@ -1,5 +1,24 @@
-.list-cards-search
-  display: flex
-  width: 90vw
-  height: 60vh
-  background-color: red
+@import '../../1-base/_constants'
+@import '../../1-base/_pallete'
+
+.list-cards
+  h2
+    color: $color-titles-buttons
+    font-size: 1.2rem
+    font-weight: 900
+    margin-left: 3vw
+    margin-top: 2rem
+  &-search
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: 60vh
+    padding: .5rem 0
+
+    ul:not(:last-child)
+      margin-bottom: 1rem
+
+    .carousel-card
+      width: 23vw

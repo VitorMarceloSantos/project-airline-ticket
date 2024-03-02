@@ -35,10 +35,11 @@ export default async function Page({ params }: { params: { type: string; code: s
 	// Corrigir busca na searchBar
 	const { results } = await RequestInformationsAPI<MovieOrTVDataType>(urlSearch);
 	return (
-		<article>
+		<article className='list-cards'>
 			<Suspense fallback={<SkeletonCarousel />}>
-				<div style={{ color: 'white' }}>My Post: {params.type}</div>;
-				<div style={{ color: 'white' }}>My Post: {params.code}</div>;
+				{/* <div style={{ color: 'white' }}>My Post: {params.type}</div>;
+				<div style={{ color: 'white' }}>My Post: {params.code}</div>; */}
+				<h2>Resultado:</h2>
 				<ListCardsSearch values={{ results, type }} />
 			</Suspense>
 		</article>

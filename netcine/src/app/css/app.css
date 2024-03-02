@@ -718,11 +718,27 @@ body {
     --items-per-screen: 2;
   }
 }
+.list-cards h2 {
+  color: rgba(255, 255, 255, 0.937254902);
+  font-size: 1.2rem;
+  font-weight: 900;
+  margin-left: 3vw;
+  margin-top: 2rem;
+}
 .list-cards-search {
   display: flex;
-  width: 90vw;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   height: 60vh;
-  background-color: red;
+  padding: 0.5rem 0;
+}
+.list-cards-search ul:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.list-cards-search .carousel-card {
+  width: 23vw;
 }
 
 /*# sourceMappingURL=app.css.map */
