@@ -22,7 +22,21 @@
     height: 100%
     width: 100%
     z-index: -1
-  
+
+  &-back-url
+    opacity: 0
+    position: absolute
+    top: 0
+    left: 0
+    transition: all 250ms ease-in
+    transition-delay: 200ms
+    height: 100%
+    width: 100%
+    z-index: -1
+    
+    iframe
+      height: 30vh
+      width: 100vw
 
   &-button
     z-index: 1
@@ -42,3 +56,56 @@
     bottom: -1.2vh
     z-index: -1
     background: linear-gradient( transparent, #141414 )
+
+// .banner-video-url
+//   // background-color: red
+//   position: relative
+//   height: 30vh
+//   width: 100vw
+//   position: relative
+//   margin-top: 1rem
+//   // Alterar tamanho de acordo com a tela
+//   margin-bottom: -9vh
+
+//   &-front
+//     transition: all 450ms ease-out
+//     transition-delay: 400ms
+//     height: 100%
+//     width: 100%
+//     position: relative
+//     z-index: -1
+//     // object-fit: cover
+
+//   &-back
+//     opacity: 0
+//     position: absolute
+//     top: 0
+//     left: 0
+//     transition: all 250ms ease-in
+//     transition-delay: 200ms
+//     height: 100%
+//     width: 100%
+//     z-index: -1
+
+//     iframe
+//       height: 30vh
+//       width: 100vw
+
+//   &-button
+//     z-index: 1
+//     position: absolute
+//     bottom: 8.5vh
+//     right: 5vw
+
+//   // video
+//   //   height: 100%
+//   //   width: 100%
+//   //   object-fit: cover
+
+//   &-gradient
+//     height: 2vh
+//     width: 100vw
+//     position: absolute
+//     bottom: -1.2vh
+//     z-index: -1
+//     background: linear-gradient( transparent, #141414 )

@@ -15,7 +15,7 @@ export const RequestUrlVideo = async (id: number, type: string): Promise<string 
 		.then((response) => response.json())
 		.then(
 			(response: RequestUrlVideoType) =>
-				`https://www.youtube.com/embed/${response.results[0].key}?controls=0&amp;autoplay=1&amp;showinfo=0&amp;enablejsapi=1`,
+				`https://www.youtube.com/embed/${response.results[0].key}?rel=0&amp;controls=0&amp;autoplay=1&amp;showinfo=0&amp;enablejsapi=1`,
 		)
 		.catch((err) => `error: ${err}`);
 };

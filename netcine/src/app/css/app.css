@@ -664,6 +664,21 @@ body {
   width: 100%;
   z-index: -1;
 }
+.banner-video-back-url {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 250ms ease-in;
+  transition-delay: 200ms;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+.banner-video-back-url iframe {
+  height: 30vh;
+  width: 100vw;
+}
 .banner-video-button {
   z-index: 1;
   position: absolute;
@@ -721,7 +736,7 @@ body {
 .list-cards h2 {
   color: rgba(255, 255, 255, 0.937254902);
   font-size: 1.2rem;
-  font-weight: 900;
+  font-weight: 600;
   margin-left: 3vw;
   margin-top: 2rem;
 }

@@ -10,6 +10,5 @@ export async function RequestInformationsAPI<T>(url: string): Promise<T> {
 	if (!res.ok) throw new Error('Erro no Fetch');
 
 	const data: T = await res.json();
-
 	return data;
 }
