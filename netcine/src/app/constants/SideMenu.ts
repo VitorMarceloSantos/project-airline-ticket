@@ -11,5 +11,5 @@ export const listTvsGenres = [
 	{ genre: 'Comédia', code: '35', type: 'tv' },
 	{ genre: 'Romance', code: '10749', type: 'tv' },
 	{ genre: 'Drama', code: '18', type: 'tv' },
-	{ genre: 'Ficção', code: '878', type: 'tv' },
+	{ genre: 'Ficção', code: '10765', type: 'tv' },
 ];

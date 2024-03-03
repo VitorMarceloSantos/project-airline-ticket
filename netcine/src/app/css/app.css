@@ -674,10 +674,12 @@ body {
   height: 100%;
   width: 100%;
   z-index: -1;
+  overflow: hidden;
 }
 .banner-video-back-url iframe {
   height: 30vh;
   width: 100vw;
+  transform: scale(1.4);
 }
 .banner-video-button {
   z-index: 1;
