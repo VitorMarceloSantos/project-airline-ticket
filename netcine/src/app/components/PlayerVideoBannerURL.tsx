@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState, useRef, LegacyRef } from 'react';
+import { useEffect, useState, useRef, LegacyRef, useCallback } from 'react';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import Image from 'next/image';
@@ -21,10 +21,10 @@ export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 	const NUMBER_FIVE = 5;
 	const NUMBER_ONE_THOUSAND = 1000;
 
-	const getURLVideo = async () => {
+	const getURLVideo = useCallback(async () => {
 		const URL = await RequestUrlVideo(videoId, type);
 		setURL_Video(URL as string);
-	};
+	}, [type, videoId]);
 
 	useEffect(() => {
 		getURLVideo();
@@ -38,7 +38,7 @@ export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 				clearInterval(timeoutId);
 			}
 		}, NUMBER_ONE_THOUSAND);
-	}, []);
+	}, [getURLVideo]);
 
 	return (
 		<section className='banner-video'>

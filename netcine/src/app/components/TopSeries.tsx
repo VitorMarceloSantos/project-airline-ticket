@@ -1,13 +1,10 @@
 import { Suspense } from 'react';
-import { RequestInformationsAPI } from '../api/RequestInformationsAPI';
 import { CarouselMovies } from './CarouselMovies';
 import { SkeletonCarousel } from './SkeletonCarousel';
-import { MovieOrTVDataType } from '../types/api/RequestAPI';
+import { BannerMovieOrTvType } from '../types/components/PlayerVideoBannerType';
 
-const urlTopSeries = 'https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1';
-
-export default async function TopSeries() {
-	const { results } = await RequestInformationsAPI<MovieOrTVDataType>(urlTopSeries);
+export default async function TopSeries({ value }: BannerMovieOrTvType) {
+	const { results } = value;
 
 	return (
 		<article className='container-movies-tvs-peoples'>
