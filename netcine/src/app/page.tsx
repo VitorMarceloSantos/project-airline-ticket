@@ -6,6 +6,7 @@ import TredingWeek from './components/TredingWeek';
 import { RequestTopMovies, RequestTopSeries } from './functions/RequestAPI/requestAPI';
 import { PlayerVideoBannerURL } from './components/PlayerVideoBannerURL';
 import { randomVideo } from './functions/PlayerVideo/randomVideo';
+import { Banner } from './components/Banner';
 
 export default async function Home() {
 	const resultMovies = await RequestTopMovies();
@@ -16,18 +17,19 @@ export default async function Home() {
 	const NUMBER_NINETEEN = 19;
 	return (
 		<main>
-			<PlayerVideoBannerURL
+			<Banner type='index'/>
+			{/* <PlayerVideoBannerURL
 				values={{
 					type: numberRandom <= NUMBER_NINETEEN ? 'movie' : 'tv',
 					videoId: videoBanner.id,
 					img: videoBanner.backdrop_path,
 				}}
-			/>
+			/> */}
 			<TopMovies value={{ results: resultMovies }} />
 			<TopSeries value={{ results: resultSeries }} />
-			<TredingDay />
+			{/* <TredingDay />
 			<TredingWeek />
-			<PopularPeoples />
+			<PopularPeoples /> */}
 		</main>
 	);
 }

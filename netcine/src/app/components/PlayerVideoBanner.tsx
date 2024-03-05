@@ -14,7 +14,14 @@ export const PlayerVideoBanner = ({ type }: PlayerVideoBannerType) => {
 	const playerVideo = useRef<HTMLVideoElement>(null);
 
 	useEffect(() => {
-		setPlayOn(true);
+		let count = 0;
+		const interval = setInterval(() => {
+			count += 1;
+			if (count === 2) {
+				setPlayOn(true);
+				clearInterval(interval)
+			}
+		}, 1000);
 	}, []);
 
 	useEffect(() => {
