@@ -232,31 +232,19 @@ body {
   }
 }
 
-.card-rigth .carousel-card:hover .carousel-card-front {
-  opacity: 0;
-}
 .card-rigth .carousel-card:hover .carousel-card-back {
-  opacity: 1;
   width: 110%;
   transform: scale(1.1) translateY(-70%) translateX(-13%);
   display: inline;
 }
 
-.card-left .carousel-card:hover .carousel-card-front {
-  opacity: 0;
-}
 .card-left .carousel-card:hover .carousel-card-back {
-  opacity: 1;
   width: 110%;
   transform: scale(1.1) translateY(-70%) translateX(5%);
   display: inline;
 }
 
-.card-center .carousel-card:hover .carousel-card-front {
-  opacity: 0;
-}
 .card-center .carousel-card:hover .carousel-card-back {
-  opacity: 1;
   width: 110%;
   transform: scale(1.1) translateY(-70%) translateX(-5%);
   display: inline;

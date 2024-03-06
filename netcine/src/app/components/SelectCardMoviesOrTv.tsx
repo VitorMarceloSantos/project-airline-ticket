@@ -8,7 +8,7 @@ import { addClassCard } from '../functions/card/addClassCard';
 
 export const SelectCardMoviesOrTv = ({ values }: CardMoviesOrPeopleType) => {
 	const movies = values.movies as unknown as ResultsType[];
-	const { type, slider } = values;
+	const { type, slider, title } = values;
 
 	useEffect(() => {
 		const widthView = getWidthWindow();
@@ -16,6 +16,11 @@ export const SelectCardMoviesOrTv = ({ values }: CardMoviesOrPeopleType) => {
 		const itemsPerScreen = getItemsPerScreen(widthView);
 		addClassCard({ values: { itemsPerScreen, listCards } });
 	}, []);
+
+	const transformTitleInClass = (title: string) => {
+		const newTitle = title.toLocaleLowerCase().replace(' ', '');
+		return newTitle;
+	};
 
 	return (
 		<ul className='carousel-movies' ref={slider}>
@@ -26,6 +31,8 @@ export const SelectCardMoviesOrTv = ({ values }: CardMoviesOrPeopleType) => {
 							values={{
 								movie,
 								type: type === 'treding' ? (movie.media_type as string) : type,
+								index,
+								title: title !== undefined ? transformTitleInClass(title) : 'person',
 							}}
 						/>
 					</li>

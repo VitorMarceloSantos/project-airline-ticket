@@ -44,7 +44,7 @@ export const CarouselMovies = ({ values }: MoviesDataType) => {
 				{type === 'peoples' ? (
 					<SelectCardPeoples values={{ slider, movies, type }} />
 				) : (
-					<SelectCardMoviesOrTv values={{ slider, movies, type }} />
+					<SelectCardMoviesOrTv values={{ slider, movies, type, title }} />
 				)}
 				<button
 					onClick={() => {

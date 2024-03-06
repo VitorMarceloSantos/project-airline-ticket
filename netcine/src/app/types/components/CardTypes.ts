@@ -6,6 +6,8 @@ export type CardType = {
 	values: {
 		type: string;
 		movie: ResultsType;
+		index: number;
+		title: string;
 	};
 };
 

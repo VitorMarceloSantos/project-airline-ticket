@@ -1,5 +1,4 @@
 import AiringToday from '../components/AiringToday';
-import { Banner } from '../components/Banner';
 import OnTheAir from '../components/OnTheAir';
 import { PlayerVideoBannerURL } from '../components/PlayerVideoBannerURL';
 import PopularTV from '../components/PopularTV';
@@ -14,8 +13,7 @@ export default async function Tvs() {
 
 	return (
 		<main>
-			{/* <PlayerVideoBannerURL values={{ type: 'tv', videoId: videoBanner.id, img: videoBanner.backdrop_path }} /> */}
-			<Banner type='tv' />
+			<PlayerVideoBannerURL values={{ type: 'tv', videoId: videoBanner.id, img: videoBanner.backdrop_path }} />
 			<TopSeries value={{ results }} />
 			<AiringToday />
 			<OnTheAir />

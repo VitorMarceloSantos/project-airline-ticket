@@ -40,5 +40,6 @@ export type CardMoviesOrPeopleType = {
 		slider: RefObject<HTMLUListElement>;
 		movies: ResultsType[] | PeopleType[];
 		type: string;
+		title?: string;
 	};
 };
