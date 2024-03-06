@@ -17,7 +17,7 @@ export default async function Home() {
 	const NUMBER_NINETEEN = 19;
 	return (
 		<main>
-			<Banner type='index'/>
+			<Banner type='index' />
 			{/* <PlayerVideoBannerURL
 				values={{
 					type: numberRandom <= NUMBER_NINETEEN ? 'movie' : 'tv',
@@ -27,9 +27,9 @@ export default async function Home() {
 			/> */}
 			<TopMovies value={{ results: resultMovies }} />
 			<TopSeries value={{ results: resultSeries }} />
-			{/* <TredingDay />
+			<TredingDay />
 			<TredingWeek />
-			<PopularPeoples /> */}
+			<PopularPeoples />
 		</main>
 	);
 }

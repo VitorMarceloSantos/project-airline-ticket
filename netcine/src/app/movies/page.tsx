@@ -6,6 +6,7 @@ import TrendingMovies from '../components/TrendingMovies';
 import { randomVideo } from '../functions/PlayerVideo/randomVideo';
 import { PlayerVideoBannerURL } from '../components/PlayerVideoBannerURL';
 import { RequestTopMovies } from '../functions/RequestAPI/requestAPI';
+import { Banner } from '../components/Banner';
 
 export default async function Movies() {
 	const results = await RequestTopMovies();
@@ -13,7 +14,8 @@ export default async function Movies() {
 
 	return (
 		<main>
-			<PlayerVideoBannerURL values={{ type: 'movie', videoId: videoBanner.id, img: videoBanner.backdrop_path }} />
+			<Banner type='movie' />
+			{/* <PlayerVideoBannerURL values={{ type: 'movie', videoId: videoBanner.id, img: videoBanner.backdrop_path }} /> */}
 			<TopMovies value={{ results }} />
 			<NowPlaying />
 			<PopularMovies />
