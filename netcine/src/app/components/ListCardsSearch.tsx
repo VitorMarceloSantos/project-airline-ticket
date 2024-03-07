@@ -1,14 +1,7 @@
-import { ResultsType } from '../types/components/CarouselMoviesTypes';
+import { ListCardsSearchType } from '../types/components/searchTypes';
 import Card from './Card';
 
-type ListCardsSearch = {
-	values: {
-		results: ResultsType[];
-		type: string;
-	};
-};
-
-export const ListCardsSearch = ({ values }: ListCardsSearch) => {
+export const ListCardsSearch = ({ values }: ListCardsSearchType) => {
 	const { results, type } = values;
 	return (
 		<ul className='carousel-card list-cards-search'>
@@ -19,6 +12,8 @@ export const ListCardsSearch = ({ values }: ListCardsSearch) => {
 							values={{
 								movie,
 								type,
+								index,
+								title: 'search',
 							}}
 						/>
 					</li>

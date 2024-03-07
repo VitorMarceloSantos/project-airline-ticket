@@ -3,29 +3,28 @@ import TopMovies from './components/TopMovies';
 import TopSeries from './components/TopSeries';
 import TredingDay from './components/TredingDay';
 import TredingWeek from './components/TredingWeek';
-import { RequestTopMovies, RequestTopSeries } from './functions/RequestAPI/requestAPI';
 import { PlayerVideoBannerURL } from './components/PlayerVideoBannerURL';
 import { randomVideo } from './functions/PlayerVideo/randomVideo';
+import { RequestInformationsAPI } from './api/RequestInformationsAPI';
+import { MovieOrTVDataType } from './types/api/RequestAPI';
 
 export default async function Home() {
-	const resultMovies = await RequestTopMovies();
-	const resultSeries = await RequestTopSeries();
-	const sumResults = [...resultMovies, ...resultSeries];
-	const numberRandom = randomVideo(sumResults.length - 1);
-	const videoBanner = sumResults[numberRandom];
-	const NUMBER_NINETEEN = 19;
+	const urlTrendingHom = 'https://api.themoviedb.org/3/trending/all/day?language=en-US';
+	const { results } = await RequestInformationsAPI<MovieOrTVDataType>(urlTrendingHom);
+	const numberRandom = randomVideo(results.length - 1);
+	const videoBanner = results[numberRandom];
 	return (
 		<main>
 			<PlayerVideoBannerURL
 				values={{
-					type: numberRandom <= NUMBER_NINETEEN ? 'movie' : 'tv',
+					type: videoBanner?.media_type ? videoBanner.media_type : 'movie',
 					videoId: videoBanner.id,
 					img: videoBanner.backdrop_path,
 				}}
 			/>
-			<TopMovies value={{ results: resultMovies }} />
-			<TopSeries value={{ results: resultSeries }} />
-			<TredingDay />
+			<TopMovies />
+			<TopSeries />
+			<TredingDay value={{ results }} />
 			<TredingWeek />
 			<PopularPeoples />
 		</main>

@@ -1,13 +1,10 @@
 import { Suspense } from 'react';
-import { RequestInformationsAPI } from '../api/RequestInformationsAPI';
 import { CarouselMovies } from './CarouselMovies';
 import { SkeletonCarousel } from './SkeletonCarousel';
-import { MovieOrTVDataType } from '../types/api/RequestAPI';
+import { BannerMovieOrTvType } from '../types/components/PlayerVideoBannerType';
 
-const urlNowPlaying = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1';
-
-export default async function NowPlaying() {
-	const { results } = await RequestInformationsAPI<MovieOrTVDataType>(urlNowPlaying);
+export default async function NowPlaying({ value }: BannerMovieOrTvType) {
+	const { results } = value;
 
 	return (
 		<article className='container-movies-tvs-peoples'>
