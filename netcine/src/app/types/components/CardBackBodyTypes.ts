@@ -1,5 +1,7 @@
+import { Dispatch, SetStateAction } from 'react';
 import { CardGenresType, CardLanguagesType } from './CardTypes';
 import { ResultsType } from './CarouselMoviesTypes';
+import { InformationsMoviesOrTVContextType } from '../context/InformationsMoviesOrTVType';
 
 export type CardBackBodyType = {
 	values: {
@@ -21,5 +23,16 @@ export type CardBackBodyInformationsType = {
 		movie: ResultsType;
 		type: string;
 		english_name: string;
+	};
+};
+
+export type GetRequestCastType = {
+	values: {
+		type: string;
+		movieId: number;
+		castMovieOrTV: CastType[];
+		setCastMovieOrTV: Dispatch<SetStateAction<CastType[]>>;
+		stateInformationsMoviesOrTV: InformationsMoviesOrTVContextType;
+		handleStateChangeInformationsMoviesOrTV: (newInformations: InformationsMoviesOrTVContextType) => void;
 	};
 };

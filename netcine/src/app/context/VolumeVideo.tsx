@@ -1,13 +1,9 @@
 import { createContext, useCallback, useContext, useState } from 'react';
+import { VolumeVideoContextType } from '../types/context/VolumeVideoContextType';
 
-type VolumeVideoType = {
-	stateVolumeVideo: boolean;
-	handleStateVolume: (newState: boolean) => void;
-};
+const initialValue: VolumeVideoContextType = { stateVolumeVideo: true, handleStateVolume: () => {} };
 
-const initialValue: VolumeVideoType = { stateVolumeVideo: true, handleStateVolume: () => {} };
-
-const VolumeVideo = createContext<VolumeVideoType>(initialValue);
+const VolumeVideo = createContext<VolumeVideoContextType>(initialValue);
 
 export const VolumeVideoProvider = ({ children }: { children: React.ReactNode }) => {
 	const [stateVolumeVideo, setStateVolumeVideo] = useState<boolean>(true);

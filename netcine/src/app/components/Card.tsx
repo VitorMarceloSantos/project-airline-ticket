@@ -18,7 +18,7 @@ export default function Card({ values }: CardType) {
 	const { movie, type, index, title } = values;
 	const [urlMovie, setUrlMovie] = useState<string>('');
 	const [cardSelected, setCardSelected] = useState<boolean>(true);
-	const genres: CardGenresType[] = searchGenresMovie(movie.genre_ids);
+	const genres: CardGenresType[] = movie.genre_ids !== undefined ? searchGenresMovie(movie.genre_ids) : [];
 	const languages: CardLanguagesType = filterLanguage(movie.original_language);
 	const valuesProps = {
 		cardSelected,

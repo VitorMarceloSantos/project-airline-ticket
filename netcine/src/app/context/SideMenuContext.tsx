@@ -1,9 +1,5 @@
 import { createContext, useCallback, useContext, useState } from 'react';
-
-type SideMenuContextType = {
-	stateSideMenu: boolean;
-	handleStateChange: (newState: boolean) => void;
-};
+import { SideMenuContextType } from '../types/context/SideMenuContextType';
 
 const initialValue: SideMenuContextType = { stateSideMenu: false, handleStateChange: () => {} };
 

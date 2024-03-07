@@ -1,4 +1,4 @@
-import { ListCardsSearchType } from '../types/components/searchTypes';
+import { ListCardsSearchType } from '../types/components/SearchTypes';
 import Card from './Card';
 
 export const ListCardsSearch = ({ values }: ListCardsSearchType) => {
@@ -11,7 +11,7 @@ export const ListCardsSearch = ({ values }: ListCardsSearchType) => {
 						<Card
 							values={{
 								movie,
-								type,
+								type: type === 'others' ? (movie.media_type as string) : type,
 								index,
 								title: 'search',
 							}}

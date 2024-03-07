@@ -1,13 +1,9 @@
 import { createContext, useCallback, useContext, useState } from 'react';
+import { PlayerVideoContextType } from '../types/context/PlayerVideoType';
 
-type PlayerVideoType = {
-	statePlayerVideo: boolean;
-	handleStateVideo: (newState: boolean) => void;
-};
+const initialValue: PlayerVideoContextType = { statePlayerVideo: true, handleStateVideo: () => {} };
 
-const initialValue: PlayerVideoType = { statePlayerVideo: true, handleStateVideo: () => {} };
-
-const PlayerVideo = createContext<PlayerVideoType>(initialValue);
+const PlayerVideo = createContext<PlayerVideoContextType>(initialValue);
 
 export const PlayerVideoProvider = ({ children }: { children: React.ReactNode }) => {
 	const [statePlayerVideo, setStatePlayerVideo] = useState<boolean>(true);

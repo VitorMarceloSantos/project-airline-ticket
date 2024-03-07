@@ -1,8 +1,8 @@
 'use client';
 
 import {
-	// AcessCardContextProvider,
 	InformationsMoviesOrTVProvider,
+	ModalOpenCloseContextProvider,
 	PlayerVideoProvider,
 	SideMenuProvider,
 	VolumeVideoProvider,
@@ -14,11 +14,11 @@ export const Providers = ({ children }: ChildrenType) => {
 		<>
 			<SideMenuProvider>
 				<PlayerVideoProvider>
-					{/* <AcessCardContextProvider> */}
-					<VolumeVideoProvider>
-						<InformationsMoviesOrTVProvider>{children}</InformationsMoviesOrTVProvider>
-					</VolumeVideoProvider>
-					{/* </AcessCardContextProvider> */}
+					<ModalOpenCloseContextProvider>
+						<VolumeVideoProvider>
+							<InformationsMoviesOrTVProvider>{children}</InformationsMoviesOrTVProvider>
+						</VolumeVideoProvider>
+					</ModalOpenCloseContextProvider>
 				</PlayerVideoProvider>
 			</SideMenuProvider>
 		</>

@@ -28,7 +28,7 @@
 		"react-hooks/rules-of-hooks": "error",
 		"react-hooks/exhaustive-deps": "warn",
 		"react/prop-type": "off",
-		"indent": ["error", "tab"],
+		"indent": ["error", "2"],
 		"linebreak-style": ["error", "unix"],
 		"quotes": ["error", "single"],
 		"semi": "error",

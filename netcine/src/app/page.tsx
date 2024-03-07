@@ -17,7 +17,8 @@ export default async function Home() {
 		<main>
 			<PlayerVideoBannerURL
 				values={{
-					type: videoBanner?.media_type ? videoBanner.media_type : 'movie',
+					// type: videoBanner?.media_type ? videoBanner.media_type : 'movie',
+					type: videoBanner.media_type as string,
 					videoId: videoBanner.id,
 					img: videoBanner.backdrop_path,
 				}}

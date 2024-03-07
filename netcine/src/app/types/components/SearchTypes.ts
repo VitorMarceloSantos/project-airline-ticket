@@ -6,3 +6,10 @@ export type ListCardsSearchType = {
 		type: string;
 	};
 };
+
+export type SearchPageType = {
+	values: {
+		type: string;
+		code: string;
+	};
+};

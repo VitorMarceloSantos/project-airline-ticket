@@ -1,24 +1,20 @@
-/* eslint-disable max-lines-per-function */
-/* eslint-disable max-lines */
-
-// Documentação
+// Documentation
 // https://medium.com/@dtulpa16/next-js-modals-made-easy-7bdce15b2a5e
 // https://nextjs.org/docs/app/building-your-application/routing/intercepting-routes
 // https://levelup.gitconnected.com/mastering-modals-in-next-js-a-comprehensive-guide-475c0d1629ab
 'use client';
 
 import { Box, IconButton, Modal } from '@mui/material';
-import { useInformationsMoviesOrTVContext, usePlayerVideo } from '../context';
+import { useInformationsMoviesOrTVContext, useModalOpenCloseContext, usePlayerVideo } from '../context';
 import { PlayerVideo } from './PlayerVideo';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import AddIcon from '@mui/icons-material/Add';
-import { CardBackBodyInformations } from './CardBackBodyInformations';
 import CloseIcon from '@mui/icons-material/Close';
 import RecomendationsMoviesOrTVs from './RecomendationsMoviesOrTVs';
-import { usePathname, useSearchParams } from 'next/navigation';
-import { useRouter } from 'next/navigation';
+import { ModalMoviesInformations } from './ModalMoviesInformations';
 
 export const ModalMovies = () => {
+	const { handleModalOpenClose, stateModalOpenCloseContext } = useModalOpenCloseContext();
 	const { stateInformationsMoviesOrTV } = useInformationsMoviesOrTVContext();
 	const { handleStateVideo } = usePlayerVideo();
 	const {
@@ -29,18 +25,15 @@ export const ModalMovies = () => {
 		genres,
 		languages: { english_name },
 	} = stateInformationsMoviesOrTV;
-	const searchParams = useSearchParams();
-	const modal = searchParams.get('modal');
-	const router = useRouter();
-	const pathname = usePathname();
 
 	const closeModal = () => {
 		handleStateVideo(true);
-		router.push(pathname);
+		handleModalOpenClose(false);
 	};
+
 	return (
 		<Modal
-			open={modal !== null}
+			open={stateModalOpenCloseContext}
 			onClose={() => closeModal()}
 			aria-labelledby='parent-modal-title'
 			aria-describedby='parent-modal-description'
@@ -77,41 +70,9 @@ export const ModalMovies = () => {
 							<ThumbUpOffAltIcon className='carousel-card-back-body-buttons-btn-text-color' />
 						</IconButton>
 					</section>
-					<section className='informations-modal-text'>
-						<section className='informations-modal-text-container-1'>
-							<CardBackBodyInformations values={{ english_name, movie: movieOrTV, type }} />
-							<p className='informations-modal-text-container-1-overview'>{movieOrTV.overview}</p>
-						</section>
-						<section className='informations-modal-text-container-2'>
-							<section className='informations-modal-text-container-2-cast'>
-								<ul>
-									<li>
-										<h3>Elenco:&nbsp;</h3>
-									</li>
-									{cast?.map((people, index) => (
-										<li key={index}>
-											<p>{`${people.name},`}&nbsp;</p>
-										</li>
-									))}
-									<li>
-										<p>...</p>
-									</li>
-								</ul>
-							</section>
-							<section className='informations-modal-text-container-2-genre'>
-								<h3>Gêneros:</h3>
-								<ul>
-									{genres.map((genre, index) => {
-										return (
-											<li key={index}>
-												<p>&nbsp;{`${genre.name}`}</p>
-											</li>
-										);
-									})}
-								</ul>
-							</section>
-						</section>
-					</section>
+					<ModalMoviesInformations
+						values={{ cast: cast !== undefined ? cast : [], english_name, genres, movieOrTV, type }}
+					/>
 				</section>
 				<section className='ohters-movies-TV-modal'>
 					<h2>Títulos Semelhantes:</h2>
