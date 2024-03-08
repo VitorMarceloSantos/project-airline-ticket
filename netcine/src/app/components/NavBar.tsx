@@ -7,9 +7,8 @@ import { Avatar, IconButton } from '@mui/material';
 import { stringAvatar } from '../functions/navbar/stringAvatar';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Close } from '@mui/icons-material';
-import { useRef, useState } from 'react';
+import { ChangeEvent, useRef, useState } from 'react';
 import { handleSearchIconOpen } from '../functions/navbar/handleSearchIconOpen';
-import { handleInputSearch } from '../functions/navbar/handleInputSearch';
 import { handleSearchIconClose } from '../functions/navbar/handleSearchIconClose';
 import { useSideMenuContext } from '../context';
 import Link from 'next/link';
@@ -21,6 +20,31 @@ export const NavBar = () => {
 	const [textInputSearch, setTextInputSearch] = useState<string>('');
 	const { handleStateChange } = useSideMenuContext();
 	const router = useRouter();
+
+	function debounce<Params extends any[]>(func: (...args: Params) => any, timeout: number): (...args: Params) => void {
+		let timer = useRef(null);
+		return (...args: Params) => {
+			clearTimeout(timer.current as unknown as NodeJS.Timeout);
+			(timer.current as unknown as NodeJS.Timeout) = setTimeout(() => {
+				func(...args);
+			}, timeout);
+		};
+	}
+
+	function requestRouter(value: string) {
+		router.push(`/search/others/${value}`);
+	}
+
+	const debouncedRouter = debounce(requestRouter, 2000);
+
+	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+		const {
+			target: { value },
+		} = event;
+		setTextInputSearch(value);
+		if(value.length !== 0) debouncedRouter(value);
+	};
+
 	return (
 		<nav className='navbar'>
 			<ul className='navbar-list navbar-buttons'>
@@ -54,7 +78,7 @@ export const NavBar = () => {
 							placeholder='O que você procura?'
 							ref={inputSearch}
 							value={textInputSearch}
-							onChange={(event) => handleInputSearch({ event, setTextInputSearch, router })}
+							onChange={(event) => handleChange(event)}
 						/>
 					</section>
 					<section>

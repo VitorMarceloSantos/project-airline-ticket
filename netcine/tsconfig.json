@@ -28,7 +28,7 @@
 		"**/*.tsx",
 		".next/types/**/*.ts",
 		"src/app/components/CarouselMovies.tsx",
-		"src/app/components/_CreateNewPlayerVideo.tsx",
+		"src/app/components/_CreateNewPlayerVideo.tsx", "src/app/functions/navbar/handleInputSearch.js",
 	],
 	"exclude": ["node_modules"],
 }
