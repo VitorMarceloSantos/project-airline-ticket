@@ -9,6 +9,7 @@ export type CardBackBodyType = {
 		genres: CardGenresType[];
 		languages: CardLanguagesType;
 		type: string;
+		urlMovie: string;
 	};
 };
 

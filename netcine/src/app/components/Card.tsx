@@ -84,7 +84,7 @@ export default function Card({ values }: CardType) {
 			</section>
 			<section className='carousel-card-back' ref={cardBack}>
 				<PlayerVideo values={{ movie, urlMovie, cardSelected, type }} />
-				<CardBackBody values={{ movie, genres, languages, type }} />
+				<CardBackBody values={{ movie, genres, languages, type, urlMovie }} />
 			</section>
 		</section>
 	);

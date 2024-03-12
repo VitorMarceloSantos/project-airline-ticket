@@ -28,3 +28,15 @@ export const INITIAL_INFORMATIONS_MOVIES_TV = {
 	cardSelected: true,
 	type: '',
 };
+
+export const INITIAL_MOVIE_OR_TV_ADDED = [{
+	movie: INITIAL_CARD_MOVIE_TV,
+	genres: [],
+	languages: {
+		iso_639_1: '',
+		english_name: '',
+		name: '',
+	},
+	type: '',
+	urlMovie: '',
+}];

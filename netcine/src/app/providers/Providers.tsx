@@ -3,6 +3,8 @@
 import {
 	InformationsMoviesOrTVProvider,
 	ModalOpenCloseContextProvider,
+	MovieOrTVAddedContextProvider,
+	MovieOrTvLikedContextProvider,
 	PlayerVideoProvider,
 	SideMenuProvider,
 	VolumeVideoProvider,
@@ -13,13 +15,17 @@ export const Providers = ({ children }: ChildrenType) => {
 	return (
 		<>
 			<SideMenuProvider>
-				<PlayerVideoProvider>
-					<ModalOpenCloseContextProvider>
-						<VolumeVideoProvider>
-							<InformationsMoviesOrTVProvider>{children}</InformationsMoviesOrTVProvider>
-						</VolumeVideoProvider>
-					</ModalOpenCloseContextProvider>
-				</PlayerVideoProvider>
+				<MovieOrTVAddedContextProvider>
+					<MovieOrTvLikedContextProvider>
+						<PlayerVideoProvider>
+							<ModalOpenCloseContextProvider>
+								<VolumeVideoProvider>
+									<InformationsMoviesOrTVProvider>{children}</InformationsMoviesOrTVProvider>
+								</VolumeVideoProvider>
+							</ModalOpenCloseContextProvider>
+						</PlayerVideoProvider>
+					</MovieOrTvLikedContextProvider>
+				</MovieOrTVAddedContextProvider>
 			</SideMenuProvider>
 		</>
 	);
