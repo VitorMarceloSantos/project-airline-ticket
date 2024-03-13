@@ -19,8 +19,15 @@ import { GetRequestCast } from '../functions/card/GetRequestCast';
 import { useState } from 'react';
 import { INITIAL_CAST } from '../constants/CardBackBody';
 import { verifyMovieAddedOrLiked } from '../functions/card/verifyMovieAddedOrLiked';
+import { useRouter } from 'next/navigation';
 
 export const CardBackBody = ({ values }: CardBackBodyType) => {
+
+const getIdMovieURL = (url: string) => {
+	// https://www.youtube.com/embed/${response.results[0].key}?rel=0&amp;controls=0&amp;autoplay=1&amp;showinfo=0&amp;enablejsapi=1
+	return url.split('embed/')[1].split('?rel')[0]
+}
+
 	const {
 		genres,
 		movie,
@@ -33,6 +40,7 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 	const { handleStateChangeInformationsMoviesOrTV, stateInformationsMoviesOrTV } = useInformationsMoviesOrTVContext();
 	const { handleMovieOrTVAdded, stateMovieOrTVAddedContext } = useMovieOrTVAddedContext();
 	const { handleMovieOrTvLiked, stateMovieOrTvLikedContext } = useMovieOrTvLikedContext();
+	const router = useRouter();
 
 	return (
 		<section
@@ -56,6 +64,7 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 						className='
 							carousel-card-back-body-buttons-btn carousel-card-back-body-buttons-btn-color'
 						aria-label='button-play'
+						onClick={() => router.push(`/play/${getIdMovieURL(urlMovie)}`)}
 					>
 						<PlayArrowIcon className='carousel-card-back-body-buttons-btn-text-color' />
 					</IconButton>
