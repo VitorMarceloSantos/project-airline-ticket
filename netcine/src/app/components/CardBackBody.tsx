@@ -22,12 +22,9 @@ import { verifyMovieAddedOrLiked } from '../functions/card/verifyMovieAddedOrLik
 import { useRouter } from 'next/navigation';
 
 export const CardBackBody = ({ values }: CardBackBodyType) => {
-
-const getIdMovieURL = (url: string) => {
-	// https://www.youtube.com/embed/${response.results[0].key}?rel=0&amp;controls=0&amp;autoplay=1&amp;showinfo=0&amp;enablejsapi=1
-	return url.split('embed/')[1].split('?rel')[0]
-}
-
+	const getIdMovieURL = (url: string) => {
+		return url.split('embed/')[1].split('?rel')[0];
+	};
 	const {
 		genres,
 		movie,

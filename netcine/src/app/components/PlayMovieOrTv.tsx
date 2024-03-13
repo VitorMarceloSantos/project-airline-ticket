@@ -1,13 +1,7 @@
 'use client';
-
 import { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
-
-type PlayMovieOrTvType = {
-	value: {
-		idMovie: string;
-	};
-};
+import { PlayMovieOrTvType } from '../types/components/PlayMovieOrTvType';
 
 export const PlayMovieOrTv = ({ value }: PlayMovieOrTvType) => {
 	const { idMovie } = value;
@@ -17,15 +11,5 @@ export const PlayMovieOrTv = ({ value }: PlayMovieOrTvType) => {
 	useEffect(() => {
 		setPlayMovie(true);
 	}, []);
-	return (
-		<ReactPlayer
-			url={urlMovie}
-			playing={playMovie}
-			// ref={playerVideo as unknown as LegacyRef<ReactPlayer> | undefined}
-			width={272}
-			height={255}
-			muted={true}
-      controls={true}
-		/>
-	);
+	return <ReactPlayer url={urlMovie} playing={playMovie} width={272} height={255} muted={false} controls={true} />;
 };

@@ -419,6 +419,7 @@ body {
   display: flex;
   justify-content: space-between;
   width: 100vw;
+  height: 7vh;
 }
 .navbar-list {
   width: 33.33%;
@@ -753,6 +754,11 @@ body {
 }
 .list-cards-search .carousel-card {
   width: 23vw;
+}
+
+.play_movie_or_tv iframe {
+  width: 100vw;
+  height: 91vh;
 }
 
 /*# sourceMappingURL=app.css.map */
