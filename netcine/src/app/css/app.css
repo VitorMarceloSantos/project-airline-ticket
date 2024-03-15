@@ -182,7 +182,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0.5rem;
+  margin: 0.5remcontainer-informations;
 }
 .carousel-card-back-body-buttons button {
   margin: 0 0.15rem;
@@ -759,6 +759,115 @@ body {
 .play_movie_or_tv iframe {
   width: 100vw;
   height: 91vh;
+}
+
+.background-initial {
+  background-image: url("../../../public/images/netflix_wallpaper.jpg");
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-informations {
+  background-color: #181818;
+  width: 55vw;
+  height: 45vh;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container-informations-logo img {
+  margin-bottom: 5rem;
+}
+.container-informations-google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.75rem 0;
+}
+.container-informations-google img {
+  margin: 0 0.5rem;
+  height: 20px;
+  width: 20px;
+}
+.container-informations h3 {
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+.container-informations a {
+  color: rgba(255, 255, 255, 0.937254902);
+  text-decoration: none;
+}
+.container-informations a:hover {
+  text-decoration: underline;
+}
+.container-informations h2 {
+  color: rgba(255, 255, 255, 0.937254902);
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+}
+.container-informations form {
+  width: 80%;
+}
+.container-informations-buttons {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15rem;
+}
+.container-informations input, .container-informations button {
+  font-weight: 700;
+  border: 0;
+  outline: 0;
+  border-radius: 3px;
+  font-size: 1rem;
+  margin-top: 0.75rem;
+  text-align: center;
+  height: 2.5vh;
+}
+.container-informations input[type=text], .container-informations input[type=password] {
+  background-color: #2F2F2F;
+  color: rgba(255, 255, 255, 0.937254902);
+}
+.container-informations button {
+  display: inline-block;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.937254902);
+  margin-top: 3rem;
+}
+.container-informations button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(229, 9, 21);
+  z-index: -2;
+}
+.container-informations button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #9b060e;
+  transition: all 0.3s;
+  z-index: -1;
+}
+.container-informations button:hover {
+  cursor: pointer;
+}
+.container-informations button:hover:before {
+  width: 100%;
 }
 
 /*# sourceMappingURL=app.css.map */

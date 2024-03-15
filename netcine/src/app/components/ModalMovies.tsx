@@ -8,26 +8,17 @@ import { Box, IconButton, Modal } from '@mui/material';
 import {
 	useInformationsMoviesOrTVContext,
 	useModalOpenCloseContext,
-	useMovieOrTVAddedContext,
-	useMovieOrTvLikedContext,
 	usePlayerVideo,
 } from '../context';
 import { PlayerVideo } from './PlayerVideo';
-import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
-import AddIcon from '@mui/icons-material/Add';
 import CloseIcon from '@mui/icons-material/Close';
 import RecomendationsMoviesOrTVs from './RecomendationsMoviesOrTVs';
 import { ModalMoviesInformations } from './ModalMoviesInformations';
-import { verifyMovieAddedOrLiked } from '../functions/card/verifyMovieAddedOrLiked';
-import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
-import CheckIcon from '@mui/icons-material/Check';
 
 export const ModalMovies = () => {
 	const { handleModalOpenClose, stateModalOpenCloseContext } = useModalOpenCloseContext();
 	const { stateInformationsMoviesOrTV } = useInformationsMoviesOrTVContext();
 	const { handleStateVideo } = usePlayerVideo();
-	const { handleMovieOrTVAdded, stateMovieOrTVAddedContext } = useMovieOrTVAddedContext();
-	const { handleMovieOrTvLiked, stateMovieOrTvLikedContext } = useMovieOrTvLikedContext();
 	const { movieOrTV, url, type, cast, genres, languages } = stateInformationsMoviesOrTV;
 
 	const closeModal = () => {
@@ -66,30 +57,6 @@ export const ModalMovies = () => {
 					<PlayerVideo values={{ movie: movieOrTV, urlMovie: url, cardSelected: true, type }} />
 				</section>
 				<section className='informations-modal'>
-					<section className='informations-modal-buttons'>
-						<IconButton
-							className='carousel-card-back-body-buttons-btn'
-							aria-label='button-add'
-							onClick={() => handleMovieOrTVAdded({ genres, languages, movie: movieOrTV, type, urlMovie: url })}
-						>
-							{verifyMovieAddedOrLiked({ id: movieOrTV.id, state: stateMovieOrTVAddedContext }) ? (
-								<CheckIcon className='carousel-card-back-body-buttons-btn-text-color' />
-							) : (
-								<AddIcon className='carousel-card-back-body-buttons-btn-text-color' />
-							)}
-						</IconButton>
-						<IconButton
-							className='carousel-card-back-body-buttons-btn'
-							aria-label='button-like'
-							onClick={() => handleMovieOrTvLiked({ genres, languages, movie: movieOrTV, type, urlMovie: url })}
-						>
-							{verifyMovieAddedOrLiked({ id: movieOrTV.id, state: stateMovieOrTvLikedContext }) ? (
-								<ThumbUpAltIcon className='carousel-card-back-body-buttons-btn-text-color' />
-							) : (
-								<ThumbUpOffAltIcon className='carousel-card-back-body-buttons-btn-text-color' />
-							)}
-						</IconButton>
-					</section>
 					<ModalMoviesInformations
 						values={{
 							cast: cast !== undefined ? cast : [],

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import netcine from '../images/netCine.png';
+import netCine from '/public/images/netCine.png';
 import SearchIcon from '@mui/icons-material/Search';
 import { Avatar, IconButton } from '@mui/material';
 import { stringAvatar } from '../functions/navbar/stringAvatar';
@@ -60,7 +60,7 @@ export const NavBar = () => {
 			</ul>
 			<section className='navbar-logo'>
 				<Link href={'/'}>
-					<Image src={netcine} width={190} height={50} alt='Logo NetCine' priority={true} />
+					<Image src={netCine} width={190} height={50} alt='Logo NetCine' priority={true} />
 				</Link>
 			</section>
 
