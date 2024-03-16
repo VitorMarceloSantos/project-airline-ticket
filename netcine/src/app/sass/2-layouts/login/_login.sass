@@ -18,6 +18,9 @@
   justify-content: center
   align-items: center
 
+  form
+    p
+      color: $btn-color-off
   &-logo
     img
       margin-bottom: 5rem
@@ -59,22 +62,47 @@
     flex-direction: column
     margin-bottom: 15rem
 
+    #email
+      margin-top: .75rem
+
+    &-input-password
+      background-color: $bg-color-card-recomendation
+      color: $color-titles-buttons
+      margin-top: .75rem
+      display: flex
+      align-items: center
+      border-radius: 3px
+      // Alterar de acordo com o display
+      height: 2.6vh
+
+      input
+        width: 90%
+
+      #password
+        border-top-left-radius: 3px
+        border-bottom-left-radius: 3px
+        
+      &-icon
+        background-color: $bg-color-card-recomendation
+        color: $color-titles-buttons
+        border-radius: 0
+        width: 10%
+
   input, button
     font-weight: 700
     border: 0
     outline: 0
     border-radius: 3px
     font-size: 1rem
-    margin-top: .75rem
     text-align: center
     // Alterar de acordo com o display
     height: 2.5vh
 
-  input[type='text'], input[type='password']
+  input[type='text'], input[type='password'], input[type='email']
     background-color: $bg-color-card-recomendation
     color: $color-titles-buttons
-  
-  button
+
+  .button-submit
     $color: rgb(229, 9, 21)
     display: inline-block
     transition: all .3s
@@ -108,5 +136,3 @@
       cursor: pointer
       &:before
         width: 100%
-
-  

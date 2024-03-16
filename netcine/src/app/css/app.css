@@ -780,6 +780,9 @@ body {
   justify-content: center;
   align-items: center;
 }
+.container-informations form p {
+  color: rgba(255, 255, 255, 0.5);
+}
 .container-informations-logo img {
   margin-bottom: 5rem;
 }
@@ -819,21 +822,45 @@ body {
   flex-direction: column;
   margin-bottom: 15rem;
 }
+.container-informations-buttons #email {
+  margin-top: 0.75rem;
+}
+.container-informations-buttons-input-password {
+  background-color: #2F2F2F;
+  color: rgba(255, 255, 255, 0.937254902);
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+  height: 2.6vh;
+}
+.container-informations-buttons-input-password input {
+  width: 90%;
+}
+.container-informations-buttons-input-password #password {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.container-informations-buttons-input-password-icon {
+  background-color: #2F2F2F;
+  color: rgba(255, 255, 255, 0.937254902);
+  border-radius: 0;
+  width: 10%;
+}
 .container-informations input, .container-informations button {
   font-weight: 700;
   border: 0;
   outline: 0;
   border-radius: 3px;
   font-size: 1rem;
-  margin-top: 0.75rem;
   text-align: center;
   height: 2.5vh;
 }
-.container-informations input[type=text], .container-informations input[type=password] {
+.container-informations input[type=text], .container-informations input[type=password], .container-informations input[type=email] {
   background-color: #2F2F2F;
   color: rgba(255, 255, 255, 0.937254902);
 }
-.container-informations button {
+.container-informations .button-submit {
   display: inline-block;
   transition: all 0.3s;
   position: relative;
@@ -842,7 +869,7 @@ body {
   color: rgba(255, 255, 255, 0.937254902);
   margin-top: 3rem;
 }
-.container-informations button:after {
+.container-informations .button-submit:after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -852,7 +879,7 @@ body {
   background-color: rgb(229, 9, 21);
   z-index: -2;
 }
-.container-informations button:before {
+.container-informations .button-submit:before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -863,10 +890,10 @@ body {
   transition: all 0.3s;
   z-index: -1;
 }
-.container-informations button:hover {
+.container-informations .button-submit:hover {
   cursor: pointer;
 }
-.container-informations button:hover:before {
+.container-informations .button-submit:hover:before {
   width: 100%;
 }
 
