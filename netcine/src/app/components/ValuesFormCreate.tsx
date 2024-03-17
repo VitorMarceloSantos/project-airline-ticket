@@ -28,7 +28,8 @@ export const ValuesFormCreate = () => {
 		setFormValues((prevState) => ({ ...prevState, [event.target.name]: event.target.value }));
 	};
 
-	const onSubmit: SubmitHandler<FormValuesType> = (data) => {
+	const onSubmit: SubmitHandler<FormValuesType> = (data,event) => {
+		event?.preventDefault();
 		console.log(data);
 	};
 
