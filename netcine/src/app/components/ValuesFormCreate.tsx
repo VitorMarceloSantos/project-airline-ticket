@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { FormValuesType } from '../types/components/FormValuesType';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -9,6 +9,7 @@ import { createFormSchemaCreate } from '../validations/FormCreate';
 import { IconButton } from '@mui/material';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import { useRouter } from 'next/navigation';
 
 export const ValuesFormCreate = () => {
 	const INITIAL_FORMS_VALUES = { email: '', password: '', name: '' };
@@ -21,16 +22,29 @@ export const ValuesFormCreate = () => {
 		resolver: joiResolver(createFormSchemaCreate, { allowUnknown: true }), // https://github.com/hapijs/joi/blob/v15.0.3/API.md#validatevalue-schema-options-callback
 		defaultValues: { ...formValues },
 	});
-	const passwordRef = useRef<HTMLInputElement>(null);
 	const [isVisible, setIsVisible] = useState<string>('password');
-
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setFormValues((prevState) => ({ ...prevState, [event.target.name]: event.target.value }));
 	};
+	const router = useRouter();
 
-	const onSubmit: SubmitHandler<FormValuesType> = (data,event) => {
+	const onSubmit: SubmitHandler<FormValuesType> = async (data, event) => {
 		event?.preventDefault();
-		console.log(data);
+
+		const request = await fetch('/api/users', {
+			method: 'POST',
+			headers: {
+				'Content-type': 'aplication/json',
+			},
+			body: JSON.stringify(data),
+		});
+
+		const response = await request.json();
+		if (!request.ok) {
+			console.log('Erro no Post-Users');
+		} else {
+			router.push('/login');
+		}
 	};
 
 	const isVisibleFunction = () => {
@@ -64,7 +78,6 @@ export const ValuesFormCreate = () => {
 				<section className='container-informations-buttons-input-password'>
 					<input
 						{...register('password')}
-						ref={passwordRef}
 						type={isVisible}
 						placeholder='Senha'
 						id='password'

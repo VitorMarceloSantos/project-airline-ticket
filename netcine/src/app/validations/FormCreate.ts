@@ -8,12 +8,12 @@ const messageError = {
 
 const messageErrorPassword = {
 	...messageError,
-	'string.pattern': 'A senha deve conter letras minúscula, maiúscula e número.',
+	'string.pattern.base': 'A senha deve conter letras minúscula, maiúscula e número.',
 };
 
 const messageErrorEmail = {
 	'string.empty': ' Campo obrigatório',
-	'string.pattern': 'Email inválido.',
+	'string.pattern.base': 'Email inválido.',
 };
 
 const name = Joi.string().min(6).max(10).required().messages(messageError);

@@ -10,6 +10,8 @@ import { createFormSchemaLogin } from '../validations/FormLogin';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { IconButton } from '@mui/material';
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 export const ValuesFormLogin = () => {
 	const INITIAL_FORMS_VALUES = { email: '', password: '' };
@@ -22,16 +24,21 @@ export const ValuesFormLogin = () => {
 		resolver: joiResolver(createFormSchemaLogin, { allowUnknown: true }), // https://github.com/hapijs/joi/blob/v15.0.3/API.md#validatevalue-schema-options-callback
 		defaultValues: { ...formValues },
 	});
-	const passwordRef = useRef<HTMLInputElement>(null);
 	const [isVisible, setIsVisible] = useState<string>('password');
+	const router = useRouter();
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setFormValues((prevState) => ({ ...prevState, [event.target.name]: event.target.value }));
 	};
 
-	const onSubmit: SubmitHandler<FormValuesType> = (data, event) => {
+	const onSubmit: SubmitHandler<FormValuesType> = async (data, event) => {
 		event?.preventDefault();
-		console.log(data);
+		// console.log(data);
+		const res = await signIn<'credentials'>('credentials', {
+			...data,
+			redirect: false,
+		});
+		router.push('/');
 	};
 
 	const isVisibleFunction = () => {
@@ -55,7 +62,6 @@ export const ValuesFormLogin = () => {
 				<section className='container-informations-buttons-input-password'>
 					<input
 						{...register('password')}
-						ref={passwordRef}
 						type={isVisible}
 						placeholder='Senha'
 						id='password'
