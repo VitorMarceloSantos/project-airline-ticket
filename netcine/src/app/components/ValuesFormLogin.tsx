@@ -33,12 +33,16 @@ export const ValuesFormLogin = () => {
 
 	const onSubmit: SubmitHandler<FormValuesType> = async (data, event) => {
 		event?.preventDefault();
-		// console.log(data);
 		const res = await signIn<'credentials'>('credentials', {
 			...data,
 			redirect: false,
 		});
-		router.push('/');
+
+		if (res?.error) {
+			console.log('Erro ao fazer login', res.error);
+		} else {
+			router.push('/');
+		}
 	};
 
 	const isVisibleFunction = () => {

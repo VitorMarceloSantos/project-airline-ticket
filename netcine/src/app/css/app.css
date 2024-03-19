@@ -495,6 +495,21 @@ body {
   width: auto;
 }
 
+.avatar-navbar {
+  width: 2.1rem;
+  height: 2.1rem;
+  background-color: #66070E;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avatar-navbar-text {
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.937254902);
+  font-size: 1.1rem;
+}
+
 .video-modal {
   height: 25vh;
 }

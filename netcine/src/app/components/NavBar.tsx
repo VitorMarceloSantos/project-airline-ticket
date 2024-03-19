@@ -3,18 +3,17 @@
 import Image from 'next/image';
 import netCine from '/public/images/netCine.png';
 import SearchIcon from '@mui/icons-material/Search';
-import { Avatar, IconButton } from '@mui/material';
-import { stringAvatar } from '../functions/navbar/stringAvatar';
+import { IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Close } from '@mui/icons-material';
-import { ChangeEvent, useRef, useState } from 'react';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { handleSearchIconOpen } from '../functions/navbar/handleSearchIconOpen';
 import { handleSearchIconClose } from '../functions/navbar/handleSearchIconClose';
 import { useSideMenuContext } from '../context';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-export const NavBar = () => {
+export const NavBar = ({ children }: { children: React.ReactNode }) => {
 	const inputSearch = useRef<HTMLInputElement>(null);
 	const [isActiveSearch, setIsActiveSearch] = useState<boolean>(false);
 	const [textInputSearch, setTextInputSearch] = useState<string>('');
@@ -42,7 +41,7 @@ export const NavBar = () => {
 			target: { value },
 		} = event;
 		setTextInputSearch(value);
-		if(value.length !== 0) debouncedRouter(value);
+		if (value.length !== 0) debouncedRouter(value);
 	};
 
 	return (
@@ -63,12 +62,17 @@ export const NavBar = () => {
 					<Image src={netCine} width={190} height={50} alt='Logo NetCine' priority={true} />
 				</Link>
 			</section>
-
 			<ul className='navbar-search'>
 				<li className={`navbar-search-container ${isActiveSearch ? 'active-search-bar' : ''}`}>
 					<IconButton
 						className='navbar-search-container-icon'
 						onClick={() => handleSearchIconOpen({ setIsActiveSearch, inputSearch })}
+						sx={{
+							color: 'rgba(255, 255, 255, 0.5)',
+							'&:hover': {
+								color: '#ffffffef',
+							},
+						}}
 					>
 						<SearchIcon style={{ fontSize: '1.75rem' }} />
 					</IconButton>
@@ -86,13 +90,11 @@ export const NavBar = () => {
 							className='navbar-search-container-icon'
 							onClick={() => handleSearchIconClose({ setIsActiveSearch, setTextInputSearch })}
 						>
-							<Close style={{ fontSize: '1.2rem' }} />
+							<Close style={{ fontSize: '1.3rem' }} />
 						</IconButton>
 					</section>
 				</li>
-				<li>
-					<Avatar {...stringAvatar('Vitor Marcelo')} />
-				</li>
+				<li>{children}</li>
 			</ul>
 		</nav>
 	);
