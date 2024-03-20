@@ -1,6 +1,7 @@
 import { NextAuthOptions } from 'next-auth';
 import CredentialProvider from 'next-auth/providers/credentials';
 import GithubProvider from 'next-auth/providers/github';
+import GoogleProvider from 'next-auth/providers/google';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import { db as prisma } from './db';
 import bcrypt from 'bcrypt';
@@ -13,6 +14,17 @@ export const authOptions: NextAuthOptions = {
 			clientId: process.env.GITHUB_CLIENTID!,
 			clientSecret: process.env.GITHUB_SECRET!,
 		}),
+		GoogleProvider({
+			clientId: process.env.GOOGLE_CLIENT_ID!,
+			clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+			authorization: {
+        params: {
+          prompt: "consent",
+          access_type: "offline",
+          response_type: "code"
+        }
+      }
+		}),
 		CredentialProvider({
 			name: 'credencials',
 			credentials: {
@@ -20,7 +32,7 @@ export const authOptions: NextAuthOptions = {
 				password: { label: 'Password', type: 'password' },
 				username: { label: 'Name', type: 'text', placeholder: 'Vitor Marcelo' },
 			},
-			async authorize(credentials, req): Promise<any> {
+			async authorize(credentials, _req): Promise<any> {
 				if (!credentials?.email || !credentials?.password) throw new Error('Dados de Login necessários.');
 				const user = await prisma.user.findUnique({
 					where: { email: credentials.email },

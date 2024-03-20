@@ -21,27 +21,61 @@
   form
     p
       color: $btn-color-off
+
+    .button-provider
+      button
+        border-radius: 0
+        outline: 0
+        background-color: transparent
+        color: $btn-color-off
+        &:hover
+          cursor: pointer
+          text-decoration: underline
+          color: $color-titles-buttons
   &-logo
     img
       margin-bottom: 5rem
 
-  &-google
+  &-providers
     display: flex
     align-items: center
     justify-content: center
+    flex-direction: column
     margin: .75rem 0
 
-    img
-      margin: 0 .5rem
-      // Alterar de acordo com o display
-      height: 20px
-      width: 20px
+    &-img
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 3vw
+
+    &-google
+      display: flex
+      align-items: center
+      justify-content: center
+
+      img
+        // Alterar de acordo com o display
+        height: 20px
+        width: 20px
+
+    &-github
+      display: flex
+      align-items: center
+      justify-content: center
+
+      img
+        // Alterar de acordo com o display
+        height: 27px
+        width: 27px
 
   h3
     color: $btn-color-off
     text-align: center
+    margin-top: 2rem
 
   a
+    font-weight: 700
     color: $color-titles-buttons
     text-decoration: none
 
@@ -60,7 +94,7 @@
   &-buttons
     display: flex
     flex-direction: column
-    margin-bottom: 15rem
+    margin-bottom: 10rem
 
     #email
       margin-top: .75rem
@@ -72,11 +106,10 @@
       display: flex
       align-items: center
       border-radius: 3px
-      // Alterar de acordo com o display
-      height: 2.6vh
+      position: relative
 
       input
-        width: 90%
+        width: 100%
 
       #password
         border-top-left-radius: 3px
@@ -87,6 +120,8 @@
         color: $color-titles-buttons
         border-radius: 0
         width: 10%
+        position: absolute
+        right: 0
 
   input, button
     font-weight: 700

@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import google from '/public/images/google.png';
+import github from '/public/images/github.png';
 import { FormValuesType } from '../types/components/FormValuesType';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
@@ -43,6 +44,17 @@ export const ValuesFormLogin = () => {
 		} else {
 			router.push('/');
 		}
+	};
+
+	const loginProviders = (provider: string) => {
+		signIn(provider, { callbackUrl: '/' });
+
+		// if (res?.error) {
+		// 	console.log('Erro ao fazer login', res.error);
+		// } else {
+		// 	console.log('Entrou no esle')
+		// 	router.push('/');
+		// }
 	};
 
 	const isVisibleFunction = () => {
@@ -91,9 +103,19 @@ export const ValuesFormLogin = () => {
 					Entrar
 				</button>
 			</section>
-			<section className='container-informations-google'>
-				<Image src={google} width={50} height={50} alt='Logo Google' />
-				<Link href='/'>Conecte com Google</Link>
+			<section className='container-informations-providers'>
+				<section className='container-informations-providers-google button-provider'>
+					<div className='container-informations-providers-img'>
+						<Image src={google} width={50} height={50} alt='Logo Google' />
+					</div>
+					<button onClick={() => loginProviders('google')}>Conecte com Google</button>
+				</section>
+				<section className='container-informations-providers-github button-provider'>
+					<div className='container-informations-providers-img'>
+						<Image src={github} width={50} height={50} alt='Logo GitHub' />
+					</div>
+					<button onClick={() => loginProviders('github')}>Conecte com GitHub</button>
+				</section>
 			</section>
 			<h3>
 				Novo por aqui?

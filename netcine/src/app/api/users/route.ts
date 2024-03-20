@@ -9,6 +9,7 @@ export async function POST(request: NextRequest) {
 	if (!name || !email || !password) {
 		return NextResponse.json('Dados Inválidos.', { status: 400 });
 	}
+	
 	const isUserExist = await prisma.user.findUnique({
 		where: {
 			email: email,

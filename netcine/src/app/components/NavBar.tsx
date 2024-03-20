@@ -12,6 +12,8 @@ import { handleSearchIconClose } from '../functions/navbar/handleSearchIconClose
 import { useSideMenuContext } from '../context';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { signOut } from 'next-auth/react';
 
 export const NavBar = ({ children }: { children: React.ReactNode }) => {
 	const inputSearch = useRef<HTMLInputElement>(null);
@@ -95,6 +97,20 @@ export const NavBar = ({ children }: { children: React.ReactNode }) => {
 					</section>
 				</li>
 				<li>{children}</li>
+				<li>
+					<IconButton
+						className='navbar-search-container-icon'
+						sx={{
+							color: 'rgba(255, 255, 255, 0.5)',
+							'&:hover': {
+								color: '#ffffffef',
+							},
+						}}
+						onClick={() => signOut({ callbackUrl: '/login' })}
+					>
+						<LogoutIcon style={{ fontSize: '1.5rem' }} />
+					</IconButton>
+				</li>
 			</ul>
 		</nav>
 	);

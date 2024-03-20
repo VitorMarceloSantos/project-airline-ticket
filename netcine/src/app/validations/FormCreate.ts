@@ -2,7 +2,7 @@ import Joi from 'joi';
 
 const messageError = {
 	'string.min': 'Minímo de 6 caracteres',
-	'string.max': 'Máximo de 10 caracteres',
+	'string.max': 'Máximo de 20 caracteres',
 	'string.empty': ' Campo obrigatório',
 };
 
@@ -16,7 +16,7 @@ const messageErrorEmail = {
 	'string.pattern.base': 'Email inválido.',
 };
 
-const name = Joi.string().min(6).max(10).required().messages(messageError);
+const name = Joi.string().min(6).max(20).required().messages(messageError);
 const email = Joi.string().pattern(new RegExp('^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$')).required().messages(messageErrorEmail);
 const password = Joi.string()
 	.min(6)
