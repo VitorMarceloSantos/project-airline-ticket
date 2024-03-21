@@ -1,5 +1,6 @@
 'use client';
-import { useRef, useState } from 'react';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import google from '/public/images/google.png';
@@ -10,7 +11,7 @@ import { joiResolver } from '@hookform/resolvers/joi';
 import { createFormSchemaLogin } from '../validations/FormLogin';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import { IconButton } from '@mui/material';
+import { CircularProgress, IconButton } from '@mui/material';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
@@ -27,6 +28,7 @@ export const ValuesFormLogin = () => {
 	});
 	const [isVisible, setIsVisible] = useState<string>('password');
 	const router = useRouter();
+	const [loadingForm, setLoadingForm] = useState<boolean>(false);
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setFormValues((prevState) => ({ ...prevState, [event.target.name]: event.target.value }));
@@ -34,27 +36,22 @@ export const ValuesFormLogin = () => {
 
 	const onSubmit: SubmitHandler<FormValuesType> = async (data, event) => {
 		event?.preventDefault();
+		setLoadingForm(true);
 		const res = await signIn<'credentials'>('credentials', {
 			...data,
 			redirect: false,
 		});
-
+		
 		if (res?.error) {
 			console.log('Erro ao fazer login', res.error);
 		} else {
 			router.push('/');
 		}
+		setLoadingForm(false);
 	};
 
 	const loginProviders = (provider: string) => {
 		signIn(provider, { callbackUrl: '/' });
-
-		// if (res?.error) {
-		// 	console.log('Erro ao fazer login', res.error);
-		// } else {
-		// 	console.log('Entrou no esle')
-		// 	router.push('/');
-		// }
 	};
 
 	const isVisibleFunction = () => {
@@ -72,6 +69,7 @@ export const ValuesFormLogin = () => {
 					id='email'
 					name='email'
 					value={formValues.email}
+					disabled={loadingForm}
 					onChange={handleChange}
 				/>
 				{errors.email && <p>{errors.email?.message}</p>}
@@ -83,6 +81,7 @@ export const ValuesFormLogin = () => {
 						id='password'
 						name='password'
 						value={formValues.password}
+						disabled={loadingForm}
 						onChange={handleChange}
 					/>
 					<IconButton
@@ -91,16 +90,15 @@ export const ValuesFormLogin = () => {
 						onClick={() => isVisibleFunction()}
 					>
 						{isVisible === 'password' ? (
-							<VisibilityOffIcon className='carousel-card-back-body-buttons-btn-text-color' />
+							<VisibilityOffIcon className='container-informations-buttons-input-password-icon-color' />
 						) : (
-							<VisibilityIcon className='carousel-card-back-body-buttons-btn-text-color' />
+							<VisibilityIcon className='container-informations-buttons-input-password-icon-color' />
 						)}
 					</IconButton>
 				</section>
 				{errors.password && <p>{errors.password?.message}</p>}
 				<button type='submit' className='button-submit'>
-					{' '}
-					Entrar
+					{loadingForm ? <CircularProgress /> : 'Entrar'}
 				</button>
 			</section>
 			<section className='container-informations-providers'>

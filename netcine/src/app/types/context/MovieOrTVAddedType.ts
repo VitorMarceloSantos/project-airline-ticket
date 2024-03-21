@@ -7,8 +7,11 @@ export type MovieOrTVValuesType = {
 	languages: CardLanguagesType;
 	type: string;
 	urlMovie: string;
+	title?: string;
+	index?: number;
 };
 export type MovieOrTVAddedType = {
 	stateMovieOrTVAddedContext: MovieOrTVValuesType[];
 	handleMovieOrTVAdded: (newMovie: MovieOrTVValuesType) => void;
 };
+

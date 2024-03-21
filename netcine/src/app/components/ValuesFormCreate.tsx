@@ -6,7 +6,7 @@ import { FormValuesType } from '../types/components/FormValuesType';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { createFormSchemaCreate } from '../validations/FormCreate';
-import { IconButton } from '@mui/material';
+import { CircularProgress, IconButton } from '@mui/material';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { useRouter } from 'next/navigation';
@@ -27,10 +27,11 @@ export const ValuesFormCreate = () => {
 		setFormValues((prevState) => ({ ...prevState, [event.target.name]: event.target.value }));
 	};
 	const router = useRouter();
+	const [loadingForm, setLoadingForm] = useState<boolean>(false);
 
 	const onSubmit: SubmitHandler<FormValuesType> = async (data, event) => {
 		event?.preventDefault();
-
+		setLoadingForm(true);
 		const request = await fetch('/api/users', {
 			method: 'POST',
 			headers: {
@@ -38,13 +39,13 @@ export const ValuesFormCreate = () => {
 			},
 			body: JSON.stringify(data),
 		});
-
-		const response = await request.json();
+		await request.json();
 		if (!request.ok) {
 			console.log('Erro no Post-Users');
 		} else {
 			router.push('/login');
 		}
+		setLoadingForm(false);
 	};
 
 	const isVisibleFunction = () => {
@@ -62,6 +63,7 @@ export const ValuesFormCreate = () => {
 					id='name'
 					name='name'
 					value={formValues.name}
+					disabled={loadingForm}
 					onChange={handleChange}
 				/>
 				{errors.name && <p>{errors.name?.message}</p>}
@@ -72,6 +74,7 @@ export const ValuesFormCreate = () => {
 					id='email'
 					name='email'
 					value={formValues.email}
+					disabled={loadingForm}
 					onChange={handleChange}
 				/>
 				{errors.email && <p>{errors.email?.message}</p>}
@@ -83,6 +86,7 @@ export const ValuesFormCreate = () => {
 						id='password'
 						name='password'
 						value={formValues.password}
+						disabled={loadingForm}
 						onChange={handleChange}
 					/>
 					<IconButton
@@ -91,15 +95,15 @@ export const ValuesFormCreate = () => {
 						onClick={() => isVisibleFunction()}
 					>
 						{isVisible === 'password' ? (
-							<VisibilityOffIcon className='carousel-card-back-body-buttons-btn-text-color' />
+							<VisibilityOffIcon className='container-informations-buttons-input-password-icon-color' />
 						) : (
-							<VisibilityIcon className='carousel-card-back-body-buttons-btn-text-color' />
+							<VisibilityIcon className='container-informations-buttons-input-password-icon-color' />
 						)}
 					</IconButton>
 				</section>
 				{errors.password && <p>{errors.password?.message}</p>}
 				<button type='submit' className='button-submit'>
-					Cadastrar
+					{loadingForm ? <CircularProgress /> : 'Cadastrar'}
 				</button>
 			</section>
 			<h3>

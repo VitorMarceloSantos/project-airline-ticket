@@ -114,14 +114,16 @@
       #password
         border-top-left-radius: 3px
         border-bottom-left-radius: 3px
-        
+
       &-icon
-        background-color: $bg-color-card-recomendation
+        background-color: transparent
         color: $color-titles-buttons
         border-radius: 0
         width: 10%
         position: absolute
         right: 0
+        &-color:hover
+          color: $color-title-link
 
   input, button
     font-weight: 700
@@ -171,3 +173,9 @@
       cursor: pointer
       &:before
         width: 100%
+
+  input:disabled
+    background-color: $bg-color-disabled
+    color: black
+    // .carousel-card-back-body-buttons-btn-text-color
+    //   background-color: $bg-color-disabled
