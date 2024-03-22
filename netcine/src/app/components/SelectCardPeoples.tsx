@@ -10,7 +10,7 @@ export const SelectCardPeoples = ({ values }: CardMoviesOrPeopleType) => {
 			{peoples.map((people, index) => {
 				return (
 					<li className='carousel-item' key={index}>
-						<CardPeople people={people} />
+						<CardPeople values={{ people, index }} />
 					</li>
 				);
 			})}

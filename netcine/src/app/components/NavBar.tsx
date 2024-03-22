@@ -34,6 +34,8 @@ export const NavBar = ({ children }: { children: React.ReactNode }) => {
 
 	function requestRouter(value: string) {
 		router.push(`/search/others/${value}`);
+		setTextInputSearch('')
+		setIsActiveSearch(false)
 	}
 
 	const debouncedRouter = debounce(requestRouter, 2000);

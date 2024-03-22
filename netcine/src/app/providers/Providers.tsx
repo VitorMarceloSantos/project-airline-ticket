@@ -2,6 +2,7 @@
 
 import {
 	InformationsMoviesOrTVProvider,
+	InformationsPeoplesProvider,
 	ModalOpenCloseContextProvider,
 	MovieOrTVAddedContextProvider,
 	MovieOrTvLikedContextProvider,
@@ -20,7 +21,9 @@ export const Providers = ({ children }: ChildrenType) => {
 						<PlayerVideoProvider>
 							<ModalOpenCloseContextProvider>
 								<VolumeVideoProvider>
-									<InformationsMoviesOrTVProvider>{children}</InformationsMoviesOrTVProvider>
+									<InformationsPeoplesProvider>
+										<InformationsMoviesOrTVProvider>{children}</InformationsMoviesOrTVProvider>
+									</InformationsPeoplesProvider>
 								</VolumeVideoProvider>
 							</ModalOpenCloseContextProvider>
 						</PlayerVideoProvider>

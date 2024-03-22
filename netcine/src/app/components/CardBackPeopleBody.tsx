@@ -3,38 +3,9 @@ import AddIcon from '@mui/icons-material/Add';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { CardBackPeopleCardType } from '../types/components/CardBackPeopleBodyType';
 
-// type VerifyAgePeopleType = {
-// 	values: {
-// 		birthday: string;
-// 		deathday: null | string;
-// 	};
-// };
-
-// const verifyAgePeople = ({ values }: VerifyAgePeopleType) => {
-// 	const { birthday, deathday } = values;
-// 	const date = new Date().getFullYear();
-// 	if (deathday !== null) {
-// 		const yearBirthday = Number(birthday.split('-')[0]);
-// 		const yearDeath = Number(deathday.split('-')[0]);
-// 		return yearDeath - yearBirthday;
-// 	}
-// 	return date - Number(birthday.split('-')[0]);
-// };
-
-// const participationsInMovieOrTV = (know_for: ResultsType[]) => {
-// 	let quant_Movies = 0;
-// 	let quant_TV = 0;
-// 	know_for.forEach(({ media_type }) => {
-// 		media_type === 'movie' ? (quant_Movies += 1) : (quant_TV += 1);
-// 	});
-// 	return { quant_Movies, quant_TV };
-// };
-
 export const CardBackPeopleBody = ({ values }: CardBackPeopleCardType) => {
 	const {
 		name,
-		informations: { biography },
-		knowFor,
 	} = values;
 
 	return (

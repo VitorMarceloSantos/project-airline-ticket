@@ -1,37 +1,34 @@
-import { Dispatch, SetStateAction } from 'react';
 import { GetUrlPeopleType } from '@/app/types/components/CardPeople';
 import { INITIAL_CARD_PEOPLE } from '@/app/constants/cardPeople';
 import { CardBackPeopleBodyType } from '@/app/types/components/CardBackPeopleBodyType';
-import { ResultsType } from '@/app/types/components/CarouselMoviesTypes';
 import { RequestInformationsAPI } from '@/app/api/RequestInformationsAPI';
 import { DataTypeMoviesAndTVs } from '@/app/types/api/RequestAPI';
+import { InformationsPeoplesContextType } from '@/app/types/context/InformationsPeoplesType';
 
 const RequestAPIs = async (
-	setInformationsPeople: Dispatch<SetStateAction<CardBackPeopleBodyType>>,
-	setKnowFor: Dispatch<SetStateAction<ResultsType[]>>,
+	handleStateChangeInformationsPeoples: (newInformations: InformationsPeoplesContextType) => void,
 	peopleId: number,
 ) => {
-	const urlPeople = `https://api.themoviedb.org/3/person/${peopleId}?language=pt-BR'`;
-	const dataResult = await RequestInformationsAPI<CardBackPeopleBodyType>(urlPeople);
-	setInformationsPeople(dataResult);
-
-	// FAzer a requisição do setKnowFor quando o usuario for entrar na parte onde a setinha está
-
+	const urlPeople = `https://api.themoviedb.org/3/person/${peopleId}?language=pt-BR`;
 	const urlCast = `https://api.themoviedb.org/3/person/${peopleId}/combined_credits?language=pt-BR`;
+	const dataResult = await RequestInformationsAPI<CardBackPeopleBodyType>(urlPeople);
 	const { cast } = await RequestInformationsAPI<DataTypeMoviesAndTVs>(urlCast);
-	setKnowFor(cast);
+	handleStateChangeInformationsPeoples({ informationPeople: dataResult, participationsInMoviesOrTV: cast });
 };
 
-export const isExistUrlInformations = async (
-	setInformationsPeople: Dispatch<SetStateAction<CardBackPeopleBodyType>>,
-	peopleId: number,
-	informationsPeople: CardBackPeopleBodyType,
-	setKnowFor: Dispatch<SetStateAction<ResultsType[]>>,
-): Promise<void> => {
-	informationsPeople === INITIAL_CARD_PEOPLE && RequestAPIs(setInformationsPeople, setKnowFor, peopleId);
+type isExistUrlInformationsType = {
+	values: {
+		peopleId: number;
+		handleStateChangeInformationsPeoples: (newInformations: InformationsPeoplesContextType) => void;
+	};
+};
+
+export const isExistUrlInformations = async ({ values }: isExistUrlInformationsType): Promise<void> => {
+	const { handleStateChangeInformationsPeoples, peopleId} = values;
+	RequestAPIs(handleStateChangeInformationsPeoples, peopleId);
 };
 
 export const getUrPeople = ({ values }: GetUrlPeopleType): void => {
-	const { peopleId, informationsPeople, setInformationsPeople, setKnowFor } = values;
-	isExistUrlInformations(setInformationsPeople, peopleId, informationsPeople, setKnowFor);
+	const { peopleId, handleStateChangeInformationsPeoples } = values;
+	isExistUrlInformations({ values: { handleStateChangeInformationsPeoples, peopleId } });
 };

@@ -9,3 +9,8 @@ export const INITIAL_CARD_PEOPLE = {
 	place_of_birth: '',
 	profile_path: '',
 };
+
+export const INITIAL_INFORMATIONS_PEOPLE = {
+	informationPeople: INITIAL_CARD_PEOPLE,
+	participationsInMoviesOrTV: [],
+};

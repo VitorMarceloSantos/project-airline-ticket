@@ -5,3 +5,4 @@ export * from './PlayerVideo';
 export * from './ModalOpenCloseContext';
 export * from './MovieOrTVAdded';
 export * from './MovieOrTvLiked';
+export * from './InformationsPeoples';
