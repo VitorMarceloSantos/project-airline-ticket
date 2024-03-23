@@ -4,6 +4,13 @@ import { CardBackPeopleBodyType } from '@/app/types/components/CardBackPeopleBod
 import { RequestInformationsAPI } from '@/app/api/RequestInformationsAPI';
 import { DataTypeMoviesAndTVs } from '@/app/types/api/RequestAPI';
 import { InformationsPeoplesContextType } from '@/app/types/context/InformationsPeoplesType';
+import { useCallback } from 'react';
+import { RequestUrlVideo } from '@/app/api/RequestUrlVideo';
+import { randomVideo } from '../PlayerVideo/randomVideo';
+
+// const urlMovieOrTVRandom = useCallback(async () => {
+// 	return await RequestUrlVideo(movieOrTVRandom.id as number, movieOrTVRandom.media_type as string);
+// }, [movieOrTVRandom]);
 
 const RequestAPIs = async (
 	handleStateChangeInformationsPeoples: (newInformations: InformationsPeoplesContextType) => void,
@@ -13,7 +20,18 @@ const RequestAPIs = async (
 	const urlCast = `https://api.themoviedb.org/3/person/${peopleId}/combined_credits?language=pt-BR`;
 	const dataResult = await RequestInformationsAPI<CardBackPeopleBodyType>(urlPeople);
 	const { cast } = await RequestInformationsAPI<DataTypeMoviesAndTVs>(urlCast);
-	handleStateChangeInformationsPeoples({ informationPeople: dataResult, participationsInMoviesOrTV: cast });
+	const numberRandom = randomVideo(cast.length);
+	const movieOrTVRandom = cast[numberRandom];
+	const urlMovieOrTVRandom = await RequestUrlVideo(movieOrTVRandom.id, movieOrTVRandom.media_type as string) as string;
+	handleStateChangeInformationsPeoples({
+		informationPeople: dataResult,
+		participationsInMoviesOrTV: cast,
+		randomMovieOrTV: {
+			url: urlMovieOrTVRandom,
+			type: movieOrTVRandom.media_type as string,
+			movieOrTV: movieOrTVRandom,
+		},
+	});
 };
 
 type isExistUrlInformationsType = {
@@ -24,7 +42,7 @@ type isExistUrlInformationsType = {
 };
 
 export const isExistUrlInformations = async ({ values }: isExistUrlInformationsType): Promise<void> => {
-	const { handleStateChangeInformationsPeoples, peopleId} = values;
+	const { handleStateChangeInformationsPeoples, peopleId } = values;
 	RequestAPIs(handleStateChangeInformationsPeoples, peopleId);
 };
 

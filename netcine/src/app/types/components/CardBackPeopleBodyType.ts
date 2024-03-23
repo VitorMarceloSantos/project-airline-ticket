@@ -6,7 +6,9 @@ export type CardBackPeopleBodyType = {
 	deathday: string | null;
 	gender: number;
 	id: number;
-	known_for_department: string;
+	imdb_id: string;
+	homepage: string
+;	known_for_department: string;
 	name: string;
 	place_of_birth: string;
 	profile_path: string;

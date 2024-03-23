@@ -10,6 +10,7 @@ import { AvatarNavBar } from '../components/AvatarNavBar';
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
 import { authOptions } from '../lib/auth';
+import { ModalPeoples } from '../components/ModalPeoples';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -26,6 +27,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 			<body className={inter.className}>
 				<Providers>
 					<Suspense>
+						<ModalPeoples />
 						<ModalMovies />
 					</Suspense>
 					<SideMenu>

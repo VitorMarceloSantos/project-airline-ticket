@@ -553,7 +553,7 @@ body {
   color: rgba(255, 255, 255, 0.937254902);
 }
 .informations-modal-text h3 {
-  color: rgba(255, 255, 255, 0.8);
+  color: #707070;
 }
 .informations-modal-text-container-1 {
   width: 60%;
@@ -595,6 +595,20 @@ body {
 }
 .informations-modal-text-container-2-genre ul li:not(:last-child)::after {
   content: ",";
+}
+.informations-modal-text-container-2-peoples {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.informations-modal-text-container-2-peoples-text {
+  color: #707070;
+}
+.informations-modal-text-container-2-peoples h3:not(:first-child) {
+  margin-top: 1rem;
+}
+.informations-modal-text-container-2-peoples h3 {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .ohters-movies-TV-modal {

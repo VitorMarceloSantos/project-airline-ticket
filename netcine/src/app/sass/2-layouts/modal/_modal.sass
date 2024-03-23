@@ -35,7 +35,7 @@
     display: flex
     color: $color-titles-buttons
     h3
-      color: $btn-color-off
+      color: $color-modal-title
     &-container-1
       width: 60%
       text-align: justify
@@ -67,12 +67,23 @@
             display: flex
           li:not(:last-child)::after
             content: ','
+      &-peoples
+        display: flex
+        align-items: flex-start
+        flex-direction: column
+
+        &-text
+          color: $color-modal-title
+
+        h3:not(:first-child)
+          margin-top: 1rem
+        h3
+          color: $btn-color-off
 
 .ohters-movies-TV-modal
   height: 55vh
   padding: 1rem
   color: $color-titles-buttons
-  // position: relative
   h2
     margin-bottom: 1rem
     font-size: 1.2rem
