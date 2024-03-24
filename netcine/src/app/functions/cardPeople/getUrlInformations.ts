@@ -1,16 +1,9 @@
 import { GetUrlPeopleType } from '@/app/types/components/CardPeople';
-import { INITIAL_CARD_PEOPLE } from '@/app/constants/cardPeople';
 import { CardBackPeopleBodyType } from '@/app/types/components/CardBackPeopleBodyType';
 import { RequestInformationsAPI } from '@/app/api/RequestInformationsAPI';
 import { DataTypeMoviesAndTVs } from '@/app/types/api/RequestAPI';
 import { InformationsPeoplesContextType } from '@/app/types/context/InformationsPeoplesType';
-import { useCallback } from 'react';
-import { RequestUrlVideo } from '@/app/api/RequestUrlVideo';
-import { randomVideo } from '../PlayerVideo/randomVideo';
-
-// const urlMovieOrTVRandom = useCallback(async () => {
-// 	return await RequestUrlVideo(movieOrTVRandom.id as number, movieOrTVRandom.media_type as string);
-// }, [movieOrTVRandom]);
+import { getMovieOrTVWithValidVideo } from './getMovieOrTVWithValidVideo';
 
 const RequestAPIs = async (
 	handleStateChangeInformationsPeoples: (newInformations: InformationsPeoplesContextType) => void,
@@ -20,9 +13,7 @@ const RequestAPIs = async (
 	const urlCast = `https://api.themoviedb.org/3/person/${peopleId}/combined_credits?language=pt-BR`;
 	const dataResult = await RequestInformationsAPI<CardBackPeopleBodyType>(urlPeople);
 	const { cast } = await RequestInformationsAPI<DataTypeMoviesAndTVs>(urlCast);
-	const numberRandom = randomVideo(cast.length);
-	const movieOrTVRandom = cast[numberRandom];
-	const urlMovieOrTVRandom = await RequestUrlVideo(movieOrTVRandom.id, movieOrTVRandom.media_type as string) as string;
+	const { movieOrTVRandom, urlMovieOrTVRandom } = await getMovieOrTVWithValidVideo(cast);
 	handleStateChangeInformationsPeoples({
 		informationPeople: dataResult,
 		participationsInMoviesOrTV: cast,

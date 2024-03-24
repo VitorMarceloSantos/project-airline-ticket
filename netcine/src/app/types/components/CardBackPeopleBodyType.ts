@@ -18,6 +18,6 @@ export type CardBackPeopleCardType = {
 	values: {
 		name: string;
 		// informations: CardBackPeopleBodyType;
-		// knowFor: ResultsType[];
+		knowFor: ResultsType[];
 	};
 };

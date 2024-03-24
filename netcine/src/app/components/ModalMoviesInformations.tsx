@@ -1,13 +1,15 @@
+import { verifyOverview } from '../functions/modal/verifyOverview';
 import { ModalMoviesInformationsType } from '../types/components/ModalTypes';
 import { CardBackBodyInformations } from './CardBackBodyInformations';
 
 export const ModalMoviesInformations = ({ values }: ModalMoviesInformationsType) => {
 	const { cast, english_name, genres, movieOrTV, type } = values;
+
 	return (
 		<section className='informations-modal-text'>
 			<section className='informations-modal-text-container-1'>
 				<CardBackBodyInformations values={{ english_name, movie: movieOrTV, type }} />
-				<p className='informations-modal-text-container-1-overview'>{movieOrTV.overview}</p>
+				<p className='informations-modal-text-container-1-overview'>{verifyOverview(movieOrTV.overview)}</p>
 			</section>
 			<section className='informations-modal-text-container-2'>
 				<section className='informations-modal-text-container-2-cast'>

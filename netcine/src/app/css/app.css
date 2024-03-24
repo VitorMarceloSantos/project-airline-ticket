@@ -137,6 +137,37 @@ body {
   align-items: center;
   justify-content: space-evenly;
 }
+.carousel-card-back-body-informations-people {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  margin: 0 1rem;
+  position: relative;
+}
+.carousel-card-back-body-informations-people p {
+  font-weight: 700;
+}
+.carousel-card-back-body-informations-people .carousel-card-back-body-buttons-btn {
+  position: absolute;
+  right: 0;
+}
+.carousel-card-back-body-informations-know {
+  margin: 0 1rem;
+}
+.carousel-card-back-body-informations-know p {
+  margin-bottom: 0.25rem;
+  color: #707070;
+}
+.carousel-card-back-body-informations-know li {
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+.carousel-card-back-body-informations-know li:before {
+  content: "•";
+  margin: 0 0.25rem;
+  color: #707070;
+}
 .carousel-card-back-body-informations-hd {
   display: flex;
   align-items: center;

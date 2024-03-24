@@ -1,5 +1,6 @@
 export async function RequestInformationsAPI<T>(url: string): Promise<T> {
 	const res = await fetch(url, {
+		
 		headers: {
 			accept: 'application/json',
 			// Authorization: process.env.DATA_API_KEY as string,

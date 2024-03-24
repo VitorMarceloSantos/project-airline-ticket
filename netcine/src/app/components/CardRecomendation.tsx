@@ -1,0 +1,28 @@
+import Image from "next/image";
+import { CardRecomendationType } from "../types/components/CardRecomendationType";
+import ErroImagem from '../images/errorVideo.png';
+import { CardBackBodyInformations } from "./CardBackBodyInformations";
+import { lengthOverview } from "../functions/modal/lengthOverview";
+
+export const CardRecomendation = ({ values }: CardRecomendationType) => {
+	const { movieOrTV } = values;
+	const URL_IMG = `https://image.tmdb.org/t/p/w342${movieOrTV.poster_path}`;
+	return (
+		<section className='card-header-recomendation'>
+			<Image
+				className='card-recomendation-image'
+				src={movieOrTV.poster_path === null ? ErroImagem : URL_IMG}
+				width={300}
+				height={180}
+				alt={`${movieOrTV.media_type === 'movie' ? movieOrTV?.title : movieOrTV?.name} - Back`}
+				priority={true}
+			/>
+			<section className='card-header-recomendation-informations'>
+				<CardBackBodyInformations
+					values={{ english_name: movieOrTV.original_language, movie: movieOrTV, type: movieOrTV.media_type as string }}
+				/>
+				<p className='card-header-recomendation-informations-overview'>{lengthOverview(movieOrTV.overview)}</p>
+			</section>
+		</section>
+	);
+};

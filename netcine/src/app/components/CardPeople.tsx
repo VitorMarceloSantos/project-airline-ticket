@@ -72,7 +72,7 @@ export default function CardPeople({ values }: CardPeopleType) {
 						priority={true}
 					/>
 				</section>
-				<CardBackPeopleBody values={{ name: people.name }} />
+				<CardBackPeopleBody values={{ name: people.name, knowFor: people.known_for }} />
 			</section>
 		</section>
 	);

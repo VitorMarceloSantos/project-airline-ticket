@@ -1,6 +1,5 @@
 import { MovieOrTVValuesType } from '@/app/types/context/MovieOrTVAddedType';
 import { verifyMovieAddedOrLiked } from '../card/verifyMovieAddedOrLiked';
-import { INITIAL_MOVIE_OR_TV_ADDED } from '@/app/constants/CardMoviesOrTV';
 import { Dispatch, SetStateAction } from 'react';
 
 type OptionsLocalStorageAndState = {
@@ -27,7 +26,7 @@ export const optionsLocalStorageAndState = ({ values }: OptionsLocalStorageAndSt
 			const newStateFilter = parseLocalStorage.filter((element) => element.movie.id !== newMovie.movie.id);
 			if (newStateFilter.length === 0) {
 				localStorage.removeItem(keyLocalStorage);
-				setStateAddedOrLiked(INITIAL_MOVIE_OR_TV_ADDED);
+				setStateAddedOrLiked([]);
 				setStateTrueOrFalse(true);
 			} else {
 				localStorage.setItem(keyLocalStorage, JSON.stringify(newStateFilter));

@@ -44,7 +44,7 @@ export const LoadCardsLocalStorage = ({ values }: LoadCardsLocalStorageType) => 
 					</Suspense>
 				</article>
 			) : (
-				<h1 style={{ color: 'white' }}>NÃO ECONTRADO</h1>
+				<h1 style={{ color: 'white' }}>Nenhum Filme/Série foi adicionado.</h1>
 			)}
 		</>
 	);
