@@ -1,4 +1,4 @@
-export const getCharNameUser = (name: string) => {
+export const getCharNameUser = (name: string): string => {
 	if (name.includes(' ')) {
 		return `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`.toUpperCase();
 	}

@@ -1,10 +1,11 @@
 'use client';
+
 import { useEffect } from 'react';
-import { getItemsPerScreen } from '../functions/card/getItemsPerScreen';
-import { CardMoviesOrPeopleType, ResultsType } from '../types/components/CarouselMoviesTypes';
+import { getItemsPerScreen } from '@/app/functions/card/getItemsPerScreen';
+import { CardMoviesOrPeopleType, ResultsType } from '@/app/types/components/CarouselMoviesTypes';
 import Card from './Card';
-import { getWidthWindow } from '../functions/card/getWidthWindow';
-import { addClassCard } from '../functions/card/addClassCard';
+import { getWidthWindow } from '@/app/functions/card/getWidthWindow';
+import { addClassCard } from '@/app/functions/card/addClassCard';
 
 export const SelectCardMoviesOrTv = ({ values }: CardMoviesOrPeopleType) => {
 	const movies = values.movies as unknown as ResultsType[];

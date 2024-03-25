@@ -1,8 +1,8 @@
 import { Suspense } from 'react';
 import { PlayerVideoBannerURL } from './PlayerVideoBannerURL';
 import { SkeletonCarousel } from './SkeletonCarousel';
-import { randomVideo } from '../functions/PlayerVideo/randomVideo';
-import { LoadCardsLocalStorageType } from '../types/components/LoadCardsLocalStorageType';
+import { randomVideo } from '@/app/functions/PlayerVideo/randomVideo';
+import { LoadCardsLocalStorageType } from '@/app/types/components/LoadCardsLocalStorageType';
 import CardStorage from './CardStorage';
 
 export const LoadCardsLocalStorage = ({ values }: LoadCardsLocalStorageType) => {

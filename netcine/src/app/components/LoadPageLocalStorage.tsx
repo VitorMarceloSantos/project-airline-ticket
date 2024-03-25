@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { LoadPageLocalStorageType } from '../types/components/LoadPageLocalStorageType';
+import { LoadPageLocalStorageType } from '@/app/types/components/LoadPageLocalStorageType';
 import { LoadCardsLocalStorage } from './LoadCardsLocalStorage';
-import { useMovieOrTVAddedContext, useMovieOrTvLikedContext } from '../context';
+import { useMovieOrTVAddedContext, useMovieOrTvLikedContext } from '@/app/context';
 
 export const LoadPageLocalStorage = ({ value }: LoadPageLocalStorageType) => {
 	const { localKey } = value;

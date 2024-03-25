@@ -1,5 +1,4 @@
-import { MovieOrTVValuesType } from "../context/MovieOrTVAddedType";
-import { ResultsType } from "./CarouselMoviesTypes";
+import { ResultsType } from './CarouselMoviesTypes';
 
 export type CardsGroupResultType = {
 	values: {

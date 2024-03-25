@@ -1,12 +1,11 @@
 import { Suspense } from 'react';
-import { RequestInformationsAPI } from '../api/RequestInformationsAPI';
+import { RequestInformationsAPI } from '@/app/api/RequestInformationsAPI';
 import { CarouselMovies } from './CarouselMovies';
 import { SkeletonCarousel } from './SkeletonCarousel';
-import { MovieOrTVDataType } from '../types/api/RequestAPI';
-
-const urlTrendingMovies = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US';
+import { MovieOrTVDataType } from '@/app/types/api/RequestAPI';
 
 export default async function TrendingMovies() {
+	const urlTrendingMovies = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US';
 	const { results } = await RequestInformationsAPI<MovieOrTVDataType>(urlTrendingMovies);
 
 	return (

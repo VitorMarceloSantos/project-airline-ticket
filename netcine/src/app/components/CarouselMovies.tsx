@@ -1,18 +1,17 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
-import { MoviesDataType } from '../types/components/CarouselMoviesTypes';
-import { addEventWindowWidth } from '../functions/carouselMovies/addEventWindowWidth';
-import { calculateProgressBar } from '../functions/carouselMovies/calculateProgressBar';
+import { MoviesDataType } from '@/app/types/components/CarouselMoviesTypes';
+import { addEventWindowWidth } from '@/app/functions/carouselMovies/addEventWindowWidth';
+import { calculateProgressBar } from '@/app/functions/carouselMovies/calculateProgressBar';
 import 'animate.css';
-import { verifyHandleClick } from '../functions/carouselMovies/verifyHandleClick';
+import { verifyHandleClick } from '@/app/functions/carouselMovies/verifyHandleClick';
 import { ProgressBar } from './ProgressBar';
 import { SelectCardMoviesOrTv } from './SelectCardMoviesOrTv';
 import { SelectCardPeoples } from './SelectCardPeoples';
 
 export const CarouselMovies = ({ values }: MoviesDataType) => {
 	const { resultData, type, title } = values;
-
 	const [movies] = useState(resultData);
 	const progressBar = useRef<HTMLDivElement>(null);
 	const slider = useRef<HTMLUListElement>(null);

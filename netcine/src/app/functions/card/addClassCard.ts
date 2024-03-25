@@ -1,6 +1,6 @@
 import { AddClassCardType } from '@/app/types/components/CardTypes';
 
-export const addClassCard = ({ values }: AddClassCardType) => {
+export const addClassCard = ({ values }: AddClassCardType): void => {
 	const { itemsPerScreen, listCards } = values;
 	let left = 0;
 	for (let index = 0; index < listCards.length; index += 1) {

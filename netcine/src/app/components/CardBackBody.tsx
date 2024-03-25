@@ -6,18 +6,18 @@ import AddIcon from '@mui/icons-material/Add';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import CheckIcon from '@mui/icons-material/Check';
-import { CardBackBodyType, CastType } from '../types/components/CardBackBodyTypes';
+import { CardBackBodyType, CastType } from '@/app/types/components/CardBackBodyTypes';
 import {
 	useInformationsMoviesOrTVContext,
 	useModalOpenCloseContext,
 	useMovieOrTVAddedContext,
 	useMovieOrTvLikedContext,
-} from '../context';
+} from '@/app/context';
 import { IconButton } from '@mui/material';
 import { CardBackBodyInformations } from './CardBackBodyInformations';
-import { GetRequestCast } from '../functions/card/GetRequestCast';
+import { GetRequestCast } from '@/app/functions/card/GetRequestCast';
 import { useState } from 'react';
-import { INITIAL_CAST } from '../constants/CardBackBody';
+import { INITIAL_CAST } from '@/app/constants/CardBackBody';
 import { verifyMovieAddedOrLiked } from '../functions/card/verifyMovieAddedOrLiked';
 import { useRouter } from 'next/navigation';
 

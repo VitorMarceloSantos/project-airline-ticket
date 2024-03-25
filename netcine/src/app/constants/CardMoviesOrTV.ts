@@ -42,5 +42,3 @@ export const INITIAL_MOVIE_OR_TV_ADDED = [
 		urlMovie: '',
 	},
 ];
-
-

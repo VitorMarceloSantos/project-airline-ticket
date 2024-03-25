@@ -1,9 +1,10 @@
-import { selectColorNoteMovie } from '../functions/cardBackBody/selectColorNoteMovie';
-import { verifyReleaseDate } from '../functions/cardBackBody/verifyReleaseDate';
-import { CardBackBodyInformationsType } from '../types/components/CardBackBodyTypes';
+import { selectColorNoteMovie } from '@/app/functions/cardBackBody/selectColorNoteMovie';
+import { verifyReleaseDate } from '@/app/functions/cardBackBody/verifyReleaseDate';
+import { CardBackBodyInformationsType } from '@/app/types/components/CardBackBodyTypes';
 
 export const CardBackBodyInformations = ({ values }: CardBackBodyInformationsType) => {
 	const { english_name, movie, type } = values;
+
 	return (
 		<section className='carousel-card-back-body-informations'>
 			<p

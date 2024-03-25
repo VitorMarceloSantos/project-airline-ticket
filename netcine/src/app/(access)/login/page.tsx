@@ -1,6 +1,6 @@
 import LoginAndCreate from '@/app/components/LoginAndCreate';
 import { ValuesFormLogin } from '@/app/components/ValuesFormLogin';
 
-export default function Login() {
+export default async function Login() {
 	return <LoginAndCreate children={<ValuesFormLogin />} />;
 }

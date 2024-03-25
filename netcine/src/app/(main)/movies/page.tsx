@@ -1,12 +1,12 @@
-import NowPlaying from '../../components/NowPlaying';
-import TopMovies from '../../components/TopMovies';
-import UpComing from '../../components/UpComing';
-import PopularMovies from '../../components/PopularMovies';
-import TrendingMovies from '../../components/TrendingMovies';
-import { randomVideo } from '../../functions/PlayerVideo/randomVideo';
-import { PlayerVideoBannerURL } from '../../components/PlayerVideoBannerURL';
-import { MovieOrTVDataType } from '../../types/api/RequestAPI';
-import { RequestInformationsAPI } from '../../api/RequestInformationsAPI';
+import NowPlaying from '@/app/components/NowPlaying';
+import TopMovies from '@/app/components/TopMovies';
+import UpComing from '@/app/components/UpComing';
+import PopularMovies from '@/app/components/PopularMovies';
+import TrendingMovies from '@/app/components/TrendingMovies';
+import { randomVideo } from '@/app/functions/PlayerVideo/randomVideo';
+import { PlayerVideoBannerURL } from '@/app/components/PlayerVideoBannerURL';
+import { MovieOrTVDataType } from '@/app/types/api/RequestAPI';
+import { RequestInformationsAPI } from '@/app/api/RequestInformationsAPI';
 
 export default async function Movies() {
 	const urlNowPlaying = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1';

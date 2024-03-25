@@ -17,7 +17,10 @@ const messageErrorEmail = {
 };
 
 const name = Joi.string().min(6).max(20).required().messages(messageError);
-const email = Joi.string().pattern(new RegExp('^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$')).required().messages(messageErrorEmail);
+const email = Joi.string()
+	.pattern(new RegExp('^[a-z0-9.]+@[a-z0-9]+.[a-z]+.([a-z]+)?$'))
+	.required()
+	.messages(messageErrorEmail);
 const password = Joi.string()
 	.min(6)
 	.max(10)

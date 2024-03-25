@@ -1,7 +1,8 @@
 'use client';
+
 import { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
-import { PlayMovieOrTvType } from '../types/components/PlayMovieOrTvType';
+import { PlayMovieOrTvType } from '@/app/types/components/PlayMovieOrTvType';
 
 export const PlayMovieOrTv = ({ value }: PlayMovieOrTvType) => {
 	const { idMovie } = value;

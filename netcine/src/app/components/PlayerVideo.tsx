@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import ReactPlayer from 'react-player';
 import { LegacyRef, useEffect, useRef } from 'react';
-import { PlayerVideoType } from '../types/components/PlayerVideoTypes';
+import { PlayerVideoType } from '@/app/types/components/PlayerVideoTypes';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
-import ErroImagem from '../images/errorVideo.png';
-import { useVolumeVideo } from '../context';
+import ErroImagem from '@/app/images/errorVideo.png';
+import { useVolumeVideo } from '@/app/context';
 
 export const PlayerVideo = ({ values }: PlayerVideoType) => {
 	const { handleStateVolume, stateVolumeVideo } = useVolumeVideo();

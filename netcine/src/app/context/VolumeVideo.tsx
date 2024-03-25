@@ -1,8 +1,7 @@
 import { createContext, useCallback, useContext, useState } from 'react';
-import { VolumeVideoContextType } from '../types/context/VolumeVideoContextType';
+import { VolumeVideoContextType } from '@/app/types/context/VolumeVideoContextType';
 
 const initialValue: VolumeVideoContextType = { stateVolumeVideo: true, handleStateVolume: () => {} };
-
 const VolumeVideo = createContext<VolumeVideoContextType>(initialValue);
 
 export const VolumeVideoProvider = ({ children }: { children: React.ReactNode }) => {
@@ -10,6 +9,7 @@ export const VolumeVideoProvider = ({ children }: { children: React.ReactNode })
 	const handleStateVolume = useCallback((newState: boolean) => {
 		setStateVolumeVideo(newState);
 	}, []);
+
 	return <VolumeVideo.Provider value={{ stateVolumeVideo, handleStateVolume }}>{children}</VolumeVideo.Provider>;
 };
 

@@ -2,8 +2,8 @@ import { createContext, useCallback, useContext, useState } from 'react';
 import {
 	InformationsPeoplesContextType,
 	NewInformationsPeoplesContextType,
-} from '../types/context/InformationsPeoplesType';
-import { INITIAL_INFORMATIONS_PEOPLE } from '../constants/cardPeople';
+} from '@/app/types/context/InformationsPeoplesType';
+import { INITIAL_INFORMATIONS_PEOPLE } from '@/app/constants/cardPeople';
 
 const InformationsPeoplesContext = createContext<NewInformationsPeoplesContextType>({
 	stateInformationsPeoples: INITIAL_INFORMATIONS_PEOPLE,
@@ -16,6 +16,7 @@ export const InformationsPeoplesProvider = ({ children }: { children: React.Reac
 	const handleStateChangeInformationsPeoples = useCallback((newInform: InformationsPeoplesContextType) => {
 		setStateInformationsPeoples(newInform);
 	}, []);
+	
 	return (
 		<InformationsPeoplesContext.Provider value={{ stateInformationsPeoples, handleStateChangeInformationsPeoples }}>
 			{children}

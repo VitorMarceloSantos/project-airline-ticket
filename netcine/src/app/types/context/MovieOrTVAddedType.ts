@@ -14,4 +14,3 @@ export type MovieOrTVAddedType = {
 	stateMovieOrTVAddedContext: MovieOrTVValuesType[];
 	handleMovieOrTVAdded: (newMovie: MovieOrTVValuesType) => void;
 };
-

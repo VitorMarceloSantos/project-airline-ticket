@@ -1,4 +1,4 @@
-import { ProgressBarType } from '../types/components/ProgressBarTypes';
+import { ProgressBarType } from '@/app/types/components/ProgressBarTypes';
 
 export const ProgressBar = ({ values }: ProgressBarType) => {
 	const { progressBar, title } = values;

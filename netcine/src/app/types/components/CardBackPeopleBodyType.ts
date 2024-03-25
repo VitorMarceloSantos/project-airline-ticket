@@ -7,8 +7,8 @@ export type CardBackPeopleBodyType = {
 	gender: number;
 	id: number;
 	imdb_id: string;
-	homepage: string
-;	known_for_department: string;
+	homepage: string;
+	known_for_department: string;
 	name: string;
 	place_of_birth: string;
 	profile_path: string;
@@ -17,7 +17,6 @@ export type CardBackPeopleBodyType = {
 export type CardBackPeopleCardType = {
 	values: {
 		name: string;
-		// informations: CardBackPeopleBodyType;
 		knowFor: ResultsType[];
 	};
 };

@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import netCine from '/public/images/netCine.png';
 
-export default async function LoginAndCreate({ children }: { children: React.ReactNode }) {
+export default function LoginAndCreate({ children }: { children: React.ReactNode }) {
+	
 	return (
 		<section className='background-initial'>
 			<section className='container-informations'>

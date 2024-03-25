@@ -1,5 +1,5 @@
-import { verifyQuantifyChar } from '../functions/modal/verifyQuantifyChar';
-import { ModalPeoplesInformationsType } from '../types/components/ModalPeoplesInformationsType';
+import { verifyQuantifyChar } from '@/app/functions/modal/verifyQuantifyChar';
+import { ModalPeoplesInformationsType } from '@/app/types/components/ModalPeoplesInformationsType';
 
 export const ModalPeoplesInformations = ({ values }: ModalPeoplesInformationsType) => {
 	const {

@@ -1,4 +1,4 @@
-export const getItemsPerScreen = (windowWidth: number) => {
+export const getItemsPerScreen = (windowWidth: number): number => {
 	const NUMBER_ONE_THOUSAND_TWO_HUNDRED = 1200;
 	const NUMBER_FIVE = 5;
 	const NUMBER_NIVE_HUNDRED_NINETY = 990;

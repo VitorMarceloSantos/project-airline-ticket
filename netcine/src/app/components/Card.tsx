@@ -1,15 +1,15 @@
 'use client';
 
 import Image from 'next/image';
-import { CardGenresType, CardLanguagesType, CardType } from '../types/components/CardTypes';
+import { CardGenresType, CardLanguagesType, CardType } from '@/app/types/components/CardTypes';
 import { useRef, useState } from 'react';
 import { PlayerVideo } from './PlayerVideo';
-import { searchGenresMovie } from '../functions/card/searchGenresMovie';
-import { filterLanguage } from '../functions/card/filterLanguageMovie';
+import { searchGenresMovie } from '@/app/functions/card/searchGenresMovie';
+import { filterLanguage } from '@/app/functions/card/filterLanguageMovie';
 import { CardBackBody } from './CardBackBody';
-import { UpdateValuesStateInformations } from '../functions/card/UpdateValuesStateInformations';
-import { useInformationsMoviesOrTVContext } from '../context';
-import ErroImagem from '../images/errorVideo.png';
+import { UpdateValuesStateInformations } from '@/app/functions/card/UpdateValuesStateInformations';
+import { useInformationsMoviesOrTVContext } from '@/app/context';
+import ErroImagem from '@/app/images/errorVideo.png';
 import { usePlayerVideo } from '@/app/context';
 
 export default function Card({ values }: CardType) {
@@ -36,6 +36,7 @@ export default function Card({ values }: CardType) {
 	const cardBack = useRef<HTMLElement>(null);
 	const [acessCardHover, setAcessCardHover] = useState<boolean>(false);
 	const NUMBER_SEVEN_HUNDRED_FIFTY = 750;
+	const createNameClass = `${title.toLocaleLowerCase().replaceAll(' ', '')}_${index}`;
 
 	const resetCard = () => {
 		if (acessCardHover === true) {
@@ -45,8 +46,6 @@ export default function Card({ values }: CardType) {
 			cardBack.current!.style.opacity = '0';
 		}
 	};
-
-	const createNameClass = `${title.toLocaleLowerCase().replaceAll(' ', '')}_${index}`;
 
 	const updateCard = () => {
 		const verifyClass = document.querySelector(`.${createNameClass}`);

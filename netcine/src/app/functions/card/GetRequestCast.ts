@@ -1,9 +1,9 @@
-import { INITIAL_CAST } from '../../constants/CardBackBody';
+import { INITIAL_CAST } from '@/app/constants/CardBackBody';
 import { GetRequestCastType } from '@/app/types/components/CardBackBodyTypes';
 import { RequestInformationsAPI } from '@/app/api/RequestInformationsAPI';
 import { CastDataType } from '@/app/types/api/RequestAPI';
 
-export const GetRequestCast = async ({ values }: GetRequestCastType) => {
+export const GetRequestCast = async ({ values }: GetRequestCastType): Promise<void> => {
 	const {
 		movieId,
 		type,

@@ -1,12 +1,11 @@
 import { Suspense } from 'react';
-import { RequestInformationsAPI } from '../api/RequestInformationsAPI';
+import { RequestInformationsAPI } from '@/app/api/RequestInformationsAPI';
 import { CarouselMovies } from './CarouselMovies';
 import { SkeletonCarousel } from './SkeletonCarousel';
-import { MovieOrTVDataType } from '../types/api/RequestAPI';
-
-const urlOnTheAir = 'https://api.themoviedb.org/3/tv/on_the_air?language=en-US&page=1';
+import { MovieOrTVDataType } from '@/app/types/api/RequestAPI';
 
 export default async function OnTheAir() {
+	const urlOnTheAir = 'https://api.themoviedb.org/3/tv/on_the_air?language=en-US&page=1';
 	const { results } = await RequestInformationsAPI<MovieOrTVDataType>(urlOnTheAir);
 
 	return (

@@ -1,5 +1,5 @@
-import { verifyOverview } from '../functions/modal/verifyOverview';
-import { ModalMoviesInformationsType } from '../types/components/ModalTypes';
+import { verifyOverview } from '@/app/functions/modal/verifyOverview';
+import { ModalMoviesInformationsType } from '@/app/types/components/ModalTypes';
 import { CardBackBodyInformations } from './CardBackBodyInformations';
 
 export const ModalMoviesInformations = ({ values }: ModalMoviesInformationsType) => {

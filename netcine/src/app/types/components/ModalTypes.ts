@@ -11,3 +11,11 @@ export type ModalMoviesInformationsType = {
 		genres: CardGenresType[];
 	};
 };
+
+export type RecomendationsMoviesOrTVsType = {
+	values: {
+		type: string;
+		movieOrTV: ResultsType;
+		english_name: string;
+	};
+};

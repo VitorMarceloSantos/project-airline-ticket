@@ -1,19 +1,20 @@
-import Image from 'next/image';
-import { getUrPeople } from '../functions/cardPeople/getUrlInformations';
 import { useRef, useState } from 'react';
-import { CardPeopleType } from '../types/components/CardPeople';
+import Image from 'next/image';
+import { getUrPeople } from '@/app/functions/cardPeople/getUrlInformations';
+import { CardPeopleType } from '@/app/types/components/CardPeople';
 import { CardBackPeopleBody } from './CardBackPeopleBody';
-import ErroImagem from '../images/errorVideo.png';
-import { useInformationsPeoplesContext } from '../context';
+import ErroImagem from '@/app/images/errorVideo.png';
+import { useInformationsPeoplesContext } from '@/app/context';
 
 export default function CardPeople({ values }: CardPeopleType) {
 	const { people, index } = values;
-	const {handleStateChangeInformationsPeoples } = useInformationsPeoplesContext();
+	const { handleStateChangeInformationsPeoples } = useInformationsPeoplesContext();
 	const URL_IMG = `https://image.tmdb.org/t/p/w342${people.profile_path}`;
 	const cardFront = useRef<HTMLElement>(null);
 	const cardBack = useRef<HTMLElement>(null);
 	const [acessCardHover, setAcessCardHover] = useState<boolean>(false);
 	const NUMBER_SEVEN_HUNDRED_FIFTY = 750;
+	const createNameClass = `peoples_${index}`;
 
 	const resetCard = () => {
 		if (acessCardHover === true) {
@@ -21,8 +22,6 @@ export default function CardPeople({ values }: CardPeopleType) {
 			cardBack.current!.style.opacity = '0';
 		}
 	};
-
-	const createNameClass = `peoples_${index}`;
 
 	const updateCard = () => {
 		const verifyClass = document.querySelector(`.${createNameClass}`);
@@ -33,8 +32,7 @@ export default function CardPeople({ values }: CardPeopleType) {
 				getUrPeople({
 					values: {
 						peopleId: people.id,
-						handleStateChangeInformationsPeoples
-						
+						handleStateChangeInformationsPeoples,
 					},
 				});
 				setAcessCardHover(true);

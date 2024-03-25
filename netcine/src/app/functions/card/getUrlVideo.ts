@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
-import { RequestUrlVideo } from '../../api/RequestUrlVideo';
-import { GetUrlVideoType } from '../../types/components/CardTypes';
+import { RequestUrlVideo } from '@/app/api/RequestUrlVideo';
+import { GetUrlVideoType } from '@/app/types/components/CardTypes';
 
 export const isExistUrlVideo = async (
 	setUrlMovie: Dispatch<SetStateAction<string>>,
@@ -13,13 +13,11 @@ export const isExistUrlVideo = async (
 		setUrlMovie(urlMovie);
 		return urlMovie;
 	}
-
 	return urlMovie;
 };
 
 export const getUrlVideo = async ({ values }: GetUrlVideoType): Promise<string> => {
 	const { movieId, urlMovie, setUrlMovie, type } = values;
 	const url = await isExistUrlVideo(setUrlMovie, movieId, urlMovie, type);
-
 	return url;
 };

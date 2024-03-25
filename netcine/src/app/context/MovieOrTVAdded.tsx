@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useState } from 'react';
-import { MovieOrTVAddedType, MovieOrTVValuesType } from '../types/context/MovieOrTVAddedType';
-import { INITIAL_MOVIE_OR_TV_ADDED } from '../constants/CardMoviesOrTV';
-import { optionsLocalStorageAndState } from '../functions/context/optionsLocalStorageAndState';
+import { MovieOrTVAddedType, MovieOrTVValuesType } from '@/app/types/context/MovieOrTVAddedType';
+import { INITIAL_MOVIE_OR_TV_ADDED } from '@/app/constants/CardMoviesOrTV';
+import { optionsLocalStorageAndState } from '@/app/functions/context/optionsLocalStorageAndState';
 
 const initialValue: MovieOrTVAddedType = {
 	stateMovieOrTVAddedContext: INITIAL_MOVIE_OR_TV_ADDED,

@@ -1,12 +1,13 @@
 'use client';
+
 import { useEffect, useState, useRef, LegacyRef, useCallback } from 'react';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import Image from 'next/image';
 import ReactPlayer from 'react-player';
-import { RequestUrlVideo } from '../api/RequestUrlVideo';
-import { usePlayerVideo, useVolumeVideo } from '../context';
-import { PlayerVideoBannerURLType } from '../types/components/PlayerVideoBannerType';
+import { RequestUrlVideo } from '@/app/api/RequestUrlVideo';
+import { usePlayerVideo, useVolumeVideo } from '@/app/context';
+import { PlayerVideoBannerURLType } from '@/app/types/components/PlayerVideoBannerType';
 
 export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 	const { type, videoId, img } = values;
@@ -48,7 +49,7 @@ export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 				src={URL_IMG}
 				width={1920}
 				height={1080}
-				alt={'Tv'}
+				alt='Banner Video'
 				priority={true}
 			/>
 			{playOn && (

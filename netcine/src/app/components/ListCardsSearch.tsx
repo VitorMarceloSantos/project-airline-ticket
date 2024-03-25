@@ -1,8 +1,9 @@
-import { ListCardsSearchType } from '../types/components/SearchTypes';
+import { ListCardsSearchType } from '@/app/types/components/SearchTypes';
 import Card from './Card';
 
 export const ListCardsSearch = ({ values }: ListCardsSearchType) => {
 	const { results, type } = values;
+
 	return (
 		<ul className='carousel-card list-cards-search'>
 			{results.map((movie, index) => {

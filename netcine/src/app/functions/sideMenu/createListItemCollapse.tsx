@@ -1,10 +1,10 @@
-import { SideMenuType } from '../../types/components/SideMenuType';
+import { SideMenuType } from '@/app/types/components/SideMenuType';
 import { Collapse, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import { useSideMenuContext } from '@/app/context';
 import { useRouter } from 'next/navigation';
 
-export const createListItemCollapse = ({ values }: SideMenuType) => {
+export const createListItemCollapse = ({ values }: SideMenuType): React.ReactElement => {
 	const { genres, openGenre } = values;
 	const { handleStateChange } = useSideMenuContext();
 	const router = useRouter();

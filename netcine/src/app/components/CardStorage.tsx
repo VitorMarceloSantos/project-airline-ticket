@@ -4,11 +4,11 @@ import Image from 'next/image';
 import { useRef, useState } from 'react';
 import { PlayerVideo } from './PlayerVideo';
 import { CardBackBody } from './CardBackBody';
-import { UpdateValuesStateInformations } from '../functions/card/UpdateValuesStateInformations';
-import { useInformationsMoviesOrTVContext } from '../context';
-import ErroImagem from '../images/errorVideo.png';
+import { UpdateValuesStateInformations } from '@/app/functions/card/UpdateValuesStateInformations';
+import { useInformationsMoviesOrTVContext } from '@/app/context';
+import ErroImagem from '@/app/images/errorVideo.png';
 import { usePlayerVideo } from '@/app/context';
-import { CardStorageType } from '../types/components/CardStorage';
+import { CardStorageType } from '@/app/types/components/CardStorage';
 
 export default function CardStorage({ values }: CardStorageType) {
 	const { genres, languages, movie, type, urlMovie: urlParams, title, index } = values;
@@ -32,6 +32,7 @@ export default function CardStorage({ values }: CardStorageType) {
 	const cardBack = useRef<HTMLElement>(null);
 	const [acessCardHover, setAcessCardHover] = useState<boolean>(false);
 	const NUMBER_SEVEN_HUNDRED_FIFTY = 750;
+	const createNameClass = `${title!.toLocaleLowerCase().replaceAll(' ', '')}_${index}`;
 
 	const resetCard = () => {
 		if (acessCardHover === true) {
@@ -41,8 +42,6 @@ export default function CardStorage({ values }: CardStorageType) {
 			cardBack.current!.style.opacity = '0';
 		}
 	};
-
-	const createNameClass = `${title!.toLocaleLowerCase().replaceAll(' ', '')}_${index}`;
 
 	const updateCard = () => {
 		const verifyClass = document.querySelector(`.${createNameClass}`);

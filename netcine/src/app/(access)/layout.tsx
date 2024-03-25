@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
 	title: 'NetMovies',
-  description: 'NetMovies - Login and Create New User',
+	description: 'NetMovies - Login and Create New User',
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {

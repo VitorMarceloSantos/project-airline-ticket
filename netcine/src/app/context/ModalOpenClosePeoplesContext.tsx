@@ -1,11 +1,10 @@
 import { createContext, useCallback, useContext, useState } from 'react';
-import { ModalOpenClosePeoplesContextType } from '../types/context/ModalOpenClosePeoplesContextType';
+import { ModalOpenClosePeoplesContextType } from '@/app/types/context/ModalOpenClosePeoplesContextType';
 
 const initialValue: ModalOpenClosePeoplesContextType = {
 	stateModalOpenClosePeoplesContext: false,
 	handleModalOpenClosePeoples: () => {},
 };
-
 const ModalOpenClosePeoplesContext = createContext<ModalOpenClosePeoplesContextType>(initialValue);
 
 export const ModalOpenClosePeoplesContextProvider = ({ children }: { children: React.ReactNode }) => {
@@ -13,6 +12,7 @@ export const ModalOpenClosePeoplesContextProvider = ({ children }: { children: R
 	const handleModalOpenClosePeoples = useCallback((newState: boolean) => {
 		setStateModalOpenClosePeoplesContext(newState);
 	}, []);
+	
 	return (
 		<ModalOpenClosePeoplesContext.Provider
 			value={{

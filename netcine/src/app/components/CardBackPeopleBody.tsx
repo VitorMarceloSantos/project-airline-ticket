@@ -1,9 +1,7 @@
-import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
-import AddIcon from '@mui/icons-material/Add';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { CardBackPeopleCardType } from '../types/components/CardBackPeopleBodyType';
+import { CardBackPeopleCardType } from '@/app/types/components/CardBackPeopleBodyType';
 import { IconButton } from '@mui/material';
-import { useModalOpenClosePeoplesContext } from '../context';
+import { useModalOpenClosePeoplesContext } from '@/app/context';
 
 export const CardBackPeopleBody = ({ values }: CardBackPeopleCardType) => {
 	const { name, knowFor } = values;
@@ -24,7 +22,6 @@ export const CardBackPeopleBody = ({ values }: CardBackPeopleCardType) => {
 				</section>
 			</section>
 			<section className='carousel-card-back-body-informations-know'>
-				{/* <p role='paragraph'>{name}</p> */}
 				<p role='paragraph'>Conhecido(a) por:</p>
 				<ul>
 					{knowFor.map((movie, index) => {

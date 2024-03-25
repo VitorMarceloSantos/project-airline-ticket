@@ -1,12 +1,12 @@
-import PopularPeoples from '../components/PopularPeoples';
-import TopMovies from '../components/TopMovies';
-import TopSeries from '../components/TopSeries';
-import TredingDay from '../components/TredingDay';
-import TredingWeek from '../components/TredingWeek';
-import { PlayerVideoBannerURL } from '../components/PlayerVideoBannerURL';
-import { randomVideo } from '../functions/PlayerVideo/randomVideo';
-import { RequestInformationsAPI } from '../api/RequestInformationsAPI';
-import { MovieOrTVDataType } from '../types/api/RequestAPI';
+import PopularPeoples from '@/app/components/PopularPeoples';
+import TopMovies from '@/app/components/TopMovies';
+import TopSeries from '@/app/components/TopSeries';
+import TredingDay from '@/app/components/TredingDay';
+import TredingWeek from '@/app/components/TredingWeek';
+import { PlayerVideoBannerURL } from '@/app/components/PlayerVideoBannerURL';
+import { randomVideo } from '@/app/functions/PlayerVideo/randomVideo';
+import { RequestInformationsAPI } from '@/app/api/RequestInformationsAPI';
+import { MovieOrTVDataType } from '@/app/types/api/RequestAPI';
 
 export default async function Home() {
 	const urlTrendingHom = 'https://api.themoviedb.org/3/trending/all/day?language=en-US';

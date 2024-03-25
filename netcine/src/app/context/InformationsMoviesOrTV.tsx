@@ -2,8 +2,8 @@ import { createContext, useCallback, useContext, useState } from 'react';
 import {
 	InformationsMoviesOrTVContextType,
 	NewInformationsMoviesOrTVContextType,
-} from '../types/context/InformationsMoviesOrTVType';
-import { INITIAL_INFORMATIONS_MOVIES_TV } from '../constants/CardMoviesOrTV';
+} from '@/app/types/context/InformationsMoviesOrTVType';
+import { INITIAL_INFORMATIONS_MOVIES_TV } from '@/app/constants/CardMoviesOrTV';
 
 const InformationsMoviesOrTVContext = createContext<NewInformationsMoviesOrTVContextType>({
 	stateInformationsMoviesOrTV: INITIAL_INFORMATIONS_MOVIES_TV,
@@ -16,6 +16,7 @@ export const InformationsMoviesOrTVProvider = ({ children }: { children: React.R
 	const handleStateChangeInformationsMoviesOrTV = useCallback((newInform: InformationsMoviesOrTVContextType) => {
 		setStateInformationsMoviesOrTV(newInform);
 	}, []);
+
 	return (
 		<InformationsMoviesOrTVContext.Provider
 			value={{ stateInformationsMoviesOrTV, handleStateChangeInformationsMoviesOrTV }}

@@ -1,6 +1,6 @@
-import { handleSearchIconCloseType } from '../../types/components/NavBarTypes';
+import { handleSearchIconCloseType } from '@/app/types/components/NavBarTypes';
 
-export const handleSearchIconClose = ({ setIsActiveSearch, setTextInputSearch }: handleSearchIconCloseType) => {
+export const handleSearchIconClose = ({ setIsActiveSearch, setTextInputSearch }: handleSearchIconCloseType): void => {
 	setTextInputSearch('');
 	setIsActiveSearch(false);
 };

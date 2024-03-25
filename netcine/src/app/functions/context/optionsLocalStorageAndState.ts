@@ -1,19 +1,8 @@
 import { MovieOrTVValuesType } from '@/app/types/context/MovieOrTVAddedType';
 import { verifyMovieAddedOrLiked } from '../card/verifyMovieAddedOrLiked';
-import { Dispatch, SetStateAction } from 'react';
+import { OptionsLocalStorageAndState } from '@/app/types/context/OptionsLocalStorageAndState';
 
-type OptionsLocalStorageAndState = {
-	values: {
-		stateTrueOrFalse: boolean;
-		setStateAddedOrLiked: Dispatch<SetStateAction<MovieOrTVValuesType[]>>;
-		setStateTrueOrFalse: Dispatch<SetStateAction<boolean>>;
-		newMovie: MovieOrTVValuesType;
-		stateAddedOrLiked: MovieOrTVValuesType[];
-		keyLocalStorage: string;
-	};
-};
-
-export const optionsLocalStorageAndState = ({ values }: OptionsLocalStorageAndState) => {
+export const optionsLocalStorageAndState = ({ values }: OptionsLocalStorageAndState): void => {
 	const { newMovie, setStateAddedOrLiked, setStateTrueOrFalse, stateAddedOrLiked, stateTrueOrFalse, keyLocalStorage } =
 		values;
 	if (stateTrueOrFalse === true) {

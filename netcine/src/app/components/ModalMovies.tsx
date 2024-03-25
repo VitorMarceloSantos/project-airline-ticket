@@ -5,11 +5,7 @@
 'use client';
 
 import { Box, IconButton, Modal } from '@mui/material';
-import {
-	useInformationsMoviesOrTVContext,
-	useModalOpenCloseContext,
-	usePlayerVideo,
-} from '../context';
+import { useInformationsMoviesOrTVContext, useModalOpenCloseContext, usePlayerVideo } from '@/app/context';
 import { PlayerVideo } from './PlayerVideo';
 import CloseIcon from '@mui/icons-material/Close';
 import RecomendationsMoviesOrTVs from './RecomendationsMoviesOrTVs';

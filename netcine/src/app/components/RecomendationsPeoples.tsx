@@ -1,4 +1,4 @@
-import { RecomendationsPeoplesType } from '../types/components/CardRecomendationType';
+import { RecomendationsPeoplesType } from '@/app/types/components/CardRecomendationType';
 import { CardRecomendation } from './CardRecomendation';
 
 export default function RecomendationsPeoples({ values }: RecomendationsPeoplesType) {

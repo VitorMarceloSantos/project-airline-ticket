@@ -1,10 +1,11 @@
-import { CardMoviesOrPeopleType } from '../types/components/CarouselMoviesTypes';
-import { PeopleType } from '../types/components/PeopleType';
+import { CardMoviesOrPeopleType } from '@/app/types/components/CarouselMoviesTypes';
+import { PeopleType } from '@/app/types/components/PeopleType';
 import CardPeople from './CardPeople';
 
 export const SelectCardPeoples = ({ values }: CardMoviesOrPeopleType) => {
 	const peoples = values.movies as PeopleType[];
 	const { slider } = values;
+
 	return (
 		<ul className='carousel-movies' ref={slider}>
 			{peoples.map((people, index) => {

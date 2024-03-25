@@ -2,8 +2,8 @@ import { Suspense } from "react";
 import { ListCardsSearch } from "./ListCardsSearch";
 import { PlayerVideoBannerURL } from "./PlayerVideoBannerURL";
 import { SkeletonCarousel } from "./SkeletonCarousel";
-import { randomVideo } from "../functions/PlayerVideo/randomVideo";
-import { CardsGroupResultType } from "../types/components/CardsGroupResultTypes";
+import { randomVideo } from "@/app/functions/PlayerVideo/randomVideo";
+import { CardsGroupResultType } from "@/app/types/components/CardsGroupResultTypes";
 
 export const CardsGroupResult = ({ values }: CardsGroupResultType) => {
   const {verifyExistedPerson, type} = values

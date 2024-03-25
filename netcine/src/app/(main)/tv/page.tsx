@@ -1,12 +1,12 @@
-import { RequestInformationsAPI } from '../../api/RequestInformationsAPI';
-import AiringToday from '../../components/AiringToday';
-import OnTheAir from '../../components/OnTheAir';
-import { PlayerVideoBannerURL } from '../../components/PlayerVideoBannerURL';
-import PopularTV from '../../components/PopularTV';
-import TopSeries from '../../components/TopSeries';
-import TrendingTVs from '../../components/TrendingTVs';
-import { randomVideo } from '../../functions/PlayerVideo/randomVideo';
-import { MovieOrTVDataType } from '../../types/api/RequestAPI';
+import { RequestInformationsAPI } from '@/app/api/RequestInformationsAPI';
+import AiringToday from '@/app/components/AiringToday';
+import OnTheAir from '@/app/components/OnTheAir';
+import { PlayerVideoBannerURL } from '@/app/components/PlayerVideoBannerURL';
+import PopularTV from '@/app/components/PopularTV';
+import TopSeries from '@/app/components/TopSeries';
+import TrendingTVs from '@/app/components/TrendingTVs';
+import { randomVideo } from '@/app/functions/PlayerVideo/randomVideo';
+import { MovieOrTVDataType } from '@/app/types/api/RequestAPI';
 
 export default async function Tvs() {
 	const urlTrendingTVs = 'https://api.themoviedb.org/3/trending/tv/day?language=en-US';

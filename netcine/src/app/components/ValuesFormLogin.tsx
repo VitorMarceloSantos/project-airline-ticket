@@ -5,10 +5,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import google from '/public/images/google.png';
 import github from '/public/images/github.png';
-import { FormValuesType } from '../types/components/FormValuesType';
+import { FormValuesType } from '@/app/types/components/FormValuesType';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
-import { createFormSchemaLogin } from '../validations/FormLogin';
+import { createFormSchemaLogin } from '@/app/validations/FormLogin';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { CircularProgress, IconButton } from '@mui/material';
@@ -41,7 +41,7 @@ export const ValuesFormLogin = () => {
 			...data,
 			redirect: false,
 		});
-		
+
 		if (res?.error) {
 			console.log('Erro ao fazer login', res.error);
 		} else {

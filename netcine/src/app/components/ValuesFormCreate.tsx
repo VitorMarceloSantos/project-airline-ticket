@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { FormValuesType } from '../types/components/FormValuesType';
+import { FormValuesType } from '@/app/types/components/FormValuesType';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
-import { createFormSchemaCreate } from '../validations/FormCreate';
+import { createFormSchemaCreate } from '@/app/validations/FormCreate';
 import { CircularProgress, IconButton } from '@mui/material';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';

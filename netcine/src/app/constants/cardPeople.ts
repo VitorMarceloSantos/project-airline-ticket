@@ -1,4 +1,4 @@
-import { INITIAL_CARD_MOVIE_TV } from "./CardMoviesOrTV";
+import { INITIAL_CARD_MOVIE_TV } from './CardMoviesOrTV';
 
 export const INITIAL_CARD_PEOPLE = {
 	biography: '',
@@ -11,7 +11,7 @@ export const INITIAL_CARD_PEOPLE = {
 	place_of_birth: '',
 	profile_path: '',
 	homepage: '',
-	imdb_id: ''
+	imdb_id: '',
 };
 
 export const INITIAL_INFORMATIONS_PEOPLE = {

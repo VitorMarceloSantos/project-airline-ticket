@@ -1,8 +1,7 @@
 import { createContext, useCallback, useContext, useState } from 'react';
-import { ModalOpenCloseContextType } from '../types/context/ModalOpenCloseContextType';
+import { ModalOpenCloseContextType } from '@/app/types/context/ModalOpenCloseContextType';
 
 const initialValue: ModalOpenCloseContextType = { stateModalOpenCloseContext: false, handleModalOpenClose: () => {} };
-
 const ModalOpenCloseContext = createContext<ModalOpenCloseContextType>(initialValue);
 
 export const ModalOpenCloseContextProvider = ({ children }: { children: React.ReactNode }) => {
@@ -10,6 +9,7 @@ export const ModalOpenCloseContextProvider = ({ children }: { children: React.Re
 	const handleModalOpenClose = useCallback((newState: boolean) => {
 		setStateModalOpenCloseContext(newState);
 	}, []);
+	
 	return (
 		<ModalOpenCloseContext.Provider
 			value={{

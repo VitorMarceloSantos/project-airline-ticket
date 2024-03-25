@@ -2,7 +2,7 @@ import { UpdateValuesStateInformationsType } from '@/app/types/components/CardTy
 import { getUrlVideo } from './getUrlVideo';
 import { InformationsMoviesOrTVContextType } from '@/app/types/context/InformationsMoviesOrTVType';
 
-export const UpdateValuesStateInformations = async ({ values }: UpdateValuesStateInformationsType) => {
+export const UpdateValuesStateInformations = async ({ values }: UpdateValuesStateInformationsType): Promise<void> => {
 	const {
 		movie,
 		urlMovie,

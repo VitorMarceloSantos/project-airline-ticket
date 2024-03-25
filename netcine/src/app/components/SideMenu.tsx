@@ -1,18 +1,18 @@
 'use client';
 
 import { Box, Divider, Drawer, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
-import { ChildrenType } from '../types/components/ChildrenType';
+import { ChildrenType } from '@/app/types/components/ChildrenType';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import { useEffect, useState } from 'react';
 import HomeIcon from '@mui/icons-material/Home';
 import CloseIcon from '@mui/icons-material/Close';
 import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
 import LiveTvIcon from '@mui/icons-material/LiveTv';
-import { useSideMenuContext } from '../context';
+import { useSideMenuContext } from '@/app/context';
 import { ThemeProvider } from '@mui/material/styles';
-import { ThemeSideBar } from '../theme/ThemeSideMenu';
-import { createListItemCollapse } from '../functions/sideMenu/createListItemCollapse';
-import { listMoviesGenres, listTvsGenres } from '../constants/SideMenu';
+import { ThemeSideBar } from '@/app/theme/ThemeSideMenu';
+import { createListItemCollapse } from '@/app/functions/sideMenu/createListItemCollapse';
+import { listMoviesGenres, listTvsGenres } from '@/app/constants/SideMenu';
 import { useRouter } from 'next/navigation';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import AddIcon from '@mui/icons-material/Add';

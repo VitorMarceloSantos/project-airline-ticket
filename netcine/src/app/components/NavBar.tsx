@@ -6,10 +6,10 @@ import SearchIcon from '@mui/icons-material/Search';
 import { IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Close } from '@mui/icons-material';
-import { ChangeEvent, useEffect, useRef, useState } from 'react';
-import { handleSearchIconOpen } from '../functions/navbar/handleSearchIconOpen';
-import { handleSearchIconClose } from '../functions/navbar/handleSearchIconClose';
-import { useSideMenuContext } from '../context';
+import { ChangeEvent, useRef, useState } from 'react';
+import { handleSearchIconOpen } from '@/app/functions/navbar/handleSearchIconOpen';
+import { handleSearchIconClose } from '@/app/functions/navbar/handleSearchIconClose';
+import { useSideMenuContext } from '@/app/context';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -34,8 +34,8 @@ export const NavBar = ({ children }: { children: React.ReactNode }) => {
 
 	function requestRouter(value: string) {
 		router.push(`/search/others/${value}`);
-		setTextInputSearch('')
-		setIsActiveSearch(false)
+		setTextInputSearch('');
+		setIsActiveSearch(false);
 	}
 
 	const debouncedRouter = debounce(requestRouter, 2000);

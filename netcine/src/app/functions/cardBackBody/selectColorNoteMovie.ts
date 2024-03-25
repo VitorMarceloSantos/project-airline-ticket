@@ -1,4 +1,4 @@
-import { note } from '../../constants/card';
+import { note } from '@/app/constants/card';
 
 export const selectColorNoteMovie = (vote: number): string => {
 	if (vote <= note.bad) {

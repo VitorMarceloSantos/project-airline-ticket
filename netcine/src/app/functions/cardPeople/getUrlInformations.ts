@@ -1,4 +1,4 @@
-import { GetUrlPeopleType } from '@/app/types/components/CardPeople';
+import { GetUrlPeopleType, isExistUrlInformationsType } from '@/app/types/components/CardPeople';
 import { CardBackPeopleBodyType } from '@/app/types/components/CardBackPeopleBodyType';
 import { RequestInformationsAPI } from '@/app/api/RequestInformationsAPI';
 import { DataTypeMoviesAndTVs } from '@/app/types/api/RequestAPI';
@@ -8,12 +8,13 @@ import { getMovieOrTVWithValidVideo } from './getMovieOrTVWithValidVideo';
 const RequestAPIs = async (
 	handleStateChangeInformationsPeoples: (newInformations: InformationsPeoplesContextType) => void,
 	peopleId: number,
-) => {
+): Promise<void> => {
 	const urlPeople = `https://api.themoviedb.org/3/person/${peopleId}?language=pt-BR`;
 	const urlCast = `https://api.themoviedb.org/3/person/${peopleId}/combined_credits?language=pt-BR`;
 	const dataResult = await RequestInformationsAPI<CardBackPeopleBodyType>(urlPeople);
 	const { cast } = await RequestInformationsAPI<DataTypeMoviesAndTVs>(urlCast);
 	const { movieOrTVRandom, urlMovieOrTVRandom } = await getMovieOrTVWithValidVideo(cast);
+
 	handleStateChangeInformationsPeoples({
 		informationPeople: dataResult,
 		participationsInMoviesOrTV: cast,
@@ -23,13 +24,6 @@ const RequestAPIs = async (
 			movieOrTV: movieOrTVRandom,
 		},
 	});
-};
-
-type isExistUrlInformationsType = {
-	values: {
-		peopleId: number;
-		handleStateChangeInformationsPeoples: (newInformations: InformationsPeoplesContextType) => void;
-	};
 };
 
 export const isExistUrlInformations = async ({ values }: isExistUrlInformationsType): Promise<void> => {
