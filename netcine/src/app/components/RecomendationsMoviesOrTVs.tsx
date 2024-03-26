@@ -8,15 +8,15 @@ import { lengthOverview } from '@/app/functions/modal/lengthOverview';
 
 const CardRecomendation = ({ values }: RecomendationsMoviesOrTVsType) => {
 	const { movieOrTV, type, english_name } = values;
-	const URL_IMG = `https://image.tmdb.org/t/p/w342${movieOrTV.poster_path}`;
+	const URL_IMG = `https://image.tmdb.org/t/p/w500${movieOrTV.poster_path}`;
 
 	return (
 		<section className='card-header-recomendation'>
 			<Image
 				className='card-recomendation-image'
 				src={movieOrTV.poster_path === null ? ErroImagem : URL_IMG}
-				width={300}
-				height={180}
+				width={500}
+				height={500}
 				alt={`${type === 'movie' ? movieOrTV?.title : movieOrTV?.name}`}
 				priority={true}
 			/>

@@ -66,7 +66,6 @@ body {
 }
 .carousel-card-header img {
   width: 100%;
-  height: 10vh;
 }
 .carousel-card-header .carousel-card-video {
   border-radius: 0.5rem;
@@ -98,6 +97,11 @@ body {
   height: 10vh;
   border-radius: 0.25rem;
 }
+@media (min-width: 1900px) {
+  .carousel-card-front img {
+    height: 18vh;
+  }
+}
 .carousel-card-back {
   position: absolute;
   display: none;
@@ -122,6 +126,11 @@ body {
   height: 10vh;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+}
+@media (min-width: 1900px) {
+  .carousel-card-back img {
+    height: 18vh;
+  }
 }
 .carousel-card-back-body {
   border-bottom-left-radius: 0.5rem;
@@ -256,12 +265,6 @@ body {
 .carousel-card-back-body-buttons-btn-color:hover .carousel-card-back-body-buttons-btn-text-color {
   color: rgba(255, 255, 255, 0.8);
 }
-@media (min-width: 1024px) {
-  .carousel-card {
-    width: 100%;
-    top: 0%;
-  }
-}
 
 .card-rigth .carousel-card:hover {
   cursor: pointer;
@@ -343,7 +346,7 @@ body {
 .carousel-movies {
   position: relative;
   z-index: -1;
-  --items-per-screen: 5;
+  --items-per-screen: 6;
   --slider-index: 0;
   display: flex;
   flex-grow: 1;

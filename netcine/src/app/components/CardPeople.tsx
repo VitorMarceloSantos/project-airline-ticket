@@ -9,7 +9,7 @@ import { useInformationsPeoplesContext } from '@/app/context';
 export default function CardPeople({ values }: CardPeopleType) {
 	const { people, index } = values;
 	const { handleStateChangeInformationsPeoples } = useInformationsPeoplesContext();
-	const URL_IMG = `https://image.tmdb.org/t/p/w342${people.profile_path}`;
+	const URL_IMG = `https://image.tmdb.org/t/p/w500${people.profile_path}`;
 	const cardFront = useRef<HTMLElement>(null);
 	const cardBack = useRef<HTMLElement>(null);
 	const [acessCardHover, setAcessCardHover] = useState<boolean>(false);
@@ -52,8 +52,8 @@ export default function CardPeople({ values }: CardPeopleType) {
 					<Image
 						className='carousel-card-image'
 						src={people.profile_path === null ? ErroImagem : URL_IMG}
-						width={215}
-						height={130}
+						width={500}
+						height={500}
 						alt={`${people.name}`}
 						priority={true}
 					/>

@@ -4,7 +4,11 @@ export const calculateProgressBar = (progressBar: HTMLDivElement, slider: HTMLUL
 	let itemsPerScreen = 0;
 	let sliderIndex = 0;
 	if (slider) {
-		itemCount = slider.children.length;
+		if (window.screen.width >= 1920) {
+			itemCount = 18;
+		} else {
+			itemCount = slider.children.length;
+		}
 		itemsPerScreen = parseInt(getComputedStyle(slider).getPropertyValue('--items-per-screen'));
 		sliderIndex = parseInt(getComputedStyle(slider).getPropertyValue('--slider-index'));
 	}

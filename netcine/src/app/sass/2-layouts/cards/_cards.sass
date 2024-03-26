@@ -1,16 +1,17 @@
 @use '../mixins/_mixins'
+@use '../../1-base/mixins/_typesDisplay'
 @import '../../1-base/_pallete'
 
 $tablet-width: 768px
 $desktop-width: 1024px
 
-@mixin tablet
-  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px})
-    @content
+// @mixin tablet
+//   @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px})
+//     @content
 
-@mixin desktop
-  @media (min-width: #{$desktop-width})
-    @content
+// @mixin desktop
+//   @media (min-width: #{$desktop-width})
+//     @content
 
 body
   overflow: hidden
@@ -20,10 +21,12 @@ body
 
   &-header
     width: 100%
+
     img
       width: 100%
       // Atualizar de acordo com o tamanho da tela
-      height: 10vh
+      // height: 10vh
+
     .carousel-card-video
       border-radius: .5rem
       position: relative
@@ -58,6 +61,8 @@ body
       border-radius: .25rem
       // border-bottom-left-radius: 0
       // border-bottom-right-radius: 0
+      @include typesDisplay.large_device
+        height: 18vh
 
   &-back
     position: absolute
@@ -84,6 +89,9 @@ body
       border-bottom-left-radius: 0
       border-bottom-right-radius: 0
 
+      @include typesDisplay.large_device
+        height: 18vh
+
     &-body
       border-bottom-left-radius: .5rem
       border-bottom-right-radius: .5rem
@@ -93,6 +101,9 @@ body
       flex-direction: column
       justify-content: space-evenly
       color: $color-titles-buttons
+
+      // @include typesDisplay.large_device
+      //   height: 20vh
 
       &-informations
         display: flex
@@ -209,9 +220,9 @@ body
             .carousel-card-back-body-buttons-btn-text-color
               color: $btn-color-off
 
-  @include desktop
-    width: 100%
-    top: 0%
+  // @include desktop
+  //   width: 100%
+  //   top: 0%
 
 .card-rigth
   .carousel-card

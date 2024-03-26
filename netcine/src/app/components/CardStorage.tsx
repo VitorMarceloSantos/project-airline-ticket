@@ -27,7 +27,7 @@ export default function CardStorage({ values }: CardStorageType) {
 		urlMovie,
 		handleStateChangeInformationsMoviesOrTV,
 	};
-	const URL_IMG = `https://image.tmdb.org/t/p/w342${movie.poster_path}`;
+	const URL_IMG = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 	const cardFront = useRef<HTMLElement>(null);
 	const cardBack = useRef<HTMLElement>(null);
 	const [acessCardHover, setAcessCardHover] = useState<boolean>(false);
@@ -70,8 +70,8 @@ export default function CardStorage({ values }: CardStorageType) {
 					<Image
 						className='carousel-card-image'
 						src={movie.poster_path === null ? ErroImagem : URL_IMG}
-						width={215}
-						height={130}
+						width={500}
+						height={500}
 						alt={`${type === 'movie' ? movie.title : movie.name} - Front`}
 						priority={true}
 					/>
