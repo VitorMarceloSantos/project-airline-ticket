@@ -2,21 +2,24 @@
 
 import { useRef, useState, useEffect } from 'react';
 import { MoviesDataType } from '@/app/types/components/CarouselMoviesTypes';
-import { addEventWindowWidth } from '@/app/functions/carouselMovies/addEventWindowWidth';
+import { addEventWindowWidth, addEventScrollNavBar } from '@/app/functions/carouselMovies/addEventWindowWidth';
 import { calculateProgressBar } from '@/app/functions/carouselMovies/calculateProgressBar';
 import 'animate.css';
 import { verifyHandleClick } from '@/app/functions/carouselMovies/verifyHandleClick';
 import { ProgressBar } from './ProgressBar';
 import { SelectCardMoviesOrTv } from './SelectCardMoviesOrTv';
 import { SelectCardPeoples } from './SelectCardPeoples';
+import { usePlayerVideo } from '../context';
 
 export const CarouselMovies = ({ values }: MoviesDataType) => {
 	const { resultData, type, title } = values;
 	const [movies] = useState(resultData);
 	const progressBar = useRef<HTMLDivElement>(null);
 	const slider = useRef<HTMLUListElement>(null);
+	const { handleStateVideo } = usePlayerVideo();
 
 	useEffect(() => {
+		addEventScrollNavBar(handleStateVideo);
 		if (progressBar.current !== null && slider.current !== null)
 			calculateProgressBar(progressBar.current, slider.current);
 		addEventWindowWidth();

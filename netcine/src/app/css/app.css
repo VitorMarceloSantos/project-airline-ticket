@@ -33,7 +33,6 @@ footer, header, hgroup, menu, nav, section {
 
 body {
   line-height: 1;
-  padding: 1rem 0;
 }
 
 ol, ul {
@@ -56,6 +55,21 @@ table {
 
 body {
   overflow: hidden;
+}
+@media (min-width: 1900px) {
+  body {
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+}
+
+body::-webkit-scrollbar {
+  width: 0.5vw;
+  border: 1px solid #2F2F2F;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.937254902);
 }
 
 .carousel-card {
@@ -126,6 +140,7 @@ body {
   height: 10vh;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+  object-fit: cover;
 }
 @media (min-width: 1900px) {
   .carousel-card-back img {
@@ -454,6 +469,21 @@ body {
   justify-content: space-between;
   width: 100vw;
   height: 7vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 0.5rem 0;
+  transition: all 500ms ease-in-out;
+}
+@media (min-width: 1900px) {
+  .navbar {
+    height: 6vh;
+  }
+}
+.navbar-roll {
+  background-color: rgb(20, 20, 20);
+  transition: all 500ms ease-out;
 }
 .navbar-list {
   width: 33.33%;
@@ -463,9 +493,6 @@ body {
   padding-left: 3vw;
   color: rgba(255, 255, 255, 0.8);
   font-weight: 700;
-}
-.navbar-logo {
-  padding-top: 1vw;
 }
 .navbar-buttons li a {
   text-decoration: none;
@@ -502,6 +529,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+@media (min-width: 1900px) {
+  .navbar-search-container {
+    width: 2.5vw;
+  }
 }
 .navbar-search-container-input input {
   border: none;
@@ -706,8 +738,12 @@ body {
   height: 30vh;
   width: 100vw;
   position: relative;
-  margin-top: 1rem;
   margin-bottom: -9vh;
+}
+@media (min-width: 1900px) {
+  .banner-video {
+    height: 100vh;
+  }
 }
 .banner-video-front {
   transition: all 450ms ease-out;
@@ -742,6 +778,11 @@ body {
   width: 100vw;
   transform: scale(1.4);
 }
+@media (min-width: 1900px) {
+  .banner-video-back-url iframe {
+    height: 100vh;
+  }
+}
 .banner-video-button {
   z-index: 1;
   position: absolute;
@@ -759,7 +800,6 @@ body {
   position: absolute;
   bottom: -1.2vh;
   z-index: -1;
-  background: linear-gradient(transparent, #141414);
 }
 
 .skeleton-card {

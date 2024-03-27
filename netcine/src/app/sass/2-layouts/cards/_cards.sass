@@ -15,6 +15,16 @@ $desktop-width: 1024px
 
 body
   overflow: hidden
+  
+  @include typesDisplay.large_device
+    overflow: scroll
+    overflow-x: hidden
+
+body::-webkit-scrollbar
+  width: .5vw
+  border: 1px solid $bg-color-card-recomendation
+body::-webkit-scrollbar-thumb
+  background-color: $color-titles-buttons
 
 .carousel-card
   position: relative
@@ -51,16 +61,13 @@ body
       height: 100%
 
   &-front
-    // position: relative
     transition: all 250ms ease-out
     transition-delay: 200ms
-    // z-index: 100
 
     img
       height: 10vh
       border-radius: .25rem
-      // border-bottom-left-radius: 0
-      // border-bottom-right-radius: 0
+
       @include typesDisplay.large_device
         height: 18vh
 
@@ -88,6 +95,7 @@ body
       height: 10vh
       border-bottom-left-radius: 0
       border-bottom-right-radius: 0
+      object-fit: cover
 
       @include typesDisplay.large_device
         height: 18vh

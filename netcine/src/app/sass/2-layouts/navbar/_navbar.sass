@@ -1,4 +1,5 @@
 @use '../mixins/_mixins'
+@use '../../1-base/mixins/_typesDisplay'
 @import '../../1-base/_pallete'
 
 .navbar
@@ -8,13 +9,26 @@
   width: 100vw
   // Alterar de acordo com o tamanho da tela
   height: 7vh
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 100
+  padding: .5rem 0
+  transition: all 500ms ease-in-out
+
+  @include typesDisplay.large_device
+    height: 6vh
+
+  &-roll
+    background-color: $bg-color-page
+    transition: all 500ms ease-out
 
   &-list
     width: 33.33%
     @include mixins.navbar-menu-config($side: left, $direction: start)
 
   &-logo
-    padding-top: 1vw
+    // padding-top: 1vw
 
   &-buttons
     li
@@ -31,7 +45,7 @@
 
   &-search
     width: 33.33%
-    
+
     @include mixins.navbar-menu-config($side: right, $direction: end)
     li:not(:first-child)
       margin-left: 1vw
@@ -42,6 +56,10 @@
       display: flex
       justify-content: space-between
       align-items: center
+
+      // Alterar de acordo com o tamanho da tela
+      @include typesDisplay.large_device
+        width: 2.5vw
 
       &-input
         input
