@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { CardGenresType, CardLanguagesType, CardType } from '@/app/types/components/CardTypes';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { PlayerVideo } from './PlayerVideo';
 import { searchGenresMovie } from '@/app/functions/card/searchGenresMovie';
 import { filterLanguage } from '@/app/functions/card/filterLanguageMovie';
@@ -11,6 +11,7 @@ import { UpdateValuesStateInformations } from '@/app/functions/card/UpdateValues
 import { useInformationsMoviesOrTVContext } from '@/app/context';
 import ErroImagem from '@/app/images/errorVideo.png';
 import { usePlayerVideo } from '@/app/context';
+import { verifySizeWindow } from '../functions/carouselMovies/addEventWindowWidth';
 
 export default function Card({ values }: CardType) {
 	const { handleStateVideo } = usePlayerVideo();
@@ -20,6 +21,9 @@ export default function Card({ values }: CardType) {
 	const [cardSelected, setCardSelected] = useState<boolean>(true);
 	const genres: CardGenresType[] = movie.genre_ids !== undefined ? searchGenresMovie(movie.genre_ids) : [];
 	const languages: CardLanguagesType = filterLanguage(movie.original_language);
+	const [sizeWindow, setSizeWindow] = useState<number>(0);
+	const [scrollWindow, setScrollWindow] = useState<number>(0);
+
 	const valuesProps = {
 		cardSelected,
 		genres,
@@ -38,9 +42,16 @@ export default function Card({ values }: CardType) {
 	const NUMBER_SEVEN_HUNDRED_FIFTY = 750;
 	const createNameClass = `${title.toLocaleLowerCase().replaceAll(' ', '')}_${index}`;
 
+	useEffect(() => {
+		verifySizeWindow(setSizeWindow, setScrollWindow);
+	}, []);
+
 	const resetCard = () => {
 		if (acessCardHover === true) {
-			handleStateVideo(true);
+			if (sizeWindow > 1900 && scrollWindow < 550) {
+				handleStateVideo(true);
+			}
+			sizeWindow < 1900 && handleStateVideo(true);
 			setCardSelected(false);
 			cardFront.current!.style.opacity = '1';
 			cardBack.current!.style.opacity = '0';

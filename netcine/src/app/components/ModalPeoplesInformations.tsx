@@ -9,7 +9,7 @@ export const ModalPeoplesInformations = ({ values }: ModalPeoplesInformationsTyp
 	return (
 		<section className='informations-modal-text'>
 			<section className='informations-modal-text-container-1'>
-				<p className='informations-modal-text-container-1-overview'>{verifyQuantifyChar(biography)}</p>
+				<p className='informations-modal-text-container-1-overview'>{verifyQuantifyChar(biography, 550)}</p>
 			</section>
 			<section className='informations-modal-text-container-2'>
 				<section className='informations-modal-text-container-2-peoples'>

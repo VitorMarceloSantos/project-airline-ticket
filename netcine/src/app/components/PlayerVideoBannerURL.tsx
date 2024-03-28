@@ -8,9 +8,10 @@ import ReactPlayer from 'react-player';
 import { RequestUrlVideo } from '@/app/api/RequestUrlVideo';
 import { usePlayerVideo, useVolumeVideo } from '@/app/context';
 import { PlayerVideoBannerURLType } from '@/app/types/components/PlayerVideoBannerType';
+import { verifyQuantifyChar } from '../functions/modal/verifyQuantifyChar';
 
 export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
-	const { type, videoId, img } = values;
+	const { type, videoId, img, overview, title, index } = values;
 	const { statePlayerVideo } = usePlayerVideo();
 	const { handleStateVolume, stateVolumeVideo } = useVolumeVideo();
 	const playerVideo = useRef<ReactPlayer | undefined>(undefined);
@@ -41,8 +42,21 @@ export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 		}, NUMBER_ONE_THOUSAND);
 	}, [getURLVideo]);
 
+	const selectRankMovie = (index: number) => {};
+
 	return (
 		<section className='banner-video'>
+			<section className='banner-video-back-informations'>
+				<section className='banner-video-back-informations-container'>
+					<section className='banner-video-back-informations-container-top'>
+						<span>Top</span>
+						<span>{index + 1 <= 10 ? 10 : 20}</span>
+					</section>
+					<span className='banner-video-back-informations-index'>{`Top ${index + 1} de hoje.`}</span>
+				</section>
+				<span className='banner-video-back-informations-title'>{title}</span>
+				<span className='banner-video-back-informations-overview'>{verifyQuantifyChar(overview, 150)}</span>
+			</section>
 			<Image
 				className='banner-video-front'
 				ref={sectionImagem}

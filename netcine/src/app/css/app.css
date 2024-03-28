@@ -140,7 +140,6 @@ body::-webkit-scrollbar-thumb {
   height: 10vh;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  object-fit: cover;
 }
 @media (min-width: 1900px) {
   .carousel-card-back img {
@@ -474,7 +473,8 @@ body::-webkit-scrollbar-thumb {
   left: 0;
   z-index: 100;
   padding: 0.5rem 0;
-  transition: all 500ms ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  transform: 0.5s ease-in-out;
 }
 @media (min-width: 1900px) {
   .navbar {
@@ -483,7 +483,8 @@ body::-webkit-scrollbar-thumb {
 }
 .navbar-roll {
   background-color: rgb(20, 20, 20);
-  transition: all 500ms ease-out;
+  transition: opacity 0.5s ease-in-out;
+  transform: 0.5s ease-in-out;
 }
 .navbar-list {
   width: 33.33%;
@@ -760,6 +761,38 @@ body::-webkit-scrollbar-thumb {
   height: 100%;
   width: 100%;
   z-index: -1;
+}
+@media (min-width: 1900px) {
+  .banner-video-back-informations {
+    width: 20vw;
+    height: 30vh;
+    background-color: green;
+    z-index: 2000;
+    color: red;
+    position: absolute;
+    bottom: 30vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .banner-video-back-informations-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .banner-video-back-informations-container-top {
+    background-color: red;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 900;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 5px;
+    font-size: 1.25rem;
+    text-shadow: 1.5px 1.5px black;
+  }
 }
 .banner-video-back-url {
   opacity: 0;

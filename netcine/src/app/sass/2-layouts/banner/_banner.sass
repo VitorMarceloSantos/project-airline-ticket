@@ -1,4 +1,5 @@
 @use '../../1-base/mixins/_typesDisplay'
+@import '../../1-base/_pallete'
 
 .banner-video
   height: 30vh
@@ -27,6 +28,37 @@
     height: 100%
     width: 100%
     z-index: -1
+
+    @include typesDisplay.large_device
+      &-informations
+        width: 20vw
+        height: 30vh
+        background-color: green
+        z-index: 2000
+        color: red
+        position: absolute
+        bottom: 30vh
+        display: flex
+        flex-direction: column
+
+        &-container
+          display: flex
+          justify-content: center
+          align-items: center
+
+          &-top
+            background-color: red
+            color: $btn-color-off
+            font-weight: 900
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            width: 3.5rem
+            height: 3.5rem
+            border-radius: 5px
+            font-size: 1.25rem
+            text-shadow: 1.5px 1.5px black
 
   &-back-url
     opacity: 0

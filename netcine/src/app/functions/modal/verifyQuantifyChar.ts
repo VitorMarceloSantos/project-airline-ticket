@@ -1,7 +1,7 @@
-export const verifyQuantifyChar = (text: string): string => {
+export const verifyQuantifyChar = (text: string, quantify: number): string => {
 	if (text.length === 0) return 'Biografia Indisponível.';
-	if (text.length > 550) {
-		return text.substring(0, 545) + ' ...';
+	if (text.length > quantify) {
+		return text.substring(0, quantify - 5) + ' ...';
 	}
 	return text;
 };

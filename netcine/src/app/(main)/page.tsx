@@ -21,6 +21,9 @@ export default async function Home() {
 					type: videoBanner.media_type as string,
 					videoId: videoBanner.id,
 					img: videoBanner.backdrop_path,
+					title: (videoBanner.media_type === 'movie' ? videoBanner?.title : videoBanner?.name) as string,
+					overview: videoBanner.overview,
+					index: numberRandom,
 				}}
 			/>
 			<TopMovies />

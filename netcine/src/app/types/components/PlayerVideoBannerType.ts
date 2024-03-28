@@ -9,6 +9,9 @@ export type PlayerVideoBannerURLType = {
 		type: string;
 		videoId: number;
 		img: string;
+		title: string;
+		overview: string;
+		index: number;
 	};
 };
 

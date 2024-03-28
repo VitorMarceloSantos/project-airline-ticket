@@ -14,14 +14,18 @@
   left: 0
   z-index: 100
   padding: .5rem 0
-  transition: all 500ms ease-in-out
+  // transition: all 300ms ease-in-out
+  transition: opacity 0.5s ease-in-out
+  transform: 0.5s ease-in-out
 
   @include typesDisplay.large_device
     height: 6vh
 
   &-roll
     background-color: $bg-color-page
-    transition: all 500ms ease-out
+    // transition: all 300ms ease-out
+    transition: opacity 0.5s ease-in-out
+    transform: 0.5s ease-in-out
 
   &-list
     width: 33.33%

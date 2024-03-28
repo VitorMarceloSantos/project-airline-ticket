@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react';
 import { calculateProgressBar } from './calculateProgressBar';
 
 const throttleProgressBar = async (): Promise<void> => {
@@ -16,6 +17,22 @@ export const addEventScrollNavBar = (handleStateVideo: (newValue: boolean) => vo
 		header?.classList.toggle('navbar-roll', window.scrollY > 0);
 
 		// Vai funcionar somente quando tiver barra de rolagem
-		window.scrollY > 500 ? handleStateVideo(false) : handleStateVideo(true)
+		window.scrollY > 550 ? handleStateVideo(false) : handleStateVideo(true);
+	});
+};
+
+export const verifySizeWindow = (
+	setSizeWindow: Dispatch<SetStateAction<number>>,
+	setScrollWindow: Dispatch<SetStateAction<number>>,
+): void => {
+
+	setSizeWindow(window.innerWidth);
+
+	window.addEventListener('resize', () => {
+		setSizeWindow(window.innerWidth);
+	});
+	
+	window.addEventListener('scroll', () => {
+		setScrollWindow(window.scrollY);
 	});
 };
