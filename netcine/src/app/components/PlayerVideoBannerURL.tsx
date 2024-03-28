@@ -9,6 +9,7 @@ import { RequestUrlVideo } from '@/app/api/RequestUrlVideo';
 import { usePlayerVideo, useVolumeVideo } from '@/app/context';
 import { PlayerVideoBannerURLType } from '@/app/types/components/PlayerVideoBannerType';
 import { verifyQuantifyChar } from '../functions/modal/verifyQuantifyChar';
+import { IconButton } from '@mui/material';
 
 export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 	const { type, videoId, img, overview, title, index } = values;
@@ -42,8 +43,6 @@ export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 		}, NUMBER_ONE_THOUSAND);
 	}, [getURLVideo]);
 
-	const selectRankMovie = (index: number) => {};
-
 	return (
 		<section className='banner-video'>
 			<section className='banner-video-back-informations'>
@@ -52,7 +51,7 @@ export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 						<span>Top</span>
 						<span>{index + 1 <= 10 ? 10 : 20}</span>
 					</section>
-					<span className='banner-video-back-informations-index'>{`Top ${index + 1} de hoje.`}</span>
+					<span className='banner-video-back-informations-index'>{`Top ${index + 1} de hoje`}</span>
 				</section>
 				<span className='banner-video-back-informations-title'>{title}</span>
 				<span className='banner-video-back-informations-overview'>{verifyQuantifyChar(overview, 150)}</span>
@@ -82,24 +81,23 @@ export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 							}}
 						/>
 					</section>
-					<section className={'banner-video-button'}>
-						<button
+					<section className='banner-video-button'>
+						<IconButton
 							className='
-									carousel-card-back-body-buttons-btn
-									carousel-card-back-body-buttons-btn-color'
+									carousel-card-back-body-buttons-btn button-banner'
 						>
 							{stateVolumeVideo ? (
 								<VolumeOffIcon
 									onClick={() => handleStateVolume(!stateVolumeVideo)}
-									className='carousel-card-back-body-buttons-btn-text-color'
+									className='button-banner-color'
 								/>
 							) : (
 								<VolumeUpIcon
 									onClick={() => handleStateVolume(!stateVolumeVideo)}
-									className='carousel-card-back-body-buttons-btn-text-color'
+									className='button-banner-color'
 								/>
 							)}
-						</button>
+						</IconButton>
 					</section>
 				</>
 			)}

@@ -764,20 +764,24 @@ body::-webkit-scrollbar-thumb {
 }
 @media (min-width: 1900px) {
   .banner-video-back-informations {
-    width: 20vw;
+    width: 35vw;
     height: 30vh;
-    background-color: green;
-    z-index: 2000;
+    z-index: 1;
     color: red;
     position: absolute;
-    bottom: 30vh;
+    bottom: 25vh;
+    left: 3.3vw;
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
   .banner-video-back-informations-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 1.5rem;
   }
   .banner-video-back-informations-container-top {
     background-color: red;
@@ -787,11 +791,33 @@ body::-webkit-scrollbar-thumb {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 4rem;
+    height: 4rem;
     border-radius: 5px;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     text-shadow: 1.5px 1.5px black;
+  }
+  .banner-video-back-informations-index {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 900;
+    text-shadow: 1px 1px black;
+    margin-left: 2rem;
+  }
+  .banner-video-back-informations-title {
+    font-size: 4.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 700;
+    text-shadow: 1px 1px black;
+    text-align: start;
+    width: 100%;
+  }
+  .banner-video-back-informations-overview {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    text-shadow: 1px 1px black;
+    margin-top: 1.5rem;
   }
 }
 .banner-video-back-url {
@@ -821,6 +847,26 @@ body::-webkit-scrollbar-thumb {
   position: absolute;
   bottom: 8.5vh;
   right: 5vw;
+}
+.banner-video .button-banner {
+  background-color: transparent;
+}
+.banner-video .button-banner-color {
+  color: white;
+}
+.banner-video .button-banner:hover {
+  border-color: white;
+  background-color: rgba(255, 255, 255, 0.8549019608);
+  box-shadow: 1px solid black;
+  transition: all 250ms ease-out;
+}
+.banner-video .button-banner:hover .button-banner-color {
+  color: #181818;
+}
+@media (min-width: 1900px) {
+  .banner-video .button-banner {
+    height: 5vh;
+  }
 }
 .banner-video video {
   height: 100%;

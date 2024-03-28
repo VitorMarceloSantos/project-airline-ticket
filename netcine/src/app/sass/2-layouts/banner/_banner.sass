@@ -31,20 +31,24 @@
 
     @include typesDisplay.large_device
       &-informations
-        width: 20vw
+        width: 35vw
         height: 30vh
-        background-color: green
-        z-index: 2000
+        z-index: 1
         color: red
         position: absolute
-        bottom: 30vh
+        bottom: 25vh
+        left: 3.3vw
         display: flex
         flex-direction: column
+        align-items: center
 
         &-container
           display: flex
           justify-content: center
           align-items: center
+          justify-content: flex-start
+          width: 100%
+          margin-bottom: 1.5rem
 
           &-top
             background-color: red
@@ -54,11 +58,33 @@
             flex-direction: column
             justify-content: center
             align-items: center
-            width: 3.5rem
-            height: 3.5rem
+            width: 4rem
+            height: 4rem
             border-radius: 5px
-            font-size: 1.25rem
+            font-size: 1.5rem
             text-shadow: 1.5px 1.5px black
+
+        &-index
+          font-size: 1.5rem
+          color: $btn-color-off
+          font-weight: 900
+          text-shadow: 1px 1px black
+          margin-left: 2rem
+
+        &-title
+          font-size: 4.5rem
+          color: $btn-color-off
+          font-weight: 700
+          text-shadow: 1px 1px black
+          text-align: start
+          width: 100%
+
+        &-overview
+          font-size: 1.5rem
+          color: $btn-color-off
+          font-weight: 500
+          text-shadow: 1px 1px black
+          margin-top: 1.5rem
 
   &-back-url
     opacity: 0
@@ -86,6 +112,23 @@
     position: absolute
     bottom: 8.5vh
     right: 5vw
+
+  .button-banner
+    background-color: transparent
+    &-color
+      color: white
+
+    &:hover
+      border-color: white
+      background-color: #ffffffda
+      box-shadow: 1px solid black
+      transition: all 250ms ease-out
+      .button-banner-color
+        color: $bg-color-card
+
+  @include typesDisplay.large_device
+    .button-banner
+      height: 5vh
 
   video
     height: 100%
