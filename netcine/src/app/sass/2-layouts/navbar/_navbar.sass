@@ -17,6 +17,7 @@
   // transition: all 300ms ease-in-out
   transition: opacity 0.5s ease-in-out
   transform: 0.5s ease-in-out
+  background: linear-gradient(180deg, rgba(20,20,20,.6) 0%, transparent 100%)
 
   @include typesDisplay.large_device
     height: 6vh
@@ -30,9 +31,6 @@
   &-list
     width: 33.33%
     @include mixins.navbar-menu-config($side: left, $direction: start)
-
-  &-logo
-    // padding-top: 1vw
 
   &-buttons
     li
@@ -83,7 +81,8 @@
         font-size: 1.5rem
 
         &:hover
-          color: $color-titles-buttons
+          color: $color-list-title
+          transition: all .5s ease
 
     .active-search-bar
       border-radius: 30px

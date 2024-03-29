@@ -23,11 +23,24 @@ export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 	const URL_IMG = `https://image.tmdb.org/t/p/original${img}`;
 	const NUMBER_FIVE = 5;
 	const NUMBER_ONE_THOUSAND = 1000;
+	const NUMBER_FOUR_THOUSAND = 4000;
+	const sectionContainer = useRef<HTMLElement>(null);
+	const sectionTitle = useRef<HTMLElement>(null);
+	const sectionOverview = useRef<HTMLElement>(null);
 
 	const getURLVideo = useCallback(async () => {
 		const URL = await RequestUrlVideo(videoId, type);
 		setURL_Video(URL as string);
 	}, [type, videoId]);
+
+	const animationTitleAndOverview = () => {
+		const timeoutId = setTimeout(() => {
+			sectionContainer.current?.classList.add('animation-container');
+			sectionTitle.current?.classList.add('animation-title');
+			sectionOverview.current?.classList.add('animation-overview');
+			clearTimeout(timeoutId);
+		}, NUMBER_FOUR_THOUSAND);
+	};
 
 	useEffect(() => {
 		getURLVideo();
@@ -38,6 +51,7 @@ export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 				sectionImagem.current!.style.opacity = '0';
 				sectionVideo.current!.style.opacity = '1';
 				sectionVideo.current!.style.display = 'inline';
+				animationTitleAndOverview();
 				clearInterval(timeoutId);
 			}
 		}, NUMBER_ONE_THOUSAND);
@@ -45,7 +59,7 @@ export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 
 	return (
 		<section className='banner-video'>
-			<section className='banner-video-back-informations'>
+			<section className='banner-video-back-informations' ref={sectionContainer}>
 				<section className='banner-video-back-informations-container'>
 					<section className='banner-video-back-informations-container-top'>
 						<span>Top</span>
@@ -53,8 +67,12 @@ export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 					</section>
 					<span className='banner-video-back-informations-index'>{`Top ${index + 1} de hoje`}</span>
 				</section>
-				<span className='banner-video-back-informations-title'>{title}</span>
-				<span className='banner-video-back-informations-overview'>{verifyQuantifyChar(overview, 150)}</span>
+				<span className='banner-video-back-informations-title' ref={sectionTitle}>
+					{title}
+				</span>
+				<span className='banner-video-back-informations-overview' ref={sectionOverview}>
+					{verifyQuantifyChar(overview, 150)}
+				</span>
 			</section>
 			<Image
 				className='banner-video-front'
@@ -87,15 +105,9 @@ export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 									carousel-card-back-body-buttons-btn button-banner'
 						>
 							{stateVolumeVideo ? (
-								<VolumeOffIcon
-									onClick={() => handleStateVolume(!stateVolumeVideo)}
-									className='button-banner-color'
-								/>
+								<VolumeOffIcon onClick={() => handleStateVolume(!stateVolumeVideo)} className='button-banner-color' />
 							) : (
-								<VolumeUpIcon
-									onClick={() => handleStateVolume(!stateVolumeVideo)}
-									className='button-banner-color'
-								/>
+								<VolumeUpIcon onClick={() => handleStateVolume(!stateVolumeVideo)} className='button-banner-color' />
 							)}
 						</IconButton>
 					</section>

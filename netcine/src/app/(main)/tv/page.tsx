@@ -11,11 +11,21 @@ import { MovieOrTVDataType } from '@/app/types/api/RequestAPI';
 export default async function Tvs() {
 	const urlTrendingTVs = 'https://api.themoviedb.org/3/trending/tv/day?language=en-US';
 	const { results } = await RequestInformationsAPI<MovieOrTVDataType>(urlTrendingTVs);
-	const videoBanner = results[randomVideo(results.length - 1)];
+	const numberRandom = randomVideo(results.length - 1);
+	const videoBanner = results[numberRandom];
 
 	return (
 		<main>
-			<PlayerVideoBannerURL values={{ type: 'tv', videoId: videoBanner.id, img: videoBanner.backdrop_path }} />
+			<PlayerVideoBannerURL
+				values={{
+					type: 'tv',
+					videoId: videoBanner.id,
+					img: videoBanner.backdrop_path,
+					title: videoBanner?.name as string,
+					overview: videoBanner.overview,
+					index: numberRandom,
+				}}
+			/>
 			<TopSeries />
 			<AiringToday />
 			<OnTheAir />

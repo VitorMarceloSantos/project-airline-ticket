@@ -411,25 +411,27 @@ body::-webkit-scrollbar-thumb {
   justify-content: space-between;
   padding: 0.5rem calc(0.5rem + 3vw);
   align-items: center;
-}
-.progress-bar:hover .progress-bar-link-1 {
-  display: none;
-}
-.progress-bar:hover .progress-bar-link-2 {
-  display: flex;
+  position: relative;
 }
 .progress-bar-title-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.progress-bar-title-container:hover .progress-bar-link-1 {
+  display: none;
+}
+.progress-bar-title-container:hover .progress-bar-link-2 {
+  display: flex;
+}
 .progress-bar-title {
   font-size: 1.2rem;
   font-weight: 600;
   margin: 0;
   color: white;
+  z-index: 5;
 }
-.progress-bar-link-1, .progress-bar-link-2 {
+.progress-bar-link-1 {
   display: none;
   margin-left: 0.25rem;
   color: #48B6C5;
@@ -437,10 +439,14 @@ body::-webkit-scrollbar-thumb {
   font-weight: 1000;
 }
 .progress-bar-link-2 {
+  color: #48B6C5;
   font-size: 0.8rem;
   margin-left: 0.5rem;
   font-weight: 600;
-  --animate-duration: 0.5s;
+  opacity: 0;
+  position: absolute;
+  z-index: 3;
+  display: none;
 }
 .progress-bar-carousel {
   display: none;
@@ -454,12 +460,6 @@ body::-webkit-scrollbar-thumb {
 }
 .progress-bar-active {
   background-color: rgba(255, 255, 255, 0.9);
-}
-.progress-bar .title-link-activated {
-  display: flex;
-}
-.progress-bar .title-link-deactivated {
-  display: none;
 }
 
 .navbar {
@@ -475,6 +475,7 @@ body::-webkit-scrollbar-thumb {
   padding: 0.5rem 0;
   transition: opacity 0.5s ease-in-out;
   transform: 0.5s ease-in-out;
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.6) 0%, transparent 100%);
 }
 @media (min-width: 1900px) {
   .navbar {
@@ -501,12 +502,12 @@ body::-webkit-scrollbar-thumb {
 }
 .navbar-buttons li a:hover {
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.937254902);
+  color: #a49c9c;
   transition: all 0.5s ease;
 }
 .navbar-buttons li:hover {
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.937254902);
+  color: #a49c9c;
   transition: all 0.5s ease;
 }
 .navbar-buttons li:not(:first-child) {
@@ -553,7 +554,8 @@ body::-webkit-scrollbar-thumb {
   font-size: 1.5rem;
 }
 .navbar-search-container-icon:hover {
-  color: rgba(255, 255, 255, 0.937254902);
+  color: #a49c9c;
+  transition: all 0.5s ease;
 }
 .navbar-search .active-search-bar {
   border-radius: 30px;
@@ -769,7 +771,7 @@ body::-webkit-scrollbar-thumb {
     z-index: 1;
     color: red;
     position: absolute;
-    bottom: 25vh;
+    bottom: 20vh;
     left: 3.3vw;
     display: flex;
     flex-direction: column;
@@ -815,7 +817,7 @@ body::-webkit-scrollbar-thumb {
   .banner-video-back-informations-overview {
     font-size: 1.5rem;
     color: rgba(255, 255, 255, 0.8);
-    font-weight: 500;
+    font-weight: 700;
     text-shadow: 1px 1px black;
     margin-top: 1.5rem;
   }
@@ -881,6 +883,45 @@ body::-webkit-scrollbar-thumb {
   z-index: -1;
 }
 
+.animation-title {
+  animation: animation-title 5s;
+  animation-fill-mode: forwards;
+}
+
+.animation-container {
+  animation: animation-container 5s;
+  animation-fill-mode: forwards;
+}
+
+.animation-overview {
+  animation: animation-overview 3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes animation-title {
+  from {
+    font-size: 4.5rem;
+  }
+  to {
+    font-size: 3rem;
+  }
+}
+@keyframes animation-container {
+  from {
+    bottom: 20vh;
+  }
+  to {
+    bottom: 5vh;
+  }
+}
+@keyframes animation-overview {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 .skeleton-card {
   margin: 0 3vw;
   display: flex;

@@ -4,20 +4,25 @@ import { SkeletonCarousel } from './SkeletonCarousel';
 import { randomVideo } from '@/app/functions/PlayerVideo/randomVideo';
 import { LoadCardsLocalStorageType } from '@/app/types/components/LoadCardsLocalStorageType';
 import CardStorage from './CardStorage';
+import { verifyLocalLengthLocalStorage } from '../functions/storage/verifyLocalLengthLocalStorage';
 
 export const LoadCardsLocalStorage = ({ values }: LoadCardsLocalStorageType) => {
 	const { storageCards } = values;
-	const videoBanner = storageCards[randomVideo(storageCards.length - 1)];
+	const numberRandom = randomVideo(storageCards.length - 1);
+	const videoBanner = storageCards[numberRandom];
 
 	return (
 		<>
-			{storageCards.length !== 0 ? (
+			{verifyLocalLengthLocalStorage(storageCards) ? (
 				<article className='list-cards'>
 					<PlayerVideoBannerURL
 						values={{
 							type: videoBanner?.type,
 							videoId: videoBanner.movie.id,
 							img: videoBanner.movie.backdrop_path,
+							title: videoBanner.title as string,
+							overview: videoBanner.movie.overview,
+							index: numberRandom,
 						}}
 					/>
 					<Suspense fallback={<SkeletonCarousel />}>

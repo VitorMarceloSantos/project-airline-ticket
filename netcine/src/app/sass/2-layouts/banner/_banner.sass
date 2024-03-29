@@ -19,7 +19,6 @@
     width: 100%
     position: relative
     z-index: -1
-    // object-fit: cover
 
   &-back
     position: relative
@@ -36,7 +35,7 @@
         z-index: 1
         color: red
         position: absolute
-        bottom: 25vh
+        bottom: 20vh
         left: 3.3vw
         display: flex
         flex-direction: column
@@ -82,7 +81,7 @@
         &-overview
           font-size: 1.5rem
           color: $btn-color-off
-          font-weight: 500
+          font-weight: 700
           text-shadow: 1px 1px black
           margin-top: 1.5rem
 
@@ -141,4 +140,33 @@
     position: absolute
     bottom: -1.2vh
     z-index: -1
-    // background: linear-gradient( transparent, #141414 )
+
+.animation-title
+  animation: animation-title 5s
+  animation-fill-mode: forwards
+
+.animation-container
+  animation: animation-container 5s
+  animation-fill-mode: forwards
+
+.animation-overview
+  animation: animation-overview 3s
+  animation-fill-mode: forwards
+
+@keyframes animation-title
+  from
+    font-size: 4.5rem
+  to
+    font-size: 3rem
+
+@keyframes animation-container
+  from
+    bottom: 20vh
+  to
+    bottom: 5vh
+
+@keyframes animation-overview
+  from
+    opacity: 1
+  to
+    opacity: 0
