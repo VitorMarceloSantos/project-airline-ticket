@@ -5,9 +5,10 @@
 .progress-bar
   display: flex
   justify-content: space-between
-  padding: .5rem calc($img-gap * 2 + $handle-size)
+  padding: .85rem calc($img-gap * 2 + $handle-size)
   align-items: center
   position: relative
+  margin-top: 1rem
 
   &-title-container
     display: flex
@@ -22,7 +23,7 @@
     font-weight: 600
     margin: 0
     color: white
-    z-index: 5
+   
 
   &-link-1
     display: none
@@ -40,6 +41,7 @@
     position: absolute
     z-index: 3
     display: none
+    z-index: 1
 
   &-carousel
     display: none

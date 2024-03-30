@@ -26,11 +26,13 @@ export default async function Home() {
 					index: numberRandom,
 				}}
 			/>
-			<TopMovies />
-			<TopSeries />
-			<TredingDay value={{ results }} />
-			<TredingWeek />
-			<PopularPeoples />
+			<section className='container-home'>
+				<TopMovies />
+				<TopSeries />
+				<TredingDay value={{ results }} />
+				<TredingWeek />
+				<PopularPeoples />
+			</section>
 		</main>
 	);
 }

@@ -20,6 +20,7 @@ import { useState } from 'react';
 import { INITIAL_CAST } from '@/app/constants/CardBackBody';
 import { verifyMovieAddedOrLiked } from '../functions/card/verifyMovieAddedOrLiked';
 import { useRouter } from 'next/navigation';
+import { sliceGenres } from '../functions/cardBackBody/sliceGenres';
 
 export const CardBackBody = ({ values }: CardBackBodyType) => {
 	const getIdMovieURL = (url: string) => {
@@ -99,7 +100,7 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 			<CardBackBodyInformations values={{ english_name, movie, type }} />
 			<section className='carousel-card-back-body-informations-genres'>
 				<ul>
-					{genres.map((genre, index) => {
+					{sliceGenres(genres).map((genre, index) => {
 						return (
 							<li className='carousel-card-back-body-informations-genres-li' key={index}>
 								<p>{genre.name}&nbsp;</p>

@@ -15,7 +15,7 @@ $desktop-width: 1024px
 
 body
   overflow: hidden
-  
+
   @include typesDisplay.large_device
     overflow: scroll
     overflow-x: hidden
@@ -109,8 +109,8 @@ body::-webkit-scrollbar-thumb
       justify-content: space-evenly
       color: $color-titles-buttons
 
-      // @include typesDisplay.large_device
-      //   height: 20vh
+      @include typesDisplay.large_device
+        height: 16vh
 
       &-informations
         display: flex
@@ -187,7 +187,7 @@ body::-webkit-scrollbar-thumb
         display: flex
         justify-content: space-between
         align-items: center
-        margin: .5remcontainer-informations
+        margin: 0 .5rem
 
         button
           margin: 0 .15rem
@@ -202,8 +202,13 @@ body::-webkit-scrollbar-thumb
           border-radius: 50%
           background: transparent
           // Trocar tamanho de acordo com a tela
-          height: 1.75vh
-          width: 3vw
+          height: 1.5rem
+          width: 1.5rem
+
+          @include typesDisplay.large_device
+            height: 2.2rem
+            width: 2.2rem
+
           &-text-color
             color: $color-titles-buttons
             font-size: 1.4rem
@@ -226,9 +231,6 @@ body::-webkit-scrollbar-thumb
             .carousel-card-back-body-buttons-btn-text-color
               color: $btn-color-off
 
-  // @include desktop
-  //   width: 100%
-  //   top: 0%
 
 .card-rigth
   .carousel-card

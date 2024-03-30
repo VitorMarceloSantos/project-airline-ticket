@@ -11,6 +11,7 @@
 
   @include typesDisplay.large_device
     height: 100vh
+    margin-bottom: -16vh
 
   &-front
     transition: all 450ms ease-out
@@ -112,6 +113,9 @@
     bottom: 8.5vh
     right: 5vw
 
+    @include typesDisplay.large_device
+      bottom: 20vh
+
   .button-banner
     background-color: transparent
     &-color
@@ -127,7 +131,8 @@
 
   @include typesDisplay.large_device
     .button-banner
-      height: 5vh
+      height: 3rem
+      width: 3rem
 
   video
     height: 100%

@@ -11,6 +11,7 @@ import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
 import { authOptions } from '@/app/lib/auth';
 import { ModalPeoples } from '@/app/components/ModalPeoples';
+import { GlobalFooter } from '../components/GlobalFooter';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -36,6 +37,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 						{children}
 					</SideMenu>
 				</Providers>
+				<footer>
+					<GlobalFooter />
+				</footer>
 			</body>
 		</html>
 	);
