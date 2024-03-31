@@ -16,8 +16,8 @@ import { GlobalFooter } from '../components/GlobalFooter';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-	title: 'NetMovies',
-	description: 'NetMovies - Movies and Series',
+	title: 'NetCine',
+	description: 'NetCine - Movies and Series',
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {

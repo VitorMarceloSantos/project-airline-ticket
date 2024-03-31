@@ -103,11 +103,12 @@ export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 						<IconButton
 							className='
 									carousel-card-back-body-buttons-btn button-banner'
+							onClick={() => handleStateVolume(!stateVolumeVideo)}
 						>
 							{stateVolumeVideo ? (
-								<VolumeOffIcon onClick={() => handleStateVolume(!stateVolumeVideo)} className='button-banner-color' />
+								<VolumeOffIcon className='button-banner-color' />
 							) : (
-								<VolumeUpIcon onClick={() => handleStateVolume(!stateVolumeVideo)} className='button-banner-color' />
+								<VolumeUpIcon className='button-banner-color' />
 							)}
 						</IconButton>
 					</section>

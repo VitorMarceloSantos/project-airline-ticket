@@ -1,0 +1,29 @@
+@import '../../1-base/_pallete'
+
+.footer-container
+  height: 10vh
+  width: 100vw
+  background-color: $bg-color-page
+  margin-top: 7vh
+  display: flex
+  justify-content: space-evenly
+  align-items: center
+  flex-direction: column
+
+  &-links
+    a
+      margin: 0 .25rem
+
+    &-icon
+      color: $btn-color-off
+      font-size: 1.5rem
+
+      &:hover
+        color: $color-list-title
+        transition: all .5s ease
+
+  &-developer
+    font-size: .8rem
+    font-weight: 400
+    color: white
+    text-shadow: 1px 1px black
