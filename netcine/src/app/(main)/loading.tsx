@@ -1,7 +1,6 @@
+import { SkeletonPage } from '../components/SkeletonPage';
+
 export default function Loading() {
-	return (
-		<div>
-			<h1>Carregando...</h1>
-		</div>
-	);
+	return <SkeletonPage />
+	;
 }

@@ -1,34 +1,27 @@
+@use '../../1-base/mixins/_typesDisplay'
 @import '../../1-base/_constants'
 
 .skeleton-card
   margin: 0 3vw
-  // background-color: red
   display: flex
   flex-direction: column
 
   &-movies
     width: 100%
-    // background-color: green
-    display: flex
-    // flex-grow: 1
-    justify-content: space-between
-    --items-per-screen: 5
-    overflow: hidden
+    ul
+      display: flex
+      // li
+        // width: calc(100% - ($handle-size * 2))
+        // width: 20vw
+        // height: 10vh
+        // margin: 0 calc($img-gap / 2)
 
-    &-setting
-      background-color: #333333
-      flex: 0 0 calc((100% / var(--items-per-screen)) - $img-gap)
-      margin: 0 calc($img-gap / 2)
-      border-radius: .2rem
+    // &-setting
+    //   background-color: #333333
+    //   border-radius: .2rem
+    //   width: 100%
+    //   overflow: hidden
 
-@media (max-width: 1200px)
-  .skeleton-card-movies
-    --items-per-screen: 4
-
-@media (max-width: 990px)
-  .skeleton-card-movies
-    --items-per-screen: 3
-
-@media (max-width: 730px)
-  .skeleton-card-movies
-    --items-per-screen: 2
+      // Alterar de arcordo com o tamanho da tela
+      // @include typesDisplay.large_device
+      //   height: 18vh

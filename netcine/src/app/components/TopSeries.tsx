@@ -1,6 +1,4 @@
-import { Suspense } from 'react';
 import { CarouselMovies } from './CarouselMovies';
-import { SkeletonCarousel } from './SkeletonCarousel';
 import { RequestInformationsAPI } from '@/app/api/RequestInformationsAPI';
 import { MovieOrTVDataType } from '@/app/types/api/RequestAPI';
 
@@ -10,11 +8,7 @@ export default async function TopSeries() {
 
 	return (
 		<article className='container-movies-tvs-peoples'>
-			{
-				<Suspense fallback={<SkeletonCarousel />}>
-					<CarouselMovies values={{ resultData: results, type: 'tv', title: 'Top Séries' }} />
-				</Suspense>
-			}
+			{<CarouselMovies values={{ resultData: results, type: 'tv', title: 'Top Séries' }} />}
 		</article>
 	);
 }

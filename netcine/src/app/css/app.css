@@ -54,13 +54,8 @@ table {
 }
 
 body {
-  overflow: hidden;
-}
-@media (min-width: 1900px) {
-  body {
-    overflow: scroll;
-    overflow-x: hidden;
-  }
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -948,33 +943,11 @@ body::-webkit-scrollbar-thumb {
 }
 .skeleton-card-movies {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  --items-per-screen: 5;
-  overflow: hidden;
 }
-.skeleton-card-movies-setting {
-  background-color: #333333;
-  flex: 0 0 calc(100% / var(--items-per-screen) - 0.25rem);
-  margin: 0 0.125rem;
-  border-radius: 0.2rem;
+.skeleton-card-movies ul {
+  display: flex;
 }
 
-@media (max-width: 1200px) {
-  .skeleton-card-movies {
-    --items-per-screen: 4;
-  }
-}
-@media (max-width: 990px) {
-  .skeleton-card-movies {
-    --items-per-screen: 3;
-  }
-}
-@media (max-width: 730px) {
-  .skeleton-card-movies {
-    --items-per-screen: 2;
-  }
-}
 .list-cards h2 {
   color: rgba(255, 255, 255, 0.937254902);
   font-size: 1.2rem;

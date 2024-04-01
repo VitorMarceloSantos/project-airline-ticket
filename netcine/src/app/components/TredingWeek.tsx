@@ -1,7 +1,5 @@
-import { Suspense } from 'react';
 import { RequestInformationsAPI } from '@/app/api/RequestInformationsAPI';
 import { CarouselMovies } from './CarouselMovies';
-import { SkeletonCarousel } from './SkeletonCarousel';
 import { MovieOrTVDataType } from '@/app/types/api/RequestAPI';
 
 export default async function TredingWeek() {
@@ -10,9 +8,7 @@ export default async function TredingWeek() {
 
 	return (
 		<article className='container-movies-tvs-peoples'>
-			<Suspense fallback={<SkeletonCarousel />}>
-				<CarouselMovies values={{ resultData: results, type: 'treding', title: 'Mais assistidos da Semana' }} />
-			</Suspense>
+			<CarouselMovies values={{ resultData: results, type: 'treding', title: 'Mais assistidos da Semana' }} />
 		</article>
 	);
 }

@@ -11,15 +11,13 @@ export default async function TopMovies() {
 
 	return (
 		<article className='container-movies-tvs-peoples'>
-			<Suspense fallback={<SkeletonCarousel />}>
-				<CarouselMovies
-					values={{
-						resultData: results,
-						type: 'movie',
-						title: 'Top Filmes',
-					}}
-				/>
-			</Suspense>
+			<CarouselMovies
+				values={{
+					resultData: results,
+					type: 'movie',
+					title: 'Top Filmes',
+				}}
+			/>
 		</article>
 	);
 }

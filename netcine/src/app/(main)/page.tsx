@@ -7,6 +7,9 @@ import { PlayerVideoBannerURL } from '@/app/components/PlayerVideoBannerURL';
 import { randomVideo } from '@/app/functions/PlayerVideo/randomVideo';
 import { RequestInformationsAPI } from '@/app/api/RequestInformationsAPI';
 import { MovieOrTVDataType } from '@/app/types/api/RequestAPI';
+import { Suspense } from 'react';
+import { SkeletonCarousel } from '../components/SkeletonCarousel';
+import Loading from './loading';
 
 export default async function Home() {
 	const urlTrendingHom = 'https://api.themoviedb.org/3/trending/all/day?language=en-US';
@@ -26,12 +29,24 @@ export default async function Home() {
 					index: numberRandom,
 				}}
 			/>
-			<section className='container-home'>
-				<TopMovies />
-				<TopSeries />
-				<TredingDay value={{ results }} />
-				<TredingWeek />
-				<PopularPeoples />
+			<section>
+				<Suspense fallback={<Loading />}>
+					<Suspense fallback={<SkeletonCarousel />}>
+						<TopMovies />
+					</Suspense>
+					<Suspense fallback={<SkeletonCarousel />}>
+						<TopSeries />
+					</Suspense>
+					<Suspense fallback={<SkeletonCarousel />}>
+						<TredingDay value={{ results }} />
+					</Suspense>
+					<Suspense fallback={<SkeletonCarousel />}>
+						<TredingWeek />
+					</Suspense>
+					<Suspense fallback={<SkeletonCarousel />}>
+						<PopularPeoples />
+					</Suspense>
+				</Suspense>
 			</section>
 		</main>
 	);
