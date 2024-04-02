@@ -16,7 +16,7 @@ import { verifySizeWindow } from '../functions/carouselMovies/addEventWindowWidt
 export default function Card({ values }: CardType) {
 	const { handleStateVideo } = usePlayerVideo();
 	const { handleStateChangeInformationsMoviesOrTV } = useInformationsMoviesOrTVContext();
-	const { movie, type, index, title } = values;
+	const { movie, type, index, title, setList } = values;
 	const [urlMovie, setUrlMovie] = useState<string>('');
 	const [cardSelected, setCardSelected] = useState<boolean>(true);
 	const genres: CardGenresType[] = movie.genre_ids !== undefined ? searchGenresMovie(movie.genre_ids) : [];
@@ -83,12 +83,13 @@ export default function Card({ values }: CardType) {
 			<section className='carousel-card-front' ref={cardFront}>
 				<section className='carousel-card-header'>
 					<Image
+						onLoad={() => setList((prevState) => [...prevState, 'true'])}
 						className='carousel-card-image'
 						src={movie.poster_path === null ? ErroImagem : URL_IMG}
 						width={500}
 						height={500}
 						alt={`${type === 'movie' ? movie.title : movie.name} - Front`}
-						priority={true}
+						// priority={true}
 					/>
 				</section>
 			</section>

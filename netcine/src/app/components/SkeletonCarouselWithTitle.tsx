@@ -1,6 +1,7 @@
 import { Skeleton } from '@mui/material';
+import { SkeletonCard } from './SkeletonCard';
 
-export const SkeletonCarousel = () => {
+export const SkeletonCarouselWithTitle = () => {
 	const newArray = new Array(6).fill({});
 
 	return (
@@ -13,16 +14,12 @@ export const SkeletonCarousel = () => {
 					height='35px'
 				/>
 			</section>
-			<section className='skeleton-card-movies'>
+			<section className='skeleton-card-ul'>
 				<ul>
 					{newArray.map((index) => {
 						return (
 							<li key={index} style={{ margin: '0 .2rem' }}>
-								<Skeleton
-									className='skeleton-card-movies-setting'
-									variant='rectangular'
-									sx={{ backgroundColor: '#333333', borderRadius: '.2rem', width: '25vw', height: '20vh' }}
-								/>
+								<SkeletonCard />
 							</li>
 						);
 					})}

@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { RequestInformationsAPI } from '@/app/api/RequestInformationsAPI';
 import { CarouselMovies } from './CarouselMovies';
-import { SkeletonCarousel } from './SkeletonCarousel';
+import { SkeletonCarousel } from './SkeletonCarouselWithTitle';
 import { MovieOrTVDataType } from '@/app/types/api/RequestAPI';
 
 export default async function PopularMovies() {

@@ -8,6 +8,7 @@ export type CardType = {
 		movie: ResultsType;
 		index: number;
 		title: string;
+		setList: Dispatch<SetStateAction<string[]>>
 	};
 };
 

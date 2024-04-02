@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { CarouselMovies } from './CarouselMovies';
-import { SkeletonCarousel } from './SkeletonCarousel';
+import { SkeletonCarousel } from './SkeletonCarouselWithTitle';
 import { BannerMovieOrTvType } from '@/app/types/components/PlayerVideoBannerType';
 
 export default async function TrendingTVs({ value }: BannerMovieOrTvType) {

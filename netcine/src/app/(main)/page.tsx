@@ -8,8 +8,9 @@ import { randomVideo } from '@/app/functions/PlayerVideo/randomVideo';
 import { RequestInformationsAPI } from '@/app/api/RequestInformationsAPI';
 import { MovieOrTVDataType } from '@/app/types/api/RequestAPI';
 import { Suspense } from 'react';
-import { SkeletonCarousel } from '../components/SkeletonCarousel';
 import Loading from './loading';
+import { SkeletonPage } from '../components/SkeletonPage';
+import { SkeletonCarouselWithTitle } from '../components/SkeletonCarouselWithTitle';
 
 export default async function Home() {
 	const urlTrendingHom = 'https://api.themoviedb.org/3/trending/all/day?language=en-US';
@@ -19,22 +20,23 @@ export default async function Home() {
 
 	return (
 		<main>
-			<PlayerVideoBannerURL
-				values={{
-					type: videoBanner.media_type as string,
-					videoId: videoBanner.id,
-					img: videoBanner.backdrop_path,
-					title: (videoBanner.media_type === 'movie' ? videoBanner?.title : videoBanner?.name) as string,
-					overview: videoBanner.overview,
-					index: numberRandom,
-				}}
-			/>
-			<section>
-				<Suspense fallback={<Loading />}>
-					<Suspense fallback={<SkeletonCarousel />}>
+			<Suspense fallback={<Loading />}>
+				{/* <PlayerVideoBannerURL
+					values={{
+						type: videoBanner.media_type as string,
+						videoId: videoBanner.id,
+						img: videoBanner.backdrop_path,
+						title: (videoBanner.media_type === 'movie' ? videoBanner?.title : videoBanner?.name) as string,
+						overview: videoBanner.overview,
+						index: numberRandom,
+					}}
+				/> */}
+				<section>
+					<Suspense fallback={<SkeletonCarouselWithTitle />}>
 						<TopMovies />
 					</Suspense>
-					<Suspense fallback={<SkeletonCarousel />}>
+					{/* <SkeletonCarousel /> */}
+					{/* <Suspense fallback={<SkeletonCarousel />}>
 						<TopSeries />
 					</Suspense>
 					<Suspense fallback={<SkeletonCarousel />}>
@@ -45,9 +47,9 @@ export default async function Home() {
 					</Suspense>
 					<Suspense fallback={<SkeletonCarousel />}>
 						<PopularPeoples />
-					</Suspense>
-				</Suspense>
-			</section>
+					</Suspense> */}
+				</section>
+			</Suspense>
 		</main>
 	);
 }

@@ -1,15 +1,26 @@
 @use '../../1-base/mixins/_typesDisplay'
 @import '../../1-base/_constants'
 
+.skeleton-card-without
+  margin: 0 3vw
+  display: flex
+  flex-direction: column
+  margin-top: 1rem
+  // padding: 0.85rem 0
+
 .skeleton-card
   margin: 0 3vw
   display: flex
   flex-direction: column
+  margin-top: 1rem
+  // padding: 0.85rem 0
 
-  &-movies
+.skeleton-card-ul
     width: 100%
     ul
       display: flex
+      margin-left: 0 calc($img-gap / 2)
+      
       // li
         // width: calc(100% - ($handle-size * 2))
         // width: 20vw

@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { PlayerVideoBannerURL } from './PlayerVideoBannerURL';
-import { SkeletonCarousel } from './SkeletonCarousel';
+import { SkeletonCarousel } from './SkeletonCarouselWithTitle';
 import { randomVideo } from '@/app/functions/PlayerVideo/randomVideo';
 import { LoadCardsLocalStorageType } from '@/app/types/components/LoadCardsLocalStorageType';
 import CardStorage from './CardStorage';

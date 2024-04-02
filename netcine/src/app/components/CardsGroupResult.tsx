@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { ListCardsSearch } from './ListCardsSearch';
 import { PlayerVideoBannerURL } from './PlayerVideoBannerURL';
-import { SkeletonCarousel } from './SkeletonCarousel';
+import { SkeletonCarousel } from './SkeletonCarouselWithTitle';
 import { randomVideo } from '@/app/functions/PlayerVideo/randomVideo';
 import { CardsGroupResultType } from '@/app/types/components/CardsGroupResultTypes';
 
