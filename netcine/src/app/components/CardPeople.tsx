@@ -7,7 +7,7 @@ import ErroImagem from '@/app/images/errorVideo.png';
 import { useInformationsPeoplesContext } from '@/app/context';
 
 export default function CardPeople({ values }: CardPeopleType) {
-	const { people, index } = values;
+	const { people, index, setList } = values;
 	const { handleStateChangeInformationsPeoples } = useInformationsPeoplesContext();
 	const URL_IMG = `https://image.tmdb.org/t/p/w500${people.profile_path}`;
 	const cardFront = useRef<HTMLElement>(null);
@@ -50,6 +50,7 @@ export default function CardPeople({ values }: CardPeopleType) {
 			<section className='carousel-card-front' ref={cardFront}>
 				<section className='carousel-card-header'>
 					<Image
+						onLoad={() => setList((prevState) => [...prevState, 'true'])}
 						className='carousel-card-image'
 						src={people.profile_path === null ? ErroImagem : URL_IMG}
 						width={500}

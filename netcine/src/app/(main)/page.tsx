@@ -9,7 +9,6 @@ import { RequestInformationsAPI } from '@/app/api/RequestInformationsAPI';
 import { MovieOrTVDataType } from '@/app/types/api/RequestAPI';
 import { Suspense } from 'react';
 import Loading from './loading';
-import { SkeletonPage } from '../components/SkeletonPage';
 import { SkeletonCarouselWithTitle } from '../components/SkeletonCarouselWithTitle';
 
 export default async function Home() {
@@ -21,7 +20,7 @@ export default async function Home() {
 	return (
 		<main>
 			<Suspense fallback={<Loading />}>
-				{/* <PlayerVideoBannerURL
+				<PlayerVideoBannerURL
 					values={{
 						type: videoBanner.media_type as string,
 						videoId: videoBanner.id,
@@ -30,24 +29,13 @@ export default async function Home() {
 						overview: videoBanner.overview,
 						index: numberRandom,
 					}}
-				/> */}
+				/>
 				<section>
-					<Suspense fallback={<SkeletonCarouselWithTitle />}>
-						<TopMovies />
-					</Suspense>
-					{/* <SkeletonCarousel /> */}
-					{/* <Suspense fallback={<SkeletonCarousel />}>
-						<TopSeries />
-					</Suspense>
-					<Suspense fallback={<SkeletonCarousel />}>
-						<TredingDay value={{ results }} />
-					</Suspense>
-					<Suspense fallback={<SkeletonCarousel />}>
-						<TredingWeek />
-					</Suspense>
-					<Suspense fallback={<SkeletonCarousel />}>
-						<PopularPeoples />
-					</Suspense> */}
+					<TopMovies />
+					<TopSeries />
+					<TredingDay value={{ results }} />
+					<TredingWeek />
+					<PopularPeoples />
 				</section>
 			</Suspense>
 		</main>

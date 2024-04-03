@@ -6,8 +6,6 @@ import { CardMoviesOrPeopleType, ResultsType } from '@/app/types/components/Caro
 import Card from './Card';
 import { getWidthWindow } from '@/app/functions/card/getWidthWindow';
 import { addClassCard } from '@/app/functions/card/addClassCard';
-import { SkeletonCard } from './SkeletonCard';
-import { SkeletonCarouselWithTitle } from './SkeletonCarouselWithTitle';
 import { SkeletonCarouselWithOutTitle } from './SkeletonCarouselWithOutTitle';
 
 export const SelectCardMoviesOrTv = ({ values }: CardMoviesOrPeopleType) => {
@@ -31,32 +29,32 @@ export const SelectCardMoviesOrTv = ({ values }: CardMoviesOrPeopleType) => {
 	useEffect(() => {
 		if (listLoadImage.length === 20) {
 			slider.current!.style.opacity = '1';
-			setIsVisibleSkeleton(false)
+			setIsVisibleSkeleton(false);
 		}
 	}, [listLoadImage]);
 
 	return (
-		<section className='container-carousel-movies'>
-			<section className='container-carousel-movies-display-1'>{isVisibleSkeleton && <SkeletonCarouselWithOutTitle />}</section>
-			<section className='container-carousel-movies-display-2'>
-				<ul className='carousel-movies' ref={slider}>
-					{movies.map((movie, index) => {
-						return (
-							<li className='carousel-item' key={`${movie.id}-${index}`}>
-								<Card
-									values={{
-										movie,
-										type: type === 'treding' ? (movie.media_type as string) : type,
-										index,
-										title: title !== undefined ? transformTitleInClass(title) : 'person',
-										setList: setListLoadImage,
-									}}
-								/>
-							</li>
-						);
-					})}
-				</ul>
+		<section className='carousel-movies-container'>
+			<section className='carousel-movies-container-display-1'>
+				{isVisibleSkeleton && <SkeletonCarouselWithOutTitle />}
 			</section>
+			<ul className='carousel-movies carousel-movies-container-display-2' ref={slider}>
+				{movies.map((movie, index) => {
+					return (
+						<li className='carousel-item' key={`${movie.id}-${index}`}>
+							<Card
+								values={{
+									movie,
+									type: type === 'treding' ? (movie.media_type as string) : type,
+									index,
+									title: title !== undefined ? transformTitleInClass(title) : 'person',
+									setList: setListLoadImage,
+								}}
+							/>
+						</li>
+					);
+				})}
+			</ul>
 		</section>
 	);
 };

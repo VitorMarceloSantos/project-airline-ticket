@@ -1,5 +1,6 @@
 import { PeopleType } from './PeopleType';
 import { InformationsPeoplesContextType } from '../context/InformationsPeoplesType';
+import { Dispatch, SetStateAction } from 'react';
 
 export type GetUrlPeopleType = {
 	values: {
@@ -12,6 +13,7 @@ export type CardPeopleType = {
 	values: {
 		people: PeopleType;
 		index: number;
+		setList: Dispatch<SetStateAction<string[]>>;
 	};
 };
 

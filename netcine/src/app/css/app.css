@@ -313,13 +313,6 @@ body::-webkit-scrollbar-thumb {
   display: inline;
 }
 
-.container-carousel-movies {
-  width: 100vw;
-}
-.container-carousel-movies-display-2 {
-  z-index: -1;
-}
-
 .container-movies-tvs-peoples {
   margin: 1.25rem 0;
 }
@@ -369,6 +362,14 @@ body::-webkit-scrollbar-thumb {
 }
 .carousel-buttons:hover .text, .carousel-buttons:focus .text {
   transform: scale(1.3);
+}
+.carousel-movies-container {
+  width: 100vw;
+  position: relative;
+  z-index: -1;
+}
+.carousel-movies-container-display-1 {
+  position: absolute;
 }
 .carousel-movies {
   opacity: 0;
@@ -945,17 +946,14 @@ body::-webkit-scrollbar-thumb {
   }
 }
 .skeleton-card-without {
-  margin: 0 3vw;
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
 }
 
 .skeleton-card {
   margin: 0 3vw;
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
 }
 
 .skeleton-card-ul {

@@ -59,6 +59,7 @@ export default function Card({ values }: CardType) {
 	};
 
 	const updateCard = () => {
+		console.log('entrou')
 		const verifyClass = document.querySelector(`.${createNameClass}`);
 		const timeoutId = setTimeout(() => {
 			if (verifyClass?.matches(':hover')) {
@@ -89,7 +90,7 @@ export default function Card({ values }: CardType) {
 						width={500}
 						height={500}
 						alt={`${type === 'movie' ? movie.title : movie.name} - Front`}
-						// priority={true}
+						priority={true}
 					/>
 				</section>
 			</section>
