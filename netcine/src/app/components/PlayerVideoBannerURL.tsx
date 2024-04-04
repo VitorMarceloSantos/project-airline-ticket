@@ -8,11 +8,13 @@ import ReactPlayer from 'react-player';
 import { RequestUrlVideo } from '@/app/api/RequestUrlVideo';
 import { usePlayerVideo, useVolumeVideo } from '@/app/context';
 import { PlayerVideoBannerURLType } from '@/app/types/components/PlayerVideoBannerType';
-import { verifyQuantifyChar } from '../functions/modal/verifyQuantifyChar';
+import { verifyQuantifyChar, verifyQuantifyCharTitle } from '../functions/modal/verifyQuantifyChar';
 import { IconButton } from '@mui/material';
+import ErroImagem from '@/app/images/errorVideo.png';
 
 export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 	const { type, videoId, img, overview, title, index } = values;
+	console.log(`index: ${index}`)
 	const { statePlayerVideo } = usePlayerVideo();
 	const { handleStateVolume, stateVolumeVideo } = useVolumeVideo();
 	const playerVideo = useRef<ReactPlayer | undefined>(undefined);
@@ -20,7 +22,7 @@ export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 	const sectionVideo = useRef<HTMLImageElement>(null);
 	const [playOn, setPlayOn] = useState<boolean>(false);
 	const [URL_Video, setURL_Video] = useState<string>('');
-	const URL_IMG = `https://image.tmdb.org/t/p/original${img}`;
+	const URL_IMG = img === null ? ErroImagem : `https://image.tmdb.org/t/p/original${img}`;
 	const NUMBER_FIVE = 5;
 	const NUMBER_ONE_THOUSAND = 1000;
 	const NUMBER_FOUR_THOUSAND = 4000;
@@ -68,7 +70,7 @@ export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 					<span className='banner-video-back-informations-index'>{`Top ${index + 1} de hoje`}</span>
 				</section>
 				<span className='banner-video-back-informations-title' ref={sectionTitle}>
-					{title}
+					{verifyQuantifyCharTitle(title, 6)}
 				</span>
 				<span className='banner-video-back-informations-overview' ref={sectionOverview}>
 					{verifyQuantifyChar(overview, 150)}

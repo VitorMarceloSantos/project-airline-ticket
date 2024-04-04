@@ -5,3 +5,13 @@ export const verifyQuantifyChar = (text: string, quantify: number): string => {
 	}
 	return text;
 };
+
+export const verifyQuantifyCharTitle = (text: string, quantify: number): string => {
+	if (text === undefined) return 'Título Indisponível.'
+	const textSplit = text.split(' ')
+	if (textSplit.length > quantify) {
+		return textSplit.slice(0, quantify).join(' ')
+	}
+	return text;
+};
+

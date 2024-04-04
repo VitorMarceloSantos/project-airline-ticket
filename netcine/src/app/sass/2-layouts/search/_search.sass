@@ -1,13 +1,28 @@
+@use '../../1-base/mixins/_typesDisplay'
 @import '../../1-base/_constants'
 @import '../../1-base/_pallete'
 
 .list-cards
+  opacity: 0
+  &-search-container
+    display: flex
+    flex-wrap: wrap
+    width: calc(100vw - ($handle-size * 2))
+    height: 100%
+    margin: 0 $handle-size
+    margin-top: 1rem
+    .carousel-item
+      --items-per-screen: 6
+      flex: 0 0 calc((100% / var(--items-per-screen)) - $img-gap)
+      // margin: calc($img-gap)
+
   h2
     color: $color-titles-buttons
     font-size: 1.2rem
     font-weight: 600
     margin-left: 3vw
     margin-top: 2rem
+
   &-search
     display: flex
     flex-wrap: wrap
@@ -20,5 +35,14 @@
     ul:not(:last-child)
       margin-bottom: 1rem
 
-    .carousel-card
-      width: 23vw
+@media (max-width: 1200px)
+  .carousel-item
+    --items-per-screen: 4
+
+@media (max-width: 990px)
+  .carousel-item
+    --items-per-screen: 3
+
+@media (max-width: 730px)
+  .carousel-item
+    --items-per-screen: 2

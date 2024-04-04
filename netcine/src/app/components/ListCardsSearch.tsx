@@ -1,11 +1,13 @@
+'use client';
+
 import { ListCardsSearchType } from '@/app/types/components/SearchTypes';
 import Card from './Card';
 
 export const ListCardsSearch = ({ values }: ListCardsSearchType) => {
-	const { results, type } = values;
+	const { results, type, setList } = values;
 
 	return (
-		<ul className='carousel-card list-cards-search'>
+		<ul className='list-cards-search-container'>
 			{results.map((movie, index) => {
 				return (
 					<li className='carousel-item card-center' key={`${movie.id}-${index}`}>
@@ -15,6 +17,7 @@ export const ListCardsSearch = ({ values }: ListCardsSearchType) => {
 								type: type === 'others' ? (movie.media_type as string) : type,
 								index,
 								title: 'search',
+								setList,
 							}}
 						/>
 					</li>

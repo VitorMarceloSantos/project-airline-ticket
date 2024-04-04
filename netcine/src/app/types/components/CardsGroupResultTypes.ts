@@ -4,5 +4,6 @@ export type CardsGroupResultType = {
 	values: {
 		verifyExistedPerson: ResultsType[];
 		type: string;
+		numberRandom: number;
 	};
 };

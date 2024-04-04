@@ -59,7 +59,6 @@ export default function Card({ values }: CardType) {
 	};
 
 	const updateCard = () => {
-		console.log('entrou')
 		const verifyClass = document.querySelector(`.${createNameClass}`);
 		const timeoutId = setTimeout(() => {
 			if (verifyClass?.matches(':hover')) {

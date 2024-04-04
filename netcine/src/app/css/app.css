@@ -89,7 +89,7 @@ body::-webkit-scrollbar-thumb {
 .carousel-card-header .carousel-card-video-position-button {
   position: absolute;
   bottom: 1.5vh;
-  left: 1vw;
+  left: 0.5vw;
 }
 .carousel-card-header .carousel-card-video iframe {
   position: absolute;
@@ -824,7 +824,7 @@ body::-webkit-scrollbar-thumb {
     margin-left: 2rem;
   }
   .banner-video-back-informations-title {
-    font-size: 4.5rem;
+    font-size: 4rem;
     color: rgba(255, 255, 255, 0.8);
     font-weight: 700;
     text-shadow: 1px 1px black;
@@ -923,7 +923,7 @@ body::-webkit-scrollbar-thumb {
 
 @keyframes animation-title {
   from {
-    font-size: 4.5rem;
+    font-size: 4rem;
   }
   to {
     font-size: 3rem;
@@ -964,6 +964,21 @@ body::-webkit-scrollbar-thumb {
   margin-left: 0 0.125rem;
 }
 
+.list-cards {
+  opacity: 0;
+}
+.list-cards-search-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 94vw;
+  height: 100%;
+  margin: 0 3vw;
+  margin-top: 1rem;
+}
+.list-cards-search-container .carousel-item {
+  --items-per-screen: 6;
+  flex: 0 0 calc(100% / var(--items-per-screen) - 0.25rem);
+}
 .list-cards h2 {
   color: rgba(255, 255, 255, 0.937254902);
   font-size: 1.2rem;
@@ -983,10 +998,22 @@ body::-webkit-scrollbar-thumb {
 .list-cards-search ul:not(:last-child) {
   margin-bottom: 1rem;
 }
-.list-cards-search .carousel-card {
-  width: 23vw;
-}
 
+@media (max-width: 1200px) {
+  .carousel-item {
+    --items-per-screen: 4;
+  }
+}
+@media (max-width: 990px) {
+  .carousel-item {
+    --items-per-screen: 3;
+  }
+}
+@media (max-width: 730px) {
+  .carousel-item {
+    --items-per-screen: 2;
+  }
+}
 .play_movie_or_tv iframe {
   width: 100vw;
   height: 91vh;
