@@ -6,7 +6,10 @@ import { PlayerVideoBannerURL } from './PlayerVideoBannerURL';
 import { CardsGroupResultType } from '@/app/types/components/CardsGroupResultTypes';
 import { SkeletonCarouselWithOutTitle } from './SkeletonCarouselWithOutTitle';
 import Loading from '../(main)/loading';
-
+import { usePlayerVideo } from '../context';
+import { addEventScrollNavBar } from '../functions/carouselMovies/addEventWindowWidth';
+import Image from 'next/image';
+import redCamCorrect from '@/app/images/redCamCorrect.png';
 
 export const CardsGroupResult = ({ values }: CardsGroupResultType) => {
 	const { verifyExistedPerson, type, numberRandom } = values;
@@ -14,6 +17,7 @@ export const CardsGroupResult = ({ values }: CardsGroupResultType) => {
 	const [listLoadImage, setListLoadImage] = useState<string[]>([]);
 	const [isVisibleSkeleton, setIsVisibleSkeleton] = useState<boolean>(true);
 	const searchRef = useRef<HTMLElement>(null);
+	const { handleStateVideo } = usePlayerVideo();
 
 	useEffect(() => {
 		if (listLoadImage.length === verifyExistedPerson.length) {
@@ -22,10 +26,14 @@ export const CardsGroupResult = ({ values }: CardsGroupResultType) => {
 		}
 	}, [listLoadImage]);
 
+	useEffect(() => {
+		addEventScrollNavBar(handleStateVideo);
+	}, []);
+
 	return (
 		<>
 			{verifyExistedPerson.length !== 0 ? (
-				<section>
+				<>
 					<section className='carousel-movies-container-display-1'>{isVisibleSkeleton && <Loading />}</section>
 					<article className='list-cards' ref={searchRef}>
 						<PlayerVideoBannerURL
@@ -41,9 +49,19 @@ export const CardsGroupResult = ({ values }: CardsGroupResultType) => {
 						<h2>Resultado:</h2>
 						<ListCardsSearch values={{ results: verifyExistedPerson, type, setList: setListLoadImage }} />
 					</article>
-				</section>
+				</>
 			) : (
-				<h1 style={{ color: 'white' }}>NÃO ECONTRADO</h1>
+				<section className='container-movie-notFound'>
+					<Image
+						className='img-movie-notFound'
+						src={redCamCorrect}
+						width={100}
+						height={100}
+						alt='Not Found Movies'
+						priority={true}
+					/>
+					<h1>Nenhum Filme/Série encontrado.</h1>
+				</section>
 			)}
 		</>
 	);

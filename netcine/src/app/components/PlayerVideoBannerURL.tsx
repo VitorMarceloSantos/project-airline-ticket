@@ -14,7 +14,6 @@ import ErroImagem from '@/app/images/errorVideo.png';
 
 export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 	const { type, videoId, img, overview, title, index } = values;
-	console.log(`index: ${index}`)
 	const { statePlayerVideo } = usePlayerVideo();
 	const { handleStateVolume, stateVolumeVideo } = useVolumeVideo();
 	const playerVideo = useRef<ReactPlayer | undefined>(undefined);

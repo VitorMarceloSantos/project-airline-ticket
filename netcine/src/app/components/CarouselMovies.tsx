@@ -43,7 +43,7 @@ export const CarouselMovies = ({ values }: MoviesDataType) => {
 					<span className='text'>&#8249;</span>
 				</button>
 				{type === 'peoples' ? (
-					<SelectCardPeoples values={{ slider, movies, type }} />
+					<SelectCardPeoples values={{ slider, movies, type, title }} />
 				) : (
 					<SelectCardMoviesOrTv values={{ slider, movies, type, title }} />
 				)}

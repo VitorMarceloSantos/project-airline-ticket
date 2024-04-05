@@ -2,23 +2,7 @@
 @use '../../1-base/mixins/_typesDisplay'
 @import '../../1-base/_pallete'
 
-$tablet-width: 768px
-$desktop-width: 1024px
-
-// @mixin tablet
-//   @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px})
-//     @content
-
-// @mixin desktop
-//   @media (min-width: #{$desktop-width})
-//     @content
-
 body
-  // overflow: hidden
-
-  // @include typesDisplay.large_device
-  //   overflow: scroll
-  //   overflow-x: hidden
   overflow: scroll
   overflow-x: hidden
 
@@ -180,6 +164,11 @@ body::-webkit-scrollbar-thumb
             display: flex
             align-items: center
             justify-content: center
+            flex-wrap: wrap
+            margin: 0 .5rem
+
+            li
+              margin-bottom: .5rem
 
             li:not(:first-child) p::before
               content: '●'
@@ -233,7 +222,6 @@ body::-webkit-scrollbar-thumb
             transition: all 250ms ease-out
             .carousel-card-back-body-buttons-btn-text-color
               color: $btn-color-off
-
 
 .card-rigth
   .carousel-card

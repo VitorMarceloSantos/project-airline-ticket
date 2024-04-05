@@ -16,13 +16,14 @@ export const SelectCardMoviesOrTv = ({ values }: CardMoviesOrPeopleType) => {
 
 	useEffect(() => {
 		const widthView = getWidthWindow();
-		const listCards = window.document.querySelectorAll('.carousel-item');
+		// const listCards = window.document.querySelectorAll('.carousel-item');
+		const listCards = window.document.querySelectorAll(`.${transformTitleInClass(title as string)}-${type}`);
 		const itemsPerScreen = getItemsPerScreen(widthView);
 		addClassCard({ values: { itemsPerScreen, listCards } });
 	}, []);
 
 	const transformTitleInClass = (title: string) => {
-		const newTitle = title.toLocaleLowerCase().replace(' ', '');
+		const newTitle = title.toLocaleLowerCase().replaceAll(' ', '');
 		return newTitle;
 	};
 
@@ -41,7 +42,7 @@ export const SelectCardMoviesOrTv = ({ values }: CardMoviesOrPeopleType) => {
 			<ul className='carousel-movies carousel-movies-container-display-2' ref={slider}>
 				{movies.map((movie, index) => {
 					return (
-						<li className='carousel-item' key={`${movie.id}-${index}`}>
+						<li className={`carousel-item ${transformTitleInClass(title as string)}-${type}`} key={`${movie.id}-${index}`}>
 							<Card
 								values={{
 									movie,
