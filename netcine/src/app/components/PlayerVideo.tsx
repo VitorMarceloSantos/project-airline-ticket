@@ -35,9 +35,12 @@ export const PlayerVideo = ({ values }: PlayerVideoType) => {
 						url={urlMovie}
 						playing={cardSelected}
 						ref={playerVideo as unknown as LegacyRef<ReactPlayer> | undefined}
-						width={500}
-						height={500}
 						muted={stateVolumeVideo}
+						config={{
+							youtube: {
+								embedOptions: { height: '1920', width: '1080' },
+							},
+						}}
 					/>
 					<button
 						className='

@@ -8,7 +8,7 @@ export type CardType = {
 		movie: ResultsType;
 		index: number;
 		title: string;
-		setList: Dispatch<SetStateAction<string[]>>
+		setList: Dispatch<SetStateAction<string[]>>;
 	};
 };
 
@@ -62,5 +62,30 @@ export type AddClassCardType = {
 	values: {
 		itemsPerScreen: number;
 		listCards: NodeListOf<Element>;
+	};
+};
+
+export type verifyScrollBarAndCarouselViewType = {
+	values: {
+		acessCardHover: boolean;
+		sizeWindow: number;
+		scrollWindow: number;
+		handleStateVideo: (newState: boolean) => void;
+		setCardSelected: Dispatch<SetStateAction<boolean>>;
+		cardBack: HTMLElement;
+		cardFront: HTMLElement;
+	};
+};
+
+export type CardGenericType = {
+	values: {
+		movie: ResultsType;
+		genres: CardGenresType[];
+		languages: CardLanguagesType;
+		type: string;
+		urlParams?: string;
+		title: string;
+		index: number;
+		setList: Dispatch<SetStateAction<string[]>>;
 	};
 };

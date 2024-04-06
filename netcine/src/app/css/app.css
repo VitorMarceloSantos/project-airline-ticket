@@ -106,7 +106,7 @@ body::-webkit-scrollbar-thumb {
   height: 10vh;
   border-radius: 0.25rem;
 }
-@media (min-width: 1900px) {
+@media (max-width: 1920px) {
   .carousel-card-front img {
     height: 18vh;
   }
@@ -136,7 +136,7 @@ body::-webkit-scrollbar-thumb {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-@media (min-width: 1900px) {
+@media (max-width: 1920px) {
   .carousel-card-back img {
     height: 18vh;
   }
@@ -150,7 +150,7 @@ body::-webkit-scrollbar-thumb {
   justify-content: space-evenly;
   color: rgba(255, 255, 255, 0.937254902);
 }
-@media (min-width: 1900px) {
+@media (max-width: 1920px) {
   .carousel-card-back-body {
     height: 16vh;
   }
@@ -258,7 +258,7 @@ body::-webkit-scrollbar-thumb {
   height: 1.5rem;
   width: 1.5rem;
 }
-@media (min-width: 1900px) {
+@media (max-width: 1920px) {
   .carousel-card-back-body-buttons-btn {
     height: 2.2rem;
     width: 2.2rem;
@@ -497,7 +497,7 @@ body::-webkit-scrollbar-thumb {
   transform: 0.5s ease-in-out;
   background: linear-gradient(180deg, rgba(20, 20, 20, 0.6) 0%, transparent 100%);
 }
-@media (min-width: 1900px) {
+@media (max-width: 1920px) {
   .navbar {
     height: 6vh;
   }
@@ -552,7 +552,7 @@ body::-webkit-scrollbar-thumb {
   justify-content: space-between;
   align-items: center;
 }
-@media (min-width: 1900px) {
+@media (max-width: 1920px) {
   .navbar-search-container {
     width: 2.5vw;
   }
@@ -600,30 +600,31 @@ body::-webkit-scrollbar-thumb {
 }
 
 .video-modal {
-  height: 25vh;
+  height: 60vh;
+  width: 100%;
 }
-.video-modal .carousel-card-header iframe {
-  height: 25vh;
+.video-modal .carousel-card-header {
+  position: relative;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+  width: 100%;
+  height: 100%;
 }
-.video-modal .carousel-card-video {
-  padding-bottom: 4vh;
-  height: auto;
-  margin: 0 auto;
+.video-modal .carousel-card-header .carousel-card-video {
+  padding-bottom: 0.1vh;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
-.video-modal-position {
-  position: relative;
+.video-modal .carousel-card-header .carousel-card-video iframe {
+  height: 100vh;
+  width: 100vw;
 }
-.video-modal-position-button {
+.video-modal .carousel-card-header-position-button {
   position: absolute;
-  top: 1vh;
-  right: 2vw;
   z-index: 20;
-}
-.video-modal .carousel-card-video-position-button {
-  bottom: -5.5vh;
-  left: 2vw;
+  left: 93%;
+  bottom: 5vh;
 }
 
 .informations-modal {
@@ -763,7 +764,7 @@ body::-webkit-scrollbar-thumb {
   position: relative;
   margin-bottom: -9vh;
 }
-@media (min-width: 1900px) {
+@media (max-width: 1920px) {
   .banner-video {
     height: 100vh;
     margin-bottom: -16vh;
@@ -785,7 +786,7 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
   z-index: -1;
 }
-@media (min-width: 1900px) {
+@media (max-width: 1920px) {
   .banner-video-back-informations {
     width: 35vw;
     height: 30vh;
@@ -860,7 +861,7 @@ body::-webkit-scrollbar-thumb {
   width: 100vw;
   transform: scale(1.4);
 }
-@media (min-width: 1900px) {
+@media (max-width: 1920px) {
   .banner-video-back-url iframe {
     height: 100vh;
   }
@@ -871,7 +872,7 @@ body::-webkit-scrollbar-thumb {
   bottom: 8.5vh;
   right: 5vw;
 }
-@media (min-width: 1900px) {
+@media (max-width: 1920px) {
   .banner-video-button {
     bottom: 20vh;
   }
@@ -891,7 +892,7 @@ body::-webkit-scrollbar-thumb {
 .banner-video .button-banner:hover .button-banner-color {
   color: #181818;
 }
-@media (min-width: 1900px) {
+@media (max-width: 1920px) {
   .banner-video .button-banner {
     height: 3rem;
     width: 3rem;

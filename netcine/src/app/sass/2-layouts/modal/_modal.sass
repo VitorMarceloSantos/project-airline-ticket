@@ -1,26 +1,45 @@
+@use '../../1-base/mixins/_typesDisplay'
 @import '../../1-base/_pallete'
 @import '../../1-base/_constants'
 
 .video-modal
-  height: 25vh
-  .carousel-card-header iframe
-    height: 25vh
+  // Alterar tamanho do Iframe
+  @include typesDisplay.desktop
+  height: 60vh
+  width: 100%
+
+  .carousel-card-header
+    position: relative
     border-top-right-radius: 10px
     border-top-left-radius: 10px
-  .carousel-card-video
-    padding-bottom: 4vh
-    height: auto
-    margin: 0 auto
-  &-position
-    position: relative
-    &-button
+    width: 100%
+    height: 100%
+
+    .carousel-card-video
+      padding-bottom: .1vh
+      height: 100%
+      width: 100%
+      // margin: 0 auto
+      overflow: hidden
+
+      iframe
+        height: 100vh
+        width: 100vw
+      // Retirar bordas pretas dos videos
+        // transform: scale(1.4)
+
+    &-position-button
       position: absolute
-      top: 1vh
-      right: 2vw
       z-index: 20
-  .carousel-card-video-position-button
-    bottom: -5.5vh
-    left: 2vw
+      left: 93%
+      bottom: 5vh
+
+        // @include typesDisplay.desktop
+        //   top: 2vh
+        //   right: 5vw
+  // .carousel-card-video-position-button
+  //   bottom: -5.5vh
+  //   left: 2vw
 
 .informations-modal
   padding: 1rem

@@ -32,9 +32,9 @@ export default async function Home() {
 				/>
 				<section>
 					<TopMovies />
-					<TopSeries />
+					{/* <TopSeries />
 					<TredingDay value={{ results }} />
-					<TredingWeek />
+					<TredingWeek /> */}
 					<PopularPeoples />
 				</section>
 			</Suspense>

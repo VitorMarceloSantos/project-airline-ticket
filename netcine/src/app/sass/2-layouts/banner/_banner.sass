@@ -9,7 +9,7 @@
   // Alterar tamanho de acordo com a tela
   margin-bottom: -9vh
 
-  @include typesDisplay.large_device
+  @include typesDisplay.desktop
     height: 100vh
     margin-bottom: -16vh
 
@@ -29,7 +29,7 @@
     width: 100%
     z-index: -1
 
-    @include typesDisplay.large_device
+    @include typesDisplay.desktop
       &-informations
         width: 35vw
         height: 30vh
@@ -104,7 +104,7 @@
       // Retirar bordas pretas dos videos
       transform: scale(1.4)
 
-      @include typesDisplay.large_device
+      @include typesDisplay.desktop
         height: 100vh
 
   &-button
@@ -113,7 +113,7 @@
     bottom: 8.5vh
     right: 5vw
 
-    @include typesDisplay.large_device
+    @include typesDisplay.desktop
       bottom: 20vh
 
   .button-banner
@@ -129,7 +129,7 @@
       .button-banner-color
         color: $bg-color-card
 
-  @include typesDisplay.large_device
+  @include typesDisplay.desktop
     .button-banner
       height: 3rem
       width: 3rem

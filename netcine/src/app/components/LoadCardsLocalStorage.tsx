@@ -66,8 +66,8 @@ export const LoadCardsLocalStorage = ({ values }: LoadCardsLocalStorageType) => 
 												genres: item.genres,
 												languages: item.languages,
 												urlMovie: item.urlMovie,
+												setList: setListLoadImage,
 											}}
-											setList={setListLoadImage}
 										/>
 									</li>
 								);

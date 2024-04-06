@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react';
 import { CardGenresType, CardLanguagesType } from '../components/CardTypes';
 import { ResultsType } from '../components/CarouselMoviesTypes';
 
@@ -6,9 +7,10 @@ export type MovieOrTVValuesType = {
 	genres: CardGenresType[];
 	languages: CardLanguagesType;
 	type: string;
-	urlMovie: string;
-	title?: string;
-	index?: number;
+	urlParams: string;
+	title: string;
+	index: number;
+	setList: Dispatch<SetStateAction<string[]>>;
 };
 export type MovieOrTVAddedType = {
 	stateMovieOrTVAddedContext: MovieOrTVValuesType[];
