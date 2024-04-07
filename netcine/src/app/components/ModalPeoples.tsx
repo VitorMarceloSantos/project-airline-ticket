@@ -1,14 +1,13 @@
 'use client';
 
-import { Box, IconButton, Modal, createTheme } from '@mui/material';
+import { Box, IconButton, Modal, ThemeProvider, createTheme } from '@mui/material';
 import { useInformationsPeoplesContext, useModalOpenClosePeoplesContext, usePlayerVideo } from '../context';
 import { PlayerVideo } from './PlayerVideo';
 import CloseIcon from '@mui/icons-material/Close';
 import { ModalPeoplesInformations } from './ModalPeoplesInformations';
 import RecomendationsPeoples from './RecomendationsPeoples';
-import { useContext, useMemo } from 'react';
-import { ThemeSideBar } from '../theme/ThemeSideMenu';
-import { BreakPoints } from '../themes/BreakPoints';
+import { useMemo } from 'react';
+import { BreakPoints } from '../theme/BreakPoints';
 
 export const ModalPeoples = () => {
 	const { handleModalOpenClosePeoples, stateModalOpenClosePeoplesContext } = useModalOpenClosePeoplesContext();
@@ -25,6 +24,8 @@ export const ModalPeoples = () => {
 		margin: '2.5vh 2.5vw',
 		borderRadius: '10px',
 		paddingBottom: '1.5rem',
+		overflow: 'scroll',
+		overflowX: 'hidden',
 	};
 
 	const closeModal = () => {
@@ -39,6 +40,7 @@ export const ModalPeoples = () => {
 			aria-labelledby='parent-modal-title'
 			aria-describedby='parent-modal-description'
 			sx={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+			className='container-modal'
 		>
 			<Box
 				sx={[
@@ -57,7 +59,7 @@ export const ModalPeoples = () => {
 				onMouseEnter={() => handleStateVideo(false)}
 			>
 				<section className='video-modal video-modal-position'>
-					{/* <IconButton
+					<IconButton
 						className='
 							carousel-card-back-body-buttons-btn
 							carousel-card-back-body-buttons-btn-color video-modal-position-button'
@@ -65,7 +67,7 @@ export const ModalPeoples = () => {
 						onClick={() => closeModal()}
 					>
 						<CloseIcon className='carousel-card-back-body-buttons-btn-text-color' />
-					</IconButton> */}
+					</IconButton>
 					<PlayerVideo
 						values={{
 							movie: randomMovieOrTV.movieOrTV,

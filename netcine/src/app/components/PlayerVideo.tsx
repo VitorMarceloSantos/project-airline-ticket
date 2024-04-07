@@ -36,6 +36,7 @@ export const PlayerVideo = ({ values }: PlayerVideoType) => {
 						playing={cardSelected}
 						ref={playerVideo as unknown as LegacyRef<ReactPlayer> | undefined}
 						muted={stateVolumeVideo}
+						loop={true}
 						config={{
 							youtube: {
 								embedOptions: { height: '1920', width: '1080' },

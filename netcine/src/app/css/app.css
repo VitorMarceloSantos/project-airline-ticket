@@ -600,13 +600,12 @@ body::-webkit-scrollbar-thumb {
 }
 
 .video-modal {
+  height: 98%;
   height: 60vh;
   width: 100%;
 }
 .video-modal .carousel-card-header {
   position: relative;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
   width: 100%;
   height: 100%;
 }
@@ -615,16 +614,37 @@ body::-webkit-scrollbar-thumb {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  position: relative;
+  border-radius: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .video-modal .carousel-card-header .carousel-card-video iframe {
-  height: 100vh;
-  width: 100vw;
-}
-.video-modal .carousel-card-header-position-button {
   position: absolute;
-  z-index: 20;
-  left: 93%;
-  bottom: 5vh;
+  transform: scale(1.1);
+}
+@media (max-width: 1920px) {
+  .video-modal .carousel-card-header .carousel-card-video iframe {
+    height: 75vh;
+    width: 65vw;
+    top: -7vh;
+    left: -5vw;
+  }
+}
+.video-modal-position-button {
+  position: absolute;
+  z-index: 999;
+}
+@media (max-width: 1920px) {
+  .video-modal-position-button {
+    right: 21%;
+    top: 3vh;
+  }
+}
+.video-modal .carousel-card-video-position-button {
+  position: absolute;
+  bottom: 3vh;
+  left: 1.5vw;
 }
 
 .informations-modal {
@@ -695,7 +715,7 @@ body::-webkit-scrollbar-thumb {
   color: #707070;
 }
 .informations-modal-text-container-2-peoples h3:not(:first-child) {
-  margin-top: 1rem;
+  margin-top: 0.25rem;
 }
 .informations-modal-text-container-2-peoples h3 {
   color: rgba(255, 255, 255, 0.8);
@@ -712,47 +732,50 @@ body::-webkit-scrollbar-thumb {
   font-weight: 900;
 }
 
-.container-movies-tvs-recomendations {
-  height: 98%;
-  overflow: scroll;
-  overflow-x: hidden;
+.container-modal div::-webkit-scrollbar {
+  display: none;
 }
+
 .container-movies-tvs-recomendations ul {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
 }
-.container-movies-tvs-recomendations ul li {
-  width: 30vw;
+@media (max-width: 1920px) {
+  .container-movies-tvs-recomendations ul li {
+    width: 18vw;
+  }
 }
 .container-movies-tvs-recomendations-position {
   margin: 0.75rem 0;
 }
 
-.container-movies-tvs-recomendations::-webkit-scrollbar {
-  width: 0.5vw;
-  border: 1px solid #2F2F2F;
-}
-
-.container-movies-tvs-recomendations::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.937254902);
-}
-
 .card-header-recomendation {
-  margin: 1rem 1rem;
+  margin: 1rem 0.5rem;
 }
 .card-header-recomendation img {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
   width: 100%;
 }
+@media (max-width: 1920px) {
+  .card-header-recomendation img {
+    height: 28vh;
+  }
+}
 .card-header-recomendation-informations {
-  height: 13vh;
   text-align: justify;
   line-height: 1.25rem;
   padding: 1rem;
   background-color: #2F2F2F;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
+}
+@media (max-width: 1920px) {
+  .card-header-recomendation-informations {
+    height: 21vh;
+  }
 }
 .card-header-recomendation-informations-overview {
   margin-top: 1rem;

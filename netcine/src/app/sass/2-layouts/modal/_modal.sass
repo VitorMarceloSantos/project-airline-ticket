@@ -3,15 +3,14 @@
 @import '../../1-base/_constants'
 
 .video-modal
-  // Alterar tamanho do Iframe
+  height: 98%
+
   @include typesDisplay.desktop
   height: 60vh
   width: 100%
 
   .carousel-card-header
     position: relative
-    border-top-right-radius: 10px
-    border-top-left-radius: 10px
     width: 100%
     height: 100%
 
@@ -19,27 +18,33 @@
       padding-bottom: .1vh
       height: 100%
       width: 100%
-      // margin: 0 auto
       overflow: hidden
+      position: relative
+      border-radius: 0
+      border-top-left-radius: 10px
+      border-top-right-radius: 10px
 
       iframe
-        height: 100vh
-        width: 100vw
-      // Retirar bordas pretas dos videos
-        // transform: scale(1.4)
+        position: absolute
+        transform: scale(1.1)
 
-    &-position-button
-      position: absolute
-      z-index: 20
-      left: 93%
-      bottom: 5vh
+        @include typesDisplay.desktop
+          height: 75vh
+          width: 65vw
+          top: -7vh
+          left: -5vw
 
-        // @include typesDisplay.desktop
-        //   top: 2vh
-        //   right: 5vw
-  // .carousel-card-video-position-button
-  //   bottom: -5.5vh
-  //   left: 2vw
+  &-position-button
+    position: absolute
+    z-index: 999
+
+    @include typesDisplay.desktop
+      right: 21%
+      top: 3vh
+  .carousel-card-video-position-button
+    position: absolute
+    bottom: 3vh
+    left: 1.5vw
 
 .informations-modal
   padding: 1rem
@@ -95,7 +100,7 @@
           color: $color-modal-title
 
         h3:not(:first-child)
-          margin-top: 1rem
+          margin-top: .25rem
         h3
           color: $btn-color-off
 
@@ -108,36 +113,37 @@
     font-size: 1.2rem
     font-weight: 900
 
+.container-modal div::-webkit-scrollbar
+  // scrollBar invisible
+  display: none
+
 .container-movies-tvs-recomendations
-  height: 98%
-  overflow: scroll
-  overflow-x: hidden
   ul
     display: flex
     flex-wrap: wrap
+    justify-content: space-evenly
+    align-items: center
+
     li
-      width: 30vw
+      @include typesDisplay.desktop
+        width: 18vw
 
   &-position
-    // position: absolute
     margin: .75rem 0
 
-.container-movies-tvs-recomendations::-webkit-scrollbar
-  width: .5vw
-  border: 1px solid $bg-color-card-recomendation
-.container-movies-tvs-recomendations::-webkit-scrollbar-thumb
-  background-color: $color-titles-buttons
-
 .card-header-recomendation
-  margin: 1rem 1rem
+  margin: 1rem .5rem
 
   img
     border-top-right-radius: 10px
     border-top-left-radius: 10px
     width: 100%
 
+    @include typesDisplay.desktop
+      height: 28vh
+
   &-informations
-    height: 13vh
+   
     text-align: justify
     line-height: 1.25rem
     padding: 1rem
@@ -145,5 +151,7 @@
     border-bottom-right-radius: 10px
     border-bottom-left-radius: 10px
 
+    @include typesDisplay.desktop
+       height: 21vh
     &-overview
       margin-top: 1rem
