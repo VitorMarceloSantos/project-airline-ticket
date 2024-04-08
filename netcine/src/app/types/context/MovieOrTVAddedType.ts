@@ -8,9 +8,9 @@ export type MovieOrTVValuesType = {
 	languages: CardLanguagesType;
 	type: string;
 	urlParams: string;
-	title: string;
-	index: number;
-	setList: Dispatch<SetStateAction<string[]>>;
+	title?: string;
+	index?: number;
+	setList?: Dispatch<SetStateAction<string[]>>;
 };
 export type MovieOrTVAddedType = {
 	stateMovieOrTVAddedContext: MovieOrTVValuesType[];

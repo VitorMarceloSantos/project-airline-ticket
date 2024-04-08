@@ -1,5 +1,18 @@
+@use '../../1-base/mixins/_typesDisplay'
+
 .play_movie_or_tv
+  margin-top: 9vh
+
+  @include typesDisplay.desktop
+    height: 81vh
+
   iframe
-    width: 100vw
-    // Alterar de acordo com o tamanho da tela
-    height: 91vh
+    margin: 0 2vw
+
+    @include typesDisplay.desktop
+      width: 96vw
+      height: 81vh
+
+.footer-play-movie
+  .footer-container
+    margin: 0

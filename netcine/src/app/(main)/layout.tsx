@@ -37,7 +37,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 						{children}
 					</SideMenu>
 				</Providers>
-				<footer>
+				<footer className='footer-play-movie'>
 					<GlobalFooter />
 				</footer>
 			</body>

@@ -649,7 +649,7 @@ body::-webkit-scrollbar-thumb {
 
 .informations-modal {
   padding: 1rem;
-  height: 10vh;
+  height: 14vh;
   margin-bottom: 2rem;
 }
 .informations-modal-buttons {
@@ -951,10 +951,10 @@ body::-webkit-scrollbar-thumb {
 
 @keyframes animation-title {
   from {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
   to {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 }
 @keyframes animation-container {
@@ -1057,9 +1057,26 @@ body::-webkit-scrollbar-thumb {
   font-weight: 500;
 }
 
+.play_movie_or_tv {
+  margin-top: 9vh;
+}
+@media (max-width: 1920px) {
+  .play_movie_or_tv {
+    height: 81vh;
+  }
+}
 .play_movie_or_tv iframe {
-  width: 100vw;
-  height: 91vh;
+  margin: 0 2vw;
+}
+@media (max-width: 1920px) {
+  .play_movie_or_tv iframe {
+    width: 96vw;
+    height: 81vh;
+  }
+}
+
+.footer-play-movie .footer-container {
+  margin: 0;
 }
 
 .background-initial {

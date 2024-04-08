@@ -69,7 +69,7 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 					<IconButton
 						className='carousel-card-back-body-buttons-btn'
 						aria-label='button-add'
-						onClick={() => handleMovieOrTVAdded(values)}
+						onClick={() => handleMovieOrTVAdded({ urlParams: urlMovie, ...values })}
 					>
 						{verifyMovieAddedOrLiked({ id: movie.id, state: stateMovieOrTVAddedContext }) ? (
 							<CheckIcon className='carousel-card-back-body-buttons-btn-text-color' />
@@ -80,7 +80,7 @@ export const CardBackBody = ({ values }: CardBackBodyType) => {
 					<IconButton
 						className='carousel-card-back-body-buttons-btn'
 						aria-label='button-like'
-						onClick={() => handleMovieOrTvLiked(values)}
+						onClick={() => handleMovieOrTvLiked({ urlParams: urlMovie, ...values })}
 					>
 						{verifyMovieAddedOrLiked({ id: movie.id, state: stateMovieOrTvLikedContext }) ? (
 							<ThumbUpAltIcon className='carousel-card-back-body-buttons-btn-text-color' />

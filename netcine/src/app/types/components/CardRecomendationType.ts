@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react';
 import { ResultsType } from './CarouselMoviesTypes';
 
 export type RecomendationsPeoplesType = {
@@ -9,5 +10,6 @@ export type RecomendationsPeoplesType = {
 export type CardRecomendationType = {
 	values: {
 		movieOrTV: ResultsType;
+		setList: Dispatch<SetStateAction<string[]>>;
 	};
 };

@@ -16,7 +16,6 @@ export const SelectCardMoviesOrTv = ({ values }: CardMoviesOrPeopleType) => {
 
 	useEffect(() => {
 		const widthView = getWidthWindow();
-		// const listCards = window.document.querySelectorAll('.carousel-item');
 		const listCards = window.document.querySelectorAll(`.${transformTitleInClass(title as string)}-${type}`);
 		const itemsPerScreen = getItemsPerScreen(widthView);
 		addClassCard({ values: { itemsPerScreen, listCards } });

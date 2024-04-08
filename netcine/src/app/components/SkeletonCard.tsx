@@ -5,7 +5,7 @@ export const SkeletonCard = () => {
 		<Skeleton
 			className='skeleton-card-movies-setting'
 			variant='rectangular'
-			sx={{ backgroundColor: '#333333', borderRadius: '.2rem', width: '16vw', height: '17.5vh' }}
+			sx={{ backgroundColor: '#333333', borderRadius: '.2rem', width: '17.5vw', height: '18.5vh' }}
 		/>
 	);
 };

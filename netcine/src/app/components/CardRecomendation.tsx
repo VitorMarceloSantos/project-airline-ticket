@@ -5,13 +5,14 @@ import { CardBackBodyInformations } from './CardBackBodyInformations';
 import { lengthOverview } from '@/app/functions/modal/lengthOverview';
 
 export const CardRecomendation = ({ values }: CardRecomendationType) => {
-	const { movieOrTV } = values;
-	// const URL_IMG = `https://image.tmdb.org/t/p/w500${movieOrTV.poster_path}`;
-	const URL_IMG = movieOrTV.poster_path === null ? ErroImagem : `https://image.tmdb.org/t/p/w500${movieOrTV.poster_path}`;
+	const { movieOrTV, setList } = values;
+	const URL_IMG =
+		movieOrTV.poster_path === null ? ErroImagem : `https://image.tmdb.org/t/p/w500${movieOrTV.poster_path}`;
 
 	return (
 		<section className='card-header-recomendation'>
 			<Image
+				onLoad={() => setList((prevState) => [...prevState, 'true'])}
 				className='card-recomendation-image'
 				src={URL_IMG}
 				width={500}

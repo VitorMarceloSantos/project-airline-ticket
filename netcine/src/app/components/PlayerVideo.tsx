@@ -11,7 +11,6 @@ export const PlayerVideo = ({ values }: PlayerVideoType) => {
 	const { handleStateVolume, stateVolumeVideo } = useVolumeVideo();
 	const { movie, urlMovie, cardSelected, type } = values;
 	const playerVideo = useRef<ReactPlayer | undefined>(undefined);
-	// const URL_IMG = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 	const URL_IMG = movie.poster_path === null ? ErroImagem : `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
 	useEffect(() => {

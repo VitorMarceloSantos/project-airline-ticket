@@ -12,5 +12,18 @@ export const PlayMovieOrTv = ({ value }: PlayMovieOrTvType) => {
 	useEffect(() => {
 		setPlayMovie(true);
 	}, []);
-	return <ReactPlayer url={urlMovie} playing={playMovie} width={272} height={255} muted={false} controls={true} />;
+	return (
+		<ReactPlayer
+			url={urlMovie}
+			playing={playMovie}
+			muted={false}
+			controls={true}
+			loop={true}
+			config={{
+				youtube: {
+					embedOptions: { height: '1920', width: '1080' },
+				},
+			}}
+		/>
+	);
 };
