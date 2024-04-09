@@ -69,7 +69,7 @@ export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 					<span className='banner-video-back-informations-index'>{`Top ${index + 1} de hoje`}</span>
 				</section>
 				<span className='banner-video-back-informations-title' ref={sectionTitle}>
-					{verifyQuantifyCharTitle(title, 6)}
+					{verifyQuantifyCharTitle(title, 5)}
 				</span>
 				<span className='banner-video-back-informations-overview' ref={sectionOverview}>
 					{verifyQuantifyChar(overview, 150)}
