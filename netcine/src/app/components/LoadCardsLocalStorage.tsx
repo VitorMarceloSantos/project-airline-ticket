@@ -65,7 +65,7 @@ export const LoadCardsLocalStorage = ({ values }: LoadCardsLocalStorageType) => 
 												title: 'storage',
 												genres: item.genres,
 												languages: item.languages,
-												urlMovie: item.urlMovie,
+												urlParams: item.urlParams,
 												setList: setListLoadImage,
 											}}
 										/>

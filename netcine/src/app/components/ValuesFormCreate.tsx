@@ -93,6 +93,17 @@ export const ValuesFormCreate = () => {
 						className='container-informations-buttons-input-password-icon'
 						aria-label='button-play'
 						onClick={() => isVisibleFunction()}
+						sx={{
+							backgroundColor: 'transparent',
+							color: '$color-titles-buttons',
+							borderRadius: '0',
+							width: '10%',
+							position: 'absolute',
+							right: '0',
+							'&:hover': {
+								color: '#a49c9c',
+							},
+						}}
 					>
 						{isVisible === 'password' ? (
 							<VisibilityOffIcon className='container-informations-buttons-input-password-icon-color' />

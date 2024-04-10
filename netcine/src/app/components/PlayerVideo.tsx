@@ -33,13 +33,13 @@ export const PlayerVideo = ({ values }: PlayerVideoType) => {
 	}, []);
 
 	return (
-		<section className='carousel-card-header'>
+		<section className='carousel-card-header' style={{ overflow: 'hidden' }}>
 			<Image
 				ref={sectionImagem}
 				className='carousel-card-image'
 				src={URL_IMG}
-				width={215}
-				height={130}
+				width={1920}
+				height={1080}
 				alt={`${type === 'movie' ? movie?.title : movie?.name} - Back`}
 				priority={true}
 			/>

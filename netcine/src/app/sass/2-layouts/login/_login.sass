@@ -1,3 +1,4 @@
+@use '../../1-base/mixins/_typesDisplay'
 @import '../../1-base/_pallete'
 
 .background-initial
@@ -18,7 +19,12 @@
   justify-content: center
   align-items: center
 
+  @include typesDisplay.desktop
+    width: 30vw
+    height: 75vh
+
   form
+    height: 80%
     p
       color: $btn-color-off
 
@@ -33,7 +39,9 @@
           text-decoration: underline
           color: $color-titles-buttons
   &-logo
+    height: 20%
     img
+      margin-top: 4rem
       margin-bottom: 5rem
 
   &-providers
@@ -115,15 +123,23 @@
         border-top-left-radius: 3px
         border-bottom-left-radius: 3px
 
-      &-icon
-        background-color: transparent
-        color: $color-titles-buttons
-        border-radius: 0
-        width: 10%
-        position: absolute
-        right: 0
-        &-color:hover
-          color: $color-title-link
+      // &-icon
+      //   background-color: transparent
+      //   color: $color-titles-buttons
+      //   border-radius: 0
+      //   width: 10%
+      //   position: absolute
+      //   right: 0
+      //   &-color:hover
+      //     color: $color-list-title
+
+  .container-text-error-login
+    width: 100%
+    margin-top: 2rem
+    p
+      font-weight: 700
+      text-align: center
+      color: $btn-color-off
 
   input, button
     font-weight: 700
@@ -132,8 +148,9 @@
     border-radius: 3px
     font-size: 1rem
     text-align: center
-    // Alterar de acordo com o display
-    height: 2.5vh
+
+    @include typesDisplay.desktop
+      height: 3.5vh
 
   input[type='text'], input[type='password'], input[type='email']
     background-color: $bg-color-card-recomendation
@@ -158,6 +175,9 @@
       background-color: $color
       z-index: -2
 
+    @include typesDisplay.desktop
+      height: 4.5vh
+
     &:before
       content: ''
       position: absolute
@@ -177,5 +197,3 @@
   input:disabled
     background-color: $bg-color-disabled
     color: black
-    // .carousel-card-back-body-buttons-btn-text-color
-    //   background-color: $bg-color-disabled

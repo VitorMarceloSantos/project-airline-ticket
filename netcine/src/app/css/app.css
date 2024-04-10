@@ -519,6 +519,9 @@ body::-webkit-scrollbar-thumb {
     height: 6vh;
   }
 }
+.navbar-logo {
+  margin-top: 0.5rem;
+}
 .navbar-roll {
   background-color: rgb(20, 20, 20);
   transition: opacity 0.5s ease-in-out;
@@ -1060,7 +1063,7 @@ body::-webkit-scrollbar-thumb {
   }
 }
 .container-movie-notFound {
-  height: 80vh;
+  height: 90vh;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -1115,6 +1118,15 @@ body::-webkit-scrollbar-thumb {
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 1920px) {
+  .container-informations {
+    width: 30vw;
+    height: 75vh;
+  }
+}
+.container-informations form {
+  height: 80%;
+}
 .container-informations form p {
   color: rgba(255, 255, 255, 0.8);
 }
@@ -1129,7 +1141,11 @@ body::-webkit-scrollbar-thumb {
   text-decoration: underline;
   color: rgba(255, 255, 255, 0.937254902);
 }
+.container-informations-logo {
+  height: 20%;
+}
 .container-informations-logo img {
+  margin-top: 4rem;
   margin-bottom: 5rem;
 }
 .container-informations-providers {
@@ -1209,16 +1225,14 @@ body::-webkit-scrollbar-thumb {
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
 }
-.container-informations-buttons-input-password-icon {
-  background-color: transparent;
-  color: rgba(255, 255, 255, 0.937254902);
-  border-radius: 0;
-  width: 10%;
-  position: absolute;
-  right: 0;
+.container-informations .container-text-error-login {
+  width: 100%;
+  margin-top: 2rem;
 }
-.container-informations-buttons-input-password-icon-color:hover {
-  color: #48B6C5;
+.container-informations .container-text-error-login p {
+  font-weight: 700;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
 }
 .container-informations input, .container-informations button {
   font-weight: 700;
@@ -1227,7 +1241,11 @@ body::-webkit-scrollbar-thumb {
   border-radius: 3px;
   font-size: 1rem;
   text-align: center;
-  height: 2.5vh;
+}
+@media (max-width: 1920px) {
+  .container-informations input, .container-informations button {
+    height: 3.5vh;
+  }
 }
 .container-informations input[type=text], .container-informations input[type=password], .container-informations input[type=email] {
   background-color: #2F2F2F;
@@ -1251,6 +1269,11 @@ body::-webkit-scrollbar-thumb {
   height: 100%;
   background-color: rgb(229, 9, 21);
   z-index: -2;
+}
+@media (max-width: 1920px) {
+  .container-informations .button-submit {
+    height: 4.5vh;
+  }
 }
 .container-informations .button-submit:before {
   content: "";

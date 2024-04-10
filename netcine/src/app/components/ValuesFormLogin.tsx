@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import google from '/public/images/google.png';
@@ -22,6 +22,7 @@ export const ValuesFormLogin = () => {
 		register,
 		handleSubmit,
 		formState: { errors },
+		setFocus,
 	} = useForm<FormValuesType>({
 		resolver: joiResolver(createFormSchemaLogin, { allowUnknown: true }), // https://github.com/hapijs/joi/blob/v15.0.3/API.md#validatevalue-schema-options-callback
 		defaultValues: { ...formValues },
@@ -29,6 +30,11 @@ export const ValuesFormLogin = () => {
 	const [isVisible, setIsVisible] = useState<string>('password');
 	const router = useRouter();
 	const [loadingForm, setLoadingForm] = useState<boolean>(false);
+	const [isVisibleText, setIsVisibleText] = useState<boolean>(false);
+
+	useEffect(() => {
+		setFocus('email');
+	}, [setFocus]);
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setFormValues((prevState) => ({ ...prevState, [event.target.name]: event.target.value }));
@@ -44,6 +50,7 @@ export const ValuesFormLogin = () => {
 
 		if (res?.error) {
 			console.log('Erro ao fazer login', res.error);
+			setIsVisibleText(true);
 		} else {
 			router.push('/');
 		}
@@ -88,6 +95,17 @@ export const ValuesFormLogin = () => {
 						className='container-informations-buttons-input-password-icon'
 						aria-label='button-play'
 						onClick={() => isVisibleFunction()}
+						sx={{
+							backgroundColor: 'transparent',
+							color: '$color-titles-buttons',
+							borderRadius: '0',
+							width: '10%',
+							position: 'absolute',
+							right: '0',
+							'&:hover': {
+								color: '#a49c9c',
+							},
+						}}
 					>
 						{isVisible === 'password' ? (
 							<VisibilityOffIcon className='container-informations-buttons-input-password-icon-color' />
@@ -98,8 +116,13 @@ export const ValuesFormLogin = () => {
 				</section>
 				{errors.password && <p>{errors.password?.message}</p>}
 				<button type='submit' className='button-submit'>
-					{loadingForm ? <CircularProgress /> : 'Entrar'}
+					{loadingForm ? <CircularProgress size={25} thickness={4} sx={{ color: '#ffffffef' }} /> : 'Entrar'}
 				</button>
+				{isVisibleText && (
+					<section className='container-text-error-login'>
+						<p>Usário/Senha Inválidos.</p>
+					</section>
+				)}
 			</section>
 			<section className='container-informations-providers'>
 				<section className='container-informations-providers-google button-provider'>

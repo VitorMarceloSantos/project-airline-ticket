@@ -10,7 +10,7 @@ export type MovieOrTVValuesType = {
 	urlParams: string;
 	title?: string;
 	index?: number;
-	setList?: Dispatch<SetStateAction<string[]>>;
+	setList: Dispatch<SetStateAction<string[]>>;
 };
 export type MovieOrTVAddedType = {
 	stateMovieOrTVAddedContext: MovieOrTVValuesType[];

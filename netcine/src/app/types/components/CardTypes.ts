@@ -84,8 +84,8 @@ export type CardGenericType = {
 		languages: CardLanguagesType;
 		type: string;
 		urlParams?: string;
-		title: string;
-		index: number;
+		title?: string;
+		index?: number;
 		setList: Dispatch<SetStateAction<string[]>>;
 	};
 };
