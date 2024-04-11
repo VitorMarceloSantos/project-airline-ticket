@@ -3,8 +3,6 @@
 import { ListCardsSearchType } from '@/app/types/components/SearchTypes';
 import Card from './Card';
 import { useEffect } from 'react';
-import { getWidthWindow } from '../functions/card/getWidthWindow';
-import { getItemsPerScreen } from '../functions/card/getItemsPerScreen';
 import { addClassCard } from '../functions/card/addClassCard';
 
 export const ListCardsSearch = ({ values }: ListCardsSearchType) => {

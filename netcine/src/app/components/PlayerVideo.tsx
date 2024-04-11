@@ -1,11 +1,12 @@
 import Image from 'next/image';
 import ReactPlayer from 'react-player';
-import { LegacyRef, useEffect, useRef } from 'react';
+import { LegacyRef, Suspense, useEffect, useRef, useState } from 'react';
 import { PlayerVideoType } from '@/app/types/components/PlayerVideoTypes';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import ErroImagem from '@/app/images/errorVideo.png';
 import { useVolumeVideo } from '@/app/context';
+import { SkeletonVideoOrImage } from './SkeletonVideoOrImage';
 
 export const PlayerVideo = ({ values }: PlayerVideoType) => {
 	const { handleStateVolume, stateVolumeVideo } = useVolumeVideo();
@@ -16,6 +17,7 @@ export const PlayerVideo = ({ values }: PlayerVideoType) => {
 	const sectionVideo = useRef<HTMLImageElement>(null);
 	const NUMBER_FIVE = 5;
 	const NUMBER_ONE_THOUSAND = 1000;
+	const [isVisibleImage, setIsVisibleImage] = useState<string>('inline-flex');
 
 	useEffect(() => {
 		playerVideo.current?.seekTo(parseFloat('0'), 'seconds');
@@ -34,7 +36,11 @@ export const PlayerVideo = ({ values }: PlayerVideoType) => {
 
 	return (
 		<section className='carousel-card-header' style={{ overflow: 'hidden' }}>
+			<section style={{ display: `${isVisibleImage}`, transition: 'all 250ms ease-out' }}>
+				<SkeletonVideoOrImage />
+			</section>
 			<Image
+				onLoad={() => setIsVisibleImage('none')}
 				ref={sectionImagem}
 				className='carousel-card-image'
 				src={URL_IMG}
@@ -43,6 +49,7 @@ export const PlayerVideo = ({ values }: PlayerVideoType) => {
 				alt={`${type === 'movie' ? movie?.title : movie?.name} - Back`}
 				priority={true}
 			/>
+
 			<section className='carousel-card-video carousel-card-video-position' ref={sectionVideo}>
 				<ReactPlayer
 					url={urlMovie}
@@ -56,6 +63,7 @@ export const PlayerVideo = ({ values }: PlayerVideoType) => {
 						},
 					}}
 				/>
+
 				<button
 					className='
 							carousel-card-back-body-buttons-btn

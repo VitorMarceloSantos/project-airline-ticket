@@ -13,8 +13,8 @@ const InformationsPeoplesContext = createContext<NewInformationsPeoplesContextTy
 export const InformationsPeoplesProvider = ({ children }: { children: React.ReactNode }) => {
 	const [stateInformationsPeoples, setStateInformationsPeoples] =
 		useState<InformationsPeoplesContextType>(INITIAL_INFORMATIONS_PEOPLE);
-	const handleStateChangeInformationsPeoples = useCallback((newInform: InformationsPeoplesContextType) => {
-		setStateInformationsPeoples(newInform);
+	const handleStateChangeInformationsPeoples = useCallback((newInformation: InformationsPeoplesContextType) => {
+		setStateInformationsPeoples(newInformation);
 	}, []);
 	
 	return (

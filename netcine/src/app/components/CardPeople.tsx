@@ -9,7 +9,6 @@ import { useInformationsPeoplesContext } from '@/app/context';
 export default function CardPeople({ values }: CardPeopleType) {
 	const { people, index, setList } = values;
 	const { handleStateChangeInformationsPeoples } = useInformationsPeoplesContext();
-	// const URL_IMG = `https://image.tmdb.org/t/p/w500${people.profile_path}`;
 	const URL_IMG = people.profile_path === null ? ErroImagem : `https://image.tmdb.org/t/p/w500${people.profile_path}`;
 	const cardFront = useRef<HTMLElement>(null);
 	const cardBack = useRef<HTMLElement>(null);

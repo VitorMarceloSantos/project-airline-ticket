@@ -427,19 +427,19 @@ body::-webkit-scrollbar-thumb {
   transition: transform 150ms ease-in-out;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1440px) {
   .carousel-movies {
-    --items-per-screen: 4;
+    --items-per-screen: 5;
   }
 }
 @media (max-width: 990px) {
   .carousel-movies {
-    --items-per-screen: 3;
+    --items-per-screen: 4;
   }
 }
 @media (max-width: 730px) {
   .carousel-movies {
-    --items-per-screen: 2;
+    --items-per-screen: 3;
   }
 }
 .progress-bar {
@@ -605,8 +605,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .avatar-navbar {
-  width: 2.1rem;
-  height: 2.1rem;
+  width: 2.2rem;
+  height: 2.2rem;
   background-color: #66070E;
   border-radius: 50%;
   display: flex;
@@ -616,7 +616,7 @@ body::-webkit-scrollbar-thumb {
 .avatar-navbar-text {
   font-weight: 900;
   color: rgba(255, 255, 255, 0.937254902);
-  font-size: 1.1rem;
+  font-size: 0.95rem;
 }
 
 .video-modal {
@@ -864,6 +864,15 @@ body::-webkit-scrollbar-thumb {
     font-size: 1.5rem;
     text-shadow: 1.5px 1.5px black;
   }
+}
+@media (max-width: 1920px) and (max-width: 1440px) {
+  .banner-video-back-informations-container-top {
+    font-size: 1.3rem;
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+}
+@media (max-width: 1920px) {
   .banner-video-back-informations-index {
     font-size: 1.5rem;
     color: rgba(255, 255, 255, 0.8);
@@ -879,12 +888,25 @@ body::-webkit-scrollbar-thumb {
     text-align: start;
     width: 100%;
   }
+}
+@media (max-width: 1920px) and (max-width: 1440px) {
+  .banner-video-back-informations-title {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 1920px) {
   .banner-video-back-informations-overview {
     font-size: 1.5rem;
     color: rgba(255, 255, 255, 0.8);
     font-weight: 700;
     text-shadow: 1px 1px black;
     margin-top: 1.5rem;
+  }
+}
+@media (max-width: 1920px) and (max-width: 1440px) {
+  .banner-video-back-informations-overview {
+    font-size: 1.3rem;
+    line-height: 1.5rem;
   }
 }
 .banner-video-back-url {
@@ -955,8 +977,17 @@ body::-webkit-scrollbar-thumb {
 }
 
 .animation-title {
-  animation: animation-title 5s;
   animation-fill-mode: forwards;
+}
+@media (max-width: 1920px) {
+  .animation-title {
+    animation: animation-title-desktop 5s;
+  }
+}
+@media (max-width: 1440px) {
+  .animation-title {
+    animation: animation-title-laptop 5s;
+  }
 }
 
 .animation-container {
@@ -969,12 +1000,20 @@ body::-webkit-scrollbar-thumb {
   animation-fill-mode: forwards;
 }
 
-@keyframes animation-title {
+@keyframes animation-title-desktop {
   from {
     font-size: 3.5rem;
   }
   to {
     font-size: 2.5rem;
+  }
+}
+@keyframes animation-title-laptop {
+  from {
+    font-size: 3rem;
+  }
+  to {
+    font-size: 2rem;
   }
 }
 @keyframes animation-container {
@@ -1204,7 +1243,7 @@ body::-webkit-scrollbar-thumb {
 .container-informations-buttons {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10rem;
+  margin-bottom: 7rem;
 }
 .container-informations-buttons #email {
   margin-top: 0.75rem;

@@ -3,11 +3,9 @@
 import { Box, IconButton, Modal, createTheme } from '@mui/material';
 import { PlayerVideo } from './PlayerVideo';
 import CloseIcon from '@mui/icons-material/Close';
-import { useMemo } from 'react';
+import { Suspense, useMemo } from 'react';
 import { BreakPoints } from '../theme/BreakPoints';
 import { ModalGenericType } from '../types/components/ModalTypes';
-
-
 
 export const ModalGeneric = ({ values }: ModalGenericType) => {
 	const {
@@ -65,6 +63,7 @@ export const ModalGeneric = ({ values }: ModalGenericType) => {
 					>
 						<CloseIcon className='carousel-card-back-body-buttons-btn-text-color' />
 					</IconButton>
+
 					<PlayerVideo
 						values={{
 							movie,

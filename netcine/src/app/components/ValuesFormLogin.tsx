@@ -30,7 +30,7 @@ export const ValuesFormLogin = () => {
 	const [isVisible, setIsVisible] = useState<string>('password');
 	const router = useRouter();
 	const [loadingForm, setLoadingForm] = useState<boolean>(false);
-	const [isVisibleText, setIsVisibleText] = useState<boolean>(false);
+	const [isVisibleText, setIsVisibleText] = useState<string>('0');
 
 	useEffect(() => {
 		setFocus('email');
@@ -50,7 +50,7 @@ export const ValuesFormLogin = () => {
 
 		if (res?.error) {
 			console.log('Erro ao fazer login', res.error);
-			setIsVisibleText(true);
+			setIsVisibleText('1');
 		} else {
 			router.push('/');
 		}
@@ -118,11 +118,9 @@ export const ValuesFormLogin = () => {
 				<button type='submit' className='button-submit'>
 					{loadingForm ? <CircularProgress size={25} thickness={4} sx={{ color: '#ffffffef' }} /> : 'Entrar'}
 				</button>
-				{isVisibleText && (
-					<section className='container-text-error-login'>
-						<p>Usário/Senha Inválidos.</p>
-					</section>
-				)}
+				<section className='container-text-error-login' style={{opacity: `${isVisibleText}`}}>
+					<p>Usário/Senha Inválidos.</p>
+				</section>
 			</section>
 			<section className='container-informations-providers'>
 				<section className='container-informations-providers-google button-provider'>
