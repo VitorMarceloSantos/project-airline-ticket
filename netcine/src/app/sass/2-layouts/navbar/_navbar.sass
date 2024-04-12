@@ -63,6 +63,9 @@
       // Alterar de acordo com o tamanho da tela
       @include typesDisplay.desktop
         width: 2.5vw
+      
+      @include typesDisplay.small_tablet
+        width: 4vw
 
       &-input
         input
@@ -72,6 +75,9 @@
           color: $color-titles-buttons
           font-weight: 700
           margin-left: .5rem
+
+          @include typesDisplay.small_tablet
+            width: 13vw
 
         input::placeholder
           color: $btn-color-off
@@ -90,6 +96,15 @@
       background-color: $bg-color-card
       padding: .25vw 1vw
       width: auto
+      
+      @include typesDisplay.small_tablet
+        button
+          padding: .5rem 0
+        input
+          margin: 0
+
+      @include typesDisplay.small_tablet
+        width: 20vw
 
 .avatar-navbar
   width: 2.2rem

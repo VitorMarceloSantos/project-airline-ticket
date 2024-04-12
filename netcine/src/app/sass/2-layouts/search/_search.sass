@@ -11,10 +11,22 @@
     height: 100%
     margin: 0 $handle-size
     margin-top: 1rem
+    margin-bottom: 2rem
     .carousel-item
       --items-per-screen: 6
       flex: 0 0 calc((100% / var(--items-per-screen)) - $img-gap)
-      // margin: calc($img-gap)
+
+    @media (max-width: 1440px)
+      .carousel-item
+        --items-per-screen: 5
+
+    @media (max-width: 990px)
+      .carousel-item
+        --items-per-screen: 4
+
+    @media (max-width: 730px)
+      .carousel-item
+        --items-per-screen: 3
 
   h2
     color: $color-titles-buttons

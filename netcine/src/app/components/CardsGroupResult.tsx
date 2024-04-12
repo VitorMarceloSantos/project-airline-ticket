@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from 'react';
 import { ListCardsSearch } from './ListCardsSearch';
 import { PlayerVideoBannerURL } from './PlayerVideoBannerURL';
 import { CardsGroupResultType } from '@/app/types/components/CardsGroupResultTypes';
-import { SkeletonCarouselWithOutTitle } from './SkeletonCarouselWithOutTitle';
 import Loading from '../(main)/loading';
 import { usePlayerVideo } from '../context';
 import { addEventScrollNavBar } from '../functions/carouselMovies/addEventWindowWidth';

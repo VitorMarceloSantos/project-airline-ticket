@@ -1,8 +1,7 @@
 'use client';
 
-import { Suspense, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { PlayerVideoBannerURL } from './PlayerVideoBannerURL';
-import { randomVideo } from '@/app/functions/PlayerVideo/randomVideo';
 import { LoadCardsLocalStorageType } from '@/app/types/components/LoadCardsLocalStorageType';
 import CardStorage from './CardStorage';
 import { verifyLocalLengthLocalStorage } from '../functions/storage/verifyLocalLengthLocalStorage';
@@ -12,6 +11,8 @@ import Loading from '../(main)/loading';
 import { usePlayerVideo } from '../context';
 import { addEventScrollNavBar } from '../functions/carouselMovies/addEventWindowWidth';
 import { addClassCard } from '../functions/card/addClassCard';
+import { getWidthWindow } from '../functions/card/getWidthWindow';
+import { getItemsPerScreen } from '../functions/card/getItemsPerScreen';
 
 export const LoadCardsLocalStorage = ({ values }: LoadCardsLocalStorageType) => {
 	const { storageCards, numberRandom, type } = values;
@@ -31,8 +32,10 @@ export const LoadCardsLocalStorage = ({ values }: LoadCardsLocalStorageType) => 
 	useEffect(() => {
 		addEventScrollNavBar(handleStateVideo);
 		const listCards = window.document.querySelectorAll(`.${'result'}-${type}`);
-		addClassCard({ values: { itemsPerScreen: 6, listCards } });
-	}, []);
+		const widthView = getWidthWindow();
+		const itemsPerScreen = getItemsPerScreen(widthView);
+		addClassCard({ values: { itemsPerScreen, listCards } });
+	});
 
 	return (
 		<>

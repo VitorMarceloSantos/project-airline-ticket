@@ -19,7 +19,7 @@ export const BreakPoints = () => ({
 		values: {
 			mobile: 480,
 			small_device: 767,
-			small_tablet: 991,
+			small_tablet: 1023,
 			laptop: 1199,
 			desktop: 1921,
 			large_device: 1921,

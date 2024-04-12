@@ -29,74 +29,75 @@
     width: 100%
     z-index: -1
 
-    @include typesDisplay.desktop
-      &-informations
-        width: 45vw
-        height: 30vh
-        z-index: 1
-        color: red
-        position: absolute
-        bottom: 20vh
-        left: 3.3vw
+    &-informations
+      width: 45vw
+      height: 30vh
+      z-index: 1
+      position: absolute
+      bottom: 20vh
+      left: 3.3vw
+      display: flex
+      flex-direction: column
+      align-items: center
+
+      @include typesDisplay.laptop
+        width: 50vw
+
+      &-container
         display: flex
-        flex-direction: column
+        justify-content: center
         align-items: center
+        justify-content: flex-start
+        width: 100%
+        margin-bottom: 1rem
 
-        &-container
-          display: flex
-          justify-content: center
-          align-items: center
-          justify-content: flex-start
-          width: 100%
-          margin-bottom: 1.5rem
-
-          &-top
-            background-color: rgb(212, 30, 44)
-            color: $btn-color-off
-            font-weight: 900
-            display: flex
-            flex-direction: column
-            justify-content: center
-            align-items: center
-            width: 4rem
-            height: 4rem
-            border-radius: 5px
-            font-size: 1.5rem
-            text-shadow: 1.5px 1.5px black
-
-            @include typesDisplay.laptop
-              font-size: 1.3rem
-              width: 3.6rem
-              height: 3.6rem
-
-        &-index
-          font-size: 1.5rem
+        &-top
+          background-color: rgb(212, 30, 44)
           color: $btn-color-off
           font-weight: 900
-          text-shadow: 1px 1px black
-          margin-left: 2rem
-
-        &-title
-          font-size: 4rem
-          color: $btn-color-off
-          font-weight: 700
-          text-shadow: 1px 1px black
-          text-align: start
-          width: 100%
-
-          @include typesDisplay.laptop
-            font-size: 3rem
-
-        &-overview
+          display: flex
+          flex-direction: column
+          justify-content: center
+          align-items: center
+          width: 4rem
+          height: 4rem
+          border-radius: 5px
           font-size: 1.5rem
-          color: $btn-color-off
-          font-weight: 700
-          text-shadow: 1px 1px black
-          margin-top: 1.5rem
+          text-shadow: 1.5px 1.5px black
 
           @include typesDisplay.laptop
             font-size: 1.3rem
-            line-height: 1.5rem
+            width: 3.6rem
+            height: 3.6rem
+
+      &-index
+        font-size: 1.5rem
+        color: $btn-color-off
+        font-weight: 900
+        text-shadow: 1px 1px black
+        margin-left: 2rem
+
+      &-title
+        font-size: 3.5rem
+        color: $btn-color-off
+        font-weight: 700
+        text-shadow: 1px 1px black
+        text-align: start
+        width: 100%
+
+        @include typesDisplay.small_tablet
+          font-size: 3rem
+
+      &-overview
+        font-size: 1.5rem
+        color: $btn-color-off
+        font-weight: 700
+        text-shadow: 1px 1px black
+        margin-top: 1.5rem
+
+        @include typesDisplay.laptop
+          font-size: 1.3rem
+          line-height: 1.5rem
 
   &-back-url
     opacity: 0
@@ -159,40 +160,39 @@
     z-index: -1
 
 .animation-title
-  animation-fill-mode: forwards
-
   @include typesDisplay.desktop
     animation: animation-title-desktop 5s
+    animation-fill-mode: forwards
 
-  @include typesDisplay.laptop
-    animation: animation-title-laptop 5s
+  @include typesDisplay.small_tablet
+    animation: animation-title-small-tablet 5s
+    animation-fill-mode: forwards
 
 .animation-container
   animation: animation-container 5s
   animation-fill-mode: forwards
 
 .animation-overview
-  animation: animation-overview 3s
+  animation: animation-overview 1.5s
   animation-fill-mode: forwards
-
 
 @keyframes animation-title-desktop
   from
     font-size: 3.5rem
   to
-    font-size: 2.5rem
-  
-@keyframes animation-title-laptop
+    font-size: 3rem
+
+@keyframes animation-title-small-tablet
   from
     font-size: 3rem
   to
-    font-size: 2rem
+    font-size: 2.5rem
 
 @keyframes animation-container
   from
     bottom: 20vh
   to
-    bottom: 5vh
+    bottom: 4vh
 
 @keyframes animation-overview
   from

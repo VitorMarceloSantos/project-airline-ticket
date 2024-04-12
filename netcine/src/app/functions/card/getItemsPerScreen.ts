@@ -9,7 +9,7 @@ export const getItemsPerScreen = (windowWidth: number): number => {
 	let itemsPerScreen = 0;
 	if (windowWidth > NUMBER_ONE_THOUSAND_FOUR_HUNDRED) {
 		itemsPerScreen = NUMBER_SIX;
-	} else if (windowWidth >= NUMBER_NIVE_HUNDRED_NINETY && windowWidth < NUMBER_ONE_THOUSAND_FOUR_HUNDRED) {
+	} else if (windowWidth >= NUMBER_NIVE_HUNDRED_NINETY && windowWidth <= NUMBER_ONE_THOUSAND_FOUR_HUNDRED) {
 		itemsPerScreen = NUMBER_FIVE;
 	} else if (windowWidth >= NUMBER_SEVEN_HUNDRED_THIRTY && windowWidth < NUMBER_NIVE_HUNDRED_NINETY) {
 		itemsPerScreen = NUMBER_FOUR;
