@@ -54,10 +54,10 @@ export const NavBar = ({ children }: { children: React.ReactNode }) => {
 				<li>
 					<MenuIcon onClick={() => handleStateChange(true)} />
 				</li>
-				<li>
+				<li className='navbar-list-mobile'>
 					<Link href={'/movies'}>Filmes</Link>
 				</li>
-				<li>
+				<li className='navbar-list-mobile'>
 					<Link href={'/tv'}>Séries</Link>
 				</li>
 			</ul>

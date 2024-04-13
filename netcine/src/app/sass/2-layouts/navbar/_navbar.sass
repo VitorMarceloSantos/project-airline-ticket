@@ -24,6 +24,9 @@
   &-logo
     margin-top: .5rem
 
+    @include typesDisplay.mobile
+      display: none
+
   &-roll
     background-color: $bg-color-page
     transition: opacity 0.5s ease-in-out
@@ -32,6 +35,13 @@
   &-list
     width: 33.33%
     @include mixins.navbar-menu-config($side: left, $direction: start)
+
+    @include typesDisplay.mobile
+      width: 10%
+
+    &-mobile
+      @include typesDisplay.mobile
+        display: none
 
   &-buttons
     li
@@ -49,6 +59,9 @@
   &-search
     width: 33.33%
 
+    @include typesDisplay.mobile
+      width: 90%
+
     @include mixins.navbar-menu-config($side: right, $direction: end)
     li:not(:first-child)
       margin-left: 1vw
@@ -59,13 +72,16 @@
       display: flex
       justify-content: space-between
       align-items: center
+      
 
-      // Alterar de acordo com o tamanho da tela
       @include typesDisplay.desktop
         width: 2.5vw
-      
+
       @include typesDisplay.small_tablet
         width: 4vw
+      
+      @include typesDisplay.mobile
+        width: 12vw
 
       &-input
         input
@@ -78,6 +94,9 @@
 
           @include typesDisplay.small_tablet
             width: 13vw
+          
+          @include typesDisplay.mobile
+            width: 35vw
 
         input::placeholder
           color: $btn-color-off
@@ -96,7 +115,7 @@
       background-color: $bg-color-card
       padding: .25vw 1vw
       width: auto
-      
+
       @include typesDisplay.small_tablet
         button
           padding: .5rem 0
@@ -105,6 +124,9 @@
 
       @include typesDisplay.small_tablet
         width: 20vw
+
+      @include typesDisplay.mobile
+        width: 55vw
 
 .avatar-navbar
   width: 2.2rem

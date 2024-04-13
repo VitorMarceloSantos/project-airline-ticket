@@ -522,6 +522,11 @@ body::-webkit-scrollbar-thumb {
 .navbar-logo {
   margin-top: 0.5rem;
 }
+@media (max-width: 430px) {
+  .navbar-logo {
+    display: none;
+  }
+}
 .navbar-roll {
   background-color: rgb(20, 20, 20);
   transition: opacity 0.5s ease-in-out;
@@ -535,6 +540,16 @@ body::-webkit-scrollbar-thumb {
   padding-left: 3vw;
   color: rgba(255, 255, 255, 0.8);
   font-weight: 700;
+}
+@media (max-width: 430px) {
+  .navbar-list {
+    width: 10%;
+  }
+}
+@media (max-width: 430px) {
+  .navbar-list-mobile {
+    display: none;
+  }
 }
 .navbar-buttons li a {
   text-decoration: none;
@@ -562,6 +577,11 @@ body::-webkit-scrollbar-thumb {
   color: rgba(255, 255, 255, 0.8);
   font-weight: 700;
 }
+@media (max-width: 430px) {
+  .navbar-search {
+    width: 90%;
+  }
+}
 .navbar-search li:not(:first-child) {
   margin-left: 1vw;
 }
@@ -582,6 +602,11 @@ body::-webkit-scrollbar-thumb {
     width: 4vw;
   }
 }
+@media (max-width: 430px) {
+  .navbar-search-container {
+    width: 12vw;
+  }
+}
 .navbar-search-container-input input {
   border: none;
   outline: none;
@@ -593,6 +618,11 @@ body::-webkit-scrollbar-thumb {
 @media (max-width: 1024px) {
   .navbar-search-container-input input {
     width: 13vw;
+  }
+}
+@media (max-width: 430px) {
+  .navbar-search-container-input input {
+    width: 35vw;
   }
 }
 .navbar-search-container-input input::placeholder {
@@ -624,6 +654,11 @@ body::-webkit-scrollbar-thumb {
 @media (max-width: 1024px) {
   .navbar-search .active-search-bar {
     width: 20vw;
+  }
+}
+@media (max-width: 430px) {
+  .navbar-search .active-search-bar {
+    width: 55vw;
   }
 }
 
