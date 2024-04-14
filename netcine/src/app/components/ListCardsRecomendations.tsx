@@ -7,6 +7,7 @@ import { ListCardsRecomendationsType, RecomendationsMoviesOrTVsSuspenseType } fr
 import { lengthOverview } from '@/app/functions/modal/lengthOverview';
 import { useEffect, useRef, useState } from 'react';
 import { SkeletonModal } from './SkeletonModal';
+import redCamCorrect from '@/app/images/redCamCorrect.png';
 
 const CardRecomendation = ({ values }: RecomendationsMoviesOrTVsSuspenseType) => {
 	const { movieOrTV, type, english_name, setList } = values;
@@ -49,11 +50,25 @@ export const ListCardsRecomendations = ({ values }: ListCardsRecomendationsType)
 		<article className='container-movies-tvs-recomendations'>
 			{isVisibleSkeleton && <SkeletonModal />}
 			<ul style={{ opacity: '0' }} ref={listRef}>
-				{results.map((item, index) => (
-					<li key={index}>
-						<CardRecomendation values={{ movieOrTV: item, type, english_name, setList: setListLoadImage }} />
-					</li>
-				))}
+				{results.length !== 0 ? (
+					results.map((item, index) => (
+						<li key={index}>
+							<CardRecomendation values={{ movieOrTV: item, type, english_name, setList: setListLoadImage }} />
+						</li>
+					))
+				) : (
+					<section className='container-movie-notFound'>
+						<Image
+							className='img-movie-notFound'
+							src={redCamCorrect}
+							width={100}
+							height={100}
+							alt='Not Found Movies'
+							priority={true}
+						/>
+						<h1>Nenhum Filme/Série encontrado.</h1>
+					</section>
+				)}
 			</ul>
 		</article>
 	);

@@ -3,7 +3,7 @@
 import { Box, IconButton, Modal, createTheme } from '@mui/material';
 import { PlayerVideo } from './PlayerVideo';
 import CloseIcon from '@mui/icons-material/Close';
-import { Suspense, useMemo } from 'react';
+import { useMemo } from 'react';
 import { BreakPoints } from '../theme/BreakPoints';
 import { ModalGenericType } from '../types/components/ModalTypes';
 
@@ -19,6 +19,16 @@ export const ModalGeneric = ({ values }: ModalGenericType) => {
 	const themeDisplayBreakPoints = useMemo(() => createTheme(BreakPoints()), []);
 	const width_60 = {
 		width: '60vw',
+		height: '95vh',
+		backgroundColor: '#181818',
+		margin: '2.5vh 2.5vw',
+		borderRadius: '10px',
+		paddingBottom: '1.5rem',
+		overflow: 'scroll',
+		overflowX: 'hidden',
+	};
+	const width_90 = {
+		width: '90vw',
 		height: '95vh',
 		backgroundColor: '#181818',
 		margin: '2.5vh 2.5vw',
@@ -49,6 +59,7 @@ export const ModalGeneric = ({ values }: ModalGenericType) => {
 					},
 					{
 						[themeDisplayBreakPoints.breakpoints.down('desktop')]: { ...width_60 },
+						[themeDisplayBreakPoints.breakpoints.down('small_tablet')]: { ...width_90 },
 					},
 				]}
 				onMouseEnter={() => handleStateVideo(false)}

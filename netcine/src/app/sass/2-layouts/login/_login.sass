@@ -23,6 +23,9 @@
     width: 30vw
     height: 75vh
 
+  @include typesDisplay.small_tablet
+    width: 40vw
+
   form
     height: 80%
     p
@@ -43,6 +46,10 @@
     img
       margin-top: 4rem
       margin-bottom: 5rem
+    
+    @include typesDisplay.small_tablet
+      img
+        margin: 1.75rem 0
 
   &-providers
     display: flex
@@ -103,6 +110,11 @@
     display: flex
     flex-direction: column
     margin-bottom: 7rem
+
+    @include typesDisplay.small_tablet
+      margin-bottom: 2.25rem
+    
+    
 
     #email
       margin-top: .75rem
@@ -187,3 +199,7 @@
   input:disabled
     background-color: $bg-color-disabled
     color: black
+  
+  #login
+    @include typesDisplay.small_tablet
+      margin-top: 7rem

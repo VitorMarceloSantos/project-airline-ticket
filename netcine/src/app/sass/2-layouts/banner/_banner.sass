@@ -5,13 +5,20 @@
   height: 30vh
   width: 100vw
   position: relative
-  // margin-top: 1rem
   // Alterar tamanho de acordo com a tela
   margin-bottom: -9vh
 
   @include typesDisplay.desktop
     height: 100vh
     margin-bottom: -16vh
+
+  @include typesDisplay.small_tablet
+    margin-bottom: -19vh
+  
+  @include typesDisplay.mobile
+    height: 45vh
+    margin-bottom: -2vh
+    // background-color: red
 
   &-front
     transition: all 450ms ease-out
@@ -43,6 +50,17 @@
       @include typesDisplay.laptop
         width: 50vw
 
+      @include typesDisplay.small_tablet
+        width: 70vw
+
+      @include typesDisplay.mobile
+        display: flex
+        flex-direction: row
+        width: 94%
+        // background-color: red
+        height: auto
+        bottom: 8vh
+
       &-container
         display: flex
         justify-content: center
@@ -50,6 +68,11 @@
         justify-content: flex-start
         width: 100%
         margin-bottom: 1rem
+
+        @include typesDisplay.mobile
+          margin-bottom: 0
+          width: auto
+          margin-right: .5rem
 
         &-top
           background-color: rgb(212, 30, 44)
@@ -69,6 +92,11 @@
             font-size: 1.3rem
             width: 3.6rem
             height: 3.6rem
+          
+          @include typesDisplay.mobile
+            font-size: 1.1rem
+            width: 3rem
+            height: 3rem
 
       &-index
         font-size: 1.5rem
@@ -76,6 +104,9 @@
         font-weight: 900
         text-shadow: 1px 1px black
         margin-left: 2rem
+
+        @include typesDisplay.mobile
+          display: none
 
       &-title
         font-size: 3.5rem
@@ -87,6 +118,9 @@
 
         @include typesDisplay.small_tablet
           font-size: 3rem
+        
+        @include typesDisplay.mobile
+          font-size: 1.7
 
       &-overview
         font-size: 1.5rem
@@ -98,6 +132,9 @@
         @include typesDisplay.laptop
           font-size: 1.3rem
           line-height: 1.5rem
+        
+        @include typesDisplay.mobile
+          display: none
 
   &-back-url
     opacity: 0
@@ -110,7 +147,7 @@
     width: 100%
     z-index: -1
     overflow: hidden
-
+    
     iframe
       height: 30vh
       width: 100vw
@@ -120,6 +157,14 @@
       @include typesDisplay.desktop
         height: 100vh
 
+      @include typesDisplay.small_device
+        transform: scale(1.6)
+      
+      @include typesDisplay.mobile
+        transform: scale(1.9)
+        position: absolute
+        top: -28vh
+
   &-button
     z-index: 1
     position: absolute
@@ -128,6 +173,9 @@
 
     @include typesDisplay.desktop
       bottom: 20vh
+    
+    @include typesDisplay.mobile
+      bottom: 6vh
 
   .button-banner
     background-color: transparent
@@ -168,9 +216,17 @@
     animation: animation-title-small-tablet 5s
     animation-fill-mode: forwards
 
+  @include typesDisplay.mobile
+    animation: animation-title-mobile 5s
+    animation-fill-mode: forwards
+
 .animation-container
   animation: animation-container 5s
   animation-fill-mode: forwards
+
+  @include typesDisplay.mobile
+    animation: animation-mobile 5s
+    animation-fill-mode: forwards
 
 .animation-overview
   animation: animation-overview 1.5s
@@ -188,11 +244,23 @@
   to
     font-size: 2.5rem
 
+@keyframes animation-title-mobile
+  from
+    font-size: 1.7rem
+  to
+    font-size: 1.5rem
+
 @keyframes animation-container
   from
     bottom: 20vh
   to
     bottom: 4vh
+
+@keyframes animation-mobile
+  from
+    bottom: 8vh
+  to
+    bottom: 1.5vh
 
 @keyframes animation-overview
   from

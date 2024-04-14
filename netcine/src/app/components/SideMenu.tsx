@@ -3,19 +3,22 @@
 import { Box, Divider, Drawer, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import { ChildrenType } from '@/app/types/components/ChildrenType';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import HomeIcon from '@mui/icons-material/Home';
 import CloseIcon from '@mui/icons-material/Close';
 import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
 import LiveTvIcon from '@mui/icons-material/LiveTv';
 import { useSideMenuContext } from '@/app/context';
-import { ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { ThemeSideBar } from '@/app/theme/ThemeSideMenu';
 import { createListItemCollapse } from '@/app/functions/sideMenu/createListItemCollapse';
 import { listMoviesGenres, listTvsGenres } from '@/app/constants/SideMenu';
 import { useRouter } from 'next/navigation';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import AddIcon from '@mui/icons-material/Add';
+import Image from 'next/image';
+import netCine from '/public/images/netCine.png';
+import { BreakPoints } from '../theme/BreakPoints';
 
 export const SideMenu: React.FC<ChildrenType> = ({ children }) => {
 	const { stateSideMenu, handleStateChange } = useSideMenuContext();
@@ -35,6 +38,12 @@ export const SideMenu: React.FC<ChildrenType> = ({ children }) => {
 		handleStateChange(false);
 	};
 
+	const themeDisplayBreakPoints = useMemo(() => createTheme(BreakPoints()), []);
+	const width_55 = {
+		width: '55vw',
+		height: '100%',
+	};
+
 	return (
 		<>
 			<ThemeProvider theme={ThemeSideBar}>
@@ -45,16 +54,27 @@ export const SideMenu: React.FC<ChildrenType> = ({ children }) => {
 					sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
 				>
 					<Box
-						sx={{
-							backgroundColor: ThemeSideBar.palette.primary.main,
-							height: '100%',
-							width: '25vw',
-						}}
+						sx={[
+							{
+								backgroundColor: ThemeSideBar.palette.primary.main,
+								height: '100%',
+								width: '25vw',
+							},
+							{ [themeDisplayBreakPoints.breakpoints.down('desktop')]: { ...width_55 } },
+						]}
 					>
 						<List>
 							<ListItemButton onClick={() => handleStateChange(false)}>
-								<ListItemIcon className='sidebar-icon' sx={{ display: 'flex', justifyContent: 'end', width: '100%' }}>
-									<CloseIcon sx={{ marginRight: ' 1rem' }} />
+								<ListItemIcon className='sidebar-icon' sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+									<Image
+										className='side-menu-logo-img'
+										src={netCine}
+										width={70}
+										height={23}
+										alt='Logo Mobile'
+										priority={true}
+									/>
+									<CloseIcon />
 								</ListItemIcon>
 							</ListItemButton>
 							<Divider

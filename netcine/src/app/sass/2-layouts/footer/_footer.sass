@@ -1,3 +1,4 @@
+@use '../../1-base/mixins/_typesDisplay'
 @import '../../1-base/_pallete'
 
 .footer-container
@@ -28,5 +29,11 @@
     color: white
     text-shadow: 1px 1px black
 
+    @include typesDisplay.mobile
+      padding: 0 1rem
+      text-align: center
+
 .footer-main
   margin-bottom: .5rem
+
+

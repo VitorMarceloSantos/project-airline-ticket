@@ -117,7 +117,7 @@ export const ValuesFormCreate = () => {
 					{loadingForm ? <CircularProgress /> : 'Cadastrar'}
 				</button>
 			</section>
-			<h3>
+			<h3 id='login'>
 				<Link href='/login'>Login</Link>
 			</h3>
 		</form>

@@ -1,17 +1,27 @@
 @use '../../1-base/mixins/_typesDisplay'
 
 .play_movie_or_tv
-  margin-top: 9vh
+  overflow: hidden
+  position: relative
+  margin: 9vh 2vw 0 2vw
 
   @include typesDisplay.desktop
     height: 81vh
 
   iframe
-    margin: 0 2vw
+    position: absolute
 
     @include typesDisplay.desktop
       width: 96vw
       height: 81vh
+    
+    @include typesDisplay.small_tablet
+      transform: scale(1.16)
+      top: 2.7vh
+
+    @include typesDisplay.small_device
+      transform: scale(1.4)
+      top: 0vh
 
 .footer-play-movie
   .footer-container
