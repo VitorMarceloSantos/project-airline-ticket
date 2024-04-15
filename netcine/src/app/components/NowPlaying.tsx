@@ -1,6 +1,4 @@
-import { Suspense } from 'react';
 import { CarouselMovies } from './CarouselMovies';
-import { SkeletonCarousel } from './SkeletonCarouselWithTitle';
 import { BannerMovieOrTvType } from '@/app/types/components/PlayerVideoBannerType';
 
 export default async function NowPlaying({ value }: BannerMovieOrTvType) {
@@ -8,17 +6,15 @@ export default async function NowPlaying({ value }: BannerMovieOrTvType) {
 
 	return (
 		<article className='container-movies-tvs-peoples'>
-			<Suspense fallback={<SkeletonCarousel />}>
-				<CarouselMovies
-					values={{
-						resultData: results.sort(function (a, b) {
-							return a.id - b.id;
-						}),
-						type: 'movie',
-						title: 'Em Exibição',
-					}}
-				/>
-			</Suspense>
+			<CarouselMovies
+				values={{
+					resultData: results.sort(function (a, b) {
+						return a.id - b.id;
+					}),
+					type: 'movie',
+					title: 'Em Exibição',
+				}}
+			/>
 		</article>
 	);
 }

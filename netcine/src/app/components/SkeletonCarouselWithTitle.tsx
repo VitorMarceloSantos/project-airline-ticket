@@ -30,27 +30,5 @@ export const SkeletonCarouselWithTitle = () => {
 				</section>
 			</section>
 		</>
-
-		// <section className='skeleton-card'>
-		// 	<section>
-		// 		<Skeleton
-		// 			sx={{ bgcolor: '#333333', fontSize: '1.2rem',  marginTop: '1rem' }}
-		// 			variant='text'
-		// 			width='130px'
-		// 			height='35px'
-		// 		/>
-		// 	</section>
-		// 	<section className='skeleton-card-ul'>
-		// 		<ul>
-		// 			{newArray.map((index) => {
-		// 				return (
-		// 					<li key={index} style={{ margin: '0 .2rem' }}>
-		// 						<SkeletonCard />
-		// 					</li>
-		// 				);
-		// 			})}
-		// 		</ul>
-		// 	</section>
-		// </section>
 	);
 };

@@ -1,7 +1,5 @@
-import { Suspense } from 'react';
 import { RequestInformationsAPI } from '@/app/api/RequestInformationsAPI';
 import { CarouselMovies } from './CarouselMovies';
-import { SkeletonCarousel } from './SkeletonCarouselWithTitle';
 import { MovieOrTVDataType } from '@/app/types/api/RequestAPI';
 
 export default async function TrendingMovies() {
@@ -10,17 +8,15 @@ export default async function TrendingMovies() {
 
 	return (
 		<article className='container-movies-tvs-peoples'>
-			<Suspense fallback={<SkeletonCarousel />}>
-				<CarouselMovies
-					values={{
-						resultData: results.sort(function (a, b) {
-							return a.id - b.id;
-						}),
-						type: 'movie',
-						title: 'Tendências',
-					}}
-				/>
-			</Suspense>
+			<CarouselMovies
+				values={{
+					resultData: results.sort(function (a, b) {
+						return a.id - b.id;
+					}),
+					type: 'movie',
+					title: 'Tendências',
+				}}
+			/>
 		</article>
 	);
 }

@@ -1,6 +1,4 @@
-import { Suspense } from 'react';
 import { CarouselMovies } from './CarouselMovies';
-import { SkeletonCarousel } from './SkeletonCarouselWithTitle';
 import { BannerMovieOrTvType } from '@/app/types/components/PlayerVideoBannerType';
 
 export default async function TrendingTVs({ value }: BannerMovieOrTvType) {
@@ -8,7 +6,6 @@ export default async function TrendingTVs({ value }: BannerMovieOrTvType) {
 
 	return (
 		<article className='container-movies-tvs-peoples'>
-			<Suspense fallback={<SkeletonCarousel />}>
 				<CarouselMovies
 					values={{
 						resultData: results.sort(function (a, b) {
@@ -18,7 +15,6 @@ export default async function TrendingTVs({ value }: BannerMovieOrTvType) {
 						title: 'Tendências',
 					}}
 				/>
-			</Suspense>
 		</article>
 	);
 }

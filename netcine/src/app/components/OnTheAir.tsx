@@ -1,7 +1,5 @@
-import { Suspense } from 'react';
 import { RequestInformationsAPI } from '@/app/api/RequestInformationsAPI';
 import { CarouselMovies } from './CarouselMovies';
-import { SkeletonCarousel } from './SkeletonCarouselWithTitle';
 import { MovieOrTVDataType } from '@/app/types/api/RequestAPI';
 
 export default async function OnTheAir() {
@@ -10,7 +8,6 @@ export default async function OnTheAir() {
 
 	return (
 		<article className='container-movies-tvs-peoples'>
-			<Suspense fallback={<SkeletonCarousel />}>
 				<CarouselMovies
 					values={{
 						resultData: results,
@@ -18,7 +15,6 @@ export default async function OnTheAir() {
 						title: 'No Ar',
 					}}
 				/>
-			</Suspense>
 		</article>
 	);
 }

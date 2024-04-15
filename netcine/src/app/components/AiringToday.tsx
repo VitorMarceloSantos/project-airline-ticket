@@ -1,7 +1,6 @@
 import { Suspense } from 'react';
 import { RequestInformationsAPI } from '@/app/api/RequestInformationsAPI';
 import { CarouselMovies } from './CarouselMovies';
-import { SkeletonCarousel } from './SkeletonCarouselWithTitle';
 import { MovieOrTVDataType } from '@/app/types/api/RequestAPI';
 
 export default async function AiringToday() {
@@ -10,17 +9,15 @@ export default async function AiringToday() {
 
 	return (
 		<article className='container-movies-tvs-peoples'>
-			<Suspense fallback={<SkeletonCarousel />}>
-				<CarouselMovies
-					values={{
-						resultData: results.sort(function (a, b) {
-							return b.id - a.id;
-						}),
-						type: 'tv',
-						title: 'Em Exibição Hoje',
-					}}
-				/>
-			</Suspense>
+			<CarouselMovies
+				values={{
+					resultData: results.sort(function (a, b) {
+						return b.id - a.id;
+					}),
+					type: 'tv',
+					title: 'Em Exibição Hoje',
+				}}
+			/>
 		</article>
 	);
 }
