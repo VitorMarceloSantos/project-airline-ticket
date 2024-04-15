@@ -41,7 +41,12 @@ export const LoadCardsLocalStorage = ({ values }: LoadCardsLocalStorageType) => 
 		<>
 			{verifyLocalLengthLocalStorage(storageCards) ? (
 				<>
-					<section className='carousel-movies-container-display-1'>{isVisibleSkeleton && <Loading />}</section>
+					<section
+						className='
+					carousel-movies-container-display-1'
+					>
+						{isVisibleSkeleton && <Loading />}
+					</section>
 					<article className='list-cards' ref={articleRef}>
 						<PlayerVideoBannerURL
 							values={{
@@ -59,7 +64,11 @@ export const LoadCardsLocalStorage = ({ values }: LoadCardsLocalStorageType) => 
 						<ul className='list-cards-search-container'>
 							{storageCards.map((item, index) => {
 								return (
-									<li className={`carousel-item ${'result'}-${type}`} key={`${item.movie.id}-${index}`}>
+									<li
+										className={`
+									carousel-item ${'result'}-${type}`}
+										key={`${item.movie.id}-${index}`}
+									>
 										<CardStorage
 											values={{
 												movie: item.movie,

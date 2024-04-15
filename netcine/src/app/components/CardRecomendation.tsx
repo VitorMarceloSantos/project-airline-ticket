@@ -22,7 +22,11 @@ export const CardRecomendation = ({ values }: CardRecomendationType) => {
 			/>
 			<section className='card-header-recomendation-informations'>
 				<CardBackBodyInformations
-					values={{ english_name: movieOrTV.original_language, movie: movieOrTV, type: movieOrTV.media_type as string }}
+					values={{
+						english_name: movieOrTV.original_language,
+						movie: movieOrTV,
+						type: movieOrTV.media_type as string,
+					}}
 				/>
 				<p className='card-header-recomendation-informations-overview'>{lengthOverview(movieOrTV.overview)}</p>
 			</section>

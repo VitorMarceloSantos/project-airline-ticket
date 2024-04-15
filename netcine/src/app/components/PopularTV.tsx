@@ -8,15 +8,15 @@ export default async function PopularTV() {
 
 	return (
 		<article className='container-movies-tvs-peoples'>
-				<CarouselMovies
-					values={{
-						resultData: results.sort(function (a, b) {
-							return a.id - b.id;
-						}),
-						type: 'tv',
-						title: 'Populares',
-					}}
-				/>
+			<CarouselMovies
+				values={{
+					resultData: results.sort(function (a, b) {
+						return a.id - b.id;
+					}),
+					type: 'tv',
+					title: 'Populares',
+				}}
+			/>
 		</article>
 	);
 }

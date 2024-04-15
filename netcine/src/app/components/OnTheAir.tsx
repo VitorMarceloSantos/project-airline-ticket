@@ -8,13 +8,13 @@ export default async function OnTheAir() {
 
 	return (
 		<article className='container-movies-tvs-peoples'>
-				<CarouselMovies
-					values={{
-						resultData: results,
-						type: 'tv',
-						title: 'No Ar',
-					}}
-				/>
+			<CarouselMovies
+				values={{
+					resultData: results,
+					type: 'tv',
+					title: 'No Ar',
+				}}
+			/>
 		</article>
 	);
 }

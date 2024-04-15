@@ -118,7 +118,7 @@ export const ValuesFormLogin = () => {
 				<button type='submit' className='button-submit'>
 					{loadingForm ? <CircularProgress size={25} thickness={4} sx={{ color: '#ffffffef' }} /> : 'Entrar'}
 				</button>
-				<section className='container-text-error-login' style={{opacity: `${isVisibleText}`}}>
+				<section className='container-text-error-login' style={{ opacity: `${isVisibleText}` }}>
 					<p>Usário/Senha Inválidos.</p>
 				</section>
 			</section>

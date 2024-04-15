@@ -41,7 +41,11 @@ export const SelectCardMoviesOrTv = ({ values }: CardMoviesOrPeopleType) => {
 			<ul className='carousel-movies carousel-movies-container-display-2' ref={slider}>
 				{movies.map((movie, index) => {
 					return (
-						<li className={`carousel-item ${transformTitleInClass(title as string)}-${type}`} key={`${movie.id}-${index}`}>
+						<li
+							className={`
+						carousel-item ${transformTitleInClass(title as string)}-${type}`}
+							key={`${movie.id}-${index}`}
+						>
 							<Card
 								values={{
 									movie,

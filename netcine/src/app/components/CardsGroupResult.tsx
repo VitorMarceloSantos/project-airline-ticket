@@ -33,7 +33,12 @@ export const CardsGroupResult = ({ values }: CardsGroupResultType) => {
 		<>
 			{verifyExistedPerson.length !== 0 ? (
 				<>
-					<section className='carousel-movies-container-display-1'>{isVisibleSkeleton && <Loading />}</section>
+					<section
+						className='
+					carousel-movies-container-display-1'
+					>
+						{isVisibleSkeleton && <Loading />}
+					</section>
 					<article className='list-cards' ref={searchRef}>
 						<PlayerVideoBannerURL
 							values={{

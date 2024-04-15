@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import { RequestInformationsAPI } from '@/app/api/RequestInformationsAPI';
 import { CarouselMovies } from './CarouselMovies';
 import { MovieOrTVDataType } from '@/app/types/api/RequestAPI';

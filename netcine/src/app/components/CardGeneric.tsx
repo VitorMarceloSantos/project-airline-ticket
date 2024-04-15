@@ -27,7 +27,6 @@ export default function CardGeneric({ values }: CardGenericType) {
 	const [acessCardHover, setAcessCardHover] = useState<boolean>(false);
 	const NUMBER_SEVEN_HUNDRED_FIFTY = 750;
 	const createNameClass = `${title!.toLocaleLowerCase().replaceAll(' ', '')}_${index}`;
-
 	const valuesProps = {
 		cardSelected,
 		genres,
@@ -39,7 +38,6 @@ export default function CardGeneric({ values }: CardGenericType) {
 		urlMovie,
 		handleStateChangeInformationsMoviesOrTV,
 	};
-
 	useEffect(() => {
 		verifySizeWindow(setSizeWindow, setScrollWindow);
 	}, []);
