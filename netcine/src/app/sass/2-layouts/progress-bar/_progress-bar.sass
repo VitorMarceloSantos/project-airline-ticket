@@ -1,4 +1,5 @@
 @use '../mixins/_mixins'
+@use '../../1-base/mixins/_typesDisplay'
 @import '../../1-base/_constants'
 @import '../../1-base/_pallete'
 
@@ -23,7 +24,10 @@
     font-weight: 600
     margin: 0
     color: white
-   
+
+    @include typesDisplay.mobile
+      font-size: .925rem
+
   &-link-1
     display: none
     margin-left: $img-gap

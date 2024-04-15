@@ -88,6 +88,11 @@ body::-webkit-scrollbar-thumb {
   height: 1.5vh;
   margin: 0 auto;
 }
+@media (max-width: 430px) {
+  .carousel-card-header .carousel-card-video {
+    height: 22vh;
+  }
+}
 .carousel-card-header .carousel-card-video-position {
   position: relative;
 }
@@ -103,9 +108,19 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
   height: 200%;
 }
+@media (max-width: 430px) {
+  .carousel-card-header .carousel-card-video iframe {
+    top: -25vh;
+  }
+}
 .carousel-card-header iframe {
   z-index: -1;
   transform: scale(1.45);
+}
+@media (max-width: 430px) {
+  .carousel-card-header iframe {
+    transform: scale(2.2);
+  }
 }
 .carousel-card-front {
   transition: all 250ms ease-out;
@@ -172,6 +187,11 @@ body::-webkit-scrollbar-thumb {
     height: 18vh;
   }
 }
+@media (max-width: 430px) {
+  .carousel-card-back-body {
+    height: 22vh;
+  }
+}
 .carousel-card-back-body-informations {
   display: flex;
   align-items: center;
@@ -229,6 +249,13 @@ body::-webkit-scrollbar-thumb {
   justify-content: center;
   font-weight: 1000;
   font-size: 0.9rem;
+}
+@media (max-width: 430px) {
+  .carousel-card-back-body-informations-average {
+    width: auto;
+    height: auto;
+    padding: 0.35rem;
+  }
 }
 .carousel-card-back-body-informations-bad {
   background-color: red;
@@ -442,6 +469,11 @@ body::-webkit-scrollbar-thumb {
     --items-per-screen: 3;
   }
 }
+@media (max-width: 430px) {
+  .carousel-movies {
+    --items-per-screen: 2;
+  }
+}
 .progress-bar {
   display: flex;
   justify-content: space-between;
@@ -466,6 +498,11 @@ body::-webkit-scrollbar-thumb {
   font-weight: 600;
   margin: 0;
   color: white;
+}
+@media (max-width: 430px) {
+  .progress-bar-title {
+    font-size: 0.925rem;
+  }
 }
 .progress-bar-link-1 {
   display: none;
@@ -1092,6 +1129,7 @@ body::-webkit-scrollbar-thumb {
 @media (max-width: 430px) {
   .banner-video-button {
     bottom: 6vh;
+    opacity: 0.5;
   }
 }
 .banner-video .button-banner {
@@ -1259,6 +1297,11 @@ body::-webkit-scrollbar-thumb {
 @media (max-width: 730px) {
   .list-cards-search-container .carousel-item {
     --items-per-screen: 3;
+  }
+}
+@media (max-width: 430px) {
+  .list-cards-search-container .carousel-item {
+    --items-per-screen: 2;
   }
 }
 .list-cards h2 {
