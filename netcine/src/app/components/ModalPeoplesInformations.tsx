@@ -5,11 +5,14 @@ export const ModalPeoplesInformations = ({ values }: ModalPeoplesInformationsTyp
 	const {
 		informationPeople: { biography, birthday, place_of_birth, imdb_id, homepage, name },
 	} = values;
+	const NUMBER_FIVE_HUNDRED_FIFTY = 550;
 
 	return (
 		<section className='informations-modal-text'>
 			<section className='informations-modal-text-container-1'>
-				<p className='informations-modal-text-container-1-overview'>{verifyQuantifyChar(biography, 550)}</p>
+				<p className='informations-modal-text-container-1-overview'>
+					{verifyQuantifyChar(biography, NUMBER_FIVE_HUNDRED_FIFTY)}
+				</p>
 			</section>
 			<section className='informations-modal-text-container-2'>
 				<section className='informations-modal-text-container-2-peoples'>

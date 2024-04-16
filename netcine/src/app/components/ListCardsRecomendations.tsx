@@ -53,7 +53,14 @@ export const ListCardsRecomendations = ({ values }: ListCardsRecomendationsType)
 				{results.length !== 0 ? (
 					results.map((item, index) => (
 						<li key={index}>
-							<CardRecomendation values={{ movieOrTV: item, type, english_name, setList: setListLoadImage }} />
+							<CardRecomendation
+								values={{
+									movieOrTV: item,
+									type,
+									english_name,
+									setList: setListLoadImage,
+								}}
+							/>
 						</li>
 					))
 				) : (

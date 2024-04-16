@@ -9,7 +9,7 @@ export const ModalOpenCloseContextProvider = ({ children }: { children: React.Re
 	const handleModalOpenClose = useCallback((newState: boolean) => {
 		setStateModalOpenCloseContext(newState);
 	}, []);
-	
+
 	return (
 		<ModalOpenCloseContext.Provider
 			value={{

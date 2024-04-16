@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextAuthOptions } from 'next-auth';
 import CredentialProvider from 'next-auth/providers/credentials';
 import GithubProvider from 'next-auth/providers/github';
@@ -25,7 +26,7 @@ export const authOptions: NextAuthOptions = {
 				password: { label: 'Password', type: 'password' },
 				username: { label: 'Name', type: 'text', placeholder: 'Vitor Marcelo' },
 			},
-			async authorize(credentials, _req): Promise<any> {
+			async authorize(credentials): Promise<any> {
 				if (!credentials?.email || !credentials?.password) throw new Error('Dados de Login necessários.');
 				const user = await prisma.user.findUnique({
 					where: { email: credentials.email },

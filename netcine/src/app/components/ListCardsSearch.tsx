@@ -13,7 +13,6 @@ export const ListCardsSearch = ({ values }: ListCardsSearchType) => {
 	useEffect(() => {
 		const widthView = getWidthWindow();
 		const itemsPerScreen = getItemsPerScreen(widthView);
-		console.log(`Valor: ${widthView} - ${itemsPerScreen}`)
 		const listCards = window.document.querySelectorAll(`.${'result'}-${type}`);
 		addClassCard({ values: { itemsPerScreen, listCards } });
 	}, []);

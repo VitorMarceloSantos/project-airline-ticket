@@ -13,6 +13,7 @@ export const SelectCardMoviesOrTv = ({ values }: CardMoviesOrPeopleType) => {
 	const { type, slider, title } = values;
 	const [listLoadImage, setListLoadImage] = useState<string[]>([]);
 	const [isVisibleSkeleton, setIsVisibleSkeleton] = useState<boolean>(true);
+	const NUMBER_TWENTY = 20;
 
 	useEffect(() => {
 		const widthView = getWidthWindow();
@@ -27,7 +28,7 @@ export const SelectCardMoviesOrTv = ({ values }: CardMoviesOrPeopleType) => {
 	};
 
 	useEffect(() => {
-		if (listLoadImage.length === 20) {
+		if (listLoadImage.length === NUMBER_TWENTY) {
 			slider.current!.style.opacity = '1';
 			setIsVisibleSkeleton(false);
 		}

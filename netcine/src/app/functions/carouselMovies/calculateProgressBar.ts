@@ -3,9 +3,11 @@ export const calculateProgressBar = (progressBar: HTMLDivElement, slider: HTMLUL
 	let itemCount = 0;
 	let itemsPerScreen = 0;
 	let sliderIndex = 0;
+	const NUMBER_EIGHTEEN = 18;
+	const NUMBER_ONE_THOUSAND_NINE_HUNDRED = 1920;
 	if (slider) {
-		if (window.screen.width >= 1920) {
-			itemCount = 18;
+		if (window.screen.width >= NUMBER_ONE_THOUSAND_NINE_HUNDRED) {
+			itemCount = NUMBER_EIGHTEEN;
 		} else {
 			itemCount = slider.children.length;
 		}

@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
 	if (!name || !email || !password) {
 		return NextResponse.json('Dados Inválidos.', { status: 400 });
 	}
-	
+
 	const isUserExist = await prisma.user.findUnique({
 		where: {
 			email: email,
@@ -19,8 +19,8 @@ export async function POST(request: NextRequest) {
 	if (isUserExist) {
 		return NextResponse.json({ error: 'Email já existente.' }, { status: 400 });
 	}
-
-	const hashedPassword = await bcrypt.hash(password, 10);
+	const NUMBER_TEN = 10;
+	const hashedPassword = await bcrypt.hash(password, NUMBER_TEN);
 	const user = await prisma.user.create({
 		data: {
 			email,

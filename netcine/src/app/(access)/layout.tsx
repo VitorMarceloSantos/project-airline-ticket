@@ -16,9 +16,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 	if (session) redirect('/');
 	return (
 		<html lang='pt-br'>
-			<body className={inter.className}>
-				{children}
-			</body>
+			<body className={inter.className}>{children}</body>
 		</html>
 	);
 }

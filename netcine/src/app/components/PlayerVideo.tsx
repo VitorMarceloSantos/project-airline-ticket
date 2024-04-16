@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import ReactPlayer from 'react-player';
-import { LegacyRef, Suspense, useEffect, useRef, useState } from 'react';
+import { LegacyRef, useEffect, useRef, useState } from 'react';
 import { PlayerVideoType } from '@/app/types/components/PlayerVideoTypes';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';

@@ -1,7 +1,8 @@
 import { SkeletonCard } from './SkeletonCard';
 
 export const SkeletonCarouselWithOutTitle = () => {
-	const newArray = new Array(6).fill({});
+	const NUMBER_SIX = 6;
+	const newArray = new Array(NUMBER_SIX).fill({});
 
 	return (
 		<section className='skeleton-card-without'>

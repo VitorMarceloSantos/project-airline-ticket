@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, RefObject, SetStateAction } from 'react';
+import { Dispatch, RefObject, SetStateAction } from 'react';
 
 export type handleSearchIconCloseType = {
 	setIsActiveSearch: Dispatch<SetStateAction<boolean>>;

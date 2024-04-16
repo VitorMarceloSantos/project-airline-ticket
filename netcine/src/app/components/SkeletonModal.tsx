@@ -1,7 +1,8 @@
 import { SkeletonCard } from './SkeletonCard';
 
 export const SkeletonModal = () => {
-	const newArray = new Array(3).fill({});
+	const NUMBER_THREE = 3;
+	const newArray = new Array(NUMBER_THREE).fill({});
 
 	return (
 		<section className='skeleton-card-without'>

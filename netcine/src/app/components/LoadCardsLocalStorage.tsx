@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { PlayerVideoBannerURL } from './PlayerVideoBannerURL';
 import { LoadCardsLocalStorageType } from '@/app/types/components/LoadCardsLocalStorageType';
-import CardStorage from './CardStorage';
 import { verifyLocalLengthLocalStorage } from '../functions/storage/verifyLocalLengthLocalStorage';
 import Image from 'next/image';
 import redCamCorrect from '@/app/images/redCamCorrect.png';
@@ -13,6 +12,7 @@ import { addEventScrollNavBar } from '../functions/carouselMovies/addEventWindow
 import { addClassCard } from '../functions/card/addClassCard';
 import { getWidthWindow } from '../functions/card/getWidthWindow';
 import { getItemsPerScreen } from '../functions/card/getItemsPerScreen';
+import { ListLoadCardsLocalStorage } from './ListLoadCardsLocalStorage';
 
 export const LoadCardsLocalStorage = ({ values }: LoadCardsLocalStorageType) => {
 	const { storageCards, numberRandom, type } = values;
@@ -61,30 +61,7 @@ export const LoadCardsLocalStorage = ({ values }: LoadCardsLocalStorageType) => 
 							}}
 						/>
 						<h2>Resultado:</h2>
-						<ul className='list-cards-search-container'>
-							{storageCards.map((item, index) => {
-								return (
-									<li
-										className={`
-									carousel-item ${'result'}-${type}`}
-										key={`${item.movie.id}-${index}`}
-									>
-										<CardStorage
-											values={{
-												movie: item.movie,
-												type: item.type,
-												index,
-												title: 'storage',
-												genres: item.genres,
-												languages: item.languages,
-												urlParams: item.urlParams,
-												setList: setListLoadImage,
-											}}
-										/>
-									</li>
-								);
-							})}
-						</ul>
+						<ListLoadCardsLocalStorage values={{ setListLoadImage, storageCards, type }} />
 					</article>
 				</>
 			) : (

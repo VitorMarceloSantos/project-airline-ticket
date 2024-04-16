@@ -17,6 +17,7 @@ export const CardsGroupResult = ({ values }: CardsGroupResultType) => {
 	const [isVisibleSkeleton, setIsVisibleSkeleton] = useState<boolean>(true);
 	const searchRef = useRef<HTMLElement>(null);
 	const { handleStateVideo } = usePlayerVideo();
+	const TITLE_TERNARY = (videoBanner?.title !== undefined ? videoBanner?.title : videoBanner?.name) as string;
 
 	useEffect(() => {
 		if (listLoadImage.length === verifyExistedPerson.length) {
@@ -45,7 +46,7 @@ export const CardsGroupResult = ({ values }: CardsGroupResultType) => {
 								type: videoBanner?.media_type !== undefined ? videoBanner?.media_type : type,
 								videoId: videoBanner.id,
 								img: videoBanner.backdrop_path,
-								title: (videoBanner?.title !== undefined ? videoBanner?.title : videoBanner?.name) as string,
+								title: TITLE_TERNARY,
 								overview: videoBanner.overview,
 								index: numberRandom,
 							}}

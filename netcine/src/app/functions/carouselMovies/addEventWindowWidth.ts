@@ -12,12 +12,13 @@ export const addEventWindowWidth = (): void => {
 };
 
 export const addEventScrollNavBar = (handleStateVideo: (newValue: boolean) => void): void => {
+	const NUMBER_FIVE_HUNDRED_FIFTY = 550;
 	window.addEventListener('scroll', () => {
-		let header = document.querySelector('.navbar');
+		const header = document.querySelector('.navbar');
 		header?.classList.toggle('navbar-roll', window.scrollY > 0);
 
 		// Vai funcionar somente quando tiver barra de rolagem
-		window.scrollY > 550 ? handleStateVideo(false) : handleStateVideo(true);
+		window.scrollY > NUMBER_FIVE_HUNDRED_FIFTY ? handleStateVideo(false) : handleStateVideo(true);
 	});
 };
 
@@ -25,13 +26,12 @@ export const verifySizeWindow = (
 	setSizeWindow: Dispatch<SetStateAction<number>>,
 	setScrollWindow: Dispatch<SetStateAction<number>>,
 ): void => {
-
 	setSizeWindow(window.innerWidth);
 
 	window.addEventListener('resize', () => {
 		setSizeWindow(window.innerWidth);
 	});
-	
+
 	window.addEventListener('scroll', () => {
 		setScrollWindow(window.scrollY);
 	});

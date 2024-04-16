@@ -2,7 +2,8 @@ import { Skeleton } from '@mui/material';
 import { SkeletonCard } from './SkeletonCard';
 
 export const SkeletonCarouselWithTitle = () => {
-	const newArray = new Array(6).fill({});
+	const NUMBER_SIX = 6;
+	const newArray = new Array(NUMBER_SIX).fill({});
 
 	return (
 		<>

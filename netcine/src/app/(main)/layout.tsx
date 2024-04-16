@@ -33,7 +33,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 						<ModalMovies />
 					</Suspense>
 					<SideMenu>
-						<NavBar children={<AvatarNavBar />} />
+						<NavBar>
+							<AvatarNavBar />
+						</NavBar>
 						{children}
 					</SideMenu>
 				</Providers>

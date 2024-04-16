@@ -16,7 +16,7 @@ export const InformationsPeoplesProvider = ({ children }: { children: React.Reac
 	const handleStateChangeInformationsPeoples = useCallback((newInformation: InformationsPeoplesContextType) => {
 		setStateInformationsPeoples(newInformation);
 	}, []);
-	
+
 	return (
 		<InformationsPeoplesContext.Provider value={{ stateInformationsPeoples, handleStateChangeInformationsPeoples }}>
 			{children}

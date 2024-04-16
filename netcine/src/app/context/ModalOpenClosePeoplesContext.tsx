@@ -12,7 +12,7 @@ export const ModalOpenClosePeoplesContextProvider = ({ children }: { children: R
 	const handleModalOpenClosePeoples = useCallback((newState: boolean) => {
 		setStateModalOpenClosePeoplesContext(newState);
 	}, []);
-	
+
 	return (
 		<ModalOpenClosePeoplesContext.Provider
 			value={{

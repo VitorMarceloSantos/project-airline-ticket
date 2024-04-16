@@ -9,7 +9,6 @@ import { RequestInformationsAPI } from '@/app/api/RequestInformationsAPI';
 import { MovieOrTVDataType } from '@/app/types/api/RequestAPI';
 import { Suspense } from 'react';
 import Loading from './loading';
-import { SkeletonCarouselWithTitle } from '../components/SkeletonCarouselWithTitle';
 
 export default async function Home() {
 	const urlTrendingHom = 'https://api.themoviedb.org/3/trending/all/day?language=en-US';

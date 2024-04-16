@@ -1,7 +1,8 @@
 import { SkeletonCarouselWithTitle } from './SkeletonCarouselWithTitle';
 
 export const SkeletonPage = () => {
-	const newArray = new Array(5).fill({});
+	const NUMBER_FIVE = 5;
+	const newArray = new Array(NUMBER_FIVE).fill({});
 	return (
 		<ul style={{ marginTop: '8vh' }}>
 			{newArray.map((index) => {

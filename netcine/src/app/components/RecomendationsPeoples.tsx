@@ -24,7 +24,7 @@ export default function RecomendationsPeoples({ values }: RecomendationsPeoplesT
 			<ul style={{ opacity: '0' }} ref={listRef}>
 				{participationsInMoviesOrTV.map((item, index) => (
 					<li key={index}>
-						<CardRecomendation values={{ movieOrTV: item, setList: setListLoadImage}} />
+						<CardRecomendation values={{ movieOrTV: item, setList: setListLoadImage }} />
 					</li>
 				))}
 			</ul>

@@ -4,8 +4,8 @@ export const lengthOverview = (overview: string, lengthOverview: number = 0): st
 	if (lengthOverview === 0) {
 		const NUMBER_FORTY = 40;
 		const NUMBER_TRIRTY = 30;
-		const newOverview =
-			overviewSplit.length > NUMBER_FORTY ? overviewSplit.slice(0, NUMBER_TRIRTY).join(' ').concat(' ...') : overview;
+		const IS_TRUE = overviewSplit.slice(0, NUMBER_TRIRTY).join(' ').concat(' ...');
+		const newOverview = overviewSplit.length > NUMBER_FORTY ? IS_TRUE : overview;
 		return newOverview;
 	}
 	return overviewSplit.length > lengthOverview

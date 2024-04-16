@@ -6,15 +6,15 @@ export default async function TrendingTVs({ value }: BannerMovieOrTvType) {
 
 	return (
 		<article className='container-movies-tvs-peoples'>
-				<CarouselMovies
-					values={{
-						resultData: results.sort(function (a, b) {
-							return a.id - b.id;
-						}),
-						type: 'tv',
-						title: 'Tendências',
-					}}
-				/>
+			<CarouselMovies
+				values={{
+					resultData: results.sort(function (a, b) {
+						return a.id - b.id;
+					}),
+					type: 'tv',
+					title: 'Tendências',
+				}}
+			/>
 		</article>
 	);
 }

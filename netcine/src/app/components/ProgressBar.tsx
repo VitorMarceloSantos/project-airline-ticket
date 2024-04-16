@@ -10,6 +10,7 @@ export const ProgressBar = ({ values }: ProgressBarType) => {
 	const barTitle = useRef<HTMLHeadingElement>(null);
 	const barLink = useRef<HTMLHeadingElement>(null);
 	const [isVisible, setIsVisible] = useState<boolean>(true);
+	const NUMBER_SEVEN_HUNDRED_THIRTY = 730;
 
 	const changeCssLink = () => {
 		const widthElement: number = getWidthElement(barTitle?.current as HTMLHeadingElement);
@@ -28,7 +29,7 @@ export const ProgressBar = ({ values }: ProgressBarType) => {
 
 	useEffect(() => {
 		const valueWidth = getWidthWindow();
-		valueWidth <= 730 && setIsVisible(false);
+		valueWidth <= NUMBER_SEVEN_HUNDRED_THIRTY && setIsVisible(false);
 	}, []);
 
 	return (

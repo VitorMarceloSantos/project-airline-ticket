@@ -47,7 +47,13 @@ export const ModalMovies = () => {
 						<section className='ohters-movies-TV-modal'>
 							<h2>Títulos Semelhantes:</h2>
 							<Suspense>
-								<RecomendationsMoviesOrTVs values={{ type, movieOrTV, english_name: languages.english_name }} />
+								<RecomendationsMoviesOrTVs
+									values={{
+										type,
+										movieOrTV,
+										english_name: languages.english_name,
+									}}
+								/>
 							</Suspense>
 						</section>
 					</>

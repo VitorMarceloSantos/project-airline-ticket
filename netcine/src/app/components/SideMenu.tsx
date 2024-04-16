@@ -11,7 +11,6 @@ import LiveTvIcon from '@mui/icons-material/LiveTv';
 import { useSideMenuContext } from '@/app/context';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { ThemeSideBar } from '@/app/theme/ThemeSideMenu';
-import { createListItemCollapse } from '@/app/functions/sideMenu/createListItemCollapse';
 import { listMoviesGenres, listTvsGenres } from '@/app/constants/SideMenu';
 import { useRouter } from 'next/navigation';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
@@ -19,6 +18,7 @@ import AddIcon from '@mui/icons-material/Add';
 import Image from 'next/image';
 import netCine from '/public/images/netCine.png';
 import { BreakPoints } from '../theme/BreakPoints';
+import { useCreateListItemCollapse } from '../functions/sideMenu/useCreateListItemCollapse';
 
 export const SideMenu: React.FC<ChildrenType> = ({ children }) => {
 	const { stateSideMenu, handleStateChange } = useSideMenuContext();
@@ -65,7 +65,10 @@ export const SideMenu: React.FC<ChildrenType> = ({ children }) => {
 					>
 						<List>
 							<ListItemButton onClick={() => handleStateChange(false)}>
-								<ListItemIcon className='sidebar-icon' sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+								<ListItemIcon
+									className='sidebar-icon'
+									sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}
+								>
 									<Image
 										className='side-menu-logo-img'
 										src={netCine}
@@ -95,7 +98,7 @@ export const SideMenu: React.FC<ChildrenType> = ({ children }) => {
 								<ListItemText primary='Filmes' />
 								{openGenreMovie ? <ExpandLess /> : <ExpandMore />}
 							</ListItemButton>
-							{createListItemCollapse({ values: { genres: listMoviesGenres, openGenre: openGenreMovie } })}
+							{useCreateListItemCollapse({ values: { genres: listMoviesGenres, openGenre: openGenreMovie } })}
 							<ListItemButton onClick={() => setOpenGenreSerie((prevState) => !prevState)}>
 								<ListItemIcon className='sidebar-icon'>
 									<LiveTvIcon />
@@ -103,7 +106,7 @@ export const SideMenu: React.FC<ChildrenType> = ({ children }) => {
 								<ListItemText primary='Series' />
 								{openGenreSerie ? <ExpandLess /> : <ExpandMore />}
 							</ListItemButton>
-							{createListItemCollapse({ values: { genres: listTvsGenres, openGenre: openGenreSerie } })}
+							{useCreateListItemCollapse({ values: { genres: listTvsGenres, openGenre: openGenreSerie } })}
 							<Divider
 								orientation='horizontal'
 								variant='middle'
