@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextAuthOptions } from 'next-auth';
 import CredentialProvider from 'next-auth/providers/credentials';
 import GithubProvider from 'next-auth/providers/github';
@@ -6,10 +5,11 @@ import GoogleProvider from 'next-auth/providers/google';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import { db as prisma } from './db';
 import bcrypt from 'bcrypt';
+import type { Adapter } from 'next-auth/adapters';
 
 export const authOptions: NextAuthOptions = {
 	secret: process.env.NEXTAUTH_SECRET,
-	adapter: PrismaAdapter(prisma as any),
+	adapter: PrismaAdapter(prisma) as Adapter,
 	providers: [
 		GithubProvider({
 			clientId: process.env.GITHUB_CLIENTID!,
@@ -26,7 +26,7 @@ export const authOptions: NextAuthOptions = {
 				password: { label: 'Password', type: 'password' },
 				username: { label: 'Name', type: 'text', placeholder: 'Vitor Marcelo' },
 			},
-			async authorize(credentials): Promise<any> {
+			async authorize(credentials) {
 				if (!credentials?.email || !credentials?.password) throw new Error('Dados de Login necessários.');
 				const user = await prisma.user.findUnique({
 					where: { email: credentials.email },
