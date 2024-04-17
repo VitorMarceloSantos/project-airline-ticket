@@ -1,21 +1,16 @@
 'use client';
 
-import { useEffect, useState, useRef, LegacyRef, useCallback } from 'react';
-import VolumeOffIcon from '@mui/icons-material/VolumeOff';
-import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import ReactPlayer from 'react-player';
 import { RequestUrlVideo } from '@/app/api/RequestUrlVideo';
-import { usePlayerVideo, useVolumeVideo } from '@/app/context';
 import { PlayerVideoBannerURLType } from '@/app/types/components/PlayerVideoBannerType';
 import { verifyQuantifyChar, verifyQuantifyCharTitle } from '../functions/modal/verifyQuantifyChar';
-import { IconButton } from '@mui/material';
 import ErroImagem from '@/app/images/errorVideo.png';
+import { IsVisibleVideo } from './IsVisibleVideo';
 
 export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 	const { type, videoId, img, overview, title, index } = values;
-	const { statePlayerVideo } = usePlayerVideo();
-	const { handleStateVolume, stateVolumeVideo } = useVolumeVideo();
 	const playerVideo = useRef<ReactPlayer | undefined>(undefined);
 	const sectionImagem = useRef<HTMLImageElement | null>(null);
 	const sectionVideo = useRef<HTMLImageElement>(null);
@@ -25,6 +20,9 @@ export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 	const NUMBER_FIVE = 5;
 	const NUMBER_ONE_THOUSAND = 1000;
 	const NUMBER_FOUR_THOUSAND = 4000;
+	const NUMBER_TEN = 10;
+	const NUMBER_TWENTY = 20;
+	const NUMBER_ONE_HUNDRED_FIFTY = 150;
 	const sectionContainer = useRef<HTMLElement>(null);
 	const sectionTitle = useRef<HTMLElement>(null);
 	const sectionOverview = useRef<HTMLElement>(null);
@@ -64,15 +62,15 @@ export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 				<section className='banner-video-back-informations-container'>
 					<section className='banner-video-back-informations-container-top'>
 						<span>Top</span>
-						<span>{index + 1 <= 10 ? 10 : 20}</span>
+						<span>{index + 1 <= NUMBER_TEN ? NUMBER_TEN : NUMBER_TWENTY}</span>
 					</section>
 					<span className='banner-video-back-informations-index'>{`Top ${index + 1} de hoje`}</span>
 				</section>
 				<span className='banner-video-back-informations-title' ref={sectionTitle}>
-					{verifyQuantifyCharTitle(title, 5)}
+					{verifyQuantifyCharTitle(title, NUMBER_FIVE)}
 				</span>
 				<span className='banner-video-back-informations-overview' ref={sectionOverview}>
-					{verifyQuantifyChar(overview, 150)}
+					{verifyQuantifyChar(overview, NUMBER_ONE_HUNDRED_FIFTY)}
 				</span>
 			</section>
 			<Image
@@ -84,37 +82,7 @@ export const PlayerVideoBannerURL = ({ values }: PlayerVideoBannerURLType) => {
 				alt='Banner Video'
 				priority={true}
 			/>
-			{playOn && (
-				<>
-					<section className='banner-video-back-url' ref={sectionVideo}>
-						<ReactPlayer
-							url={URL_Video}
-							playing={statePlayerVideo}
-							ref={playerVideo as unknown as LegacyRef<ReactPlayer> | undefined}
-							muted={stateVolumeVideo}
-							loop={true}
-							config={{
-								youtube: {
-									embedOptions: { height: '1920', width: '1080' },
-								},
-							}}
-						/>
-					</section>
-					<section className='banner-video-button'>
-						<IconButton
-							className='
-									carousel-card-back-body-buttons-btn button-banner'
-							onClick={() => handleStateVolume(!stateVolumeVideo)}
-						>
-							{stateVolumeVideo ? (
-								<VolumeOffIcon className='button-banner-color' />
-							) : (
-								<VolumeUpIcon className='button-banner-color' />
-							)}
-						</IconButton>
-					</section>
-				</>
-			)}
+			<IsVisibleVideo values={{ playerVideo, playOn, sectionVideo, URL_Video }} />
 		</section>
 	);
 };

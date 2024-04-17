@@ -8,3 +8,11 @@ export type handleSearchIconOpenType = {
 	setIsActiveSearch: Dispatch<SetStateAction<boolean>>;
 	inputSearch: RefObject<HTMLInputElement>;
 };
+
+export type useDebounceType = {
+	values: {
+		setTextInputSearch: Dispatch<SetStateAction<string>>;
+		setIsActiveSearch: Dispatch<SetStateAction<boolean>>;
+		value: string;
+	};
+};
