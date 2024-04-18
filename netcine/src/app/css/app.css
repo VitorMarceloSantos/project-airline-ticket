@@ -720,6 +720,11 @@ body::-webkit-scrollbar-thumb {
   height: 60vh;
   width: 100%;
 }
+@media (max-width: 430px) {
+  .video-modal {
+    height: 40vh;
+  }
+}
 .video-modal .carousel-card-header {
   position: relative;
   width: 100%;
@@ -753,6 +758,12 @@ body::-webkit-scrollbar-thumb {
     height: 100vh;
     width: 85vw;
     top: -20vh;
+  }
+}
+@media (max-width: 430px) {
+  .video-modal .carousel-card-header .carousel-card-video iframe {
+    transform: scale(1.7);
+    top: -30vh;
   }
 }
 .video-modal-position-button {
