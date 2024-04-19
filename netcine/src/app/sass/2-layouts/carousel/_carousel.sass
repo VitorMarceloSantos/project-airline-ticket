@@ -1,4 +1,5 @@
 @use '../mixins/_mixins'
+@use '../../1-base/mixins/_typesDisplay'
 @import '../../1-base/_constants'
 
 .container-movies-tvs-peoples
@@ -33,7 +34,11 @@
     justify-content: center
     color: transparent
     transition: background-color 150ms ease-in-out
-    width: $handle-size
+    --handle-size: 3vw
+    width: var(--handle-size)
+
+    @include typesDisplay.mobile
+      font-size: 3rem
 
     &:hover .text,&:focus .text
       transform: scale(1.3)
@@ -66,12 +71,23 @@
 .button-left
   border-top-left-radius: 0
   border-bottom-left-radius: 0
-  margin-right: -.17vw
+  margin-right: -.15vw
+
+  @include typesDisplay.laptop
+    margin-right: -.23vw
+  @include typesDisplay.mobile
+    margin-right: -1vw
+
 
 .button-right
   border-top-right-radius: 0
   border-bottom-right-radius: 0
-  margin-left: -.17vw
+  margin-left: -.15vw
+
+  @include typesDisplay.laptop
+    margin-left: -.23vw
+  @include typesDisplay.mobile
+    margin-left: -1vw
 
 .text
   transition: transform 150ms ease-in-out
@@ -91,3 +107,6 @@
 @media (max-width: 430px)
   .carousel-movies
     --items-per-screen: 2
+  .carousel
+    &-buttons
+      --handle-size: 6vw

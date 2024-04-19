@@ -69,7 +69,6 @@
 .informations-modal
   padding: 1rem
   height: auto
-  // height: 14vh
 
   &-buttons
     margin-bottom: 1rem
@@ -78,6 +77,11 @@
   &-text
     display: flex
     color: $color-titles-buttons
+
+    @include typesDisplay.mobile
+      flex-direction: column
+      align-items: center
+
     h3
       color: $color-modal-title
     &-container-1
@@ -85,9 +89,19 @@
       text-align: justify
       padding-right: 2rem
       height: auto
+
+      @include typesDisplay.mobile
+        width: 100%
+        padding: 0
+
       .carousel-card-back-body-informations
         justify-content: flex-start
         margin-bottom: 1rem
+
+        @include typesDisplay.mobile
+          width: 100%
+          justify-content: center
+
         p:not(:last-child)
           margin-right: 2rem
       &-overview
@@ -97,9 +111,15 @@
       width: 40%
       text-align: justify
       line-height: 1.3rem
+
+      @include typesDisplay.mobile
+        width: 100%
+        margin-top: 1rem
+
       &-cast
         display: flex
         margin-bottom: 1rem
+
         ul
           display: flex
           flex-wrap: wrap

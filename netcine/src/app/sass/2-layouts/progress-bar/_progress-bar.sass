@@ -11,6 +11,9 @@
   position: relative
   margin-top: 1rem
 
+  @include typesDisplay.mobile
+    padding: .85rem 2vw
+
   &-title-container
     display: flex
     align-items: center
@@ -26,7 +29,7 @@
     color: white
 
     @include typesDisplay.mobile
-      font-size: .925rem
+      font-size: .9rem
 
   &-link-1
     display: none
@@ -49,6 +52,10 @@
   &-carousel
     display: none
     gap: $img-gap
+
+    @include typesDisplay.mobile
+      margin-left: .1rem
+      gap: .1rem
 
   &-item
     flex: 0 0 1rem
