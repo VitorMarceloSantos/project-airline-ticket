@@ -9,6 +9,10 @@ export const SkeletonCard = () => {
 		width: '26vw',
 		height: '21vh',
 	};
+	const width_mobile = {
+		width: '50vw',
+		height: '25vh',
+	};
 	return (
 		<Skeleton
 			className='skeleton-card-movies-setting'
@@ -17,6 +21,7 @@ export const SkeletonCard = () => {
 				{ backgroundColor: '#333333', borderRadius: '.2rem', width: '17.5vw', height: '18.5vh' },
 				{
 					[themeDisplayBreakPoints.breakpoints.down('small_tablet')]: { ...width_small_tablet },
+					[themeDisplayBreakPoints.breakpoints.down('mobile')]: { ...width_mobile },
 				},
 			]}
 		/>

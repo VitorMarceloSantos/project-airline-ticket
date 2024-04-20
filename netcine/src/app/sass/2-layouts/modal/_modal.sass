@@ -61,10 +61,18 @@
       right: 7%
       top: 3vh
 
+    @include typesDisplay.mobile
+      right: 8%
+      top: 2vh
+
   .carousel-card-video-position-button
     position: absolute
     bottom: 3vh
     left: 1.5vw
+
+    @include typesDisplay.mobile
+      bottom: 1.5vh
+      left: 3vw
 
 .informations-modal
   padding: 1rem
@@ -172,6 +180,9 @@
       @include typesDisplay.small_tablet
         width: 28vw
 
+      @include typesDisplay.mobile
+        width: 70vw
+
   &-position
     margin: .75rem 0
 
@@ -199,6 +210,9 @@
 
     @include typesDisplay.small_tablet
       height: 28vh
+
+    @include typesDisplay.mobile
+      height: 35vh
 
     &-overview
       margin-top: 1rem

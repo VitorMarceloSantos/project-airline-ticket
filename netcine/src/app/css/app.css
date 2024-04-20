@@ -822,10 +822,22 @@ body::-webkit-scrollbar-thumb {
     top: 3vh;
   }
 }
+@media (max-width: 430px) {
+  .video-modal-position-button {
+    right: 8%;
+    top: 2vh;
+  }
+}
 .video-modal .carousel-card-video-position-button {
   position: absolute;
   bottom: 3vh;
   left: 1.5vw;
+}
+@media (max-width: 430px) {
+  .video-modal .carousel-card-video-position-button {
+    bottom: 1.5vh;
+    left: 3vw;
+  }
 }
 
 .informations-modal {
@@ -957,6 +969,11 @@ body::-webkit-scrollbar-thumb {
     width: 28vw;
   }
 }
+@media (max-width: 430px) {
+  .container-movies-tvs-recomendations ul li {
+    width: 70vw;
+  }
+}
 .container-movies-tvs-recomendations-position {
   margin: 0.75rem 0;
 }
@@ -990,6 +1007,11 @@ body::-webkit-scrollbar-thumb {
 @media (max-width: 1200px) {
   .card-header-recomendation-informations {
     height: 28vh;
+  }
+}
+@media (max-width: 430px) {
+  .card-header-recomendation-informations {
+    height: 35vh;
   }
 }
 .card-header-recomendation-informations-overview {
