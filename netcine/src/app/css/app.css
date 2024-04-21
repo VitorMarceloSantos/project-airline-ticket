@@ -1534,6 +1534,12 @@ body::-webkit-scrollbar-thumb {
     width: 40vw;
   }
 }
+@media (max-width: 430px) {
+  .container-informations {
+    width: 75vw;
+    height: 78vh;
+  }
+}
 .container-informations form {
   height: 80%;
 }
@@ -1554,6 +1560,11 @@ body::-webkit-scrollbar-thumb {
 .container-informations-logo {
   height: 20%;
 }
+@media (max-width: 430px) {
+  .container-informations-logo {
+    height: 17%;
+  }
+}
 .container-informations-logo img {
   margin-top: 4rem;
   margin-bottom: 5rem;
@@ -1561,6 +1572,14 @@ body::-webkit-scrollbar-thumb {
 @media (max-width: 1200px) {
   .container-informations-logo img {
     margin: 1.75rem 0;
+  }
+}
+@media (max-width: 430px) {
+  .container-informations-logo img {
+    height: 9vh;
+    width: 90%;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
   }
 }
 .container-informations-providers {
@@ -1599,6 +1618,12 @@ body::-webkit-scrollbar-thumb {
   text-align: center;
   margin-top: 2rem;
 }
+@media (max-width: 430px) {
+  .container-informations h3 {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+  }
+}
 .container-informations a {
   font-weight: 700;
   color: rgba(255, 255, 255, 0.937254902);
@@ -1613,6 +1638,12 @@ body::-webkit-scrollbar-thumb {
   font-weight: 900;
   margin-bottom: 1.5rem;
 }
+@media (max-width: 430px) {
+  .container-informations h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+}
 .container-informations form {
   width: 80%;
 }
@@ -1624,6 +1655,11 @@ body::-webkit-scrollbar-thumb {
 @media (max-width: 1200px) {
   .container-informations-buttons {
     margin-bottom: 2.25rem;
+  }
+}
+@media (max-width: 430px) {
+  .container-informations-buttons {
+    margin-bottom: 1rem;
   }
 }
 .container-informations-buttons #email {
@@ -1667,6 +1703,11 @@ body::-webkit-scrollbar-thumb {
     height: 3.5vh;
   }
 }
+@media (max-width: 430px) {
+  .container-informations input, .container-informations button {
+    font-size: 0.85rem;
+  }
+}
 .container-informations input[type=text], .container-informations input[type=password], .container-informations input[type=email] {
   background-color: #2F2F2F;
   color: rgba(255, 255, 255, 0.937254902);
@@ -1679,6 +1720,11 @@ body::-webkit-scrollbar-thumb {
   z-index: 1;
   color: rgba(255, 255, 255, 0.937254902);
   margin-top: 3rem;
+}
+@media (max-width: 430px) {
+  .container-informations .button-submit {
+    margin-top: 1.5rem;
+  }
 }
 .container-informations .button-submit:after {
   content: "";
