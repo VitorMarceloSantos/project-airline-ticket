@@ -167,6 +167,11 @@
   display: none
 
 .container-movies-tvs-recomendations
+  @include typesDisplay.mobile
+    width: 100%
+    display: flex
+    justify-content: center
+
   ul
     display: flex
     flex-wrap: wrap

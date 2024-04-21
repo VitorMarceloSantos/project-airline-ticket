@@ -10,7 +10,7 @@ export const SkeletonCarouselWithOutTitle = () => {
 				<ul>
 					{newArray.map((index) => {
 						return (
-							<li key={index} style={{ margin: '0 .2rem' }}>
+							<li key={index}>
 								<SkeletonCard />
 							</li>
 						);

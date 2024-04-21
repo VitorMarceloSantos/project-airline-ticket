@@ -953,6 +953,13 @@ body::-webkit-scrollbar-thumb {
   display: none;
 }
 
+@media (max-width: 430px) {
+  .container-movies-tvs-recomendations {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
 .container-movies-tvs-recomendations ul {
   display: flex;
   flex-wrap: wrap;
@@ -1363,6 +1370,16 @@ body::-webkit-scrollbar-thumb {
 .skeleton-card-ul ul {
   display: flex;
   margin-left: 0 0.125rem;
+}
+.skeleton-card-ul ul li {
+  margin: 0 0.2rem;
+}
+@media (max-width: 430px) {
+  .skeleton-card-ul ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .list-cards {
