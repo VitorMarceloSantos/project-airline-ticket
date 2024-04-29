@@ -21,4 +21,9 @@
 
 ##
 <h3>Galeria:</h3>
-<img src="https://raw.githubusercontent.com/VitorMarceloSantos/Projeto-26-Trybe-AppDelivery/main/ImagesApp/login.png" title="Projeto - 26" alt="J" width="1000" height="1500"/><br/>
+<img src="https://github.com/VitorMarceloSantos/project-netcine/blob/main/image1.png" title="Projeto - NetCine" alt="J" width="1000" height="1500"/><br/>
+<img src="https://github.com/VitorMarceloSantos/project-netcine/blob/main/image2.png" title="Projeto - NetCine" alt="J" width="1000" height="1500"/><br/>
+<img src="https://github.com/VitorMarceloSantos/project-netcine/blob/main/image3.png" title="Projeto - NetCine" alt="J" width="1000" height="1500"/><br/>
+<img src="https://github.com/VitorMarceloSantos/project-netcine/blob/main/image4.png" title="Projeto - NetCine" alt="J" width="1000" height="1500"/><br/>
+<img src="https://github.com/VitorMarceloSantos/project-netcine/blob/main/image5.png" title="Projeto - NetCine" alt="J" width="1000" height="1500"/><br/>
+<img src="https://github.com/VitorMarceloSantos/project-netcine/blob/main/image6.png" title="Projeto - NetCine" alt="J" width="1000" height="1500"/><br/>
