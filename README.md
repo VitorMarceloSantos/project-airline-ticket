@@ -1,5 +1,20 @@
-# Projeto NetCine
+<h1 align="center">Projeto - NetCine</h1>
 
-Projeto NetCine, tem como objetivo catalogar os filmes e séries por gêneros, proporcionando ao usuário maior conforto e facilidade na hora de escolher, também conta com cards individuais contendo a descrição, atores, gênero, nota recebida, trailer e recomendações.
+<div>
+  Projeto NetCine, tem como objetivo catalogar os filmes e séries por gêneros, proporcionando ao usuário maior conforto e facilidade na hora de escolher, também conta com cards individuais contendo a descrição, atores, gênero, nota recebida, trailer e recomendações.</div>
 
-Na criação do projeto foi utilizado as seguintes tecnologias: NextJs(versão 14 - App Router), Prisma ORM, MongoDB(armazenar informações de login do usuário), localStorage(armazenar filmes favoritos e adicionados), React Hooks Form(formulário de login e criação de novas contas), Joi(validação de formulário), Auth0(Autenticação de usuários, bem como login com conta Google e GitHub), TypeScript, Bcrypto(criptografia de senhas), TMDB API.
+##
+
+<div>
+  <h3>Características do Projeto:</h3>
+  * NextJs(versão 14 - App Router);</br>
+  * Prisma ORM;</br>
+  * MongoDB;</br>
+  * LocalStorage;</br>
+  * React Hooks Form;</br>
+  * Joi;</br>
+  * Auth0(Autenticação de usuários, bem como login com conta Google e GitHub);</br>
+  * TypeScript;</br>
+  * Bcrypto;</br>
+  * TMDB API;</br>
+</div>
