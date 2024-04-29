@@ -21,7 +21,7 @@
 
 ##
 <h3>Galeria:</h3>
-<img src="https://github.com/VitorMarceloSantos/project-netcine/blob/main/image1.png" title="Projeto - NetCine" alt="J" width="1000" height="1500"/><br/>
+<img src="https://github.com/VitorMarceloSantos/project-netcine/blob/main/image1.png" title="Projeto - NetCine" alt="J" /><br/>
 <img src="https://github.com/VitorMarceloSantos/project-netcine/blob/main/image2.png" title="Projeto - NetCine" alt="J" width="1000" height="1500"/><br/>
 <img src="https://github.com/VitorMarceloSantos/project-netcine/blob/main/image3.png" title="Projeto - NetCine" alt="J" width="1000" height="1500"/><br/>
 <img src="https://github.com/VitorMarceloSantos/project-netcine/blob/main/image4.png" title="Projeto - NetCine" alt="J" width="1000" height="1500"/><br/>
