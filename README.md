@@ -18,3 +18,7 @@
   * Bcrypto;</br>
   * TMDB API;</br>
 </div>
+
+##
+<h3>Galeria:</h3>
+<img src="https://raw.githubusercontent.com/VitorMarceloSantos/Projeto-26-Trybe-AppDelivery/main/ImagesApp/login.png" title="Projeto - 26" alt="J" width="1000" height="1500"/><br/>
